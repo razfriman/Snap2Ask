@@ -317,9 +317,75 @@ $app->post(
 );
 
 
+// GET A QUESTION'S ANSWER
+$app->get(
+    '/questions/:id/answer',
+    function ($id) use ($app,$db) {
 
+    $questionData = array();
 
+    try {
+        $sth = $db->prepare('SELECT * FROM answers WHERE question_id=:question_id');
+        $sth->bindParam(':question_id',$id);
+        $sth->execute();
+        $questionData = $sth->fetch(PDO::FETCH_ASSOC);
 
+    } catch(PDOException $e) {
+         // SQL ERROR
+    }
+    
+    $response = $app->response();
+    $response['Content-Type'] = 'application/json';
+    $response->status(200);
+    $response->write(json_encode($questionData));
+    }
+);
+
+// POST AN ANSWER TO A QUESTION
+$app->post(
+    '/questions/:id/answer',
+    function ($id) use ($app,$db) {
+
+        $request = $app->request()->getBody();
+        
+        $tutor_id = $request['tutor_id'];
+        $answer_text = $request['answer_text'];
+        
+        $success = false;
+        $reason = '';
+
+        try {
+            $sth = $db->prepare('INSERT INTO answers (question_id,tutor_id,`text`) 
+                                 VALUES (:question_id,:tutor_id,:answer_text)');
+            
+            $sth->bindParam(':question_id', $id);
+            $sth->bindParam(':tutor_id', $tutor_id);
+            $sth->bindParam(':answer_text', $answer_text);
+            $sth->execute();
+
+            $sth = $db->prepare("UPDATE questions SET status='Answered' WHERE id=:question_id");
+            $sth->bindParam('question_id', $id);
+            $sth->execute();
+            
+            // SEND NOTIFICATION TO CLIENT HERE???
+            // ....But How???
+            
+            $success = true;
+
+        } catch(PDOException $e) {
+            $success = false;
+            $reason = $e->getMessage();
+        }
+
+        $dataArray = array('success' => $success, 'reason' => $reason);
+        
+        $response = $app->response();
+        $response['Content-Type'] = 'application/json';
+        $response->status(200);
+        $response->write(json_encode($dataArray));
+
+    }
+);
 
 
 
