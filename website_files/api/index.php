@@ -124,6 +124,30 @@ $app->get(
 	}
 );
 
+// GET USER QUESTIONS
+$app->get(
+    '/users/:id/questions',
+    function ($id) use ($app,$db) {
+
+    $questionData = array();
+
+    try {
+        $sth = $db->prepare('SELECT * FROM questions WHERE student_id=:user_id');
+        $sth->bindParam(':user_id',$id);
+        $sth->execute();
+        $questionData = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+    } catch(PDOException $e) {
+         // SQL ERROR
+    }
+    
+    $response = $app->response();
+    $response['Content-Type'] = 'application/json';
+    $response->status(200);
+    $response->write(json_encode($questionData));
+    }
+);
+
 // CREATE A USER ACCOUNT
 $app->post(
     '/users',
