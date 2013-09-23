@@ -30,12 +30,19 @@ CREATE TABLE `answers` (
   `tutor_id` int(11) NOT NULL,
   `text` varchar(512) NOT NULL,
   `rating` smallint(6) DEFAULT NULL,
+<<<<<<< HEAD:snap2ask.sql
   `status` varchar(45) NOT NULL DEFAULT 'pending',
   `date_created` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_answers_1_idx` (`question_id`),
   CONSTRAINT `fk_answers_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+=======
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`),
+  FOREIGN KEY (`tutor_id`) REFERENCES `users` (`id`)	
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+>>>>>>> 1f9e171051f6c920a6e2beff9c4ad4461ed1858f:Code/TestCode/snap2ask.sql
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
