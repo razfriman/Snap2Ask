@@ -1,0 +1,393 @@
+TSnap2Ask
+v6
+r1
+cCheck dependencies
+cProcessPCH /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-bbouhjriyuacruclyiyixwborquf/Snap2Ask-Prefix.pch.pch Snap2Ask/Snap2Ask-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/AppDelegate.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/main.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/RegisterViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/RegisterViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/MainViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Ask normal i386
+cGenerateDSYMFile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app.dSYM /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Ask
+cCopyStringsFile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/en.lproj/InfoPlist.strings Snap2Ask/en.lproj/InfoPlist.strings
+cCompileStoryboard /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Base.lproj/Main.storyboard
+cCompileAssetCatalog /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Images.xcassets
+cProcessInfoPlistFile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Info.plist /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist
+cTouch /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk
+c00000000521BCCE50000000000000176
+t1377553637
+s374
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/SDKSettings.plist
+c000000005239F07900000000000003B5
+t1379528825
+s949
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/CoreServices/SystemVersion.plist
+c000000005239F089000000000000019E
+t1379528841
+s414
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000005239F08F0000000000445830
+t1379528847
+s4479024
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000005239F094000000000088B570
+t1379528852
+s8959344
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000005239F09F0000000001DB1C90
+t1379528863
+s31136912
+
+N/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/include/module.map
+c000000005239F0DF0000000000000AC9
+t1379528927
+s2761
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-bbouhjriyuacruclyiyixwborquf/Snap2Ask-Prefix.pch.pch
+t1379537335
+s107924
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/AppDelegate.o
+t1379537335
+s65248
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/MainViewController.o
+t1379537335
+s42144
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/RegisterViewController.o
+t1379537335
+s43088
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/Snap2Ask.LinkFileList
+c00000000523A11B50000000000000267
+t1379537333
+s615
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/main.o
+t1379537335
+s3672
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/assetcatalog_dependencies.txt
+t1379537337
+s396
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/assetcatalog_generated_info.plist
+t1379537337
+s525
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app
+t1379537337
+s306
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app.dSYM
+t2
+s0
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Base.lproj/Main.storyboardc
+t1379537336
+s238
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Info.plist
+t1379537337
+s1005
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/PkgInfo
+t1379537337
+s8
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Ask
+t1379537336
+s22476
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/en.lproj/InfoPlist.strings
+t1379537336
+s42
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AppDelegate.m
+c000000005239DE9F00000000000007D6
+t1379524255
+s2006
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Base.lproj/Main.storyboard
+c00000000523A11B50000000000003D86
+t1379537333
+s15750
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Images.xcassets
+c000000005239DE9F0000000000000088
+t1379524255
+s136
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.m
+c00000000523A118000000000000002CB
+t1379537280
+s715
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/RegisterViewController.m
+c00000000523A119A000000000000031A
+t1379537306
+s794
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist
+c000000005239DE9F00000000000004C0
+t1379524255
+s1216
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2Ask-Prefix.pch
+c000000005239DE9F0000000000000158
+t1379524255
+s344
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/en.lproj/InfoPlist.strings
+c000000005239DE9F000000000000002D
+t1379524255
+s45
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/main.m
+c000000005239DE9F0000000000000150
+t1379524255
+s336
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AppDelegate.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/MainViewController.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/RegisterViewController.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/ViewController.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/main.m
+r0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies0d51a13549eab741^8a8ebc3549eab741^---0#1#1#--18"Check dependencies36"29FA0AF3-5594-4152-B5DA-CB179EFA3655-
+
+CCompileAssetCatalog /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Images.xcassets
+s401230136.152902
+e401230137.727236
+r1
+xCompileAssetCatalog
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Images.xcassets
+o/* com.apple.actool.compilation-results */
+o/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/LaunchImage-700-568h@2x.png
+o/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Assets.car
+o/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/assetcatalog_generated_info.plist
+o
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"CompileAssetCatalog Build/Products/Debug-iphonesimulator/Snap2Ask.app Snap2Ask/Images.xcassets94"CompileAssetCatalog Build/Products/Debug-iphonesimulator/Snap2Ask.app Snap2Ask/Images.xcassets923c273849eab741^9032ba3949eab741^-424"/* com.apple.actool.compilation-results *//Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/LaunchImage-700-568h@2x.png/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Assets.car/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/assetcatalog_generated_info.plist-0#0#1#-19%DVTDocumentLocation2@88"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Images.xcassets/0000000000000000^1182"CompileAssetCatalog Build/Products/Debug-iphonesimulator/Snap2Ask.app Snap2Ask/Images.xcassets    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/actool --output-format human-readable-text --notices --warnings --export-dependency-info /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/assetcatalog_dependencies.txt --output-partial-info-plist /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/assetcatalog_generated_info.plist --app-icon AppIcon --launch-image LaunchImage --platform iphonesimulator --minimum-deployment-target 7.0 --target-device iphone --compress-pngs --compile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Images.xcassets36"2363924C-9E78-475D-B147-30762625635A-
+b4B9BFE68-56D2-4324-ABC7-1D284E1101B9
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/AppDelegate.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401230135.638769
+e401230135.813835
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/AppDelegate.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AppDelegate.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AppDelegate.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection75"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AppDelegate.m205"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/AppDelegate.o Snap2Ask/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler5da9a33749eab741^8e57d03749eab741^---0#0#1#-19%DVTDocumentLocation2@85"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AppDelegate.m0000000000000000^3767"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/AppDelegate.o Snap2Ask/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/DerivedSources/i386 -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-bbouhjriyuacruclyiyixwborquf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/AppDelegate.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/AppDelegate.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AppDelegate.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/AppDelegate.o36"770D84EE-34AC-43A3-A963-9CEFA3940B0B-
+b4B9BFE68-56D2-4324-ABC7-1D284E1101B9
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/MainViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401230135.815274
+e401230135.905697
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/MainViewController.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection82"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.m219"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/MainViewController.o Snap2Ask/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler27dbd03749eab741^5f62e83749eab741^---0#0#1#-19%DVTDocumentLocation2@92"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/MainViewController.m0000000000000000^3809"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/MainViewController.o Snap2Ask/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/DerivedSources/i386 -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-bbouhjriyuacruclyiyixwborquf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/MainViewController.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/MainViewController.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/MainViewController.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/MainViewController.o36"C10537E0-1671-44A1-AC5D-75F292317090-
+b4B9BFE68-56D2-4324-ABC7-1D284E1101B9
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/RegisterViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/RegisterViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401230135.805499
+e401230135.906413
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/RegisterViewController.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/RegisterViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/RegisterViewController.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/RegisterViewController.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection86"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/RegisterViewController.m227"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/RegisterViewController.o Snap2Ask/RegisterViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler0057ce3749eab741^8c67e83749eab741^---0#0#1#-19%DVTDocumentLocation2@96"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/RegisterViewController.m0000000000000000^3833"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/RegisterViewController.o Snap2Ask/RegisterViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/DerivedSources/i386 -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-bbouhjriyuacruclyiyixwborquf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/RegisterViewController.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/RegisterViewController.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/RegisterViewController.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/RegisterViewController.o36"C7BBDC8B-0D9E-4FCA-99E3-9D218C2BF0CD-
+b4B9BFE68-56D2-4324-ABC7-1D284E1101B9
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/ViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/ViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/main.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401230135.639455
+e401230135.804052
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/main.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/main.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AppDelegate.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/main.m191"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/main.o Snap2Ask/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compilerf6cfa33749eab741^bbd3cd3749eab741^---0#0#1#-19%DVTDocumentLocation2@78"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/main.m0000000000000000^3725"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/main.o Snap2Ask/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/DerivedSources/i386 -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-bbouhjriyuacruclyiyixwborquf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/main.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/main.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/main.o36"0B28859F-1FE1-4164-BA62-25A66DE730ED-
+b4B9BFE68-56D2-4324-ABC7-1D284E1101B9
+
+CCompileStoryboard /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Base.lproj/Main.storyboard
+s401230136.148572
+e401230136.978638
+r1
+xCompileStoryboard
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Base.lproj/Main.storyboard
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"CompileStoryboard Snap2Ask/Base.lproj/Main.storyboard53"CompileStoryboard Snap2Ask/Base.lproj/Main.storyboard3e22263849eab741^b396fa3849eab741^---0#0#1#-19%DVTDocumentLocation2@98"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Base.lproj/Main.storyboard0000000000000000^864"CompileStoryboard Snap2Ask/Base.lproj/Main.storyboard    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 7.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --minimum-deployment-target 7.0 --output-format human-readable-text --compile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Base.lproj/Main.storyboardc /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Base.lproj/Main.storyboard36"CA8886C3-94D8-40F1-B7BC-764FF3330EF4-
+b4B9BFE68-56D2-4324-ABC7-1D284E1101B9
+
+CCopyStringsFile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/en.lproj/InfoPlist.strings Snap2Ask/en.lproj/InfoPlist.strings
+s401230136.147878
+e401230136.151652
+r1
+xCopyStringsFile
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/en.lproj/InfoPlist.strings
+xSnap2Ask/en.lproj/InfoPlist.strings
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection40"Copy Snap2Ask/en.lproj/InfoPlist.strings128"CopyStringsFile Build/Products/Debug-iphonesimulator/Snap2Ask.app/en.lproj/InfoPlist.strings Snap2Ask/en.lproj/InfoPlist.strings8bfd253849eab741^34da263849eab741^---0#0#1#-19%DVTDocumentLocation2@98"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/en.lproj/InfoPlist.strings0000000000000000^612"CopyStringsFile Build/Products/Debug-iphonesimulator/Snap2Ask.app/en.lproj/InfoPlist.strings Snap2Ask/en.lproj/InfoPlist.strings    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/en.lproj -- Snap2Ask/en.lproj/InfoPlist.strings36"FF68EEEA-E9BF-4A81-8630-6914ECA42464-
+b4B9BFE68-56D2-4324-ABC7-1D284E1101B9
+
+CGenerateDSYMFile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app.dSYM /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Ask
+s401230136.095581
+e401230136.140077
+r1
+xGenerateDSYMFile
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app.dSYM
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Ask
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection108"Generate /Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app.dSYM130"GenerateDSYMFile Build/Products/Debug-iphonesimulator/Snap2Ask.app.dSYM Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Askb08d183849eab741^23dd233849eab741^---0#0#1#-19%DVTDocumentLocation2@117"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app.dSYM0038c422dfffdf42^689"GenerateDSYMFile Build/Products/Debug-iphonesimulator/Snap2Ask.app.dSYM Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Ask    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Ask -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app.dSYM36"72EA1B37-0DB8-4183-8BCF-5F4D8681BA41-
+b4B9BFE68-56D2-4324-ABC7-1D284E1101B9
+
+CLd /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Ask normal i386
+s401230135.916432
+e401230136.086480
+r1
+xLd
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Ask
+xnormal
+xi386
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/Snap2Ask.LinkFileList
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/crt1.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/AppDelegate.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/main.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/RegisterViewController.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/MainViewController.o
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/libobjc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/libSystem.dylib
+d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.ios.a
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/CoreVideo.framework/CoreVideo
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/CoreImage.framework/CoreImage
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/Security.framework/Security
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/CFNetwork.framework/CFNetwork
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/OpenGLES.framework/OpenGLES
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/CoreText.framework/CoreText
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_override.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libcache_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libcommonCrypto_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libcompiler_rt_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libcopyfile_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libdispatch.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libdyld_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libmacho_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libnotify_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libremovefile_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_blocks.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_c.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_dnssd.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_info.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_m.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_network.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libunwind_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libxpc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_configuration.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_asl.dylib
+d/usr/lib/libSystem.B.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/host/libdyld.dylib
+d/usr/lib/system/libcache.dylib
+d/usr/lib/system/libcommonCrypto.dylib
+d/usr/lib/system/libcompiler_rt.dylib
+d/usr/lib/system/libcopyfile.dylib
+d/usr/lib/system/libdnsinfo.dylib
+d/usr/lib/system/libkeymgr.dylib
+d/usr/lib/system/liblaunch.dylib
+d/usr/lib/system/libmacho.dylib
+d/usr/lib/system/libquarantine.dylib
+d/usr/lib/system/libremovefile.dylib
+d/usr/lib/system/libsystem_blocks.dylib
+d/usr/lib/system/libsystem_c.dylib
+d/usr/lib/system/libsystem_dnssd.dylib
+d/usr/lib/system/libsystem_info.dylib
+d/usr/lib/system/libsystem_kernel.dylib
+d/usr/lib/system/libsystem_m.dylib
+d/usr/lib/system/libsystem_notify.dylib
+d/usr/lib/system/libsystem_sandbox.dylib
+d/usr/lib/system/libunc.dylib
+d/usr/lib/system/libunwind.dylib
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection108"Link /Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Ask73"Ld Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Ask normal i386ddb3ea3749eab741^b725163849eab741^---0#0#1#--1442"Ld Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Ask normal i386    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv IPHONEOS_DEPLOYMENT_TARGET 7.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -L/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator -filelist /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/Snap2Ask.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -fobjc-arc -fobjc-link-runtime -Xlinker -no_implicit_dylibs -mios-simulator-version-min=7.0 -framework CoreGraphics -framework UIKit -framework Foundation -Xlinker -dependency_info -Xlinker /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Objects-normal/i386/Snap2Ask_dependency_info.dat -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Snap2Ask36"146B24AA-CE38-4E51-A2F8-8FBFB7BBB03D-
+b4B9BFE68-56D2-4324-ABC7-1D284E1101B9
+
+CProcessInfoPlistFile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Info.plist /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist
+s401230137.736796
+e401230137.742682
+r1
+xProcessInfoPlistFile
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Info.plist
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Process /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist110"ProcessInfoPlistFile Build/Products/Debug-iphonesimulator/Snap2Ask.app/Info.plist Snap2Ask/Snap2Ask-Info.plistaddfbc3949eab741^9b20be3949eab741^---0#0#1#-19%DVTDocumentLocation2@91"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist0000000000000000^927"ProcessInfoPlistFile Build/Products/Debug-iphonesimulator/Snap2Ask.app/Info.plist Snap2Ask/Snap2Ask-Info.plist    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist -genpkginfo /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/assetcatalog_generated_info.plist -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app/Info.plist36"32E7EC34-3AA7-4808-BA35-606C1FE827EE-
+b4B9BFE68-56D2-4324-ABC7-1D284E1101B9
+
+CProcessPCH /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-bbouhjriyuacruclyiyixwborquf/Snap2Ask-Prefix.pch.pch Snap2Ask/Snap2Ask-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401230133.704389
+e401230135.629886
+r1
+xProcessPCH
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-bbouhjriyuacruclyiyixwborquf/Snap2Ask-Prefix.pch.pch
+xSnap2Ask/Snap2Ask-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2Ask-Prefix.pch
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Precompile Snap2Ask/Snap2Ask-Prefix.pch215"ProcessPCH Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-bbouhjriyuacruclyiyixwborquf/Snap2Ask-Prefix.pch.pch Snap2Ask/Snap2Ask-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler7f88b53549eab741^c43ea13749eab741^---0#0#1#-19%DVTDocumentLocation2@91"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Snap2Ask-Prefix.pch0000000000000000^3633"ProcessPCH Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-bbouhjriyuacruclyiyixwborquf/Snap2Ask-Prefix.pch.pch Snap2Ask/Snap2Ask-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/DerivedSources/i386 -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphonesimulator/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-bbouhjriyuacruclyiyixwborquf/Snap2Ask-Prefix.pch.dia -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-bbouhjriyuacruclyiyixwborquf/Snap2Ask-Prefix.pch.d -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Snap2Ask-Prefix.pch -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-bbouhjriyuacruclyiyixwborquf/Snap2Ask-Prefix.pch.pch36"510745F7-5673-44F6-9476-247271D49F9E-
+b4B9BFE68-56D2-4324-ABC7-1D284E1101B9
+
+CProcessPCH /Users/Raz/Library/Developer/Xcode/DerivedData/Snap2Ask-ahrebccmuqpscyepltyrmnfibvwe/Index/PrecompiledHeaders/Snap2Ask-Prefix-cnknsltamhokhbekmabtmfvzrrme_ast/Snap2Ask-Prefix.pch.pch Snap2Ask/Snap2Ask-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CTouch /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphonesimulator/Snap2Ask.app
+r0
+

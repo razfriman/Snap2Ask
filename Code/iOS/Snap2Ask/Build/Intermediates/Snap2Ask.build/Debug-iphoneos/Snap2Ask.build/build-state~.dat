@@ -1,0 +1,1160 @@
+TSnap2Ask
+v6
+r1
+cCheck dependencies
+cCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist Build/Products/Debug-iphoneos/Snap2Ask.app/ResourceRules.plist
+cProcessPCH /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch.pch Snap2Ask/Snap2Ask-Prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFURLConnectionOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/UIImageView+AFNetworking.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/UIImageView+AFNetworking.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AppDelegate.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AppDelegate.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionDetailsViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionDetailsViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionModel.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionModel.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/main.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/main.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFPropertyListRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFPropertyListRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/RegisterViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/RegisterViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2AskClient.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFXMLRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFXMLRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFNetworkActivityIndicatorManager.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/MainViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/MainViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFImageRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFImageRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPClient.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFJSONRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFJSONRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCollectionViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionCollectionViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Utilities.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Utilities.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCell.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/QuestionCell.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask normal armv7s
+cGenerateDSYMFile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app.dSYM /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask
+cCopyStringsFile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/en.lproj/InfoPlist.strings Snap2Ask/en.lproj/InfoPlist.strings
+cCompileStoryboard /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Base.lproj/Main.storyboard
+cCompileAssetCatalog /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Images.xcassets
+cProcessInfoPlistFile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Info.plist /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist
+cProcessProductPackaging /Users/Raz/Library/MobileDevice/Provisioning\ Profiles/41DBF573-FC7A-4B3C-9216-AF6B829B78BE.mobileprovision /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/embedded.mobileprovision
+cTouch /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app
+cProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask.xcent
+cCodeSign /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk
+c00000000521BCCE10000000000000110
+t1377553633
+s272
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist
+c000000005239F03F0000000000000094
+t1379528767
+s148
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist
+c000000005239F03F0000000000000096
+t1379528767
+s150
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/SDKSettings.plist
+c000000005239F03F000000000000036B
+t1379528767
+s875
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/CoreServices/SystemVersion.plist
+c000000005239F040000000000000019E
+t1379528768
+s414
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000005239F04400000000004D6390
+t1379528772
+s5071760
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000005239F0470000000000A8EAD0
+t1379528775
+s11070160
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MobileCoreServices.framework/MobileCoreServices
+c000000005239F0490000000000211130
+t1379528777
+s2167088
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000005239F0530000000002597C70
+t1379528787
+s39418992
+
+N/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/include/module.map
+c000000005239F0DF0000000000000AC9
+t1379528927
+s2761
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch.pch
+t1380164546
+s80068
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPClient.o
+t1380164551
+s216436
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPRequestOperation.o
+t1380164550
+s61152
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFImageRequestOperation.o
+t1380164551
+s55980
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFJSONRequestOperation.o
+t1380164552
+s43700
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFNetworkActivityIndicatorManager.o
+t1380164550
+s33792
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFPropertyListRequestOperation.o
+t1380164548
+s38640
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFURLConnectionOperation.o
+t1380164547
+s181240
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFXMLRequestOperation.o
+t1380164549
+s32760
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AppDelegate.o
+t1380164548
+s66132
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/MainViewController.o
+t1380164550
+s69012
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCell.o
+t1380164552
+s46840
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCollectionViewController.o
+t1380164552
+s51864
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionDetailsViewController.o
+t1380164548
+s45200
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionModel.o
+t1380164548
+s3544
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionViewController.o
+t1380164550
+s57948
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/RegisterViewController.o
+t1380164548
+s58964
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2Ask.LinkFileList
+c000000005243A3C00000000000000C19
+t1380164544
+s3097
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2AskClient.o
+t1380164548
+s19808
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/UIImageView+AFNetworking.o
+t1380164547
+s65436
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Utilities.o
+t1380164552
+s5428
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/main.o
+t1380164548
+s3772
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask.xcent
+t1380164559
+s497
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/assetcatalog_dependencies.txt
+t1380164559
+s375
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/assetcatalog_generated_info.plist
+t1380164559
+s525
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app
+t1380164559
+s374
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app.dSYM
+t2
+s0
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Base.lproj/Main.storyboardc
+t1380164556
+s442
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Info.plist
+t1380164559
+s1441
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/PkgInfo
+t1380164559
+s8
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/ResourceRules.plist
+t1380164544
+s150
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask
+t1380164553
+s1162808
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/embedded.mobileprovision
+t1380164559
+s7733
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/en.lproj/InfoPlist.strings
+t1380164554
+s42
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/FacebookSDK
+c0000000052164DCC0000000000BE9EA4
+t1377193420
+s12492452
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/QuestionCell.m
+c00000000524398B700000000000001F2
+t1380161719
+s498
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m
+c0000000051E3D6FE000000000000D0EF
+t1373886206
+s53487
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.m
+c0000000051E3D6FE0000000000003390
+t1373886206
+s13200
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFImageRequestOperation.m
+c0000000051E3D6FE0000000000003270
+t1373886206
+s12912
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFJSONRequestOperation.m
+c0000000051F4812E0000000000001A47
+t1374978350
+s6727
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.m
+c0000000051E3D6FE0000000000001654
+t1373886206
+s5716
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFPropertyListRequestOperation.m
+c0000000051E3D6FE000000000000164A
+t1373886206
+s5706
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.m
+c0000000051F64C4300000000000084B6
+t1375095875
+s33974
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFXMLRequestOperation.m
+c0000000051E3D6FE0000000000001944
+t1373886206
+s6468
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/UIImageView+AFNetworking.m
+c0000000051E3D6FE000000000000194B
+t1373886206
+s6475
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AppDelegate.m
+c00000000523A23CC000000000000094B
+t1379541964
+s2379
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Base.lproj/Main.storyboard
+c000000005243A3470000000000007CBC
+t1380164423
+s31932
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Images.xcassets
+c000000005243A03D0000000000000154
+t1380163645
+s340
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.m
+c00000000524111B40000000000000DFE
+t1379996084
+s3582
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionCollectionViewController.m
+c000000005243A2B90000000000000AF2
+t1380164281
+s2802
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionDetailsViewController.m
+c0000000052439A550000000000000246
+t1380162133
+s582
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionModel.m
+c000000005242560500000000000000C8
+t1380079109
+s200
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionViewController.m
+c0000000052425CDB0000000000000745
+t1380080859
+s1861
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/RegisterViewController.m
+c00000000524111B400000000000007D2
+t1379996084
+s2002
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist
+c00000000523A18A200000000000005D9
+t1379539106
+s1497
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2Ask-Prefix.pch
+c000000005239DE9F0000000000000158
+t1379524255
+s344
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m
+c00000000524255980000000000000FE8
+t1380079000
+s4072
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Utilities.m
+c000000005240BA7100000000000001B0
+t1379973745
+s432
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/en.lproj/InfoPlist.strings
+c000000005239DE9F000000000000002D
+t1379524255
+s45
+
+N/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/main.m
+c000000005239DE9F0000000000000150
+t1379524255
+s336
+
+N/Users/Raz/Library/MobileDevice/Provisioning Profiles/41DBF573-FC7A-4B3C-9216-AF6B829B78BE.mobileprovision
+c0000000051BA87EE0000000000001E35
+t1371178990
+s7733
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/QuestionCell.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFImageRequestOperation.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFJSONRequestOperation.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFPropertyListRequestOperation.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFXMLRequestOperation.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/UIImageView+AFNetworking.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AppDelegate.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/MainViewController.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionCollectionViewController.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionDetailsViewController.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionModel.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionViewController.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/RegisterViewController.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Utilities.m
+r0
+
+CBuild AST from /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/main.m
+r0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciesb5dcdd3fdbf3b741^b51b0940dbf3b741^---0#1#1#--18"Check dependencies36"7D6CC969-3E6E-4591-9DC5-759E7852CE2A-
+
+CCodeSign /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app
+s401857359.321708
+e401857360.034207
+r1
+xCodeSign
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection51"CodeSign Build/Products/Debug-iphoneos/Snap2Ask.app51"CodeSign Build/Products/Debug-iphoneos/Snap2Ask.app4704534fdbf3b741^40c20850dbf3b741^---0#0#1#-19%DVTDocumentLocation2@106"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/0000000000000000^1027"CodeSign Build/Products/Debug-iphoneos/Snap2Ask.app    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv CODESIGN_ALLOCATE /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    Using code signing identity "iPhone Developer: Super Raz (Y7Y782G5QV)" and provisioning profile "iOS Team Provisioning Profile: *" (41DBF573-FC7A-4B3C-9216-AF6B829B78BE)    codesign --force --sign 90EC01A6F51619779A5B2BC1E71685DEB51A949A --resource-rules=/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/ResourceRules.plist --entitlements /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask.xcent /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app36"34C2CFB1-6001-4455-902C-FC6918C1C9C0-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileAssetCatalog /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Images.xcassets
+s401857354.011891
+e401857359.266950
+r1
+xCompileAssetCatalog
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Images.xcassets
+o/* com.apple.actool.compilation-results */
+o/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/LaunchImage-700-568h@2x.png
+o/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Assets.car
+o/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/assetcatalog_generated_info.plist
+o
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection87"CompileAssetCatalog Build/Products/Debug-iphoneos/Snap2Ask.app Snap2Ask/Images.xcassets87"CompileAssetCatalog Build/Products/Debug-iphoneos/Snap2Ask.app Snap2Ask/Images.xcassets5b22034adbf3b741^2a57444fdbf3b741^-403"/* com.apple.actool.compilation-results *//Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/LaunchImage-700-568h@2x.png/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Assets.car/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/assetcatalog_generated_info.plist-0#0#1#-19%DVTDocumentLocation2@88"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Images.xcassets/0000000000000000^1095"CompileAssetCatalog Build/Products/Debug-iphoneos/Snap2Ask.app Snap2Ask/Images.xcassets    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/usr/bin/actool --output-format human-readable-text --notices --warnings --export-dependency-info /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/assetcatalog_dependencies.txt --output-partial-info-plist /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/assetcatalog_generated_info.plist --app-icon AppIcon --launch-image LaunchImage --platform iphoneos --minimum-deployment-target 7.0 --target-device iphone --compress-pngs --compile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Images.xcassets36"C843CDBE-D737-4769-8A5A-A64292FB4170-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/AFHTTPClient.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/AFHTTPRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/AFImageRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFImageRequestOperation.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/AFJSONRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFJSONRequestOperation.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/AFNetworkActivityIndicatorManager.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/AFPropertyListRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFPropertyListRequestOperation.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/AFURLConnectionOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/AFXMLRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFXMLRequestOperation.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/AppDelegate.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/MainViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/MainViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/QuestionCell.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/QuestionCell.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/QuestionCollectionViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionCollectionViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/QuestionDetailsViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionDetailsViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/QuestionModel.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionModel.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/QuestionViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/RegisterViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/RegisterViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/Snap2AskClient.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/UIImageView+AFNetworking.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/UIImageView+AFNetworking.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/Utilities.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Utilities.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/main.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPClient.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857351.200579
+e401857351.965278
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPClient.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.h
+oIn file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m:25:
+o/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h:84:9: warning: SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available. [-W#pragma-messages]
+o#pragma message("SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available.")
+o        ^
+o/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h:89:9: warning: MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available. [-W#pragma-messages]
+o#pragma message("MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available.")
+o        ^
+o2 warnings generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection89"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m217"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPClient.o Snap2Ask/AFNetworking/AFHTTPClient.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler1c7a3347dbf3b741^e31af747dbf3b741^-1094"In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m:25:/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h:84:9: warning: SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available. [-W#pragma-messages]#pragma message("SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available.")        ^/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h:89:9: warning: MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available. [-W#pragma-messages]#pragma message("MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available.")        ^2 warnings generated.2(36%IDEClangDiagnosticActivityLogMessage2@148"SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available.-401857351#18446744073709551615#0#1(2@107"In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m:25:-401857351#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@99"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m0000000000000000^24#8#24#8#1192#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@99"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h0000000000000000^83#8#83#8#4897#0#25"#pragma message Directive--2@185"MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available.-401857351#18446744073709551615#0#1(2@107"In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m:25:-401857351#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@99"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m0000000000000000^24#8#24#8#1192#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@99"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h0000000000000000^88#8#88#8#5129#0#25"#pragma message Directive--0#0#1#-19%DVTDocumentLocation4@99"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m0000000000000000^3681"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPClient.o Snap2Ask/AFNetworking/AFHTTPClient.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPClient.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPClient.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPClient.o36"E334A0C3-56AF-4133-8F44-1439C7F297DF-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857350.333187
+e401857350.571169
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPRequestOperation.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection99"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.m237"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPRequestOperation.o Snap2Ask/AFNetworking/AFHTTPRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compilerdb6f5546dbf3b741^965f9246dbf3b741^---0#0#1#-19%DVTDocumentLocation2@109"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.m0000000000000000^3741"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPRequestOperation.o Snap2Ask/AFNetworking/AFHTTPRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPRequestOperation.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPRequestOperation.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPRequestOperation.o36"6D559E59-B490-4FAD-B872-D5099D31E32E-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFImageRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFImageRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857350.960720
+e401857351.197934
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFImageRequestOperation.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFImageRequestOperation.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFImageRequestOperation.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFImageRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection100"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFImageRequestOperation.m239"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFImageRequestOperation.o Snap2Ask/AFNetworking/AFImageRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler162ff646dbf3b741^b4c83247dbf3b741^---0#0#1#-19%DVTDocumentLocation2@110"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFImageRequestOperation.m0000000000000000^3747"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFImageRequestOperation.o Snap2Ask/AFNetworking/AFImageRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFImageRequestOperation.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFImageRequestOperation.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFImageRequestOperation.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFImageRequestOperation.o36"AE58A9E4-0900-4EB8-B1D1-C0502EE658D1-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFJSONRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFJSONRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857351.966829
+e401857352.086672
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFJSONRequestOperation.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFJSONRequestOperation.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFJSONRequestOperation.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFJSONRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection99"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFJSONRequestOperation.m237"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFJSONRequestOperation.o Snap2Ask/AFNetworking/AFJSONRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler61a4f747dbf3b741^62481648dbf3b741^---0#0#1#-19%DVTDocumentLocation2@109"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFJSONRequestOperation.m0000000000000000^3741"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFJSONRequestOperation.o Snap2Ask/AFNetworking/AFJSONRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFJSONRequestOperation.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFJSONRequestOperation.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFJSONRequestOperation.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFJSONRequestOperation.o36"1129DEF6-E7F5-4782-9268-706702FC2378-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFNetworkActivityIndicatorManager.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857350.129055
+e401857350.329213
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFNetworkActivityIndicatorManager.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection110"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.m259"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFNetworkActivityIndicatorManager.o Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler2f322146dbf3b741^6c5f5446dbf3b741^---0#0#1#-19%DVTDocumentLocation2@120"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.m0000000000000000^3807"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFNetworkActivityIndicatorManager.o Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFNetworkActivityIndicatorManager.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFNetworkActivityIndicatorManager.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFNetworkActivityIndicatorManager.o36"C6CB1DAE-AFA9-4C30-81E8-65AD1A2727CA-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFPropertyListRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFPropertyListRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857348.364025
+e401857348.491266
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFPropertyListRequestOperation.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFPropertyListRequestOperation.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFPropertyListRequestOperation.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFPropertyListRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection107"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFPropertyListRequestOperation.m253"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFPropertyListRequestOperation.o Snap2Ask/AFNetworking/AFPropertyListRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler4c525d44dbf3b741^59c37d44dbf3b741^---0#0#1#-19%DVTDocumentLocation2@117"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFPropertyListRequestOperation.m0000000000000000^3789"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFPropertyListRequestOperation.o Snap2Ask/AFNetworking/AFPropertyListRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFPropertyListRequestOperation.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFPropertyListRequestOperation.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFPropertyListRequestOperation.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFPropertyListRequestOperation.o36"F11CE7D5-DB42-4798-B059-878A3A872D0E-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFURLConnectionOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857346.905448
+e401857347.667157
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFURLConnectionOperation.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection101"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.m241"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFURLConnectionOperation.o Snap2Ask/AFNetworking/AFURLConnectionOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler28efe742dbf3b741^4608ab43dbf3b741^---0#0#1#-19%DVTDocumentLocation2@111"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.m0000000000000000^3753"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFURLConnectionOperation.o Snap2Ask/AFNetworking/AFURLConnectionOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFURLConnectionOperation.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFURLConnectionOperation.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFURLConnectionOperation.o36"63087B30-AB01-4E68-BAF7-2F7E96BC9E40-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFXMLRequestOperation.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFXMLRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857348.961599
+e401857349.157054
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFXMLRequestOperation.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFXMLRequestOperation.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFXMLRequestOperation.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFXMLRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection98"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFXMLRequestOperation.m235"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFXMLRequestOperation.o Snap2Ask/AFNetworking/AFXMLRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler164ef644dbf3b741^da3a2845dbf3b741^---0#0#1#-19%DVTDocumentLocation2@108"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFXMLRequestOperation.m0000000000000000^3735"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFXMLRequestOperation.o Snap2Ask/AFNetworking/AFXMLRequestOperation.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFXMLRequestOperation.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFXMLRequestOperation.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/AFXMLRequestOperation.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFXMLRequestOperation.o36"0ED09084-A61F-4F34-9C66-73D362BB884F-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AppDelegate.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AppDelegate.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857347.668809
+e401857348.030361
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AppDelegate.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AppDelegate.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AppDelegate.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AppDelegate.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FacebookSDK.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBSession.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBRequest.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBRequestConnection.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBGraphObject.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBOpenGraphObject.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBOpenGraphAction.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBError.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/NSError+FBError.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBSettings.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBAppEvents.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBAppCall.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBDialogsData.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBAccessTokenData.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBAppLinkData.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBErrorUtility.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBSessionTokenCachingStrategy.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBGraphUser.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBGraphPlace.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBGraphLocation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBLoginView.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBProfilePictureView.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBUserSettingsViewController.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBViewController.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBPlacePickerViewController.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBCacheDescriptor.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBFriendPickerViewController.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBNativeDialogs.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBShareDialogParams.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBDialogsParams.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBOpenGraphActionShareDialogParams.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBDialogs.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBWebDialogs.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBFrictionlessRecipientCache.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBInsights.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection75"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AppDelegate.m202"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AppDelegate.o Snap2Ask/AppDelegate.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compilerb058ab43dbf3b741^8bff0744dbf3b741^---0#0#1#-19%DVTDocumentLocation2@85"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AppDelegate.m0000000000000000^3649"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AppDelegate.o Snap2Ask/AppDelegate.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AppDelegate.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AppDelegate.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AppDelegate.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AppDelegate.o36"6CC38339-FC0C-4953-A851-A29F6994107F-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/MainViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/MainViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857350.658843
+e401857350.957354
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/MainViewController.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FacebookSDK.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBSession.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBRequest.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBRequestConnection.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBGraphObject.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBOpenGraphObject.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBOpenGraphAction.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBError.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/NSError+FBError.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBSettings.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBAppEvents.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBAppCall.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBDialogsData.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBAccessTokenData.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBAppLinkData.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBErrorUtility.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBSessionTokenCachingStrategy.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBGraphUser.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBGraphPlace.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBGraphLocation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBLoginView.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBProfilePictureView.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBUserSettingsViewController.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBViewController.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBPlacePickerViewController.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBCacheDescriptor.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBFriendPickerViewController.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBNativeDialogs.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBShareDialogParams.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBDialogsParams.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBOpenGraphActionShareDialogParams.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBDialogs.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBWebDialogs.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBFrictionlessRecipientCache.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/Headers/FBInsights.h
+oIn file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.m:10:
+oIn file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h:10:
+o/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h:84:9: warning: SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available. [-W#pragma-messages]
+o#pragma message("SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available.")
+o        ^
+o/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h:89:9: warning: MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available. [-W#pragma-messages]
+o#pragma message("MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available.")
+o        ^
+o2 warnings generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection82"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.m216"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/MainViewController.o Snap2Ask/MainViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compilerbbd4a846dbf3b741^4260f546dbf3b741^-1184"In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.m:10:In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h:10:/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h:84:9: warning: SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available. [-W#pragma-messages]#pragma message("SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available.")        ^/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h:89:9: warning: MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available. [-W#pragma-messages]#pragma message("MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available.")        ^2 warnings generated.2(36%IDEClangDiagnosticActivityLogMessage2@148"SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available.-401857350#18446744073709551615#0#2(2@100"In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.m:10:-401857350#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@92"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/MainViewController.m0000000000000000^9#8#9#8#181#0#21"Apple LLVM 5.0 Notice--2@96"In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h:10:-401857350#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@88"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h0000000000000000^9#8#9#8#180#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@99"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h0000000000000000^83#8#83#8#4897#0#25"#pragma message Directive--2@185"MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available.-401857350#18446744073709551615#0#2(2@100"In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/MainViewController.m:10:-401857350#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@92"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/MainViewController.m0000000000000000^9#8#9#8#181#0#21"Apple LLVM 5.0 Notice--2@96"In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h:10:-401857350#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@88"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h0000000000000000^9#8#9#8#180#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@99"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h0000000000000000^88#8#88#8#5129#0#25"#pragma message Directive--0#0#1#-19%DVTDocumentLocation4@92"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/MainViewController.m0000000000000000^3691"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/MainViewController.o Snap2Ask/MainViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/MainViewController.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/MainViewController.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/MainViewController.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/MainViewController.o36"4AA0FE0D-FBDE-4A6E-85C0-D10D5EE5F846-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCell.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/QuestionCell.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857352.301328
+e401857352.448565
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCell.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/QuestionCell.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/QuestionCell.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/QuestionCell.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/QuestionCell.m195"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCell.o QuestionCell.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler35444d48dbf3b741^28d57248dbf3b741^---0#0#1#-19%DVTDocumentLocation2@77"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/QuestionCell.m0000000000000000^3637"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCell.o QuestionCell.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCell.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCell.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/QuestionCell.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCell.o36"CBBC629E-CD08-410A-8ADB-9BC4E4C91E16-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCollectionViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionCollectionViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857352.088301
+e401857352.216917
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCollectionViewController.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionCollectionViewController.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionCollectionViewController.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionCollectionViewController.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionDetailsViewController.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/QuestionCell.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionCollectionViewController.m244"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCollectionViewController.o Snap2Ask/QuestionCollectionViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler51bc1648dbf3b741^7b873748dbf3b741^---0#0#1#-19%DVTDocumentLocation2@106"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/QuestionCollectionViewController.m0000000000000000^3775"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCollectionViewController.o Snap2Ask/QuestionCollectionViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCollectionViewController.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCollectionViewController.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionCollectionViewController.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCollectionViewController.o36"8D1CDBBF-56DA-4200-91B1-28ABAA9D107E-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionDetailsViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionDetailsViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857348.033434
+e401857348.168414
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionDetailsViewController.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionDetailsViewController.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionDetailsViewController.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionDetailsViewController.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection93"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionDetailsViewController.m238"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionDetailsViewController.o Snap2Ask/QuestionDetailsViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compilereeb10844dbf3b741^4e252b44dbf3b741^---0#0#1#-19%DVTDocumentLocation2@103"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/QuestionDetailsViewController.m0000000000000000^3757"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionDetailsViewController.o Snap2Ask/QuestionDetailsViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionDetailsViewController.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionDetailsViewController.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionDetailsViewController.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionDetailsViewController.o36"2909C2B9-DAC5-4ECF-ABB9-B3DCAA010BCE-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionModel.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionModel.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857348.171393
+e401857348.242930
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionModel.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionModel.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionModel.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionModel.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionModel.m206"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionModel.o Snap2Ask/QuestionModel.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler68072c44dbf3b741^af413f44dbf3b741^---0#0#1#-19%DVTDocumentLocation2@87"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/QuestionModel.m0000000000000000^3661"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionModel.o Snap2Ask/QuestionModel.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionModel.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionModel.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionModel.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionModel.o36"50C21817-F0D3-4B7E-9265-F2C7BB5312B1-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857349.160624
+e401857350.124504
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionViewController.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionViewController.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionViewController.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionViewController.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection86"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/QuestionViewController.m224"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionViewController.o Snap2Ask/QuestionViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler365b2945dbf3b741^48502046dbf3b741^---0#0#1#-19%DVTDocumentLocation2@96"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/QuestionViewController.m0000000000000000^3715"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionViewController.o Snap2Ask/QuestionViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionViewController.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionViewController.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/QuestionViewController.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionViewController.o36"FA56F876-8217-4970-89E9-4C51AD880EAF-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/RegisterViewController.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/RegisterViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857348.494292
+e401857348.821614
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/RegisterViewController.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/RegisterViewController.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/RegisterViewController.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/RegisterViewController.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection86"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/RegisterViewController.m224"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/RegisterViewController.o Snap2Ask/RegisterViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compileraab77e44dbf3b741^a88dd244dbf3b741^---0#0#1#-19%DVTDocumentLocation2@96"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/RegisterViewController.m0000000000000000^3715"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/RegisterViewController.o Snap2Ask/RegisterViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/RegisterViewController.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/RegisterViewController.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/RegisterViewController.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/RegisterViewController.o36"0054905C-FDA6-4515-AF6D-0F15D5067C0A-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2AskClient.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857348.823168
+e401857348.959302
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2AskClient.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFJSONRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFNetworkActivityIndicatorManager.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Utilities.h
+oIn file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m:9:
+oIn file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h:10:
+o/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h:84:9: warning: SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available. [-W#pragma-messages]
+o#pragma message("SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available.")
+o        ^
+o/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h:89:9: warning: MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available. [-W#pragma-messages]
+o#pragma message("MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available.")
+o        ^
+o/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m:46:107: warning: unused variable 'data' [-Wunused-variable]
+o                                                                                            NSDictionary *data = (NSDictionary*) JSON;
+o                                                                                                          ^
+o3 warnings generated.
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection78"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m208"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2AskClient.o Snap2Ask/Snap2AskClient.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler38f4d244dbf3b741^7ec6f544dbf3b741^-1553"In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m:9:In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h:10:/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h:84:9: warning: SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available. [-W#pragma-messages]#pragma message("SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available.")        ^/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h:89:9: warning: MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available. [-W#pragma-messages]#pragma message("MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available.")        ^/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m:46:107: warning: unused variable 'data' [-Wunused-variable]                                                                                            NSDictionary *data = (NSDictionary*) JSON;                                                                                                          ^3 warnings generated.3(36%IDEClangDiagnosticActivityLogMessage2@148"SystemConfiguration framework not found in project, or not included in precompiled header. Network reachability functionality will not be available.-401857348#18446744073709551615#0#2(2@95"In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m:9:-401857348#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@88"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m0000000000000000^8#8#8#8#146#0#21"Apple LLVM 5.0 Notice--2@96"In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h:10:-401857348#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@88"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h0000000000000000^9#8#9#8#180#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@99"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h0000000000000000^83#8#83#8#4897#0#25"#pragma message Directive--2@185"MobileCoreServices framework not found in project, or not included in precompiled header. Automatic MIME type detection when uploading files in multipart requests will not be available.-401857348#18446744073709551615#0#2(2@95"In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m:9:-401857348#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@88"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m0000000000000000^8#8#8#8#146#0#21"Apple LLVM 5.0 Notice--2@96"In file included from /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h:10:-401857348#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@88"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Snap2AskClient.h0000000000000000^9#8#9#8#180#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@99"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPClient.h0000000000000000^88#8#88#8#5129#0#25"#pragma message Directive--2@22"Unused variable 'data'-401857348#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@88"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m0000000000000000^45#106#45#106#1958#0#19"Unused Entity Issue--0#0#1#-19%DVTDocumentLocation4@88"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m0000000000000000^3667"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2AskClient.o Snap2Ask/Snap2AskClient.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2AskClient.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2AskClient.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Snap2AskClient.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2AskClient.o36"1490D13B-8CB4-448A-92F3-77585F714314-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/UIImageView+AFNetworking.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/UIImageView+AFNetworking.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857346.906398
+e401857347.404359
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/UIImageView+AFNetworking.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/UIImageView+AFNetworking.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/UIImageView+AFNetworking.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/UIImageView+AFNetworking.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFImageRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFHTTPRequestOperation.h
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/AFURLConnectionOperation.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection101"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AFNetworking/UIImageView+AFNetworking.m241"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/UIImageView+AFNetworking.o Snap2Ask/AFNetworking/UIImageView+AFNetworking.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compilera627e842dbf3b741^6cd06743dbf3b741^---0#0#1#-19%DVTDocumentLocation2@111"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/AFNetworking/UIImageView+AFNetworking.m0000000000000000^3753"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/UIImageView+AFNetworking.o Snap2Ask/AFNetworking/UIImageView+AFNetworking.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/UIImageView+AFNetworking.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/UIImageView+AFNetworking.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/AFNetworking/UIImageView+AFNetworking.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/UIImageView+AFNetworking.o36"CEFF759D-525B-4D39-9D69-541BAB1EFEFE-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Utilities.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Utilities.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857352.219106
+e401857352.299454
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Utilities.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Utilities.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Utilities.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Utilities.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Utilities.m198"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Utilities.o Snap2Ask/Utilities.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compilerb5373848dbf3b741^12684c48dbf3b741^---0#0#1#-19%DVTDocumentLocation2@83"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Utilities.m0000000000000000^3637"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Utilities.o Snap2Ask/Utilities.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Utilities.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Utilities.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Utilities.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Utilities.o36"14CF26D6-9E7E-4646-BD16-5E4997E63A2C-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/main.o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/main.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857348.246374
+e401857348.362135
+r1
+xCompileC
+xBuild/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/main.o
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/main.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/main.m
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/AppDelegate.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Compile /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/main.m188"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/main.o Snap2Ask/main.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler2b353f44dbf3b741^fbcd5c44dbf3b741^---0#0#1#-19%DVTDocumentLocation2@78"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/main.m0000000000000000^3607"CompileC Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/main.o Snap2Ask/main.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -include /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/main.d --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/main.dia -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/main.m -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/main.o36"6541318A-B655-4AE4-88CF-2E18F9C18E06-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCompileStoryboard /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Base.lproj/Main.storyboard
+s401857354.001135
+e401857357.665000
+r1
+xCompileStoryboard
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Base.lproj/Main.storyboard
+o2013-09-25 22:02:34.481 Interface Builder Cocoa Touch Tool[4934:303] 
+oWARNING: 
+oReason:     Could not find layout engine view for view's (<UIImageView: 0x1955f7e0; frame = (18 8; 115 115); autoresize = W+H; userInteractionEnabled = NO; layer = <CALayer: 0x1955fca0>>) coordinate space view <UIView: 0x19554740; frame = (0 0; 151 143); autoresize = W+H; gestureRecognizers = <NSArray: 0x19530c30>; layer = <CALayer: 0x1954c1c0>>. But the canvas coordinateSpaceView is view's superview, so we are assuming the same in the layout engine.
+oFile:       /SourceCache/IBAutolayoutFoundationIOS/IBAutolayoutFoundation-3430/Framework/Classes/Arbitration/IBAutolayoutEngine.m:335
+oMethod:     -[IBAutolayoutEngine layoutFrameForView:inCoordinateSpaceOfView:]
+o2013-09-25 22:02:34.483 Interface Builder Cocoa Touch Tool[4934:303] 
+oWARNING: 
+oReason:     Could not find layout engine view for view's (<UILabel: 0x19553fe0; frame = (0 122; 151 21); text = 'Label'; clipsToBounds = YES; opaque = NO; autoresize = RM+BM; userInteractionEnabled = NO; layer = <CALayer: 0x195410f0>>) coordinate space view <UIView: 0x19554740; frame = (0 0; 151 143); autoresize = W+H; gestureRecognizers = <NSArray: 0x19530c30>; layer = <CALayer: 0x1954c1c0>>. But the canvas coordinateSpaceView is view's superview, so we are assuming the same in the layout engine.
+oFile:       /SourceCache/IBAutolayoutFoundationIOS/IBAutolayoutFoundation-3430/Framework/Classes/Arbitration/IBAutolayoutEngine.m:335
+oMethod:     -[IBAutolayoutEngine layoutFrameForView:inCoordinateSpaceOfView:]
+o2013-09-25 22:02:35.335 Interface Builder Cocoa Touch Tool[4934:303] 
+oWARNING: 
+oReason:     Could not find layout engine view for view's (<UIImageView: 0x189810d0; frame = (18 8; 115 115); autoresize = W+H; userInteractionEnabled = NO; layer = <CALayer: 0x18975230>>) coordinate space view <UIView: 0x18979130; frame = (0 0; 151 143); autoresize = W+H; gestureRecognizers = <NSArray: 0xb60bd60>; layer = <CALayer: 0x1897aed0>>. But the canvas coordinateSpaceView is view's superview, so we are assuming the same in the layout engine.
+oFile:       /SourceCache/IBAutolayoutFoundationIOS/IBAutolayoutFoundation-3430/Framework/Classes/Arbitration/IBAutolayoutEngine.m:335
+oMethod:     -[IBAutolayoutEngine layoutFrameForView:inCoordinateSpaceOfView:]
+o2013-09-25 22:02:35.337 Interface Builder Cocoa Touch Tool[4934:303] 
+oWARNING: 
+oReason:     Could not find layout engine view for view's (<UILabel: 0x189792d0; frame = (0 122; 151 21); text = 'Label'; clipsToBounds = YES; opaque = NO; autoresize = RM+BM; userInteractionEnabled = NO; layer = <CALayer: 0x1897b8d0>>) coordinate space view <UIView: 0x18979130; frame = (0 0; 151 143); autoresize = W+H; gestureRecognizers = <NSArray: 0xb60bd60>; layer = <CALayer: 0x1897aed0>>. But the canvas coordinateSpaceView is view's superview, so we are assuming the same in the layout engine.
+oFile:       /SourceCache/IBAutolayoutFoundationIOS/IBAutolayoutFoundation-3430/Framework/Classes/Arbitration/IBAutolayoutEngine.m:335
+oMethod:     -[IBAutolayoutEngine layoutFrameForView:inCoordinateSpaceOfView:]
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"CompileStoryboard Snap2Ask/Base.lproj/Main.storyboard53"CompileStoryboard Snap2Ask/Base.lproj/Main.storyboardfb5d004adbf3b741^215baa4ddbf3b741^-2778"2013-09-25 22:02:34.481 Interface Builder Cocoa Touch ToolWARNING:Reason:     Could not find layout engine view for view's (<UIImageView: 0x1955f7e0; frame = (18 8; 115 115); autoresize = W+H; userInteractionEnabled = NO; layer = <CALayer: 0x1955fca0>>) coordinate space view <UIView: 0x19554740; frame = (0 0; 151 143); autoresize = W+H; gestureRecognizers = <NSArray: 0x19530c30>; layer = <CALayer: 0x1954c1c0>>. But the canvas coordinateSpaceView is view's superview, so we are assuming the same in the layout engine.File:       /SourceCache/IBAutolayoutFoundationIOS/IBAutolayoutFoundation-3430/Framework/Classes/Arbitration/IBAutolayoutEngine.m:335Method:     -2013-09-25 22:02:34.483 Interface Builder Cocoa Touch ToolWARNING:Reason:     Could not find layout engine view for view's (<UILabel: 0x19553fe0; frame = (0 122; 151 21); text = 'Label'; clipsToBounds = YES; opaque = NO; autoresize = RM+BM; userInteractionEnabled = NO; layer = <CALayer: 0x195410f0>>) coordinate space view <UIView: 0x19554740; frame = (0 0; 151 143); autoresize = W+H; gestureRecognizers = <NSArray: 0x19530c30>; layer = <CALayer: 0x1954c1c0>>. But the canvas coordinateSpaceView is view's superview, so we are assuming the same in the layout engine.File:       /SourceCache/IBAutolayoutFoundationIOS/IBAutolayoutFoundation-3430/Framework/Classes/Arbitration/IBAutolayoutEngine.m:335Method:     -2013-09-25 22:02:35.335 Interface Builder Cocoa Touch ToolWARNING:Reason:     Could not find layout engine view for view's (<UIImageView: 0x189810d0; frame = (18 8; 115 115); autoresize = W+H; userInteractionEnabled = NO; layer = <CALayer: 0x18975230>>) coordinate space view <UIView: 0x18979130; frame = (0 0; 151 143); autoresize = W+H; gestureRecognizers = <NSArray: 0xb60bd60>; layer = <CALayer: 0x1897aed0>>. But the canvas coordinateSpaceView is view's superview, so we are assuming the same in the layout engine.File:       /SourceCache/IBAutolayoutFoundationIOS/IBAutolayoutFoundation-3430/Framework/Classes/Arbitration/IBAutolayoutEngine.m:335Method:     -2013-09-25 22:02:35.337 Interface Builder Cocoa Touch ToolWARNING:Reason:     Could not find layout engine view for view's (<UILabel: 0x189792d0; frame = (0 122; 151 21); text = 'Label'; clipsToBounds = YES; opaque = NO; autoresize = RM+BM; userInteractionEnabled = NO; layer = <CALayer: 0x1897b8d0>>) coordinate space view <UIView: 0x18979130; frame = (0 0; 151 143); autoresize = W+H; gestureRecognizers = <NSArray: 0xb60bd60>; layer = <CALayer: 0x1897aed0>>. But the canvas coordinateSpaceView is view's superview, so we are assuming the same in the layout engine.File:       /SourceCache/IBAutolayoutFoundationIOS/IBAutolayoutFoundation-3430/Framework/Classes/Arbitration/IBAutolayoutEngine.m:335Method:     --0#0#1#-19%DVTDocumentLocation2@98"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Base.lproj/Main.storyboard0000000000000000^805"CompileStoryboard Snap2Ask/Base.lproj/Main.storyboard    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 7.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --minimum-deployment-target 7.0 --output-format human-readable-text --compile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Base.lproj/Main.storyboardc /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Base.lproj/Main.storyboard36"FCFAD25F-CAD7-4A9D-AF52-0C7C0C212338-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCopyStringsFile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/en.lproj/InfoPlist.strings Snap2Ask/en.lproj/InfoPlist.strings
+s401857354.000340
+e401857354.010397
+r1
+xCopyStringsFile
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/en.lproj/InfoPlist.strings
+xSnap2Ask/en.lproj/InfoPlist.strings
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection40"Copy Snap2Ask/en.lproj/InfoPlist.strings121"CopyStringsFile Build/Products/Debug-iphoneos/Snap2Ask.app/en.lproj/InfoPlist.strings Snap2Ask/en.lproj/InfoPlist.stringsc230004adbf3b741^bfba024adbf3b741^---0#0#1#-19%DVTDocumentLocation2@98"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/en.lproj/InfoPlist.strings0000000000000000^591"CopyStringsFile Build/Products/Debug-iphoneos/Snap2Ask.app/en.lproj/InfoPlist.strings Snap2Ask/en.lproj/InfoPlist.strings    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/en.lproj -- Snap2Ask/en.lproj/InfoPlist.strings36"D975E1D9-6D27-4FE9-9EB9-ED7624B3CB54-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist Build/Products/Debug-iphoneos/Snap2Ask.app/ResourceRules.plist
+s401857344.037095
+e401857344.044810
+r1
+xCpResource
+x/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist
+xBuild/Products/Debug-iphoneos/Snap2Ask.app/ResourceRules.plist
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"Copy Build/Products/Debug-iphoneos/Snap2Ask.app/ResourceRules.plist195"CpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist Build/Products/Debug-iphoneos/Snap2Ask.app/ResourceRules.plistf6970940dbf3b741^d6560c40dbf3b741^---0#0#1#-19%DVTDocumentLocation2@125"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/ResourceRules.plist00381416ddffdf42^761"CpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist Build/Products/Debug-iphoneos/Snap2Ask.app/ResourceRules.plist    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/ResourceRules.plist /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app36"945CB3C6-DCA8-4D53-B0EB-13175ED0E841-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CCreateUniversalBinary /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask normal armv7\ armv7s
+r0
+
+CGenerateDSYMFile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app.dSYM /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask
+s401857353.470153
+e401857353.991360
+r1
+xGenerateDSYMFile
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app.dSYM
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection101"Generate /Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app.dSYM116"GenerateDSYMFile Build/Products/Debug-iphoneos/Snap2Ask.app.dSYM Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask71717849dbf3b741^e8dcfd49dbf3b741^---0#0#1#-19%DVTDocumentLocation2@110"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app.dSYM00381416ddffdf42^654"GenerateDSYMFile Build/Products/Debug-iphoneos/Snap2Ask.app.dSYM Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app.dSYM36"5B976318-A8D7-442A-B2F9-E63DF0B0E982-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CLd /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7/Snap2Ask normal armv7
+r0
+
+CLd /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2Ask normal armv7s
+r0
+
+CLd /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask normal armv7s
+s401857352.460695
+e401857353.460512
+r1
+xLd
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask
+xnormal
+xarmv7s
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2Ask.LinkFileList
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFURLConnectionOperation.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/UIImageView+AFNetworking.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AppDelegate.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionDetailsViewController.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionModel.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/main.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFPropertyListRequestOperation.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/RegisterViewController.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2AskClient.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFXMLRequestOperation.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionViewController.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFNetworkActivityIndicatorManager.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPRequestOperation.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/MainViewController.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFImageRequestOperation.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFHTTPClient.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/AFJSONRequestOperation.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCollectionViewController.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Utilities.o
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/QuestionCell.o
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MobileCoreServices.framework/MobileCoreServices
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/FacebookSDK.framework/FacebookSDK
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libobjc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libSystem.dylib
+d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.ios.a
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreVideo.framework/CoreVideo
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreImage.framework/CoreImage
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Security.framework/Security
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CFNetwork.framework/CFNetwork
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/OpenGLES.framework/OpenGLES
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreLocation.framework/CoreLocation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Accounts.framework/Accounts
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreText.framework/CoreText
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcache.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcommonCrypto.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcompiler_rt.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcopyfile.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcorecrypto.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libdispatch.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libdyld.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libkeymgr.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/liblaunch.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libmacho.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libremovefile.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_asl.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_blocks.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_c.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_configuration.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_dnssd.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_info.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_kernel.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_m.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_malloc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_network.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_notify.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_platform.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_pthread.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_sandbox.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_stats.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libunwind.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libxpc.dylib
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection101"Link /Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask68"Ld Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask normal armv7s72507648dbf3b741^71e47549dbf3b741^---0#0#1#--1434"Ld Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask normal armv7s    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv IPHONEOS_DEPLOYMENT_TARGET 7.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch armv7s -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask -filelist /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2Ask.LinkFileList -dead_strip -ObjC -fobjc-arc -fobjc-link-runtime -miphoneos-version-min=7.0 -framework MobileCoreServices -framework CoreGraphics -framework FacebookSDK -framework UIKit -framework Foundation -Xlinker -dependency_info -Xlinker /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Objects-normal/armv7s/Snap2Ask_dependency_info.dat -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Snap2Ask36"98865311-0B80-4583-90DC-9BC42417F752-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CProcessInfoPlistFile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Info.plist /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist
+s401857359.275608
+e401857359.280096
+r1
+xProcessInfoPlistFile
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Info.plist
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Process /Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist103"ProcessInfoPlistFile Build/Products/Debug-iphoneos/Snap2Ask.app/Info.plist Snap2Ask/Snap2Ask-Info.plist76a8464fdbf3b741^f6b4474fdbf3b741^---0#0#1#-19%DVTDocumentLocation2@91"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist0000000000000000^1013"ProcessInfoPlistFile Build/Products/Debug-iphoneos/Snap2Ask.app/Info.plist Snap2Ask/Snap2Ask-Info.plist    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Snap2Ask-Info.plist -genpkginfo /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/ResourceRules.plist -additionalcontentfile /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/assetcatalog_generated_info.plist -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/Info.plist36"42BD3FB2-53E5-4ED4-8B2D-1D304E172E2A-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CProcessPCH /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-byxcefkqcusevuefwcidawxrgvzr/Snap2Ask-Prefix.pch.pch Snap2Ask/Snap2Ask-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CProcessPCH /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch.pch Snap2Ask/Snap2Ask-Prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401857344.054551
+e401857346.895507
+r1
+xProcessPCH
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch.pch
+xSnap2Ask/Snap2Ask-Prefix.pch
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/Raz/Documents/XCode Projects/Snap2Ask/Snap2Ask/Snap2Ask-Prefix.pch
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Precompile Snap2Ask/Snap2Ask-Prefix.pch217"ProcessPCH Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch.pch Snap2Ask/Snap2Ask-Prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler21210e40dbf3b741^d13fe542dbf3b741^---0#0#1#-19%DVTDocumentLocation2@91"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Snap2Ask/Snap2Ask-Prefix.pch0000000000000000^3535"ProcessPCH Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch.pch Snap2Ask/Snap2Ask-Prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -fmodules -fmodules-cache-path=/Users/Raz/Library/Developer/Xcode/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=7.0 -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-generated-files.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-own-target-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-all-target-headers.hmap -iquote /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask-project-headers.hmap -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources/armv7s -I/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/DerivedSources -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos -F/Users/Raz/Documents/XCode\ Projects/Snap2Ask --serialize-diagnostics /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch.dia -MMD -MT dependencies -MF /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch.d -c /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Snap2Ask/Snap2Ask-Prefix.pch -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/PrecompiledHeaders/Snap2Ask-Prefix-cwwhvfrgmdbfvscvoshdpffcmosf/Snap2Ask-Prefix.pch.pch36"BD1D449F-BC79-4A42-856C-B41151F00A36-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CProcessPCH /Users/Raz/Library/Developer/Xcode/DerivedData/Snap2Ask-ahrebccmuqpscyepltyrmnfibvwe/Index/PrecompiledHeaders/Snap2Ask-Prefix-dikcvcjilxxcfeecrfhktjnhkebl_ast/Snap2Ask-Prefix.pch.pch Snap2Ask/Snap2Ask-Prefix.pch normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH /Users/Raz/Library/Developer/Xcode/DerivedData/Snap2Ask-ahrebccmuqpscyepltyrmnfibvwe/Index/PrecompiledHeaders/Snap2Ask-Prefix-ehqxesrngotfghdbhhjhzbytwqvs_ast/Snap2Ask-Prefix.pch.pch Snap2Ask/Snap2Ask-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask.xcent
+s401857359.307188
+e401857359.312961
+r1
+xProcessProductPackaging
+x/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask.xcent
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection224"ProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask.xcent224"ProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask.xcentcfba4e4fdbf3b741^791e504fdbf3b741^---0#0#1#-19%DVTDocumentLocation2@142"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask.xcent00381416ddffdf42^779"ProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask.xcent    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-productPackagingUtility /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/Entitlements.plist -entitlements -format xml -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Intermediates/Snap2Ask.build/Debug-iphoneos/Snap2Ask.build/Snap2Ask.xcent36"62A76A8C-10F9-4222-851A-B2B64BCD6E7C-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CProcessProductPackaging /Users/Raz/Library/MobileDevice/Provisioning\ Profiles/41DBF573-FC7A-4B3C-9216-AF6B829B78BE.mobileprovision /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/embedded.mobileprovision
+s401857359.290391
+e401857359.295735
+r1
+xProcessProductPackaging
+x/Users/Raz/Library/MobileDevice/Provisioning Profiles/41DBF573-FC7A-4B3C-9216-AF6B829B78BE.mobileprovision
+x/Users/Raz/Documents/XCode Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/embedded.mobileprovision
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection199"ProcessProductPackaging /Users/Raz/Library/MobileDevice/Provisioning\ Profiles/41DBF573-FC7A-4B3C-9216-AF6B829B78BE.mobileprovision Build/Products/Debug-iphoneos/Snap2Ask.app/embedded.mobileprovision199"ProcessProductPackaging /Users/Raz/Library/MobileDevice/Provisioning\ Profiles/41DBF573-FC7A-4B3C-9216-AF6B829B78BE.mobileprovision Build/Products/Debug-iphoneos/Snap2Ask.app/embedded.mobileprovisionc9724a4fdbf3b741^13b64b4fdbf3b741^---0#0#1#-19%DVTDocumentLocation2@130"file://localhost/Users/Raz/Documents/XCode%20Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/embedded.mobileprovision00381416ddffdf42^703"ProcessProductPackaging /Users/Raz/Library/MobileDevice/Provisioning\ Profiles/41DBF573-FC7A-4B3C-9216-AF6B829B78BE.mobileprovision Build/Products/Debug-iphoneos/Snap2Ask.app/embedded.mobileprovision    cd "/Users/Raz/Documents/XCode Projects/Snap2Ask"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-productPackagingUtility /Users/Raz/Library/MobileDevice/Provisioning\ Profiles/41DBF573-FC7A-4B3C-9216-AF6B829B78BE.mobileprovision -o /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/embedded.mobileprovision36"AA83014D-7255-4146-84F3-F1ED543C9AE9-
+b56A0036D-F9A1-4B71-8847-39D2A736DE2A
+
+CProcessProductPackaging /Users/Raz/Library/MobileDevice/Provisioning\ Profiles/59E46D30-E2A4-408E-B923-901C96AF3B88.mobileprovision /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app/embedded.mobileprovision
+r0
+
+CTouch /Users/Raz/Documents/XCode\ Projects/Snap2Ask/Build/Products/Debug-iphoneos/Snap2Ask.app
+r0
+
