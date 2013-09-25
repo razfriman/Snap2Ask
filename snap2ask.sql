@@ -30,7 +30,9 @@ CREATE TABLE `answers` (
   `tutor_id` int(11) NOT NULL,
   `text` varchar(512) NOT NULL,
   `rating` smallint(6) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`),
+  FOREIGN KEY (`tutor_id`) REFERENCES `users` (`id`)	
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
