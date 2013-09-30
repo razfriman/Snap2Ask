@@ -18,6 +18,38 @@ try {
 $app = new \Slim\Slim();
 $app->add(new \Slim\Middleware\ContentTypes());
 
+
+function addImage($question,$db) {
+    try {
+            $id = $question['image_id'];
+
+            $sth = $db->prepare("SELECT * FROM images WHERE id=:image_id");
+            $sth->bindParam(':image_id',$id);
+            $sth->execute();
+            $imageData = $sth->fetch(PDO::FETCH_ASSOC);
+
+            $question['image'] = $imageData;
+
+    } catch(PDOException $e) {
+     // SQL ERROR
+    }
+}
+
+function addAnswer($question,$db) {
+    try {
+            $id = $question['id'];
+
+            $sth = $db->prepare("SELECT * FROM answers WHERE question_id=:question_id");
+            $sth->bindParam(':question_id',$id);
+            $sth->execute();
+            $answerData = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+            $question['answers'] = $answerData;
+
+    } catch(PDOException $e) {
+     // SQL ERROR
+    }
+}
 /*
  * Step 3: Define the Slim application routes
  */
@@ -27,126 +59,143 @@ $app->post(
     '/login',
     function () use ($app,$db) {
 
-    $request = $app->request()->getBody();
+        $request = $app->request()->getBody();
         
-    $username = $request['username'];
-    $password = $request['password'];
+        $username = $request['username'];
+        $password = $request['password'];
 
-    $success = false;
-    $reason = '';
+
+        $success = false;
+        $reason = '';
+        $account_id = -1;
 
     // VALIDATE THE PASSWORD
-    try {
-        $sth = $db->prepare('SELECT * FROM users WHERE username = :username');
-        $sth->bindParam(':username', $username);
-        $sth->execute();
-        $row = $sth->fetch(PDO::FETCH_ASSOC);
-        
+        try {
+            $sth = $db->prepare('SELECT * FROM users WHERE username = :username');
+            $sth->bindParam(':username', $username);
+            $sth->execute();
+            $row = $sth->fetch(PDO::FETCH_ASSOC);
+            
         // 5 rounds of blowfish
-        $Blowfish_Pre = '$2a$05$';
-        $Blowfish_End = '$';
+            $Blowfish_Pre = '$2a$05$';
+            $Blowfish_End = '$';
 
-        $hashed_pass = crypt($password, $Blowfish_Pre . $row['salt'] . $Blowfish_End);
+            $hashed_pass = crypt($password, $Blowfish_Pre . $row['salt'] . $Blowfish_End);
 
-        $success = $hashed_pass == $row['password'];
-        if (!$success)
-        {
-            $reason = 'Incorrect username/password';
-        }
-    } catch(PDOException $e) {
-         $success = false;
-         $reason = 'Incorrect username/password';
-    }
+            $success = $hashed_pass == $row['password'];
 
-    $dataArray = array('success' => $success, 'reason' => $reason);
-        
+            if ($success)
+            {
+                $account_id = $row['id'];
+            }
+            else
+            {
+                $reason = 'Incorrect username/password';
+            }
+        } catch(PDOException $e) {
+           $success = false;
+           $reason = 'Incorrect username/password';
+       }
 
-    $response = $app->response();
-    $response['Content-Type'] = 'application/json';
-    $response->status(200);
-    $response->write(json_encode($dataArray));
-    }
-);
+       $dataArray = array(
+        'success' => $success,
+        'reason' => $reason,
+        'account_id' => $account_id
+        );
+       
+
+       $response = $app->response();
+       $response['Content-Type'] = 'application/json';
+       $response->status(200);
+       $response->write(json_encode($dataArray));
+   }
+   );
 
 // GET LIST OF ALL USERS
 $app->get(
     '/users',
     function () use ($app,$db) {
 
-    $userData = array();
+        $userData = array();
 
-    try {
-        $sth = $db->prepare('SELECT * FROM users');
-        $sth->execute();
-        $userData = $sth->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $sth = $db->prepare('SELECT * FROM users');
+            $sth->execute();
+            $userData = $sth->fetchAll(PDO::FETCH_ASSOC);
 
         // Remove password and salt from returned data
-        foreach ($userData as &$user) {
-            unset($user['password']);
-            unset($user['salt']);
-        }
+            foreach ($userData as &$user) {
+                unset($user['password']);
+                unset($user['salt']);
+            }
 
-    } catch(PDOException $e) {
+        } catch(PDOException $e) {
          // SQL ERROR
+        }
+        
+        $response = $app->response();
+        $response['Content-Type'] = 'application/json';
+        $response->status(200);
+        $response->write(json_encode($userData));
     }
-    
- 	$response = $app->response();
-	$response['Content-Type'] = 'application/json';
-	$response->status(200);
-	$response->write(json_encode($userData));
-    }
-);
+    );
 
 // GET USER PROFILE INFORMATION
 $app->get(
 	'/users/:id',
 	function ($id) use ($app,$db) {
 
-    $userData = array();
+        $userData = array();
 
-    try {
-        $sth = $db->prepare('SELECT * FROM users WHERE id=:user_id');
-        $sth->bindParam(':user_id',$id);
-        $sth->execute();
-        $userData = $sth->fetch(PDO::FETCH_ASSOC);
+        try {
+            $sth = $db->prepare('SELECT * FROM users WHERE id=:user_id');
+            $sth->bindParam(':user_id',$id);
+            $sth->execute();
+            $userData = $sth->fetch(PDO::FETCH_ASSOC);
 
-        unset($userData['password']);
-        unset($userData['salt']);
+            // Remove the password/salt fields
+            unset($userData['password']);
+            unset($userData['salt']);
 
-    } catch(PDOException $e) {
+        } catch(PDOException $e) {
          // SQL ERROR
+        }
+        
+        $response = $app->response();
+        $response['Content-Type'] = 'application/json';
+        $response->status(200);
+        $response->write(json_encode($userData));
     }
-    
-    $response = $app->response();
-    $response['Content-Type'] = 'application/json';
-    $response->status(200);
-    $response->write(json_encode($userData));
-	}
-);
+    );
 
 // GET USER QUESTIONS
 $app->get(
     '/users/:id/questions',
     function ($id) use ($app,$db) {
 
-    $questionData = array();
+        $questionData = array();
 
-    try {
-        $sth = $db->prepare('SELECT * FROM questions WHERE student_id=:user_id');
-        $sth->bindParam(':user_id',$id);
-        $sth->execute();
-        $questionData = $sth->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $sth = $db->prepare('SELECT * FROM questions WHERE student_id=:user_id');
+            $sth->bindParam(':user_id',$id);
+            $sth->execute();
+            $questionData = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-    } catch(PDOException $e) {
+            foreach ($questionData as &$question) {
+                addImage(&$question,$db);
+                addAnswer(&$question,$db);
+            }
+
+        } catch(PDOException $e) {
          // SQL ERROR
+        }
+        
+        $response = $app->response();
+        $response['Content-Type'] = 'application/json';
+        $response->status(200);
+        $response->write(json_encode($questionData));
     }
-    
-    $response = $app->response();
-    $response['Content-Type'] = 'application/json';
-    $response->status(200);
-    $response->write(json_encode($questionData));
-    }
-);
+    );
 
 // CREATE A USER ACCOUNT
 $app->post(
@@ -154,7 +203,7 @@ $app->post(
     function () use ($app,$db) {
     	
         $request = $app->request()->getBody();
-    	
+        
         $username = $request['username'];
         $email = $request['email'];
         $password = $request['password'];
@@ -195,7 +244,7 @@ $app->post(
         
         try {
             $sth = $db->prepare('INSERT INTO users (username,email,password,salt,balance,is_tutor,is_admin,authentication_mode_id) 
-                                 VALUES (:username,:email,:password,:salt,:balance,:is_tutor,:is_admin,:authentication_mode_id)');
+               VALUES (:username,:email,:password,:salt,:balance,:is_tutor,:is_admin,:authentication_mode_id)');
             $sth->bindParam(':username', $username);
             $sth->bindParam(':email', $email);
             $sth->bindParam(':password', $hashed_password);
@@ -204,6 +253,8 @@ $app->post(
             $sth->bindParam(':is_tutor', $is_tutor);
             $sth->bindParam(':is_admin', $is_admin);
             $sth->bindParam(':authentication_mode_id', $authentication_mode_id);
+            //preferred_category_id
+            //date_created
             $sth->execute();
             
             $success = true;
@@ -213,14 +264,14 @@ $app->post(
             $reason = $e->getMessage();
         }
 
-    	$dataArray = array('success' => $success, 'reason' => $reason);
-		
+        $dataArray = array('success' => $success, 'reason' => $reason);
+        
         $response = $app->response();
-		$response['Content-Type'] = 'application/json';
-		$response->status(200);
+        $response['Content-Type'] = 'application/json';
+        $response->status(200);
         $response->write(json_encode($dataArray));
     }
-);
+    );
 
 
 // GET LIST OF ALL CATEGORIES
@@ -228,76 +279,98 @@ $app->get(
     '/categories',
     function () use ($app,$db) {
 
-    $categoryData = array();
+        $categoryData = array();
 
-    try {
-        $sth = $db->prepare('SELECT * FROM categories');
-        $sth->execute();
-        $categoryData = $sth->fetchAll(PDO::FETCH_ASSOC);
-        
-    } catch(PDOException $e) {
+        try {
+            $sth = $db->prepare('SELECT * FROM categories');
+            $sth->execute();
+            $categoryData = $sth->fetchAll(PDO::FETCH_ASSOC);
+            
+        } catch(PDOException $e) {
          // SQL ERROR
+        }
+
+        // Load subcategory data
+        foreach ($categoryData as &$category) {
+            
+
+            $category_id = $category['id'];
+            
+            try {
+                $sth = $db->prepare('SELECT id,name FROM subcategories WHERE category_id=:category_id');
+                $sth->bindParam(':category_id',$category_id);
+                $sth->execute();
+                $subcategoryData = $sth->fetchAll(PDO::FETCH_ASSOC);
+                
+                $category['subcategories'] = $subcategoryData;
+
+            } catch(PDOException $e) {
+             // SQL ERROR
+            }            
+        }
+        
+        $response = $app->response();
+        $response['Content-Type'] = 'application/json';
+        $response->status(200);
+        $response->write(json_encode($categoryData));
     }
-    
-    $response = $app->response();
-    $response['Content-Type'] = 'application/json';
-    $response->status(200);
-    $response->write(json_encode($categoryData));
-    }
-);
+    );
 
 // GET LIST OF ALL QUESTIONS
 $app->get(
     '/questions',
     function () use ($app,$db) {
 
-    $questionData = array();
+        $questionData = array();
 
-    try {
-        $sth = $db->prepare('SELECT * FROM questions');
-        $sth->execute();
-        $questionData = $sth->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $sth = $db->prepare('SELECT * FROM questions');
+            $sth->execute();
+            $questionData = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-        // Remove password and salt from returned data
-        foreach ($questionData as &$question) {
-            //unset($user['password']);
-            //unset($user['salt']);
-        }
+        // Add Image/Answer data to each question
+            foreach ($questionData as &$question) {
+                addImage(&$question,$db);
+                addAnswer(&$question,$db);
+            }
 
-    } catch(PDOException $e) {
+        } catch(PDOException $e) {
          // SQL ERROR
+        }
+        
+        $response = $app->response();
+        $response['Content-Type'] = 'application/json';
+        $response->status(200);
+        $response->write(json_encode($questionData));
     }
-    
-    $response = $app->response();
-    $response['Content-Type'] = 'application/json';
-    $response->status(200);
-    $response->write(json_encode($questionData));
-    }
-);
+    );
 
 // GET DETAILED QUESTION INFORMATION
 $app->get(
     '/questions/:id',
     function ($id) use ($app,$db) {
 
-    $questionData = array();
+        $questionData = array();
 
-    try {
-        $sth = $db->prepare('SELECT * FROM questions WHERE id=:question_id');
-        $sth->bindParam(':question_id',$id);
-        $sth->execute();
-        $questionData = $sth->fetch(PDO::FETCH_ASSOC);
+        try {
+            $sth = $db->prepare('SELECT * FROM questions WHERE id=:question_id');
+            $sth->bindParam(':question_id',$id);
+            $sth->execute();
+            $questionData = $sth->fetch(PDO::FETCH_ASSOC);
 
-    } catch(PDOException $e) {
+            addImage(&$questionData,$db);
+            addAnswer(&$questionData,$db);
+
+        } catch(PDOException $e) {
          // SQL ERROR
+        }
+        
+        $response = $app->response();
+        $response['Content-Type'] = 'application/json';
+        $response->status(200);
+        $response->write(json_encode($questionData));
     }
-    
-    $response = $app->response();
-    $response['Content-Type'] = 'application/json';
-    $response->status(200);
-    $response->write(json_encode($questionData));
-    }
-);
+    );
 
 // POST A QUESTION
 $app->post(
@@ -308,16 +381,20 @@ $app->post(
         
         $student_id = $request['student_id'];
         $category_id = $request['category_id'];
+        $subcategory_id = $request['subcategory_id'];
         $description = $request['description'];
-        //$image_data = $request['image_data'];
         $image_id = $request['image_id'];
 
+        //status
+        //times_answered
+        //date_created
+        
         $success = false;
         $reason = '';
 
         try {
             $sth = $db->prepare('INSERT INTO questions (student_id,category_id,description,image_id) 
-                                 VALUES (:student_id,:category_id,:description,:image_id)');
+               VALUES (:student_id,:category_id,:description,:image_id)');
             $sth->bindParam(':student_id', $student_id);
             $sth->bindParam(':category_id', $category_id);
             $sth->bindParam(':description', $description);
@@ -338,7 +415,7 @@ $app->post(
         $response->status(200);
         $response->write(json_encode($dataArray));
     }
-);
+    );
 
 
 // GET A QUESTION'S ANSWER
@@ -346,24 +423,24 @@ $app->get(
     '/questions/:id/answer',
     function ($id) use ($app,$db) {
 
-    $questionData = array();
+        $questionData = array();
 
-    try {
-        $sth = $db->prepare('SELECT * FROM answers WHERE question_id=:question_id');
-        $sth->bindParam(':question_id',$id);
-        $sth->execute();
-        $questionData = $sth->fetch(PDO::FETCH_ASSOC);
+        try {
+            $sth = $db->prepare('SELECT * FROM answers WHERE question_id=:question_id');
+            $sth->bindParam(':question_id',$id);
+            $sth->execute();
+            $questionData = $sth->fetch(PDO::FETCH_ASSOC);
 
-    } catch(PDOException $e) {
+        } catch(PDOException $e) {
          // SQL ERROR
+        }
+        
+        $response = $app->response();
+        $response['Content-Type'] = 'application/json';
+        $response->status(200);
+        $response->write(json_encode($questionData));
     }
-    
-    $response = $app->response();
-    $response['Content-Type'] = 'application/json';
-    $response->status(200);
-    $response->write(json_encode($questionData));
-    }
-);
+    );
 
 // POST AN ANSWER TO A QUESTION
 $app->post(
@@ -380,7 +457,7 @@ $app->post(
 
         try {
             $sth = $db->prepare('INSERT INTO answers (question_id,tutor_id,`text`) 
-                                 VALUES (:question_id,:tutor_id,:answer_text)');
+               VALUES (:question_id,:tutor_id,:answer_text)');
             
             $sth->bindParam(':question_id', $id);
             $sth->bindParam(':tutor_id', $tutor_id);
@@ -409,7 +486,7 @@ $app->post(
         $response->write(json_encode($dataArray));
 
     }
-);
+    );
 
 
 
@@ -426,14 +503,14 @@ $app->put(
     function () use ($app,$db) {
         echo 'This is a PUT route';
     }
-);
+    );
 
 $app->delete(
     '/delete',
     function () use ($app,$db) {
         echo 'This is a DELETE route';
     }
-);
+    );
 
 
 // Run the Slim app
