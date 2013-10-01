@@ -18,17 +18,40 @@ try {
 $app = new \Slim\Slim();
 $app->add(new \Slim\Middleware\ContentTypes());
 
+function addCategories($question,$db) {
+    try {
+        $category_id = $question['category_id'];
+        $subcategory_id = $question['subcategory_id'];
+
+        $sth = $db->prepare("SELECT name FROM categories WHERE id=:category_id");
+        $sth->bindParam(':category_id',$category_id);
+        $sth->execute();
+        $category = $sth->fetch(PDO::FETCH_ASSOC);
+
+        $question['category'] = $category['name'];
+
+        $sth = $db->prepare("SELECT name FROM subcategories WHERE id=:subcategory_id");
+        $sth->bindParam(':subcategory_id',$subcategory_id);
+        $sth->execute();
+        $subcategory = $sth->fetch(PDO::FETCH_ASSOC);
+
+        $question['subcategory'] = $subcategory['name'];
+
+    } catch(PDOException $e) {
+     // SQL ERROR
+    }
+}
 
 function addImage($question,$db) {
     try {
-            $id = $question['image_id'];
+        $id = $question['image_id'];
 
-            $sth = $db->prepare("SELECT * FROM images WHERE id=:image_id");
-            $sth->bindParam(':image_id',$id);
-            $sth->execute();
-            $imageData = $sth->fetch(PDO::FETCH_ASSOC);
+        $sth = $db->prepare("SELECT * FROM images WHERE id=:image_id");
+        $sth->bindParam(':image_id',$id);
+        $sth->execute();
+        $imageData = $sth->fetch(PDO::FETCH_ASSOC);
 
-            $question['image'] = $imageData;
+        $question['image'] = $imageData;
 
     } catch(PDOException $e) {
      // SQL ERROR
@@ -37,14 +60,14 @@ function addImage($question,$db) {
 
 function addAnswer($question,$db) {
     try {
-            $id = $question['id'];
+        $id = $question['id'];
 
-            $sth = $db->prepare("SELECT * FROM answers WHERE question_id=:question_id");
-            $sth->bindParam(':question_id',$id);
-            $sth->execute();
-            $answerData = $sth->fetchAll(PDO::FETCH_ASSOC);
+        $sth = $db->prepare("SELECT * FROM answers WHERE question_id=:question_id");
+        $sth->bindParam(':question_id',$id);
+        $sth->execute();
+        $answerData = $sth->fetchAll(PDO::FETCH_ASSOC);
 
-            $question['answers'] = $answerData;
+        $question['answers'] = $answerData;
 
     } catch(PDOException $e) {
      // SQL ERROR
@@ -93,23 +116,23 @@ $app->post(
                 $reason = 'Incorrect username/password';
             }
         } catch(PDOException $e) {
-           $success = false;
-           $reason = 'Incorrect username/password';
-       }
+         $success = false;
+         $reason = 'Incorrect username/password';
+     }
 
-       $dataArray = array(
+     $dataArray = array(
         'success' => $success,
         'reason' => $reason,
         'account_id' => $account_id
         );
-       
 
-       $response = $app->response();
-       $response['Content-Type'] = 'application/json';
-       $response->status(200);
-       $response->write(json_encode($dataArray));
-   }
-   );
+
+     $response = $app->response();
+     $response['Content-Type'] = 'application/json';
+     $response->status(200);
+     $response->write(json_encode($dataArray));
+ }
+ );
 
 // GET LIST OF ALL USERS
 $app->get(
@@ -183,6 +206,7 @@ $app->get(
 
             foreach ($questionData as &$question) {
                 addImage(&$question,$db);
+                addCategories(&$question,$db);
                 addAnswer(&$question,$db);
             }
 
@@ -206,10 +230,21 @@ $app->post(
         
         $username = $request['username'];
         $email = $request['email'];
-        $password = $request['password'];
+        $password = $request['password']; // TODO: Make this more secure
+        $salt = '';
+        $balance = 40;
+        $is_tutor = $request['is_tutor'];
+        $is_admin = false;
+        $preferred_category_id = '0';
+        $authentication_mode_id = $request['authentication_mode_id'];
+        $date_created = date("Y-m-d H:i:s");
+        
+        if ($is_tutor) { 
+            $preferred_category_id = $request['preferred_category_id'];
+        }
 
 
-        // HASH PASSWORD
+        // HASH PASSWORD /////////////////////////////////////////
         // 5 rounds of blowfish
         $Blowfish_Pre = '$2a$05$';
         $Blowfish_End = '$';
@@ -231,20 +266,15 @@ $app->post(
         $bcrypt_salt = $Blowfish_Pre . $salt . $Blowfish_End;
 
         $hashed_password = crypt($password, $bcrypt_salt);
-
+        // END OF PASSWORD HAS /////////////////////////////////
 
         $success = false;
         $reason = '';
+        $insert_id = 0;
 
-
-        $balance = 40;
-        $is_tutor = false;
-        $is_admin = false;
-        $authentication_mode_id = 1; // custom
-        
         try {
-            $sth = $db->prepare('INSERT INTO users (username,email,password,salt,balance,is_tutor,is_admin,authentication_mode_id) 
-               VALUES (:username,:email,:password,:salt,:balance,:is_tutor,:is_admin,:authentication_mode_id)');
+            $sth = $db->prepare('INSERT INTO users (username,email,password,salt,balance,is_tutor,is_admin,preferred_category_id,authentication_mode_id,date_created) 
+             VALUES (:username,:email,:password,:salt,:balance,:is_tutor,:is_admin,:preferred_category_id,:authentication_mode_id,:date_created)');
             $sth->bindParam(':username', $username);
             $sth->bindParam(':email', $email);
             $sth->bindParam(':password', $hashed_password);
@@ -252,19 +282,23 @@ $app->post(
             $sth->bindParam(':balance', $balance);
             $sth->bindParam(':is_tutor', $is_tutor);
             $sth->bindParam(':is_admin', $is_admin);
+            $sth->bindParam(':preferred_category_id', $preferred_category_id);
             $sth->bindParam(':authentication_mode_id', $authentication_mode_id);
-            //preferred_category_id
-            //date_created
+            $sth->bindParam(':date_created', $date_created);
             $sth->execute();
             
             $success = true;
+            $insert_id = $db->lastInsertId();
 
         } catch(PDOException $e) {
             $success = false;
             $reason = $e->getMessage();
         }
 
-        $dataArray = array('success' => $success, 'reason' => $reason);
+        $dataArray = array(
+            'success' => $success,
+            'reason' => $reason,
+            'insert_id' => $insert_id);
         
         $response = $app->response();
         $response['Content-Type'] = 'application/json';
@@ -292,7 +326,7 @@ $app->get(
 
         // Load subcategory data
         foreach ($categoryData as &$category) {
-            
+
 
             $category_id = $category['id'];
             
@@ -331,6 +365,7 @@ $app->get(
         // Add Image/Answer data to each question
             foreach ($questionData as &$question) {
                 addImage(&$question,$db);
+                addCategories(&$question,$db);
                 addAnswer(&$question,$db);
             }
 
@@ -359,6 +394,7 @@ $app->get(
             $questionData = $sth->fetch(PDO::FETCH_ASSOC);
 
             addImage(&$questionData,$db);
+            addCategories(&$question,$db);
             addAnswer(&$questionData,$db);
 
         } catch(PDOException $e) {
@@ -376,7 +412,7 @@ $app->get(
 $app->post(
     '/questions',
     function () use ($app,$db) {
-        
+
         $request = $app->request()->getBody();
         
         $student_id = $request['student_id'];
@@ -384,31 +420,41 @@ $app->post(
         $subcategory_id = $request['subcategory_id'];
         $description = $request['description'];
         $image_id = $request['image_id'];
-
-        //status
-        //times_answered
-        //date_created
+        $status = 0; // Unanswered
+        $times_answered = 0;
+        $date_created = date("Y-m-d H:i:s");
         
         $success = false;
         $reason = '';
+        $insert_id = 0;
 
         try {
-            $sth = $db->prepare('INSERT INTO questions (student_id,category_id,description,image_id) 
-               VALUES (:student_id,:category_id,:description,:image_id)');
+            $sth = $db->prepare('INSERT INTO questions (student_id,category_id,subcategory_id,description,image_id,status,times_answered,date_created) 
+             VALUES (:student_id,:category_id,:subcategory_id,:description,:image_id,:status,:times_answered,:date_created)');
             $sth->bindParam(':student_id', $student_id);
             $sth->bindParam(':category_id', $category_id);
+            $sth->bindParam(':subcategory_id', $subcategory_id);
             $sth->bindParam(':description', $description);
             $sth->bindParam(':image_id', $image_id);
+            $sth->bindParam(':status', $status);
+            $sth->bindParam(':times_answered', $times_answered);
+            $sth->bindParam(':date_created', $date_created);
+
             $sth->execute();
             
             $success = true;
+            $insert_id = $db->lastInsertId();
+
 
         } catch(PDOException $e) {
             $success = false;
             $reason = $e->getMessage();
         }
 
-        $dataArray = array('success' => $success, 'reason' => $reason);
+        $dataArray = array(
+            'success' => $success,
+            'reason' => $reason,
+            'insert_id' => $insert_id);
         
         $response = $app->response();
         $response['Content-Type'] = 'application/json';
@@ -454,31 +500,98 @@ $app->post(
         
         $success = false;
         $reason = '';
+        $insert_id = 0;
+
+
+        $send_push_notification = false;
 
         try {
-            $sth = $db->prepare('INSERT INTO answers (question_id,tutor_id,`text`) 
-               VALUES (:question_id,:tutor_id,:answer_text)');
-            
-            $sth->bindParam(':question_id', $id);
-            $sth->bindParam(':tutor_id', $tutor_id);
-            $sth->bindParam(':answer_text', $answer_text);
-            $sth->execute();
 
-            $sth = $db->prepare("UPDATE questions SET status='Answered' WHERE id=:question_id");
-            $sth->bindParam('question_id', $id);
+            // GET TIMES ANSWERED
+            $sth = $db->prepare('SELECT times_answered FROM questions WHERE id=:question_id');
+            $sth->bindParam(':question_id', $id);
             $sth->execute();
-            
-            // SEND NOTIFICATION TO CLIENT HERE???
-            // ....But How???
-            
-            $success = true;
+            $row = $sth->fetch();
+            $times_answered = $row[0];
+
+            if ($times_answered < 3) {
+
+                // INSERT THE ANSWER
+                $sth = $db->prepare('INSERT INTO answers (question_id,tutor_id,`text`) 
+                 VALUES (:question_id,:tutor_id,:answer_text)');
+                
+                $sth->bindParam(':question_id', $id);
+                $sth->bindParam(':tutor_id', $tutor_id);
+                $sth->bindParam(':answer_text', $answer_text);
+                $sth->execute();
+
+                $insert_id = $db->lastInsertId();
+
+                // INCREASE THE TIMES ANSWERED
+                $times_answered++;
+
+                $question_status = 1;
+
+                if ($times_answered == 3) {
+                    $question_status = 2;
+                }
+
+                // MARK THE QUESTION AS ANSWERED
+                $sth = $db->prepare("UPDATE questions SET status=:question_status,times_answered=:times_answered WHERE id=:question_id");
+                $sth->bindParam(':times_answered', $times_answered);
+                $sth->bindParam(':question_id', $id);
+                $sth->bindParam(':question_status', $question_status);
+                $sth->execute();
+                
+
+                if ($send_push_notification) {
+
+                    // GET THE QUESTION'S STUDENT_ID TO NOTIFY THE STUDENT
+                    $sth = $db->prepare("select users.id FROM users JOIN questions ON (users.id=questions.student_id) JOIN answers ON (answers.question_id = questions.id) WHERE answers.id=:answer_id");
+                    $sth->bindParam(':answer_id', $insert_id);
+                    $sth->execute();
+                    $row = $sth->fetch();
+                    $student_id = $row[0];
+                    
+                    // SEND NOTIFICATION TO CLIENT HERE
+                    // USE PARSE'S REST API
+                    $user_channel = "user_" . $student_id;
+                    
+                    // POST
+                    // https://api.parse.com/1/push
+                    // X-Parse-Application-Id: QbpUMWXgEKThPmDXUuAaqJw3caz1jCYORCeqGmn8
+                    // X-Parse-REST-API-Key: xsd0U7EIVkWrZ2xOkPsp3A5aVMLq8pEgNYKfFxdk
+                    // Content-Type: application/json
+
+                    // REQUEST
+                    /*
+                    {
+                    "channels": [
+                      "$user_channel"
+                    ],
+                    "data": {
+                      "alert": "You received an answer to one of your questions!"
+                        }
+                    }
+                    */
+                }
+
+                $success = true;
+
+            } else {
+                $success = false;
+                $reason = "Question has too many answers. It has been closed";
+            }
 
         } catch(PDOException $e) {
             $success = false;
             $reason = $e->getMessage();
         }
 
-        $dataArray = array('success' => $success, 'reason' => $reason);
+        $dataArray = array(
+            'success' => $success,
+            'reason' => $reason,
+            'insert_id' => $insert_id);
         
         $response = $app->response();
         $response['Content-Type'] = 'application/json';
@@ -488,7 +601,58 @@ $app->post(
     }
     );
 
+$app->put(
+    '/answers/:id',
+    function ($id) use ($app,$db) {
 
+        $request = $app->request()->getBody();
+        
+        $answer_status = $request['status'];
+        
+        $success = false;
+        $reason = '';
+        $old_status = '';
+        $new_status = '';
+
+        if ($answer_status === "pending" || $answer_status === "accepted" || $answer_status === "rejected") {
+            try {
+                $sth = $db->prepare('SELECT * FROM answers WHERE id=:answer_id');
+                $sth->bindParam(':answer_id', $id);
+                $sth->execute();
+                $answer_data = $sth->fetch(PDO::FETCH_ASSOC);
+
+                $old_status = $answer_data['status'];
+
+                $sth = $db->prepare("UPDATE answers SET status=:answer_status WHERE id=:answer_id");
+                $sth->bindParam(':answer_id', $id);
+                $sth->bindParam(':answer_status',$answer_status);
+                $sth->execute();
+
+                $new_status = $answer_status;
+
+                $success = true;
+
+            } catch(PDOException $e) {
+                $success = false;
+                $reason = $e->getMessage();
+            }
+        } else {
+            $success = false;
+            $reason = "Invalid answer status. The valid options are: 'pending', 'accepted', and 'rejected'";
+        }
+
+        $dataArray = array(
+            'success' => $success,
+            'reason' => $reason,
+            'old_status' => $old_status,
+            'new_status' => $new_status);
+        
+        $response = $app->response();
+        $response['Content-Type'] = 'application/json';
+        $response->status(200);
+        $response->write(json_encode($dataArray));
+    }
+    );
 
 
 
