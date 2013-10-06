@@ -1,8 +1,8 @@
 <?php
 	
 	$host = "localhost:3306";
-	$username = "root";
-	$password = "ArikElik0058";
+	$username = "cProject";
+	$password = "snap2ask";
 	$connection = mysql_connect($host, $username, $password);
 	if (!$connection)
 	{
