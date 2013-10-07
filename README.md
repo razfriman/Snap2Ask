@@ -7,3 +7,5 @@ Vipul/Raymond/Roman reviewed paper prototypes<br>
 Vipul created Cupcakes form<br>
 Vipul tested paper prototypes with Dr. Luis Resendis<br>
 A LOT SILL NEEDS TO BE DONE BEFORE CUPCAKE AND TDD SUBMISSION!!!<br>
+<br>
+ROMAN 10/6: Q's by categ + func to convert selected rows->JSON
