@@ -1,6 +1,8 @@
-<!-- Gets result of json query and a list of the table's column names and puts it into a JSON object, packaged and ready to be sent back to the client. -->
 
-<?php	
+
+<?php
+
+/*Gets result of json query and a list of the table's column names and puts it into a JSON object, packaged and ready to be sent back to the client.*/
 	function makeJsonFromRows($result, $column_names){
 		$len = count($column_names);
 		$wrapper = array();
