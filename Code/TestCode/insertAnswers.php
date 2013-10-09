@@ -16,7 +16,8 @@
 	$questionID = $_POST['questionID'];
 	$tutorID = $_POST['tutorID'];
 	$text = $_POST['text'];
-	$date = $_SERVER['RESQUEST_TIME'];
+	$date = time();
+	$date =date("Y-m-d H:i:s");
 
 	mysql_select_db("snap2ask", $dbConnection) or die ("It couldn't select snap2ask database. Error: " . mysql_error());
 
@@ -26,7 +27,7 @@
 	{
 		die("Impossible ot insert Answer" . mysql_error());
 	}
-	echo "answer succesfully upload to the database";	
+	echo "answer succesfully upload to the database. Captured time: " . $date;	
 	mysql_close($dbConnection);
 
 ?> 

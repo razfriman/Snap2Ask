@@ -24,13 +24,12 @@
 
         $getAnswer = "SELECT id, question_id, tutor_id, text, rating, status, date_created FROM answers WHERE tutor_id = {$tutorID} AND question_id = {$questionID};";
         $myAnswer = mysql_query($getAnswer);
-	while ($row = mysql_fetch_assoc($myAnswer))
-	{
-		echo $row['answerID'] . " " . $row['question_id'] . " " . $row['text'];
-		echo "<br>";
- 
-	}
-//	echo makeJsonFromRows($result, array('question_id', 'tutor_id', 'text', 'rating', 'status', 'date_created'));
+//	while ($row = mysql_fetch_assoc($myAnswer))
+//	{
+//		echo $row['id'] . " " . $row['question_id'] . " " . $row['text'];
+//		echo "<br>";
+//	}
+	echo makeJsonFromRows($myAnswer, array('question_id', 'tutor_id', 'text', 'rating', 'status', 'date_created'));
 
 	mysql_close($dbConnection);
 ?>
