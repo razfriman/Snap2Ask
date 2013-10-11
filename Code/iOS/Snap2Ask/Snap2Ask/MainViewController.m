@@ -7,16 +7,18 @@
 //
 
 #import "MainViewController.h"
-#import "Snap2AskClient.h"
-#import <FacebookSDK/FacebookSDK.h>
+#import <GoogleOpenSource/GoogleOpenSource.h>
+#import <GooglePlus/GooglePlus.h>
+
+static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnmppmb3ea0v.apps.googleusercontent.com";
 
 @interface MainViewController () <FBLoginViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *customSignInButton;
 @property (weak, nonatomic) IBOutlet FBLoginView *facebookSignInButton;
-@property (weak, nonatomic) IBOutlet UIButton *googleSignInButton;
+@property (weak, nonatomic) IBOutlet GPPSignInButton *googleSignInButton;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 
 @end
@@ -37,7 +39,54 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    //[[Snap2AskClient sharedClient] getQuestionsModel:10];
+    // Init the UserInfo class
+    [UserInfo sharedClient];
+    
+    // Register for notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoginUpdated:) name:LoginUserNotification object:nil];
+    
+    // Init the Google+ Login object
+    GPPSignIn *signIn = [GPPSignIn sharedInstance];
+    signIn.clientID = kGoogleClientId;
+    signIn.scopes = [NSArray arrayWithObjects:kGTLAuthScopePlusLogin,nil];
+    signIn.delegate = self;
+    
+    // Request email from Google+
+    signIn.shouldFetchGoogleUserEmail = YES;
+    signIn.shouldFetchGoogleUserID = YES;
+    
+    // Attempt to auto-login using google
+    [[GPPSignIn sharedInstance] trySilentAuthentication];
+    
+    // Set the facebook read permissions to ask for email
+    _facebookSignInButton.readPermissions =  @[@"email"];
+    
+    [signIn disconnect];
+    
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    
+    // Load the previous authentication mode from the keychain
+    KeychainItemWrapper *keychainAuthenticationMode = [[KeychainItemWrapper alloc] initWithIdentifier:@"Snap2Ask_AuthenticationMode" accessGroup:nil];
+    NSString *authenticationMode = [keychainAuthenticationMode objectForKey:(__bridge NSString*)kSecAttrAccount];
+    
+    
+    // Sign in automatically
+    if ([authenticationMode isEqualToString:@"custom"]) {
+        
+        // Load the saved username/password from the keychain
+        KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Snap2Ask" accessGroup:nil];
+        NSString *email = [keychainItem objectForKey:(__bridge NSString*)kSecAttrAccount];
+        NSString *password = [keychainItem objectForKey:(__bridge NSString*)kSecValueData];
+        
+        if (email && password && email.length > 0 && password.length > 0) {
+            // Attempt to validate the user automatically
+            _emailTextField.text = email;
+            _passwordTextField.text = password;
+            [self login];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,9 +95,67 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) userLoginUpdated:(NSNotification *)notification
+{
+    NSDictionary *response = notification.userInfo;
+
+    BOOL success = [[response objectForKey:@"success"] boolValue];
+    
+    BOOL isRegisterOrLogin = [[response objectForKey:@"register_or_login"] boolValue];
+    
+    if (!isRegisterOrLogin &&!success) {
+     
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Incorrect email/password"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+        return;
+    } else if (!success) {
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Cannot create account"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+        return;
+    }
+    
+    int userId = [[response objectForKey:@"user_id"] integerValue];
+    NSString *authenticationMode = [response objectForKey:@"authentication_mode"];
+
+    // Subscribe to the user channel for push notifications
+    NSString * userChannel = [NSString stringWithFormat:@"user_%d", userId];
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation addUniqueObject:userChannel forKey:@"channels"];
+    [currentInstallation saveInBackground];
+
+    // Save authentication mode to keychain
+    KeychainItemWrapper *keychainAuthenticationMode = [[KeychainItemWrapper alloc] initWithIdentifier:@"Snap2Ask_AuthenticationMode" accessGroup:nil];
+    [keychainAuthenticationMode setObject:authenticationMode forKey:(__bridge NSString*)kSecAttrAccount];
+    
+    if ([authenticationMode isEqualToString:@"custom"]) {
+        // Save login information to keychain
+        KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Snap2Ask" accessGroup:nil];
+        [keychainItem setObject:_emailTextField.text forKey:(__bridge NSString*)kSecAttrAccount];
+        [keychainItem setObject:_passwordTextField.text forKey:(__bridge NSString*)kSecValueData];
+    }
+    
+    // Init the UserInfo shared class and assign the user's id
+    [UserInfo sharedClient].userModel = [[UserModel alloc] init];
+    [UserInfo sharedClient].userModel.userId = userId;
+    
+    // Load the user information
+    [[Snap2AskClient sharedClient] loadUserInfo:userId];
+    
+    // Reset password field
+    _passwordTextField.text = @"";
+    
+    // Continue past the login screen
+    [self performSegueWithIdentifier:@"loginSegue" sender:self];
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if(textField == _usernameTextField) {
+    if(textField == _emailTextField) {
         [_passwordTextField becomeFirstResponder];
     } else if (textField == _passwordTextField) {
         [_passwordTextField resignFirstResponder];
@@ -58,15 +165,17 @@
     return YES;
 }
 
+- (IBAction)tapOnView:(id)sender {
+    [_emailTextField resignFirstResponder];
+    [_passwordTextField resignFirstResponder];
+}
+
 - (void)login {
     
-    
-    BOOL validLogin = NO;
-    
-    if ([_usernameTextField.text isEqualToString:@""]) {
-        // Please enter a username
+    if ([_emailTextField.text isEqualToString:@""]) {
+        // Please enter an email
         [[[UIAlertView alloc] initWithTitle:@"Error"
-                                    message:@"Please enter a username"
+                                    message:@"Please enter an email"
                                    delegate:nil
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil] show];
@@ -82,44 +191,105 @@
         
         return;
     } else {
-        
-        // TODO: VALIDATE LOGIN
-        //CHECK LOGIN
-        //DEBUG:
-        validLogin = YES;
-        
-    }
-    
-    
-    if (validLogin) {
-        
-        // Reset password field
-        _passwordTextField.text = @"";
-        
-        [self performSegueWithIdentifier:@"loginSegue" sender:self];
+
+        [[Snap2AskClient sharedClient] login:[_emailTextField.text lowercaseString] withPassword:_passwordTextField.text withAuthenticationMode:@"custom"];
     }
 }
 
-// FACEBOOK STUFF
-- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-
-}
 - (IBAction)loginClick:(id)sender {
     [self login];
 }
 
-- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
-    
+
+#pragma mark - Google
+- (void)finishedWithAuth: (GTMOAuth2Authentication *)auth error: (NSError *) error
+{
+    if (error) {
+        NSLog(@"Google+ Auth Error %@ ",error);
+    } else {
+        
+        
+        NSString *token = auth.accessToken;
+        NSString *oauthId = [auth.properties objectForKey:@"user_id"];
+        
+        // Load the previous authentication mode from the keychain
+        KeychainItemWrapper *keychainAuthenticationMode = [[KeychainItemWrapper alloc] initWithIdentifier:@"Snap2Ask_AuthenticationMode" accessGroup:nil];
+        NSString *authenticationMode = [keychainAuthenticationMode objectForKey:(__bridge NSString*)kSecAttrAccount];
+        
+        
+        // Sign in
+        if([authenticationMode isEqualToString:@"google"]) {
+            // Login with google
+            [[Snap2AskClient sharedClient] login:oauthId withPassword:token withAuthenticationMode:@"google"];
+        } else {
+            // Register with google
+            
+            GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
+            plusService.retryEnabled = YES;
+            [plusService setAuthorizer:auth];
+            GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
+            
+            [plusService executeQuery:query
+                    completionHandler:^(GTLServiceTicket *ticket,
+                                        GTLPlusPerson *person,
+                                        NSError *error) {
+                        if (error) {
+                            NSLog(@"Google+ Query Error %@ ",error);
+                        } else {
+                            
+                            NSString *email = auth.userEmail;
+                            NSString *firstName = person.name.givenName;
+                            NSString *lastName = person.name.familyName;
+                            NSString *token = auth.accessToken;
+                            NSString *oauthId = [auth.properties objectForKey:@"user_id"];
+                            
+                            // LOG IN USING GOOGLE / REGISTER NEW ACCOUNT USING GOOGLE
+                            [[Snap2AskClient sharedClient] loginOrRegister:email withOauthId:oauthId withPassword:token  withFirstName:firstName withLastName:lastName withAuthenticationMode:@"google"];
+                        }
+                    }];
+        }
+    }
 }
 
+- (void)didDisconnectWithError:(NSError *)error {
+    if (error) {
+        NSLog(@"Received error %@", error);
+    } else {
+        // The user is signed out and disconnected.
+        // Clean up user data as specified by the Google+ terms.
+    }
+}
+
+#pragma mark - Facebook
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
-    //user.id;
-    //user.first_name;
+
+    NSString *email = [user objectForKey:@"email"];
+    NSString *oauthId = user.id;
+    NSString *firstName = user.first_name;
+    NSString *lastName = user.last_name;
+    NSString *token = [[[FBSession activeSession] accessTokenData] accessToken];
+    
+    // Load the previous authentication mode from the keychain
+    KeychainItemWrapper *keychainAuthenticationMode = [[KeychainItemWrapper alloc] initWithIdentifier:@"Snap2Ask_AuthenticationMode" accessGroup:nil];
+    NSString *authenticationMode = [keychainAuthenticationMode objectForKey:(__bridge NSString*)kSecAttrAccount];
+    
+    
+    // Sign in
+    if([authenticationMode isEqualToString:@"facebook"]) {
+        // Login with facebook
+        [[Snap2AskClient sharedClient] login:oauthId withPassword:token withAuthenticationMode:@"facebook"];
+    } else {
+        // Register with facebook
+        [[Snap2AskClient sharedClient] loginOrRegister:email withOauthId:oauthId withPassword:token withFirstName:firstName withLastName:lastName withAuthenticationMode:@"facebook"];
+    }
+    
+
 }
 
 - (void)loginView:(FBLoginView *)loginView
       handleError:(NSError *)error {
+    
     NSString *alertMessage, *alertTitle;
     if (error.fberrorShouldNotifyUser) {
         // If the SDK has a message for the user, surface it. This conveniently

@@ -9,7 +9,10 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *questionsAskedLabel;
 @end
 
 @implementation SettingsViewController
@@ -30,14 +33,30 @@
     self.clearsSelectionOnViewWillAppear = NO;
     
     [self.refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // Register for notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userInfoUpdated:) name:UserInfoUpdatedNotification object:nil];
+    
+    // Update the UI
+    [self userInfoUpdated:nil];
+
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) userInfoUpdated:(NSNotification *)notification
+{
+    UserModel *userInfo = [UserInfo sharedClient].userModel;
+    
+    _emailLabel.text = userInfo.email;
+    _balanceLabel.text = [[NSNumber numberWithInteger:userInfo.balance ] stringValue];
+
+    //_questionsAskedLabel.text = userInfo.questionsAsked;
 }
 
 #pragma mark - Table view data source
@@ -51,9 +70,9 @@
 {
     switch (section) {
         case 0:
-            return 3;
+            return 2;
         case 1:
-            return 3;
+            return 1;
         case 2:
             return 1;
         default:
@@ -65,23 +84,51 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"unwindToMainSegue"]) {
         
-        // TODO
-        // LOG OUT CODE HERE
-        // CUSTOM/FACBEOOK/GOOGLE
+        KeychainItemWrapper *keychainAuthenticationMode = [[KeychainItemWrapper alloc] initWithIdentifier:@"Snap2Ask_AuthenticationMode" accessGroup:nil];
+        NSString *authenticationMode = [keychainAuthenticationMode objectForKey:(__bridge NSString*)kSecAttrAccount];
+        
+        
+        if ([authenticationMode isEqualToString:@"facebook"]) {
+            
+            if ([FBSession.activeSession isOpen]) {
+                [FBSession.activeSession closeAndClearTokenInformation];
+            }
+        } else if ([authenticationMode isEqualToString:@"google"]) {
+        
+            if ([[GPPSignIn sharedInstance] authentication]) {
+                
+                [[GPPSignIn sharedInstance] disconnect];
+            }
+        } else if ([authenticationMode isEqualToString:@"custom"]) {
+            KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Snap2Ask" accessGroup:nil];
+            NSString *email = [keychainItem objectForKey:(__bridge NSString*)kSecAttrAccount];
+            NSString *password = [keychainItem objectForKey:(__bridge NSString*)kSecValueData];
+            
+            if (email && password) {
+                // CLEAR THE KEYCHAIN DATA
+                [keychainItem resetKeychainItem];
+            }
+        }
+        
+        // Reset the saved authentication mode
+        [keychainAuthenticationMode resetKeychainItem];
+        
+        
+        int userId = [UserInfo sharedClient].userModel.userId;
+        NSString * userChannel = [NSString stringWithFormat:@"user_%d", userId];
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        [currentInstallation removeObject:userChannel forKey:@"channels"];
+        [currentInstallation saveInBackground];
     }
 }
 
 - (void) refreshView:(UIRefreshControl*) sender
 {
-    // Pull-To-Refresh
+    int userId = [UserInfo sharedClient].userModel.userId;
     
-    // UPDATE DATA FROM API CLIENT (JSON)
-    
-    //int userId = 10;
-    //[[Snap2AskClient sharedClient] getQuestionsUsingArray:_questions ForUser:userId];
+    [[Snap2AskClient sharedClient] loadUserInfo:userId];
     
     [sender endRefreshing];
-    
 }
 
 

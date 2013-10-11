@@ -10,8 +10,15 @@
 
 @interface AnswerModel : NSObject
 
-@property (strong, nonatomic) NSNumber *userId;
-@property (strong, nonatomic) NSString *answerText;
+@property (nonatomic) NSInteger answerId;
+@property (nonatomic) NSInteger questionId;
+@property (nonatomic) NSInteger tutorId;
+@property (strong, nonatomic) NSString *text;
 @property (strong, nonatomic) NSString *status;
+
+//rating
+//date_created
+
+-(id)initWithJSON:(NSDictionary *) JsonData;
 
 @end

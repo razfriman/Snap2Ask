@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuestionCell : UICollectionViewCell
+@interface QuestionCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *image;
-@property (strong, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UIImageView *thumbnailView;
+@property (weak, nonatomic) IBOutlet UILabel *category;
+@property (weak, nonatomic) IBOutlet UILabel *subcategory;
+@property (weak, nonatomic) IBOutlet UILabel *description;
+@property (weak, nonatomic) IBOutlet UILabel *isAnsweredLabel;
 
 
 @end

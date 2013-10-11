@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GooglePlus/GooglePlus.h>
+#import <Parse/Parse.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import "Snap2AskClient.h"
+#import "KeychainItemWrapper.h"
+#import "UserInfo.h"
 
-@interface MainViewController : UIViewController<UITextFieldDelegate>
+@interface MainViewController : UIViewController<UITextFieldDelegate,FBLoginViewDelegate,GPPSignInDelegate>
 
 
 - (void)login;

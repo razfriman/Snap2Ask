@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <GooglePlus/GooglePlus.h>
+#import "Snap2AskClient.h"
+#import "UserModel.h"
+#import "KeychainItemWrapper.h"
+#import "UserInfo.h"
 
 @interface SettingsViewController : UITableViewController
 

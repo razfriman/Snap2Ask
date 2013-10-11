@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Snap2Ask/AskQuestionViewController.m"
-            timestampString = "401893550.504725"
+            filePath = "Snap2Ask/Snap2AskClient.m"
+            timestampString = "403158688.180898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "-textFieldShouldReturn:"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "-login:withPassword:withAuthenticationMode:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Snap2Ask/AskQuestionViewController.m"
-            timestampString = "401893805.200497"
+            filePath = "Snap2Ask/Snap2AskClient.m"
+            timestampString = "403158693.990817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-textFieldShouldReturn:"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "-login:withPassword:withAuthenticationMode:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,14 +41,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Snap2Ask/QuestionModel.h"
-            timestampString = "401938144.43011"
+            filePath = "Snap2Ask/Snap2AskClient.m"
+            timestampString = "403158695.36353"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "category"
-            landmarkType = "19">
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-login:withPassword:withAuthenticationMode:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -57,29 +57,93 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Snap2Ask/QuestionCollectionViewController.m"
-            timestampString = "401985495.369857"
+            filePath = "Snap2Ask/MainViewController.m"
+            timestampString = "403187308.644264"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
+            landmarkName = "-loginViewFetchedUserInfo:user:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Snap2Ask/Snap2AskClient.m"
+            timestampString = "403186724.057323"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "-loginOrRegister:withOauthId:withPassword:withFirstName:withLastName:withAuthenticationMode:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Snap2Ask/MainViewController.m"
+            timestampString = "403188503.044964"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "-loginViewFetchedUserInfo:user:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Snap2Ask/MainViewController.m"
+            timestampString = "403188504.077892"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "-loginViewFetchedUserInfo:user:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Snap2Ask/MainViewController.m"
+            timestampString = "403188649.169174"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
             endingLineNumber = "136"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            landmarkName = "-userLoginUpdated:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Snap2Ask/QuestionDetailsViewController.m"
-            timestampString = "402069316.55887"
+            filePath = "Snap2Ask/Snap2AskClient.m"
+            timestampString = "403191295.032482"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "-loginOrRegister:withOauthId:withPassword:withFirstName:withLastName:withAuthenticationMode:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

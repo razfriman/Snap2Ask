@@ -36,11 +36,16 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    _categoryLabel.text = [NSString stringWithFormat:@"Category: %@", _question.category];
+    _subCategoryLabel.text = [NSString stringWithFormat:@"Subcategory: %@", _question.subcategory];
+    _descriptionLabel.text = _question.description;
     
-    [_imageView setImageWithURL:[NSURL URLWithString:_question.imageUrl] placeholderImage:[UIImage imageNamed:@"Camera"]];
+    if (_question.answer) {
+        
+        _tutorLabel.text = @"Mark Fontenot";
+    }
+    [_imageView setImageWithURL:[NSURL URLWithString:_question.imageUrl] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,13 +58,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
-    // DEBUG //
-    return 2;
-    //////////////
-    
-    // Return the number of sections.
-    if (_question && _answer) {
+    if (_question && _question.answer) {
         return 2;
     } else if (_question) {
         return 1;
@@ -75,11 +74,7 @@
         return 3;
     } else if (section == 1) {
         
-        // DEBUG //
-        return 3;
-        ///////////
-        
-        if ([_answer.status isEqualToString:@"pending"])
+        if ([_question.answer.status isEqualToString:@"pending"])
         {
             return 3;
         } else {
@@ -89,57 +84,5 @@
     
     return 0;
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

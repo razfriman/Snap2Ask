@@ -10,9 +10,22 @@
 
 @interface UserModel : NSObject
 
-@property (strong, nonatomic) NSNumber *userId;
-@property (strong, nonatomic) NSString *username;
+extern NSInteger const AuthenticationModeCustomLogin;
+extern NSInteger const AuthenticationModeFacebookLogin;
+extern NSInteger const AuthenticationModeGoogleLogin;
+
+@property (nonatomic) NSInteger userId;
+@property (nonatomic) NSInteger balance;
+@property (nonatomic) BOOL isTutor;
+@property (nonatomic) BOOL preferredCategoryId;
+@property (strong, nonatomic) NSString *authenticationMode;
 @property (strong, nonatomic) NSString *email;
-@property BOOL isTutor;
+@property (strong, nonatomic) NSString *firstName;
+@property (strong, nonatomic) NSString *lastName;
+
+//is_admin
+//date_created
+
+-(id)initWithJSON:(NSDictionary *) JsonData;
 
 @end

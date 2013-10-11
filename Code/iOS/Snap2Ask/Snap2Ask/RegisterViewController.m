@@ -10,7 +10,8 @@
 
 @interface RegisterViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
@@ -32,6 +33,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // Register for notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerUserResponse:) name:RegisterUserNotification object:nil];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,8 +45,45 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) registerUserResponse:(NSNotification *)notification
+{
+    BOOL registerSuccess = NO;
+    
+    NSDictionary *response = notification.userInfo;
+    
+    registerSuccess = [[response objectForKey:@"success"] boolValue];
+    
+    if (!registerSuccess) {
+        
+        NSString *reason = [response objectForKey:@"reason"];
+        NSLog(@"Register error reason: %@",reason);
+        
+       [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not register account." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+        return;
+    }
+    
+    if (registerSuccess) {
+        
+        int userId = [[response objectForKey:@"user_id"] integerValue];
+        
+        // Save login information to keychain
+        KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Snap2Ask" accessGroup:nil];
+        [keychainItem setObject:_emailTextField.text forKey:(__bridge NSString*)kSecAttrAccount];
+        [keychainItem setObject:_passwordTextField.text forKey:(__bridge NSString*)kSecValueData];
+        
+        NSString * userChannel = [NSString stringWithFormat:@"user_%d", userId];
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        [currentInstallation addUniqueObject:userChannel forKey:@"channels"];
+        [currentInstallation saveInBackground];
+        
+        [self performSegueWithIdentifier:@"registerSuccessSegue" sender:self];
+    }
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if(textField == _usernameTextField) {
+    if (textField == _firstNameTextField) {
+        [_lastNameTextField becomeFirstResponder];
+    } else if (textField == _lastNameTextField) {
         [_emailTextField becomeFirstResponder];
     } else if(textField == _emailTextField) {
         [_passwordTextField becomeFirstResponder];
@@ -50,18 +92,31 @@
     } else if (textField == _confirmPasswordTextField)
     {
         [_confirmPasswordTextField resignFirstResponder];
-        
-        // REGISTER ACCOUNT HERE
-        // [self registerAccount];
+        [self registerAccount:self];
     }
+    
     return YES;
+}
+
+ - (IBAction)tapOnView:(id)sender {
+     [_firstNameTextField resignFirstResponder];
+     [_lastNameTextField resignFirstResponder];
+     [_emailTextField resignFirstResponder];
+     [_passwordTextField resignFirstResponder];
+     [_confirmPasswordTextField resignFirstResponder];
 }
 
 - (IBAction)registerAccount:(id)sender {
 
-    if ([_usernameTextField.text isEqualToString:@""]) {
+    if ([_firstNameTextField.text isEqualToString:@""]) {
         [[[UIAlertView alloc] initWithTitle:@"Error"
-                                    message:@"Please enter a username"
+                                    message:@"Please enter a first name"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    } else if ([_lastNameTextField.text isEqualToString:@""]) {
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Please enter a last name"
                                    delegate:nil
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil] show];
@@ -85,24 +140,27 @@
                           otherButtonTitles:nil] show];
     } else if (![_passwordTextField.text isEqualToString:_confirmPasswordTextField.text]) {
         [[[UIAlertView alloc] initWithTitle:@"Error"
-                                    message:@"Passwords do not match"
+                                    message:@"Password us do not match"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    } else if (![self emailValidation:_emailTextField.text]) {
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Invalid email address"
                                    delegate:nil
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil] show];
     } else {
-     
-        BOOL registerSuccess = NO;
         
-        // REGISTER ACCOUNT
-        // TODO!!!!
-        
-        // DEBUG
-        registerSuccess = YES;
-        
-        if (registerSuccess) {
-            [self performSegueWithIdentifier:@"registerSuccessSegue" sender:self];
-        }
+        // Register using the REST API
+        [[Snap2AskClient sharedClient] registerUser:[_emailTextField.text lowercaseString] withFirstName:_firstNameTextField.text withLastName:_lastNameTextField.text withPassword:_passwordTextField.text withAuthenticationMode:@"custom"];
     }
+}
+               
+- (BOOL) emailValidation: (NSString *) emailToValidate {
+    NSString *regexForEmailAddress = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailValidation = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regexForEmailAddress];
+    return [emailValidation evaluateWithObject:emailToValidate];
 }
 
 @end

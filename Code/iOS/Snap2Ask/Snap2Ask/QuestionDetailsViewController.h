@@ -14,6 +14,5 @@
 @interface QuestionDetailsViewController : UITableViewController
 
 @property (strong, nonatomic) QuestionModel *question;
-@property (strong, nonatomic) AnswerModel *answer;
 
 @end

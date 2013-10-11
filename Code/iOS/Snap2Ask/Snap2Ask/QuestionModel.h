@@ -7,13 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AnswerModel.h"
+#import "CategoryModel.h"
+#import "SubcategoryModel.h"
 
 @interface QuestionModel : NSObject
 
-@property BOOL isAnswered;
+@property (nonatomic) NSInteger questionId;
+@property (nonatomic) NSInteger studentId;
+@property (nonatomic) NSInteger timesAnswered;
+@property (nonatomic) NSInteger status;
 @property (strong, nonatomic) NSString *category;
 @property (strong, nonatomic) NSString *subcategory;
 @property (strong, nonatomic) NSString *description;
 @property (strong, nonatomic) NSString *imageThumbnailUrl;
 @property (strong, nonatomic) NSString *imageUrl;
+@property (strong, nonatomic) AnswerModel *answer;
+
+//date_created
+
+-(id)initWithJSON:(NSDictionary *) JsonData;
 @end

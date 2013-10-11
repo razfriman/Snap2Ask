@@ -10,4 +10,18 @@
 
 @implementation AnswerModel
 
+-(id)initWithJSON:(NSDictionary *) JsonData;
+{
+    self = [super init];
+    if(self) {
+        
+        
+        self.tutorId = [[JsonData objectForKey:@"tutor_id"] integerValue];
+        self.text = [JsonData objectForKey:@"text"];
+        self.status = [JsonData objectForKey:@"status"];
+    }
+    return (self);
+}
+
+
 @end

@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "KeychainItemWrapper.h"
+#import "Snap2AskClient.h"
 
 @interface RegisterViewController : UIViewController<UITextFieldDelegate>
 
 
+- (BOOL) emailValidation: (NSString *) emailToValidate;
 @end
