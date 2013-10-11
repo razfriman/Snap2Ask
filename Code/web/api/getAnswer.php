@@ -19,6 +19,7 @@
         }
         
         $questionID = $_POST['questionID2'];
+
         //select snap2ask database
         mysql_select_db("snap2ask", $dbConnection) or die ("It couldn't select snap2ask database. Error: " . mysql_error());
 

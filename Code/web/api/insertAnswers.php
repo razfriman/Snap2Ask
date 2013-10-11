@@ -25,7 +25,7 @@
 		
 	if (!mysql_query($insertAnswer))
 	{
-		die("Impossible ot insert Answer" . mysql_error());
+		die("Impossible to insert Answer" . mysql_error());
 	}
 	echo "answer succesfully upload to the database. Captured time: " . $date;	
 	mysql_close($dbConnection);
