@@ -9,8 +9,4 @@ Vipul tested paper prototypes with Dr. Luis Resendis<br>
 A LOT SILL NEEDS TO BE DONE BEFORE CUPCAKE AND TDD SUBMISSION!!!<br>
 <br>
 ROMAN 10/6: Q's by categ + func to convert selected rows->JSON
-<!-- begin htmlcommentbox.com -->
- <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
- <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
- <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=(hcb_user.PAGE || ""+window.location), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-<!-- end htmlcommentbox.com -->
+<script id="sid0010000042612669148">(function() {function async_load(){s.id="cid0010000042612669148";s.src='http://st.chatango.com/js/gz/emb.js';s.style.cssText="width:250px;height:360px;";s.async=true;s.text='{"handle":"test1243","styles":{"b":60,"f":50,"l":"999999","q":"999999","r":100,"s":1}}';var ss = document.getElementsByTagName('script');for (var i=0, l=ss.length; i < l; i++){if (ss[i].id=='sid0010000042612669148'){ss[i].id +='_';ss[i].parentNode.insertBefore(s, ss[i]);break;}}}var s=document.createElement('script');if (s.async==undefined){if (window.addEventListener) {addEventListener('load',async_load,false);}else if (window.attachEvent) {attachEvent('onload',async_load);}}else {async_load();}})();</script>
