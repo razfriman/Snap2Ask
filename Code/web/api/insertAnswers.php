@@ -2,8 +2,8 @@
 
 //eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
 //                                                                      //
-//      This script inserts an answer in the database          	        //
-//      It doesn't return anything                                      //
+//      This script inserts an answer in the database and increase the  //
+//      status of the question it is answering                          //
 //                                                                      //
 //eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee// 
 
@@ -27,7 +27,25 @@
 	{
 		die("Impossible to insert Answer" . mysql_error());
 	}
-	echo "answer succesfully upload to the database. Captured time: " . $date;	
-	mysql_close($dbConnection);
+	echo "<h3>Answer succesfully upload to the database. Captured time: " . $date . "<br/><h3>";	
+
+	//update the status of the question that was just answered
+      
+        //get number of answers to that question
+        $getNumberAnswers = "SELECT count(id) from answers where question_id = {$questionID};";
+
+        $numberAnswersResponse = mysql_query($getNumberAnswers);
+        $row = mysql_fetch_assoc($numberAnswersResponse);
+        $numberAnswers = $row['count(id)'];
+	
+      	echo "<h3>Number answers = " . $numberAnswers . "<br /><h3>";
+	$numberAnswers = $numberAnswers + 1;
+	//update the status of the question
+	$updateStatus = "UPDATE questions set status = {$numberAnswers} where id = {$questionID};";
+
+	if (!mysql_query($updateStatus))
+	{
+		die("Impossible to update the status of the question " . mysql_error()); 
+	}
 
 ?> 
