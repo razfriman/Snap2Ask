@@ -1,7 +1,7 @@
 Our Group Feedback Forum
 ===========
 
-<h1>Vipul</h1>
+<h1><img src="http://p.ebaystatic.com/aw/pics/icon/iconYellowStar_25x25.gif" height="30" width="30"/>Vipul</h1>
 <table>
 <tr>
 <td>
@@ -17,28 +17,29 @@ DID NOT READ HANDOUT! FORGOT Project_Documents folder!
 </tr>
 </table>
 
-<h1>Raymond</h1>
+<img src="http://p.ebaystatic.com/aw/pics/icon/iconYellowStar_25x25.gif" height="30" width="30"/><h1>Raymond</h1>
 <table>
-<tr>
-<td>
-<img src="http://q.ebaystatic.com/aw/pics/icon/iconPos_16x16.gif" height="16" width="16" alt="Positive feedback rating">
-Added User Profiles! Good!
-</td>
-</tr>
+
 <tr>
 <td>
 <img src="http://q.ebaystatic.com/aw/pics/icon/iconNeg_16x16.gif" height="16" width="16" alt="Negative feedback rating"> 
 DID NOT READ HANDOUT! FORGOT Project_Documents folder!
 </td>
 </tr>
+<tr>
+<td>
+<img src="http://q.ebaystatic.com/aw/pics/icon/iconPos_16x16.gif" height="16" width="16" alt="Positive feedback rating">
+Added Project_Documents folder! Good!
+</td>
+</tr>
 </table>
 
-<h1>Elena</h1>
+<h1><img src="http://p.ebaystatic.com/aw/pics/icon/iconYellowStar_25x25.gif" height="30" width="30"/>Elena</h1>
 <table>
 <tr>
 <td>
 <img src="http://q.ebaystatic.com/aw/pics/icon/iconPos_16x16.gif" height="16" width="16" alt="Positive feedback rating">
-Added User Profiles! Good!
+Added Use case diagram! Good!
 </td>
 </tr>
 <tr>
@@ -64,12 +65,12 @@ DID NOT READ HANDOUT! FORGOT Project_Documents folder!
 </tr>
 </table>
 
-<h1>Raz</h1>
+<h1><img src="http://p.ebaystatic.com/aw/pics/icon/iconYellowStar_25x25.gif" height="30" width="30"/>Raz</h1>
 <table>
 <tr>
 <td>
 <img src="http://q.ebaystatic.com/aw/pics/icon/iconPos_16x16.gif" height="16" width="16" alt="Positive feedback rating">
-Added User Profiles! Good!
+Added Object/Actions Matrix! Good!
 </td>
 </tr>
 <tr>
