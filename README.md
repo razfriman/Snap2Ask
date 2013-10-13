@@ -7,5 +7,5 @@ Our Team
 Raz Friman  
 Raymond Martin  
 Elena Villamil  
-Roman Stoylarov  
+Roman Stolyarov 
 Vipul Kohli  
