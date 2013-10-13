@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;
+charset=ISO-8859-1">
+<title>Snap-2-Ask Tutor Sign-up</title>
+</head>
+<body>
+include header.php
+<h2>Enter your information and get paid answering questions in no
+time!</h2>
+<h3>Facebook</h3>
+<h3>Google</h3>
+<form id="registerForm" method="POST" action="index.php"> <input
+checked="true" name="mailing list" id="mailinglist"
+value="mailing" type="checkbox"> <label for="mailinglist">Join
+our mailing list </label> <input name="join_mailing_list"
+id="join_mailing_list_yes" value="true" type="radio"> <label
+for="join_mailing_list_yes">Yes</label> <input
+name="join_mailing_list" id="join_mailing_list_no" value="false"
+type="radio"> <label for="join_mailing_list_no">No</label> <input
+name="first_name" placeholder="First Name" title="Please enter
+your first name" required="" autocomplete="on" autofocus type="text"> <input
+name="last_name" placeholder="Last Name" title="Please enter
+your last name" required="" autocomplete="on" autofocus type="text"> <input
+name="email" placeholder="Email Address" required=""
+autocomplete="on" autofocus title="Please enter a valid email address"
+type="email"> <input name="password" placeholder="Password"
+title="Password must be at least 8 characters" required=""
+autocomplete="on" autofocus type="password">
+<!-- TODO: Use JS to strip all non-digits and verify that there are 10 digits present -->
+<input name="telephone" placeholder="Telephone Number"
+title="Please enter a valid 10-digit phone number" required=""
+autocomplete="on" autofocus type="telephone"> <input name="address"
+placeholder="Address" required="" autocomplete="on" autofocus type="text">
+<input name="city" placeholder="City" required=""
+autocomplete="on" autofocus type="text">
+<!-- <label for="state">State:</label> -->
+<select id="state" name="state" required="">
+<option value="" disabled="disabled" selected="selected">Select
+Your State</option>
+<option value="AL">Alabama</option>
+<option value="AK">Alaska</option>
+<option value="AZ">Arizona</option>
+<option value="AR">Arkansas</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="CT">Connecticut</option>
+<option value="DE">Delaware</option>
+<option value="DC">District of Columbia</option>
+<option value="FL">Florida</option>
+<option value="GA">Georgia</option>
+<option value="HI">Hawaii</option>
+<option value="ID">Idaho</option>
+<option value="IL">Illinois</option>
+<option value="IN">Indiana</option>
+<option value="IA">Iowa</option>
+<option value="KS">Kansas</option>
+<option value="KY">Kentucky</option>
+<option value="LA">Louisiana</option>
+<option value="ME">Maine</option>
+<option value="MD">Maryland</option>
+<option value="MA">Massachusetts</option>
+<option value="MI">Michigan</option>
+<option value="MN">Minnesota</option>
+<option value="MS">Mississippi</option>
+<option value="MO">Missouri</option>
+<option value="MT">Montana</option>
+<option value="NE">Nebraska</option>
+<option value="NV">Nevada</option>
+<option value="NH">New Hampshire</option>
+<option value="NJ">New Jersey</option>
+<option value="NM">New Mexico</option>
+<option value="NY">New York</option>
+<option value="NC">North Carolina</option>
+<option value="ND">North Dakota</option>
+<option value="OH">Ohio</option>
+<option value="OK">Oklahoma</option>
+<option value="OR">Oregon</option>
+<option value="PA">Pennsylvania</option>
+<option value="RI">Rhode Island</option>
+<option value="SC">South Carolina</option>
+<option value="SD">South Dakota</option>
+<option value="TN">Tennessee</option>
+<option value="TX">Texas</option>
+<option value="UT">Utah</option>
+<option value="VT">Vermont</option>
+<option value="VA">Virginia</option>
+<option value="WA">Washington</option>
+<option value="WV">West Virginia</option>
+<option value="WI">Wisconsin</option>
+<option value="WY">Wyoming</option>
+</select>
+<input pattern="\d*" name="zip_code" placeholder="Zip Code"
+title="Please enter a valid zip code" required=""
+autocomplete="on" autofocus type="text"> <input name="submit" value="Sign
+Up" type="submit"> </form>
+<footer>include footer.php here </footer>
+</body>
+</html>
+
