@@ -147,7 +147,7 @@ Messy table of contents!-Vipul
 <!--RAZ-->
 <h1><img src="http://p.ebaystatic.com/aw/pics/icon/iconYellowStar_25x25.gif" height="30" width="30"/>Raz</h1>
 <img src="http://q.ebaystatic.com/aw/pics/icon/iconPos_16x16.gif" height="16" width="16" alt="Positive feedback rating"> 6
-<img src="http://q.ebaystatic.com/aw/pics/icon/iconNeu_16x16.gif" height="16" width="16" alt="Neutral feedback rating"> 0
+<img src="http://q.ebaystatic.com/aw/pics/icon/iconNeu_16x16.gif" height="16" width="16" alt="Neutral feedback rating"> 1
 <img src="http://q.ebaystatic.com/aw/pics/icon/iconNeg_16x16.gif" height="16" width="16" alt="Negative feedback rating"> 2
 <table>
 <tr>
@@ -196,6 +196,12 @@ Good Snap2Ask database structure! -Vipul
 <td>
 <img src="http://q.ebaystatic.com/aw/pics/icon/iconPos_16x16.gif" height="16" width="16" alt="Positive feedback rating">
 Good looking GitHub Gravatar! You inspired me to make my own!-Vipul
+</td>
+</tr>
+<tr>
+<td>
+<img src="http://q.ebaystatic.com/aw/pics/icon/iconNeu_16x16.gif" height="16" width="16" alt="Neutral feedback rating">
+Should have used checkbox on instead of radio buttom for Cupcakes sign up:&lt;input checked="true" name="mailing list" id="mailinglist" value="mailing" type="checkbox"&gt; &lt;label for="mailinglist"&gt;Join our mailing list &lt;/label&gt;-Vipul
 </td>
 </tr>
 </table>
