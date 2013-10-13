@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="content-type" content="text/html;
-charset=ISO-8859-1">
-<title>Snap-2-Ask Tutor Sign-up</title>
+	<title>Snap-2-Ask Tutor Sign-up</title>
 </head>
 <body>
+
 include header.php
 <h2>Enter your information and get paid answering questions in no
 time!</h2>
@@ -13,34 +13,25 @@ time!</h2>
 <form id="registerForm" method="POST" action="index.php"> <input
 checked="true" name="mailing list" id="mailinglist"
 value="mailing" type="checkbox"> <label for="mailinglist">Join
-our mailing list </label> <input name="join_mailing_list"
-id="join_mailing_list_yes" value="true" type="radio"> <label
-for="join_mailing_list_yes">Yes</label> <input
-name="join_mailing_list" id="join_mailing_list_no" value="false"
-type="radio"> <label for="join_mailing_list_no">No</label> <input
+our mailing list </label> <input
 name="first_name" placeholder="First Name" title="Please enter
-your first name" required="" autocomplete="on" autofocus type="text"> <input
+your first name" required autocomplete="on" autofocus type="text"> <input
 name="last_name" placeholder="Last Name" title="Please enter
-your last name" required="" autocomplete="on" autofocus type="text"> <input
-name="email" placeholder="Email Address" required=""
+your last name" required autocomplete="on" autofocus type="text"> <input
+name="email" placeholder="Email Address" required
 autocomplete="on" autofocus title="Please enter a valid email address"
 type="email"> <input name="password" placeholder="Password"
-title="Password must be at least 8 characters" required=""
+title="Password must be at least 8 characters" required
 autocomplete="on" autofocus type="password">
 <!-- TODO: Use JS to strip all non-digits and verify that there are 10 digits present -->
 <input name="telephone" placeholder="Telephone Number"
-title="Please enter a valid 10-digit phone number" required=""
+title="Please enter a valid 10-digit phone number" required
 autocomplete="on" autofocus type="telephone"> <input name="address"
-placeholder="Address" required="" autocomplete="on" autofocus type="text">
-<input name="city" placeholder="City" required=""
+placeholder="Address" required autocomplete="on" autofocus type="text">
+<input name="city" placeholder="City" required
 autocomplete="on" autofocus type="text">
-<select id="subjects" multiple = "yes" name="subjects" required>
-<option value="" disabled="disabled" selected="selected">Select
-Your Preferred Subjects</option>
-<option value="AL">Alabama</option>
-</select>
 <!-- <label for="state">State:</label> -->
-<select id="state" name="state" required="">
+<select id="state" name="state" required>
 <option value="" disabled="disabled" selected="selected">Select
 Your State</option>
 <option value="AL">Alabama</option>
@@ -96,10 +87,15 @@ Your State</option>
 <option value="WY">Wyoming</option>
 </select>
 <input pattern="\d*" name="zip_code" placeholder="Zip Code"
-title="Please enter a valid zip code" required=""
-autocomplete="on" autofocus type="text"> <input name="submit" value="Sign
-Up" type="submit"> </form>
+title="Please enter a valid zip code" required
+autocomplete="on" autofocus type="text"> 
+Preferred Subjects:
+<input name="preferred" id="Math" value="true" type="checkbox"> <label for="Math">Math</label>
+<input name="preferred" id="Math" value="true" type="checkbox"> <label for="Science">Science</label>
+<input name="preferred" id="Math" value="true" type="checkbox"> <label for="Social Studies">Social Studies</label>
+<input name="submit" value="Sign Up" type="submit"> 
+<input name="reset" type="reset">    
+</form>
 <footer>include footer.php here </footer>
 </body>
 </html>
-
