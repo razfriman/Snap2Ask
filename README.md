@@ -2,7 +2,7 @@ Our Group Feedback Forum
 ===========
 <!--VIPUL-->
 <h1><img src="http://p.ebaystatic.com/aw/pics/icon/iconYellowStar_25x25.gif" height="30" width="30"/>Vipul</h1>
-<img src="http://q.ebaystatic.com/aw/pics/icon/iconPos_16x16.gif" height="16" width="16" alt="Positive feedback rating"> 3
+<img src="http://q.ebaystatic.com/aw/pics/icon/iconPos_16x16.gif" height="16" width="16" alt="Positive feedback rating"> 4
 <img src="http://q.ebaystatic.com/aw/pics/icon/iconNeu_16x16.gif" height="16" width="16" alt="Neutral feedback rating"> 1
 <img src="http://q.ebaystatic.com/aw/pics/icon/iconNeg_16x16.gif" height="16" width="16" alt="Negative feedback rating"> 2
 
@@ -43,6 +43,12 @@ Provided CustomCupcakes form fields and fieldsets! -Vipul
 <td>
 <img src="http://q.ebaystatic.com/aw/pics/icon/iconPos_16x16.gif" height="16" width="16" alt="Positive feedback rating">
 Had a fun time playing around with PHP! -Vipul
+</td>
+</tr>
+<tr>
+<td>
+<img src="http://q.ebaystatic.com/aw/pics/icon/iconPos_16x16.gif" height="16" width="16" alt="Positive feedback rating">
+Cute Gravatar! -Vipul
 </td>
 </tr>
 </table>
