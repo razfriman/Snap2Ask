@@ -1,1 +1,11 @@
-<img src="http://www.nutanindianstyle.com/adpics/525a0f60647b8f29eb2adb9c2.png" alt="Snap2Ask" />
+Snap-2-Ask
+================================
+
+Our Team
+-------------------------
+
+Raz Friman  
+Raymond Martin  
+Elena Villamil  
+Roman Stoylarov  
+Vipul Kohli  
