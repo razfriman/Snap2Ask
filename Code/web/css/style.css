@@ -1,0 +1,79 @@
+/* CSS styling for Snap2Ask website
+
+Color Scheme:
+#524656 - Pastel Purple
+#cf4747 - Pastel Red
+#ea7a58 - Light Red Orange
+#e4dccb - Off White
+#a6c4bc - Light Blue
+
+*/
+
+
+
+/* Index.php Styling ---------------------------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+	padding: 0;
+}
+
+html{
+	background-image: url("../res/geometry.png");	
+}
+
+body {
+  	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+	border: solid #a6c4bc 5px;
+	margin-left: 10%;
+	margin-right: 10%;
+	background-color: white;
+	color: #524656;
+	text-align:center;
+}
+
+img#logo{
+	display:block;
+	width:70%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#slogan {
+	margin: 1em;
+}
+
+
+input{
+	display:block;
+	width:20em;
+	border-radius: 5px;
+	margin: 1em auto;
+	height: 2em;
+	font-size: 12px;
+	
+}
+
+input[type="text"],input[type="password"],input[type="email"] {
+		border: 2px solid #a6c4bc;
+}
+
+input.button{
+	width:5em;
+	background-color: #a6c4bc;
+	border: none;
+}
+
+input.button:hover {
+	background-color: #7db1a3; 
+}
+
+.divider {
+	border-top: 2px solid #a6c4bc;
+	width: 70%;
+	margin: 1em auto;	
+}
+
+footer {
+	margin: 2em auto;
+}
