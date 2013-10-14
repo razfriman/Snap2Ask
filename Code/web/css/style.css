@@ -12,6 +12,11 @@ Color Scheme:
 
 
 /* Index.php Styling ---------------------------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+	padding: 0;
+}
+
 html{
 	background-image: url("../res/geometry.png");	
 }
@@ -34,21 +39,41 @@ img#logo{
 	margin-right:auto;
 }
 
-#loginContainer, #registerContainer{
-	display:block;
-	width: 60%;
-	margin-left:auto;
-	margin-right:auto;
+#slogan {
+	margin: 1em;
 }
+
 
 input{
 	display:block;
 	width:20em;
-	margin-left:auto;
-	margin-right:auto;
+	border-radius: 5px;
+	margin: 1em auto;
+	height: 2em;
+	font-size: 12px;
+	
+}
+
+input[type="text"],input[type="password"],input[type="email"] {
+		border: 2px solid #a6c4bc;
 }
 
 input.button{
 	width:5em;
+	background-color: #a6c4bc;
+	border: none;
 }
 
+input.button:hover {
+	background-color: #7db1a3; 
+}
+
+.divider {
+	border-top: 2px solid #a6c4bc;
+	width: 70%;
+	margin: 1em auto;	
+}
+
+footer {
+	margin: 2em auto;
+}
