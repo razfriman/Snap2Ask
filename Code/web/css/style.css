@@ -24,6 +24,7 @@ body {
 	margin-right: 10%;
 	background-color: white;
 	color: #524656;
+	text-align:center;
 }
 
 img#logo{
@@ -32,3 +33,22 @@ img#logo{
 	margin-left:auto;
 	margin-right:auto;
 }
+
+#loginContainer, #registerContainer{
+	display:block;
+	width: 60%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+input{
+	display:block;
+	width:20em;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+input.button{
+	width:5em;
+}
+

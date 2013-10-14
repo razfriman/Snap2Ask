@@ -30,7 +30,7 @@
 			<form id="loginForm" method="POST" action="index.php">
 				<input type="email" name="email" placeholder="Email Address" title="Please enter a valid email" required autocomplete="on" />
 				<input type="password" name="password" placeholder="Password" title="Password must be at least 8 characters" required autocomplete="on" />
-				<input type="submit" name="submit" value="Log in" />
+				<input  class="button" type="submit" name="submit" value="Log in" />
 			</form>
 		</div>
 
@@ -61,7 +61,7 @@
 			<input type="password" name="password" placeholder="Password" title="Password must be at least 8 characters" required autocomplete="on" />
 			
 			
-			<input type="submit" name="submit" value="Sign Up" />
+			<input class="button" type="submit" name="submit" value="Sign Up" />
 			
 		</form>
 	</div>
