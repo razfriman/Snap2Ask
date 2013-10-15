@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tutorLabel;
 
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *imageTapRecognizer;
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 
 @end
@@ -46,6 +47,7 @@
         _tutorLabel.text = @"Mark Fontenot";
     }
     [_imageView setImageWithURL:[NSURL URLWithString:_question.imageUrl] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,6 +85,20 @@
     }
     
     return 0;
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"imageDetailsSegue"]) {
+        
+        ImageDetailsViewController *detailViewController = [segue destinationViewController];
+        
+        detailViewController.imageUrl = _question.imageUrl;
+    }
+}
+
+- (IBAction)imageDetailsTap:(id)sender {
+    [self performSegueWithIdentifier:@"imageDetailsSegue" sender:self];
 }
 
 @end

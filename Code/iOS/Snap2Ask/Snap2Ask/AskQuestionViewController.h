@@ -7,20 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 #import "Snap2AskClient.h"
 #import "UserInfo.h"
-#import "MBProgressHUD.h"
 
-@interface AskQuestionViewController : UITableViewController<UINavigationControllerDelegate, UIActionSheetDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
+
+@interface AskQuestionViewController : UITableViewController<UINavigationControllerDelegate, UIActionSheetDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) UIImagePickerController* mediaPicker;
 @property (strong, nonatomic) NSDictionary* categoryData;
 
-@property (strong, nonatomic) UIPickerView *categoryPicker;
-@property (strong, nonatomic) UIPickerView *subcategoryPicker;
+- (IBAction)unwindToAskQuestion:(UIStoryboardSegue *)unwindSegue;
 
-- (void) updateInput;
-- (void) finishSubmitQuestion;
+- (void) updateSelectedCategory:(CategoryModel *)category withSubcategory:(SubcategoryModel *)subcategory;
 
 - (void) uploadQuestionForUser:(NSInteger)userId withCategory:(NSInteger)categoryId withSubcategory:(NSInteger)subcategoryId withDescription:(NSString *)description withImage:(NSData *)imageData;
 

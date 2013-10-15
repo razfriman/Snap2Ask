@@ -10,6 +10,7 @@
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "QuestionModel.h"
 #import "AnswerModel.h"
+#import "ImageDetailsViewController.h"
 
 @interface QuestionDetailsViewController : UITableViewController
 

@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import <GooglePlus/GooglePlus.h>
+#import "MBProgressHUD.h"
 
 static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnmppmb3ea0v.apps.googleusercontent.com";
 
@@ -20,6 +21,8 @@ static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnm
 @property (weak, nonatomic) IBOutlet FBLoginView *facebookSignInButton;
 @property (weak, nonatomic) IBOutlet GPPSignInButton *googleSignInButton;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
+
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 @end
 
@@ -71,6 +74,12 @@ static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnm
     KeychainItemWrapper *keychainAuthenticationMode = [[KeychainItemWrapper alloc] initWithIdentifier:@"Snap2Ask_AuthenticationMode" accessGroup:nil];
     NSString *authenticationMode = [keychainAuthenticationMode objectForKey:(__bridge NSString*)kSecAttrAccount];
     
+    if (![authenticationMode isEqualToString:@""]) {
+        _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        _hud.mode = MBProgressHUDModeIndeterminate;
+        _hud.labelText = @"Logging In";
+        _hud.removeFromSuperViewOnHide = YES;
+    }
     
     // Sign in automatically
     if ([authenticationMode isEqualToString:@"custom"]) {
@@ -97,6 +106,12 @@ static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnm
 
 - (void) userLoginUpdated:(NSNotification *)notification
 {
+    
+    // Hide the loggingin progress indiciator
+    if (_hud) {
+        [_hud hide:YES];
+    }
+    
     NSDictionary *response = notification.userInfo;
 
     BOOL success = [[response objectForKey:@"success"] boolValue];
@@ -192,6 +207,13 @@ static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnm
         return;
     } else {
 
+        if (!_hud) {
+            _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            _hud.mode = MBProgressHUDModeIndeterminate;
+            _hud.labelText = @"Logging In";
+            _hud.removeFromSuperViewOnHide = YES;
+        }
+        
         [[Snap2AskClient sharedClient] login:[_emailTextField.text lowercaseString] withPassword:_passwordTextField.text withAuthenticationMode:@"custom"];
     }
 }
@@ -324,7 +346,7 @@ static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnm
 
 - (IBAction)unwindToMain:(UIStoryboardSegue *)unwindSegue
 {
-
+    
 }
 
 

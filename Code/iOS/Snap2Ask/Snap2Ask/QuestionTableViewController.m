@@ -30,15 +30,14 @@
     [super viewDidLoad];
     
     self.questions = [@[] mutableCopy];
-    
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
 
     // Register refresh control's selector
     [self.refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
     
     // Register for notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionsUpdated:) name:QuestionsNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newQuestionSubmitted:) name:NewQuestionSubmittedNotification object:nil];
     
     // Load Questions
     int userId = [[UserInfo sharedClient] userModel].userId;
@@ -61,6 +60,15 @@
     self.questions = [notification.userInfo objectForKey:@"questions"];
     [self.tableView reloadData];
 }
+
+- (void) newQuestionSubmitted:(NSNotification *)notification
+{
+    QuestionModel *question = [[QuestionModel alloc] initWithJSON:notification.userInfo];
+    [self.questions addObject:question];
+    
+    [self.tableView reloadData];
+}
+
 
 - (IBAction)updateSegment:(id)sender {
     [self.tableView reloadData];
@@ -110,6 +118,12 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 115;
+}
+
+
 -(NSArray *) getFilteredQuestions {
     if(_segmentControl.selectedSegmentIndex == 0) {
         
@@ -130,36 +144,6 @@
         return @[];
     }
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 115;
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

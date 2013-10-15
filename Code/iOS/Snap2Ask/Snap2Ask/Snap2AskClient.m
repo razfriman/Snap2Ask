@@ -9,6 +9,7 @@
 #import "Snap2AskClient.h"
 
 NSString *const Snap2AskServerBaseString = @"http://54.200.111.247";
+NSString *const Snap2AskApiPath = @"/git/snap2ask/Code/web/api/index.php";
 
 NSString *const QuestionsNotification = @"QuestionsNotification";
 NSString *const CategoriesNotification = @"CategoriesNotification";
@@ -16,6 +17,7 @@ NSString *const LoadUserInfoNotification = @"LoadUserInfoNotification";
 NSString *const RegisterUserNotification = @"RegisterUserNotification";
 NSString *const LoginUserNotification = @"LoginUserNotification";
 NSString *const UploadQuestionImageNotification = @"UploadQuestionImageNotification";
+NSString *const NewQuestionSubmittedNotification = @"NewQuestionSubmittedNotification";
 
 @implementation Snap2AskClient
 
@@ -50,11 +52,14 @@ NSString *const UploadQuestionImageNotification = @"UploadQuestionImageNotificat
     
 }
 
+// SHOW RESPONSE AS STRING
+// NSString *responseString = [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding];
+// NSLog(@"%@", responseString);
+
 - (void) loadCategories
 {
     
-    
-    [_manager GET:@"/snap2ask/api/index.php/categories" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_manager GET:[NSString stringWithFormat:@"%@/categories", Snap2AskApiPath] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSArray *dataArray = (NSArray*) responseObject;
         
@@ -72,7 +77,6 @@ NSString *const UploadQuestionImageNotification = @"UploadQuestionImageNotificat
         
         
         [[NSNotificationCenter defaultCenter] postNotificationName:CategoriesNotification object:self userInfo:categoryDict];
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -81,7 +85,7 @@ NSString *const UploadQuestionImageNotification = @"UploadQuestionImageNotificat
 - (void) loadUserInfo:(int)userId
 {
     
-    [_manager GET:[NSString stringWithFormat:@"/snap2ask/api/index.php/users/%d", userId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_manager GET:[NSString stringWithFormat:@"%@/users/%d", Snap2AskApiPath, userId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *dataDict = (NSDictionary *) responseObject;
         
@@ -105,7 +109,7 @@ NSString *const UploadQuestionImageNotification = @"UploadQuestionImageNotificat
      
      
      
-     [_manager GET:[NSString stringWithFormat:@"/snap2ask/api/index.php/users/%d/questions", userId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+     [_manager GET:[NSString stringWithFormat:@"%@/users/%d/questions", Snap2AskApiPath, userId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
          
          NSArray *dataArray = (NSArray*) responseObject;
          
@@ -141,7 +145,7 @@ NSString *const UploadQuestionImageNotification = @"UploadQuestionImageNotificat
                                    };
 
      
-     [_manager POST:@"/snap2ask/api/index.php/login" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+     [_manager POST:[NSString stringWithFormat:@"%@/login", Snap2AskApiPath] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
          NSDictionary *returnedData = (NSDictionary *) responseObject;
          
@@ -166,7 +170,7 @@ NSString *const UploadQuestionImageNotification = @"UploadQuestionImageNotificat
                                    };
  
      
-     [_manager POST:@"/snap2ask/api/index.php/users" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+     [_manager POST:[NSString stringWithFormat:@"%@/users", Snap2AskApiPath] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
          
          NSDictionary *returnedData = (NSDictionary *) responseObject;
          
@@ -191,7 +195,7 @@ NSString *const UploadQuestionImageNotification = @"UploadQuestionImageNotificat
                                   };
     
     
-    [_manager POST:@"/snap2ask/api/index.php/users" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_manager POST:[NSString stringWithFormat:@"%@/users", Snap2AskApiPath] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *returnedData = (NSDictionary *) responseObject;
         

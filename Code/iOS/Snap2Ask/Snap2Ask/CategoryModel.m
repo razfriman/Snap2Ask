@@ -16,7 +16,7 @@
     if(self) {
 
         self.name = [JsonData objectForKey:@"name"];
-        self.value = [[JsonData objectForKey:@"id"] integerValue];
+        self.categoryId = [[JsonData objectForKey:@"id"] integerValue];
 
         self.subcategories = [[NSMutableDictionary alloc] init];
         

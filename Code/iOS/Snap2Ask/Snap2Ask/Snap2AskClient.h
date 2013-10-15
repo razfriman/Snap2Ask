@@ -19,12 +19,14 @@
 
 + (Snap2AskClient *)sharedClient;
 
+extern NSString *const Snap2AskApiPath;
 extern NSString *const QuestionsNotification;
 extern NSString *const CategoriesNotification;
 extern NSString *const LoadUserInfoNotification;
 extern NSString *const RegisterUserNotification;
 extern NSString *const LoginUserNotification;
 extern NSString *const UploadQuestionImageNotification;
+extern NSString *const NewQuestionSubmittedNotification;
 
 @property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
 
