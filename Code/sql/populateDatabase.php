@@ -20,9 +20,9 @@ if (!$dbConnection)
 mysql_select_db("snap2ask", $dbConnection) or die("It couldn't select the snap2ask database. Error: " . msql_error());
 
 //Calling the functions to populate each table
-//insertCategories ($dbConnection, "categories.csv");
-//insertSubcategories ($dbConnection, "subcategories.csv");
-insertUsers($dbConnection, "users.csv");
+//insertCategories ($dbConnection, "inputFiles/categories.csv");
+//insertSubcategories ($dbConnection, "inputFiles/subcategories.csv");
+insertUsers($dbConnection, "inputFiles/users.csv");
 
 
 //eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
