@@ -78,11 +78,6 @@
 			</form>
 		</div>
 	</div>
-
-
-	<footer>
-	<?php include ("footer.php"); ?>
-	</footer>
-
+<?php include ("footer.php"); ?>
 </body>
 </html>
