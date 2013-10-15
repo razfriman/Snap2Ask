@@ -108,19 +108,20 @@ header{
 	clear:left;
 	list-style-type: none;
 	float:left;
-	margin-left: 7em;
+	margin-left: 4.7em;
 }
 
 #browseNav li {
 	float:left;
 	height: 2em;
+	display:inline;
 	line-height: 2em;
-	width: 6em;
+	width: 10em;
 	border: 5px solid #a6c4bc;
-	margin: 0 .2em;
+	margin: .2em -.2em;
 	margin-bottom: -5px;
-	
 }
+
 #browseNav li:hover, #browseNav li.selected {
 	background-color: gray;
 }
