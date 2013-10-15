@@ -81,7 +81,7 @@
 
 
 	<footer>
-	Snap-2-Ask
+	<?php include ("footer.php"); ?>
 	</footer>
 
 </body>
