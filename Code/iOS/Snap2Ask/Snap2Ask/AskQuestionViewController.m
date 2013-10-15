@@ -8,20 +8,21 @@
 
 #import "AskQuestionViewController.h"
 #import "UIProgressView+AFNetworking.h"
-
+#import "QuestionTableViewController.h"
+#import "SelectCategoryViewController.h"
 
 @interface AskQuestionViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imagePreview;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionText;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *subcategoryLabel;
 @property (weak, nonatomic) IBOutlet UIButton *askButton;
+
+@property (strong, nonatomic) CategoryModel *selectedCategory;
+@property (strong, nonatomic) SubcategoryModel *selectedSubcategory;
 
 @property (nonatomic) BOOL hasSelectedImage;
 
-@property (weak, nonatomic) CategoryModel *selectedCategory;
-@property (weak, nonatomic) SubcategoryModel *selectedSubcategory;
 @property (weak, nonatomic) MBProgressHUD *hud;
 
 @end
@@ -37,10 +38,6 @@
     return self;
 }
 
-// TODO:
-// REDO DISPLAYING THE UIPICKER VIEW!!!
-// USE: ACTIONSHEET?
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -50,18 +47,7 @@
     _mediaPicker = [[UIImagePickerController alloc] init];
     _mediaPicker.delegate = self;
     _mediaPicker.allowsEditing = YES;
-    
-    // Init the pickers
-    //self.categoryPicker = [[UIPickerView alloc] initWithFrame:CGRectZero];
-    //self.categoryPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0,40, 320, 216)];
-    //self.subcategoryPicker = [[UIPickerView alloc] initWithFrame:CGRectZero];
-    
-    // Set delegates and datasource to self
-    //self.categoryPicker.delegate = self;
-    //self.categoryPicker.dataSource = self;
-    //self.subcategoryPicker.delegate = self;
-    //self.subcategoryPicker.dataSource = self;
-    
+        
     // Init the category data dictionary
     self.categoryData = [[NSDictionary alloc] init];
     
@@ -82,14 +68,31 @@
 {
     // Update the data
     self.categoryData = notification.userInfo;
-
-    // Refresh the pickers
-    [self.categoryPicker reloadAllComponents];
-    [self.subcategoryPicker reloadAllComponents];
 }
 
+// After a question has been uploaded
 - (void) questionUploaded:(NSNotification *)notification
 {
+    NSDictionary *responseDict = notification.userInfo;
+    
+    
+    if (_hud) {
+        // Hide the progress HUD
+        [_hud hide:YES];
+    }
+    
+    if (![[responseDict objectForKey:@"success"] boolValue]) {
+        
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Error"
+                                  message:@"Something went wrong while uploading your question."
+                                  delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
+    
     UIAlertView *alertView = [[UIAlertView alloc]
                               initWithTitle:@"Success"
                               message:@"Your question has been posted."
@@ -98,7 +101,30 @@
                               otherButtonTitles:nil];
     [alertView show];
     
-    [self finishSubmitQuestion];
+    // Add the image to the "My Questions" tab
+    NSDictionary *questionData = @{@"id": @([[responseDict objectForKey:@"question_id"] integerValue]),
+                                   @"status": @0,
+                                   @"category": _selectedCategory.name,
+                                   @"subcategory": _selectedSubcategory.name,
+                                   @"description": _descriptionText.text,
+                                   @"image_url": [responseDict objectForKey:@"image_url"],
+                                   @"image_thumbnail_url": [responseDict objectForKey:@"image_thumbnail_url"]
+                                   };
+    [[NSNotificationCenter defaultCenter] postNotificationName:NewQuestionSubmittedNotification object:self userInfo:questionData];
+    
+    
+    // Move to the "My Questions" tab
+    [self.tabBarController setSelectedIndex:0];
+    
+    // Clear the current data
+    _imagePreview.image = [UIImage imageNamed:@"Placeholder"];
+    _descriptionText.text = @"";
+    _categoryLabel.text = @"Select a category";
+    _hasSelectedImage = NO;
+    _selectedCategory = nil;
+    _selectedSubcategory = nil;
+    
+
 }
 
 
@@ -107,55 +133,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - UIPickerView Data
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    if (pickerView == _categoryPicker) {
-        return 1;
-    } else {
-        return 1;
-    }
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-    if (pickerView == _categoryPicker) {
-        return _categoryData.count;
-    } else {
-        return [[_categoryData objectForKey:_categoryLabel.text] count];
-    }
-}
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    if (pickerView == _categoryPicker) {
-        NSString *key = (NSString *) [[_categoryData allKeys] objectAtIndex:row];
-        return key;
-    } else {
-        NSMutableDictionary *subcategories = (NSMutableDictionary *) [_categoryData objectForKey:_categoryLabel.text];
-
-        NSString *key = (NSString *) [[subcategories allKeys] objectAtIndex:row];
-        return  key;
-    }
-}
-
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    if(pickerView == _categoryPicker) {
-        NSString *key = (NSString *) [[_categoryData allKeys] objectAtIndex:row];
-        _categoryLabel.text = key;
-    } else if (pickerView == _subcategoryPicker) {
-        
-        // TODO: Store this as a variable in AskQuestionViewController to avoid reloading every time the subcategory changes
-        // TODO: Update this every time the category changes
-        NSMutableDictionary *subcategories = (NSMutableDictionary *) [_categoryData objectForKey:_categoryLabel.text];
-        
-        NSString *key = (NSString *) [[subcategories allKeys] objectAtIndex:row];
-        _subcategoryLabel.text = key;
-    }
-}
-*/
 
 #pragma mark - Table view data source
 
@@ -166,7 +143,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 4;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -174,14 +151,7 @@
     if (indexPath.row == 2) {
         // Select Category
 
-        // TODO: Show UIPickerView in UIActionSheet
-        
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
-    } else if (indexPath.row == 3) {
-        // Select Subcategory
-        
-        // TODO: Show UIPickerView in UIActionSheet
+        // TODO: Show PUSH segue to select category
         
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
@@ -206,7 +176,7 @@
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take photo", @"Choose Existing", nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose Existing", nil];
         
         [actionSheet showInView:self.view];
     }
@@ -240,7 +210,6 @@
     _imagePreview.image = img;
     
     _hasSelectedImage = YES;
-    [self updateInput];
     
     [self dismissViewControllerAnimated:YES completion:^{ }];
 }
@@ -250,53 +219,45 @@
     [self dismissViewControllerAnimated:YES completion:^{ }];
 }
 
-- (void) updateInput
+- (void) updateSelectedCategory:(CategoryModel *)category withSubcategory:(SubcategoryModel *)subcategory
 {
+    // Set the selected categories
+    _selectedCategory = category;
+    _selectedSubcategory = subcategory;
     
-    // TODO: use this when categories work correctly
-    //BOOL didInputFields = [_descriptionText.text isEqualToString:@""] && _selectedCategory && _selectedSubcategory;
-    
-    // FOR DEBUGGING
-    BOOL didInputFields = [_descriptionText.text isEqualToString:@""];
-    
-    [_askButton setEnabled:(_hasSelectedImage && didInputFields)];
-}
-
-- (void) finishSubmitQuestion {
-    
-    // Add the image to the "My Questions" tab
-    // TODO via Notification ::OR:: refresh the controller automatically
-    
-    // Move to the "My Questions" tab
-    [self.tabBarController setSelectedIndex:0];
-    
-    // Clear the current data
-    _imagePreview.image = [UIImage imageNamed:@"Placeholder"];
-    _descriptionText.text = @"";
-    _categoryLabel.text = @"Select a category";
-    _subcategoryLabel.text = @"Select a subcategory";
-    _hasSelectedImage = NO;
-    
-    if (_hud) {
-        // Hide the progress HUD
-        [_hud hide:YES];
-    }
-    
+    // Update the label
+    self.categoryLabel.text = [NSString stringWithFormat:@"%@ - %@", category.name, subcategory.name];
 }
 
 - (IBAction)submitQuestion:(id)sender {
     
-    
-    // TODO: CHECK DESC/CATEGORY/SUBCATEGORY FIRST!!!
-    
 
+    if (!_hasSelectedImage) {
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Please select an image"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+        return;
+    }
     
+    if (_selectedCategory == nil || _selectedSubcategory == nil) {
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Please select a category/subcategory"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+        return;
+    }
     
+    // Create the image data from the UIImage
     NSData *imageData = UIImageJPEGRepresentation(_imagePreview.image, 90);
     
 
-    [self uploadQuestionForUser:[UserInfo sharedClient].userModel.userId withCategory:_selectedCategory.categoryId withSubcategory:_selectedSubcategory.subcategoryId withDescription:_descriptionText.text withImage:imageData];
+    // Upload the image
+    //[self uploadQuestionForUser:[UserInfo sharedClient].userModel.userId withCategory:_selectedCategory.categoryId withSubcategory:_selectedSubcategory.subcategoryId withDescription:_descriptionText.text withImage:imageData];
     
+    // Show the upload progress indicator
     _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     _hud.mode = MBProgressHUDModeAnnularDeterminate;
     _hud.labelText = @"Uploading Question";
@@ -309,9 +270,6 @@
 - (void) uploadQuestionForUser:(NSInteger)userId withCategory:(NSInteger)categoryId withSubcategory:(NSInteger)subcategoryId withDescription:(NSString *)description withImage:(NSData *)imageData;
 {
     
-    categoryId = 1;
-    subcategoryId = 1;
-    
     NSDictionary *parameters = @{
                                  @"student_id": @(userId),
                                  @"category_id": @(categoryId),
@@ -320,12 +278,13 @@
                                  };
     
     
-    [[Snap2AskClient sharedClient].manager POST:@"/snap2ask/api/index.php/questions" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[Snap2AskClient sharedClient].manager POST:[NSString stringWithFormat:@"%@/questions", Snap2AskApiPath] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *returnedData = (NSDictionary *) responseObject;
         
         NSInteger questionId = [[returnedData objectForKey:@"insert_id"] integerValue];
         
+        // Upload the question image file
         [self uploadQuestionImage:questionId withImage:imageData];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:RegisterUserNotification object:self userInfo:returnedData];
@@ -344,7 +303,7 @@
 - (void) uploadQuestionImage:(NSInteger)questionId withImage:(NSData *)imageData
 {
     
-        AFHTTPRequestOperation *operation = [[Snap2AskClient sharedClient].manager POST:[NSString stringWithFormat:@"/snap2ask/api/index.php/questions/%d",questionId] parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        AFHTTPRequestOperation *operation = [[Snap2AskClient sharedClient].manager POST:[NSString stringWithFormat:@"%@/questions/%d", Snap2AskApiPath, questionId] parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileData:imageData name:@"file" fileName:@"question.jpeg" mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -362,5 +321,20 @@
         CGFloat progress = ((CGFloat)totalBytesWritten) / totalBytesExpectedToWrite;
         [_hud setProgress:progress];
     }];
+}
+
+- (IBAction)unwindToAskQuestion:(UIStoryboardSegue *)unwindSegue
+{
+    // Return from selecting a category
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showCategoriesSegue"]) {
+        
+        SelectCategoryViewController *vc =  (SelectCategoryViewController *)segue.destinationViewController;
+        
+        vc.categoryData = _categoryData;
+    }
 }
 @end

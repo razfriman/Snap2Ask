@@ -15,6 +15,7 @@
     self = [super init];
     if(self) {
         
+        self.questionId = [[JsonData objectForKey:@"id"] integerValue];
         self.status = [[JsonData objectForKey:@"status"] integerValue];
         self.category = [JsonData objectForKey:@"category"];
         self.subcategory = [JsonData objectForKey:@"subcategory"];

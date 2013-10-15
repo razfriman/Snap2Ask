@@ -14,8 +14,8 @@
 		750501FF17F890DB00AE65CE /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 750501FE17F890DB00AE65CE /* libz.1.1.3.dylib */; };
 		7505020117F890E400AE65CE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7505020017F890E400AE65CE /* QuartzCore.framework */; };
 		7505020317F890E900AE65CE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7505020217F890E900AE65CE /* Security.framework */; };
-		7505020517F890EF00AE65CE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7505020417F890EF00AE65CE /* StoreKit.framework */; };
 		7505020717F890F400AE65CE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7505020617F890F400AE65CE /* SystemConfiguration.framework */; };
+		75071BF6180A4C0C0065CB87 /* ImageDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75071BF5180A4C0B0065CB87 /* ImageDetailsViewController.m */; };
 		7517725017F993D000A7B4A2 /* SubcategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7517724F17F993D000A7B4A2 /* SubcategoryModel.m */; };
 		751A2DA417F59A550015FC68 /* QuestionDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751A2DA317F59A550015FC68 /* QuestionDetailsViewController.m */; };
 		751A2DA717F5CF020015FC68 /* AnswerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 751A2DA617F5CF020015FC68 /* AnswerModel.m */; };
@@ -78,6 +78,10 @@
 		75C2665118003AFF00FA3CF1 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C2664718003AFF00FA3CF1 /* AFURLResponseSerialization.m */; };
 		75C2665218003AFF00FA3CF1 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C2664918003AFF00FA3CF1 /* AFURLSessionManager.m */; };
 		75D7B61F17F9157200178785 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D7B61E17F9157200178785 /* CategoryModel.m */; };
+		75E0BC79180C3A97006C9360 /* SelectCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0BC78180C3A97006C9360 /* SelectCategoryViewController.m */; };
+		75E0BC7C180C3AA4006C9360 /* SelectSubcategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0BC7B180C3AA4006C9360 /* SelectSubcategoryViewController.m */; };
+		75E0BC7F180C3B2D006C9360 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0BC7E180C3B2D006C9360 /* CategoryCell.m */; };
+		75E0BC82180C3B38006C9360 /* SubcategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0BC81180C3B38006C9360 /* SubcategoryCell.m */; };
 		75F951F617FBCD2700A80B1F /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F951F517FBCD2700A80B1F /* UserInfo.m */; };
 		75FA2B2717F8876D00308977 /* QuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FA2B2617F8876D00308977 /* QuestionCell.m */; };
 /* End PBXBuildFile section */
@@ -100,8 +104,9 @@
 		750501FE17F890DB00AE65CE /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		7505020017F890E400AE65CE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7505020217F890E900AE65CE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		7505020417F890EF00AE65CE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7505020617F890F400AE65CE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		75071BF4180A4C0B0065CB87 /* ImageDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailsViewController.h; sourceTree = "<group>"; };
+		75071BF5180A4C0B0065CB87 /* ImageDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailsViewController.m; sourceTree = "<group>"; };
 		7517724E17F993D000A7B4A2 /* SubcategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubcategoryModel.h; sourceTree = "<group>"; };
 		7517724F17F993D000A7B4A2 /* SubcategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubcategoryModel.m; sourceTree = "<group>"; };
 		751A2DA217F59A550015FC68 /* QuestionDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionDetailsViewController.h; sourceTree = "<group>"; };
@@ -215,6 +220,14 @@
 		75C2664918003AFF00FA3CF1 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		75D7B61D17F9157200178785 /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
 		75D7B61E17F9157200178785 /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
+		75E0BC77180C3A97006C9360 /* SelectCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCategoryViewController.h; sourceTree = "<group>"; };
+		75E0BC78180C3A97006C9360 /* SelectCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCategoryViewController.m; sourceTree = "<group>"; };
+		75E0BC7A180C3AA4006C9360 /* SelectSubcategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSubcategoryViewController.h; sourceTree = "<group>"; };
+		75E0BC7B180C3AA4006C9360 /* SelectSubcategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSubcategoryViewController.m; sourceTree = "<group>"; };
+		75E0BC7D180C3B2D006C9360 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		75E0BC7E180C3B2D006C9360 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
+		75E0BC80180C3B38006C9360 /* SubcategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubcategoryCell.h; sourceTree = "<group>"; };
+		75E0BC81180C3B38006C9360 /* SubcategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubcategoryCell.m; sourceTree = "<group>"; };
 		75F951F417FBCD2700A80B1F /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		75F951F517FBCD2700A80B1F /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		75FA2B2517F8876D00308977 /* QuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionCell.h; sourceTree = "<group>"; };
@@ -228,7 +241,6 @@
 			files = (
 				7505020717F890F400AE65CE /* SystemConfiguration.framework in Frameworks */,
 				7542D1A217FB0775004458F3 /* GooglePlus.framework in Frameworks */,
-				7505020517F890EF00AE65CE /* StoreKit.framework in Frameworks */,
 				7505020317F890E900AE65CE /* Security.framework in Frameworks */,
 				7505020117F890E400AE65CE /* QuartzCore.framework in Frameworks */,
 				750501FF17F890DB00AE65CE /* libz.1.1.3.dylib in Frameworks */,
@@ -320,7 +332,6 @@
 				7542D1A117FB0775004458F3 /* GooglePlus.framework */,
 				7542D19F17FB0764004458F3 /* GoogleOpenSource.framework */,
 				7505020617F890F400AE65CE /* SystemConfiguration.framework */,
-				7505020417F890EF00AE65CE /* StoreKit.framework */,
 				7505020217F890E900AE65CE /* Security.framework */,
 				7505020017F890E400AE65CE /* QuartzCore.framework */,
 				750501FE17F890DB00AE65CE /* libz.1.1.3.dylib */,
@@ -371,6 +382,16 @@
 				75448BD517FAFC2100B153AD /* KeychainItemWrapper.m */,
 				75F951F417FBCD2700A80B1F /* UserInfo.h */,
 				75F951F517FBCD2700A80B1F /* UserInfo.m */,
+				75071BF4180A4C0B0065CB87 /* ImageDetailsViewController.h */,
+				75071BF5180A4C0B0065CB87 /* ImageDetailsViewController.m */,
+				75E0BC77180C3A97006C9360 /* SelectCategoryViewController.h */,
+				75E0BC78180C3A97006C9360 /* SelectCategoryViewController.m */,
+				75E0BC7A180C3AA4006C9360 /* SelectSubcategoryViewController.h */,
+				75E0BC7B180C3AA4006C9360 /* SelectSubcategoryViewController.m */,
+				75E0BC7D180C3B2D006C9360 /* CategoryCell.h */,
+				75E0BC7E180C3B2D006C9360 /* CategoryCell.m */,
+				75E0BC80180C3B38006C9360 /* SubcategoryCell.h */,
+				75E0BC81180C3B38006C9360 /* SubcategoryCell.m */,
 			);
 			path = Snap2Ask;
 			sourceTree = "<group>";
@@ -528,6 +549,11 @@
 				TargetAttributes = {
 					754A808A17EA161F00C15113 = {
 						DevelopmentTeam = LV2EQ49JTC;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					754A80AB17EA161F00C15113 = {
 						TestTargetID = 754A808A17EA161F00C15113;
@@ -596,6 +622,7 @@
 				75F951F617FBCD2700A80B1F /* UserInfo.m in Sources */,
 				751A2DA717F5CF020015FC68 /* AnswerModel.m in Sources */,
 				7530838117F4AC9F0016FBA9 /* SDImageCache.m in Sources */,
+				75E0BC79180C3A97006C9360 /* SelectCategoryViewController.m in Sources */,
 				754A809F17EA161F00C15113 /* AppDelegate.m in Sources */,
 				7530838817F4AC9F0016FBA9 /* UIButton+WebCache.m in Sources */,
 				7591501A17F463CB00D01E46 /* AskQuestionViewController.m in Sources */,
@@ -604,11 +631,14 @@
 				75C2663218003A7C00FA3CF1 /* UIButton+AFNetworking.m in Sources */,
 				75C2665118003AFF00FA3CF1 /* AFURLResponseSerialization.m in Sources */,
 				759D91E117F28D8500C9F678 /* QuestionModel.m in Sources */,
+				75E0BC82180C3B38006C9360 /* SubcategoryCell.m in Sources */,
 				754A809B17EA161F00C15113 /* main.m in Sources */,
 				7530838917F4AC9F0016FBA9 /* UIImage+GIF.m in Sources */,
 				75C2664B18003AFF00FA3CF1 /* AFHTTPRequestOperationManager.m in Sources */,
+				75071BF6180A4C0C0065CB87 /* ImageDetailsViewController.m in Sources */,
 				7577B11317EA48E500F1F363 /* RegisterViewController.m in Sources */,
 				75C2665018003AFF00FA3CF1 /* AFURLRequestSerialization.m in Sources */,
+				75E0BC7F180C3B2D006C9360 /* CategoryCell.m in Sources */,
 				7530838017F4AC9F0016FBA9 /* NSData+GIF.m in Sources */,
 				75C2662F18003A7C00FA3CF1 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				75A1324C1800810900413142 /* MBProgressHUD.m in Sources */,
@@ -622,6 +652,7 @@
 				7530837F17F4AC9F0016FBA9 /* MKAnnotationView+WebCache.m in Sources */,
 				75C2665218003AFF00FA3CF1 /* AFURLSessionManager.m in Sources */,
 				75C2664C18003AFF00FA3CF1 /* AFHTTPSessionManager.m in Sources */,
+				75E0BC7C180C3AA4006C9360 /* SelectSubcategoryViewController.m in Sources */,
 				751A2DA417F59A550015FC68 /* QuestionDetailsViewController.m in Sources */,
 				7517725017F993D000A7B4A2 /* SubcategoryModel.m in Sources */,
 				75C2663518003A7C00FA3CF1 /* UIWebView+AFNetworking.m in Sources */,
