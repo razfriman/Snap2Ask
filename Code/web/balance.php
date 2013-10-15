@@ -24,16 +24,6 @@
 
 	</header>
 
-
-	<div id="browseNav">
-		<ul>
-			<li>All</li>
-			<li>Categories</li>
-			<li>Familiar</li>
-			<li>Recent</li>
-		</ul>
-	</div>
-
 	<div id="linksNav">
 		<ul>
 			<li><a href="browse_all.php" >Browse</a></li>

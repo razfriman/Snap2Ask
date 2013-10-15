@@ -24,7 +24,6 @@
 
 	</header>
 
-
 	<div id="browseNav">
 		<ul>
 			<li>All</li>
@@ -33,6 +32,7 @@
 			<li>Recent</li>
 		</ul>
 	</div>
+
 
 	<div id="linksNav">
 		<ul>
