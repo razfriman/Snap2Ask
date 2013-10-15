@@ -77,3 +77,34 @@ input.button:hover {
 footer {
 	margin: 2em auto;
 }
+
+#search{
+	float:right;
+	margin-right:1em;	
+}
+
+#logoSmall{
+	width:10em;
+	float:left;
+}
+
+#cash{
+	float:left;
+	border:solid #a6c4bc 5px;
+	color:#a6c4bc;
+	margin-top:-5px;
+	margin-left:10px;
+	padding:2px;	 
+}
+
+header{
+	display:block;
+
+}
+
+nav{
+	display:block;
+	text-align:left;
+	margin-top:10em;
+	margin-left:2em;
+}
