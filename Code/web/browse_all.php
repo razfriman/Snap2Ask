@@ -11,38 +11,47 @@
 <body>
 
 	<header>
-	<div id="cash">
-		<h3>SnapCash</h3>
-		<h2>$0.00</h2>
+		<div id="cash">
+			<h3>SnapCash</h3>
+			<h2>$0.00</h2>
+		</div>
+
+		<h1><img src="res/temp_logo.png" alt="Snap-2-Ask Logo" id="logoSmall"/></h1>
+		
+		<form id="search" method="POST" action="#">
+			<input type="text" name="search" placeholder="Search" title="Search a Question" />
+		</form>
+
+	</header>
+
+
+	<div id="browseNav">
+		<ul>
+			<li>All</li>
+			<li>Categories</li>
+			<li>Familiar</li>
+			<li>Recent</li>
+		</ul>
+	</div>
+
+	<div id="linksNav">
+		<ul>
+			<li><a href="browse_all.php" >Browse</a></li>
+			<li><a href="#" >Balance</a></li>
+			<li><a href="#" >Profile</a></li>
+		</ul>
 	</div>
 
 	
-	<h1><img src="res/temp_logo.png" alt="Snap-2-Ask Logo" id="logoSmall"/></h1>
-		
-	<form id="search" method="POST" action="NONE">
-			<input type="text" name="search" placeholder="Search" title="Search a Question" />
-	</form>
-	</header>
 
-	<nav>
-		<a href="browse_all.php" ><h2>Browse</h2></a>
-		<a href="balance.php"><h2>Balance</h2></a>
-		<a href="profile.php"><h2>Profile</h2></a>
-	</nav>
-
-	<h2>Browsing all Questions</h2>
-
-	<div id="browseNav">
-		<h3>All</h3>
-		
-		<h3>Categories</h3>
-
-		<h3>Familiar</h3>
-
-		<h3>Recent</h3>
-
+	<div id="mainContent">
 		<!--POPULATE QUESTIONS HERE-->
 	</div>
+
+
+	<footer>
+		Snap-2-Ask 2013
+	</footer>
 
 </body>
 </html>
