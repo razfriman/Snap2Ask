@@ -22,7 +22,7 @@ mysql_select_db("snap2ask", $dbConnection) or die("It couldn't select the snap2a
 //Calling the functions to populate each table
 //insertCategories ($dbConnection, "categories.csv");
 //insertSubcategories ($dbConnection, "subcategories.csv");
-
+insertUsers($dbConnection, "users.csv");
 
 
 //eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
@@ -116,4 +116,72 @@ function insertSubcategories ($dbConnection, $file)
 	echo "subcategories sucesfully inserted\n\n";
 }
 
+
+
+//eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
+//									//
+//	This function reads an input file with the users information 	//
+//	and adds it to the users table in the snap2ask database		//
+//									//
+//eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
+
+function insertUsers ($dbConnection, $file)
+{
+        echo "inserting users \n\n";
+        //opening the file
+        $input = fopen($file, "r") or exit ("Unable to open the file");
+
+        //skip first line
+        $line = fgets($input);
+
+        //while there is some line to read
+        while (!feof($input))
+        {
+                //gets the line
+                $line = fgets($input);
+                //breaks the line on every comme
+                $name = explode(",", $line);
+
+                //checks that the line isn't empty
+                if ($name[0] != "")
+                {
+			//get preferred category id
+                        $sqlQuery = "SELECT id from categories WHERE name = '{$name[3]}';";
+                        $response = mysql_query ($sqlQuery);
+                        $row = mysql_fetch_assoc($response);
+			//echo "\nrow['id'] = " . $row['id'] . "\n";
+			//get date_created
+			$date = time();
+			$date = date("Y-m-d H:i:s");
+			$insertUser = "INSERT into users(
+				email, 
+				password, 
+				is_tutor, 
+				preferred_category_id, 
+				date_created, 
+				authentication_mode, 
+				first_name, 
+				last_name, 
+				rating) values (
+				'{$name[0]}', 
+				'{$name[1]}', 
+				{$name[2]}, 
+				'{$row['id']}',
+				'{$date}',
+				'{$name[4]}',
+				'{$name[5]}', 
+				'{$name[6]}', 
+				{$name[7]});";  
+			
+			if (!mysql_query($insertUser))
+                        {
+                                die("Imposible to insert the user" . mysql_error());
+                        }
+		}
+	}
+
+	//closing the input file
+        fclose($input);
+        echo "sucesfully inserted the users\n";
+}
 ?>
