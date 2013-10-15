@@ -710,6 +710,8 @@ $app->post(
 		// Initialize the response 
 		$success = false;
 		$reason = '';
+		$image_url = '';
+		$image_thumbnail_url = '';
 		
 		
 		if(isset($_FILES['file'])) {
@@ -767,7 +769,10 @@ $app->post(
 	    // Create the response data
 		$dataArray = array(
 			'success' => $success,
-			'reason' => $reason
+			'reason' => $reason,
+			'question_id' => $id,
+			'image_url' => $image_url,
+			'image_thumbnail_url' => $image_thumbnail_url
 			);
 		
         // Return the JSON data
