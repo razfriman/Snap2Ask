@@ -16,8 +16,8 @@
 {
     // Override point for customization after application launch.
     
-    [Parse setApplicationId:@"QbpUMWXgEKThPmDXUuAaqJw3caz1jCYORCeqGmn8"
-                  clientKey:@"ilfUDeeXKExzROdKGD6ONYSS32ewlaJrgCeYlmRE"];
+    [Parse setApplicationId:@"qCO8s6oQwSxzwuBWekMQj2nqoiapfSk4ckrKkux5"
+                  clientKey:@"C3By91wJzJHfbK6JxncKMkK0ypBkA1qQrNiomJ1n"];
     
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
      UIRemoteNotificationTypeAlert|

@@ -75,10 +75,8 @@ static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnm
     NSString *authenticationMode = [keychainAuthenticationMode objectForKey:(__bridge NSString*)kSecAttrAccount];
     
     if (![authenticationMode isEqualToString:@""]) {
-        _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        _hud.mode = MBProgressHUDModeIndeterminate;
-        _hud.labelText = @"Logging In";
-        _hud.removeFromSuperViewOnHide = YES;
+        
+        //[self showLoginIndicator];
     }
     
     // Sign in automatically
@@ -107,10 +105,7 @@ static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnm
 - (void) userLoginUpdated:(NSNotification *)notification
 {
     
-    // Hide the loggingin progress indiciator
-    if (_hud) {
-        [_hud hide:YES];
-    }
+    [self hideLoginIndicator];
     
     NSDictionary *response = notification.userInfo;
 
@@ -207,12 +202,7 @@ static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnm
         return;
     } else {
 
-        if (!_hud) {
-            _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            _hud.mode = MBProgressHUDModeIndeterminate;
-            _hud.labelText = @"Logging In";
-            _hud.removeFromSuperViewOnHide = YES;
-        }
+        [self showLoginIndicator];
         
         [[Snap2AskClient sharedClient] login:[_emailTextField.text lowercaseString] withPassword:_passwordTextField.text withAuthenticationMode:@"custom"];
     }
@@ -229,6 +219,8 @@ static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnm
     if (error) {
         NSLog(@"Google+ Auth Error %@ ",error);
     } else {
+        
+        [self showLoginIndicator];
         
         
         NSString *token = auth.accessToken;
@@ -285,6 +277,8 @@ static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnm
 #pragma mark - Facebook
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
+    
+    [self showLoginIndicator];
 
     NSString *email = [user objectForKey:@"email"];
     NSString *oauthId = user.id;
@@ -336,6 +330,9 @@ static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnm
     }
     
     if (alertMessage) {
+        
+        [self hideLoginIndicator];
+        
         [[[UIAlertView alloc] initWithTitle:alertTitle
                                     message:alertMessage
                                    delegate:nil
@@ -344,6 +341,24 @@ static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnm
     }
 }
 
+- (void)hideLoginIndicator
+{
+    if (_hud) {
+        // Hide the indicator
+        [_hud hide:YES];
+        _hud = nil;
+    }
+}
+
+- (void)showLoginIndicator
+{
+    if (!_hud) {
+        _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        _hud.mode = MBProgressHUDModeIndeterminate;
+        _hud.labelText = @"Logging In";
+        _hud.removeFromSuperViewOnHide = YES;
+    }
+}
 - (IBAction)unwindToMain:(UIStoryboardSegue *)unwindSegue
 {
     

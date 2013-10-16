@@ -18,7 +18,8 @@
 
 
 - (void)login;
-
+- (void)hideLoginIndicator;
+- (void)showLoginIndicator;
 - (IBAction)unwindToMain:(UIStoryboardSegue *)unwindSegue;
 
 @end
