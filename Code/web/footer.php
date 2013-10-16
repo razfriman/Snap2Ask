@@ -1,5 +1,10 @@
+<?php
+
+if (!defined('inc_file')) {
+	die('Direct access is forbidden');
+}
+?>
+
 <footer>
-	<div id="groupname">
-	Snap-2-Ask 2013
-	</div>
+		Snap-2-Ask 2013
 </footer>
