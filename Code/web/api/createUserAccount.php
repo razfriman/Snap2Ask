@@ -21,21 +21,20 @@
 	$date = time();
 	$date =date("Y-m-d H:i:s");
 
+	// Calculate password hash and password salt
+	$hashResult = hashPassword($password);
+	$hashed_password = $hashResult[0];
+	$salt = $hashResult[1];
+	
 
-	$insertUser = "INSERT INTO users(first_name, last_name, email, password, data_created) VALUES ({$fname}, {$lname}, '{$email}', '{$password}', '{$date}');";
+	$insertUser = "INSERT INTO users(first_name, last_name, email, password, data_created, salt) VALUES ({$fname}, {$lname}, '{$email}', '{$password}', '{$date}', '{$salt}');";
 
 	
-	if (!mysql_query($insertUser))
-	{
+	if(!mysql_query($insertUser))
+	{	
 		die("Cannot Insert User" . mysql_error());
 	}
 
 	mysql_close($dbConnection);
 	
-
-	
-
-
-
-
 ?>
