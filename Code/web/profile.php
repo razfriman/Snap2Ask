@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Browse All</title>
+	<title>Snap-2-Ask | Profile</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -24,21 +24,23 @@
 
 	</header>
 
-
-	<div id="linksNav">
-		<ul>
-			<li><a href="browse_all.php" >Browse</a></li>
-			<li><a href="#" >Balance</a></li>
-			<li><a href="#" >Profile</a></li>
-		</ul>
-	</div>
-
+	<div id="container">
 	
+		<div id="linksNav">
+			<ul>
+				<li><a href="browse_all.php" >Browse</a></li>
+				<li><a href="balance.php" >Balance</a></li>
+				<li class="selected" ><a href="profile.php" >Profile</a></li>
+			</ul>
+		</div>
+	
+		
+	
+		<div id="mainContent">
+			<!--POPULATE QUESTIONS HERE-->
+		</div>
 
-	<div id="mainContent">
-		<!--POPULATE QUESTIONS HERE-->
 	</div>
-
 
 	<footer>
 		Snap-2-Ask 2013

@@ -11,7 +11,6 @@ Color Scheme:
 
 
 
-/* Index.php Styling ---------------------------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {
 	margin: 0;
 	padding: 0;
@@ -61,7 +60,6 @@ input[type="text"],input[type="password"],input[type="email"] {
 
 input.button{
 	width:5em;
-	background-color: #000;
 	border: none;
 }
 
@@ -77,6 +75,7 @@ input.button:hover {
 
 footer {
 	margin: 2em auto;
+	clear: both;
 }
 
 #search{
@@ -103,14 +102,16 @@ header{
 }
 
 
-
+/* BROWSENAV */
 #browseNav ul {
 	clear:left;
 	list-style-type: none;
 	float:left;
+	margin-top: -2.5em;
 	margin-left: 4.7em;
 }
 
+/* BrowseNav list item */
 #browseNav li {
 	float:left;
 	height: 2em;
@@ -122,34 +123,46 @@ header{
 	margin-bottom: -5px;
 }
 
-#browseNav li:hover, #browseNav li.selected {
+/*  Hover over a browseNav link */
+#browseNav li:hover {
+	background-color: black;
+	color: white;
+}
+
+/* Selected tab */
+#browseNav li.selected, #linksNav li.selected {
 	background-color: gray;
 }
 
+
+/* LINKNAV */
 #linksNav ul {
 	clear:left;
 	float:left;
-	width: 7em;
+	
+	width: 7em;	
 	text-align: right;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
+/* linksNav list item */
 #linksNav li {
 	margin: 1em 0;
 	height: 2em;
-
+	
 	border-top: 5px solid #000;
 	border-bottom: 5px solid #000;
 }
 
+/* Hover over a linksNav link */
 #linksNav li:hover a {
 	color: white;
 	background-color: black;
-	color:white;
 }
 
+/* linksNav link */
 #linksNav li a {
 	display: block;
 	line-height: 2em;
@@ -159,15 +172,16 @@ header{
 	color: black;
 }
 
-/*#linksNav li a:visited, #linksNav li a:hover, #linksNav li a:focus {
- 	text-decoration: none;
- 	color: white;
-}*/
-
 #mainContent {
-	height: 40em;
-	margin: .5em 1em;
-	margin-top: 11em;
 	margin-left: 7em;
+	margin-right: .5em;
+	width: auto;
+	
+	margin-top: 10em;
+	margin-bottom: 0;
+	height: 40em;
+	
 	border: 5px solid #000;
 }
+
+

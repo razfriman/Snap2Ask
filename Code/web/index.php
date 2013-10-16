@@ -41,7 +41,7 @@
 				<div id="login_error" class="error">
 				</div>
 				
-				<!-- Login Form in html that sends email and pass to correspdoning php script -->
+				<!-- Login Form in html that sends email and pass to corresponding php script -->
 			<form id="loginForm" method="POST" action="index.php">
 				<input type="email" name="email" placeholder="Email Address" title="Please enter a valid email" required autocomplete="on" />
 				<input type="password" name="password" placeholder="Password" title="Password must be at least 8 characters" required autocomplete="on" />
@@ -71,6 +71,7 @@
 				
 				<input type="email" name="email" placeholder="Email Address" required autocomplete="on" title="Please enter a valid email address" />			
 				<input type="password" name="password" placeholder="Password" title="Password must be at least 8 characters" required autocomplete="on" />
+				<input type="password" name="confirm_password" placeholder="Confirm Password" title="Password must be at least 8 characters" required autocomplete="on" />
 				
 				
 				<input class="button" type="submit" name="submit" value="Sign Up" />
@@ -78,6 +79,5 @@
 			</form>
 		</div>
 	</div>
-<?php include ("footer.php"); ?>
 </body>
 </html>
