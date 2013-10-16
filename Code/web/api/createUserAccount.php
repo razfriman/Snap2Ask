@@ -27,7 +27,7 @@
 	$salt = $hashResult[1];
 	
 
-	$insertUser = "INSERT INTO users(first_name, last_name, email, password, data_created, salt) VALUES ({$fname}, {$lname}, '{$email}', '{$password}', '{$date}', '{$salt}');";
+	$insertUser = "INSERT INTO users(first_name, last_name, email, password, data_created, salt) VALUES ('{$fname}', '{$lname}', '{$email}', '{$password}', '{$date}', '{$salt}');";
 
 	
 	if(!mysql_query($insertUser))
