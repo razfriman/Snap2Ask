@@ -1,5 +1,7 @@
 <?
 // A function to delete a user's account from the database 
+function deleteUser($email)
+{
 
 	$host = "localhost";
 	$username = "cProject";
@@ -12,9 +14,7 @@
 	}
 
 
-	mysql_select_db("snap2ask", $connection) or die("It could select snap2ask database. Error: " . mysql_error());
-
-	$email = NULL; //GET EMAIL?	
+	mysql_select_db("snap2ask", $connection) or die("It could select snap2ask database. Error: " . mysql_error());	
 
 	$deleteUser = "DELETE * from users where email = " . $email . ";";
 
@@ -25,5 +25,6 @@
 	}
 
 	mysql_close($dbConnection);
+}
 
 ?>
