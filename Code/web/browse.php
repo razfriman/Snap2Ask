@@ -38,9 +38,9 @@
 	
 		<div id="linksNav">
 			<ul>
-				<li class="selected" ><a href="browse_all.php" >Browse</a></li>
+				<li class="selected" ><a href="browse.php" >Browse</a></li>
 				<li><a href="balance.php" >Balance</a></li>
-				<li><a href="#" >Profile</a></li>
+				<li><a href="profile.php" >Profile</a></li>
 			</ul>
 		</div>
 	
