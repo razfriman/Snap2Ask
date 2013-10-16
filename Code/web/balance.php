@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // Allow the included files to be executed
 define('inc_file', TRUE);
 ?>

@@ -1,3 +1,31 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION['user_id'])) {
+
+	// User is already logged in.
+	
+	// Redirect to the browse questions page
+	header('Location: browse.php');
+	exit;
+}
+
+if (isset($_POST['submit']) && $_POST['submit'] == 'Log in') {
+
+	// Process the login here
+	
+	// Simulate a successful login by setting the SESSION's user_id variable to 1
+	$_SESSION['user_id'] = 1;
+	
+	// Reload the page
+	header('Location: index.php');
+	exit;
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
