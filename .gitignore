@@ -22,3 +22,6 @@ vendor/*
 
 # environment sensitive files
 .htaccess
+
+# Remote files
+*.swp
