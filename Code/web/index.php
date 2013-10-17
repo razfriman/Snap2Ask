@@ -58,10 +58,6 @@ if (isset($_POST['submit'])) {
 
 			// Stay logged in
 			setcookie('rememberCookie',true);
-			
-			// Debug values
-			$_SESSION['first_name'] = 'Raz';
-			$_SESSION['balance'] = 1.50;
 		}
 		else
 		{
@@ -114,10 +110,6 @@ if (isset($_POST['submit'])) {
 		{
 			$_SESSION['user_id'] = $responseObj['user_id'];			
 			setcookie('rememberCookie',true);
-			
-			// Debug values
-			$_SESSION['first_name'] = $_POST['first_name'];
-			$_SESSION['balance'] = 10.00;
 		}
 		else
 		{
@@ -137,6 +129,25 @@ if (isset($_POST['submit'])) {
 
 if (isset($_SESSION['user_id']))
 {
+
+	$user_id = $_SESSION['user_id'];
+	
+	// Load the user information to populate the name and balance for the user
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $user_id);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	curl_setopt($ch, CURLOPT_HEADER, FALSE);
+	$response = curl_exec($ch);
+	curl_close($ch);
+
+	//sent to the be decoded
+	$responseObj = json_decode($response,true);
+	
+	//echo var_dump($responseObj);
+	
+	$_SESSION['first_name'] = $responseObj['first_name'];
+	$_SESSION['balance'] = $responseObj['balance'];
+	
 	// User is already logged in.
 	// Redirect to the browse questions page
 	header('Location: browse.php');
