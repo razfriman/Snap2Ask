@@ -1,5 +1,8 @@
 <?php
 
+// Allow the included files to be executed
+define('inc_file', TRUE);
+
 // Start the named session
 session_name('loginSession');
 
@@ -10,16 +13,8 @@ session_set_cookie_params(2*7*24*60*60);
 session_start();
 
 
-
-
-// Create the dynamic base_url for the REST API request
-$prefix = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
-$domain = $_SERVER['HTTP_HOST'];
-$base_url = $prefix . $domain . dirname($_SERVER['PHP_SELF']);
-
-// Use official REST API
-$base_url = "http://snap2ask.com/git/snap2ask/Code/web";
-
+// Require the functions file
+require_once('functions.php');
 
 
 if (isset($_POST['submit'])) {
@@ -130,23 +125,8 @@ if (isset($_POST['submit'])) {
 if (isset($_SESSION['user_id']))
 {
 
-	$user_id = $_SESSION['user_id'];
-	
-	// Load the user information to populate the name and balance for the user
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $user_id);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-	curl_setopt($ch, CURLOPT_HEADER, FALSE);
-	$response = curl_exec($ch);
-	curl_close($ch);
-
-	//sent to the be decoded
-	$responseObj = json_decode($response,true);
-	
-	//echo var_dump($responseObj);
-	
-	$_SESSION['first_name'] = $responseObj['first_name'];
-	$_SESSION['balance'] = $responseObj['balance'];
+	// Refresh the session information (name, balanace)
+	getUserInfo(true);
 	
 	// User is already logged in.
 	// Redirect to the browse questions page

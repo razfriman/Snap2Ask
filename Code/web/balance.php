@@ -13,32 +13,10 @@ if (!isset($_SESSION['user_id'])) {
 	exit;
 }
 
+// Require the functions file
+require_once('functions.php');
 
-// Create the dynamic base_url for the REST API request
-$prefix = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
-$domain = $_SERVER['HTTP_HOST'];
-$base_url = $prefix . $domain . dirname($_SERVER['PHP_SELF']);
-
-// Use official REST API
-$base_url = "http://snap2ask.com/git/snap2ask/Code/web";
-
-
-
-$user_id = $_SESSION['user_id'];
-	
-// Load the user information to populate the name and balance for the user
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $user_id);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-curl_setopt($ch, CURLOPT_HEADER, FALSE);
-$response = curl_exec($ch);
-curl_close($ch);
-
-//sent to the be decoded
-$responseObj = json_decode($response,true);
-
-$_SESSION['first_name'] = $responseObj['first_name'];
-$_SESSION['balance'] = $responseObj['balance'];
+$responseObj = getUserInfo(true);
 
 ?>
 
