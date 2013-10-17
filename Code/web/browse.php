@@ -1,9 +1,12 @@
 <?php
 
+// Start the named session
+session_name('loginSession');
 session_start();
 
 // Allow the included files to be executed
 define('inc_file', TRUE);
+
 ?>
 
 <!DOCTYPE html>

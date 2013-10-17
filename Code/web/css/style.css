@@ -40,6 +40,10 @@ img#logo {
 	margin:1em;
 }
 
+div.error,label.error {
+	color: red;
+}
+
 input {
 	display:block;
 	width:20em;

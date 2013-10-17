@@ -1,5 +1,7 @@
 <?php
 
+// Start the named session
+session_name('loginSession');
 session_start();
 
 if(isset($_SESSION['user_id'])) {

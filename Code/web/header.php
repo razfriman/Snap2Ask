@@ -5,12 +5,18 @@ if (!defined('inc_file')) {
 }
 
 // Load these from the session (set during log-in)
-$first_name = $_SESSION['first_name'];
-$balance = $_SESSION['balance'];
+$first_name = '';
+$balance = 0;
 
-// Debug values
-$first_name = 'Raz';
-$balance = 10.00;
+if (isset($_SESSION['first_name'])) {
+	$first_name = $_SESSION['first_name'];
+}
+
+if (isset($_SESSION['balance'])) {
+	$balance = $_SESSION['balance'];
+}
+
+
 
 ?>
 <header>
