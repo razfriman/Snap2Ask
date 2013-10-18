@@ -28,6 +28,9 @@ try {
 $app = new \Slim\Slim();
 $app->add(new \Slim\Middleware\ContentTypes());
 
+// Allow cross domain calls via javascript
+$app->response()->header('Access-Control-Allow-Origin','*');
+
 //$app->config('debug', true);
 
 // This function takes a password as an input
