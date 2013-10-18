@@ -23,7 +23,7 @@ if (isset($_SESSION['balance'])) {
 	<div id="cash">
 		<h3>SnapCash</h3>
 		<h2>
-		<?php echo money_format('$%i', $balance); ?></h2>
+		<?php echo money_format('%i', $balance); ?></h2>
 	</div>
 	
 	<a href="http://www.snap2ask.com"><img src="res/temp_logo.png" alt="Snap-2-Ask Logo" id="logoSmall"/></a>
