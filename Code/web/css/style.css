@@ -218,7 +218,14 @@ header {
 	overflow-y: scroll;
 	height:40em;
 	width: 85%;
-	max-width: 652px;
+	
+}
+
+/* Set a different width when the width of the page becomes very small */
+@media all and (max-width: 1030px) and (min-width: 520px) {
+  #mainContent {
+  	width: 652px;
+  }
 }
 
 .questionItem {
