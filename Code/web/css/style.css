@@ -15,6 +15,7 @@ h1,h2,h3,h4,h5,h6 {
 
 html {
 	background-image:url(../res/geometry.png);
+	height: 100%;
 }
 
 body {
@@ -26,7 +27,8 @@ body {
 	background-color:#fff;
 	color:#000;
 	text-align:center;
-	min-width:50em;
+	min-width:800px;
+	min-height: 90%;
 }
 
 img#logo {
@@ -42,6 +44,7 @@ img#logo {
 
 div.error,label.error {
 	color: red;
+	background-color: inherit;
 }
 
 input {
@@ -209,13 +212,13 @@ header {
 }
 
 #mainContent {
-	margin-right:.5em;
 	margin-bottom:0;
 	border:5px solid #000;
 	float: left;
 	overflow-y: scroll;
 	height:40em;
 	width: 85%;
+	max-width: 652px;
 }
 
 .questionItem {
@@ -223,6 +226,7 @@ header {
 	border: 5px solid black;
 	display: inline-block;
 	background-color: gray;
+	color: black;
 	margin: 0.5em;
 }
 
@@ -236,6 +240,7 @@ header {
 	font-size: 12px;
 	text-align: left;
 	color: white;
+	background-color: inherit;
 }
 
 .questionItem label:last-child {
@@ -246,6 +251,5 @@ header {
 .questionImage {
 	width: 150px;
 	height: 150px;
-	background-color: red;	
 }
 

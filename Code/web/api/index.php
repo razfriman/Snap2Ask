@@ -31,7 +31,6 @@ $app->add(new \Slim\Middleware\ContentTypes());
 // Allow cross domain calls via javascript
 $app->response()->header('Access-Control-Allow-Origin','*');
 
-//$app->config('debug', true);
 
 // This function takes a password as an input
 // It returns an array with the hashed password and the salt used to create the hash
@@ -335,6 +334,41 @@ $app->get(
 		$response['Content-Type'] = 'application/json';
 		$response->status(200);
 		$response->write(json_encode($userData));
+	}
+	);
+	
+// DELETE A USER ACCOUNT
+$app->delete(
+	'/users/:id',
+	function ($id) use ($app,$db) {
+
+		// Initialize the response 
+		$success = false;
+		$reason = '';
+		
+		try {
+			$sth = $db->prepare('DELETE FROM users WHERE id=:user_id');
+			$sth->bindParam(':user_id', $id);
+			$sth->execute();
+
+			$success = true;
+
+		} catch(PDOException $e) {
+			$success = false;
+			$reason = 'Error deleting user';
+		}
+		
+	    // Create the response data
+		$dataArray = array(
+			'success' => $success,
+			'reason' => $reason,
+			);
+		
+        // Return the JSON data
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($dataArray));
 	}
 	);
 
@@ -664,32 +698,68 @@ $app->post(
         $reason = '';
         $insert_id = 0;
         
-        // Create the prepared statement to insert the question to the database
-        try {
-        	$sth = $db->prepare('INSERT INTO questions (student_id,category_id,subcategory_id,description,image_url,image_thumbnail_url,status,times_answered,date_created) 
-        		VALUES (:student_id,:category_id,:subcategory_id,:description,:image_url,:image_thumbnail_url,:status,:times_answered,:date_created)');
-        	$sth->bindParam(':student_id', $student_id);
-        	$sth->bindParam(':category_id', $category_id);
-        	$sth->bindParam(':subcategory_id', $subcategory_id);
-        	$sth->bindParam(':description', $description);
-        	$sth->bindParam(':image_url', $image_url);
-        	$sth->bindParam(':image_thumbnail_url', $image_thumbnail_url);
-        	$sth->bindParam(':status', $status);
-        	$sth->bindParam(':times_answered', $times_answered);
-        	$sth->bindParam(':date_created', $date_created);
-
-        	$sth->execute();
-
-        	$success = true;
-
-        	// Return the new question's id
-        	$insert_id = $db->lastInsertId();
-
-
-        } catch(PDOException $e) {
-        	$success = false;
-        	$reason = $e->getMessage();
+        $ask_question_cost = ASK_QUESTION_COST;
+        
+        $can_ask_question = false;
+        
+        // Get the current balance
+        $sth = $db->prepare('SELECT balance FROM users WHERE id=:user_id)');
+        $sth->bindParam(':user_id', $student_id);
+        $sth->execute();
+                
+        if ($sth->rowCount() > 0) {
+	        $balance_data = $sth->fetch();
+	        $current_balance = $balance[0];
+	        
+	        if ($current_balance > $ASK_QUESTION_COST)
+	        {
+	        	// The user has enough funds to ask a question
+		        $can_ask_question = true;
+	        } else {
+		        $reason = 'Not enough SnapCash';
+	        }
+        } else {
+	        $reason = 'User does not exist';
         }
+        
+        if ($can_ask_question) {
+	        
+	        // Create the prepared statement to insert the question to the database
+	        try {
+	        	$sth = $db->prepare('INSERT INTO questions (student_id,category_id,subcategory_id,description,image_url,image_thumbnail_url,status,times_answered,date_created) 
+	        		VALUES (:student_id,:category_id,:subcategory_id,:description,:image_url,:image_thumbnail_url,:status,:times_answered,:date_created)');
+	        	$sth->bindParam(':student_id', $student_id);
+	        	$sth->bindParam(':category_id', $category_id);
+	        	$sth->bindParam(':subcategory_id', $subcategory_id);
+	        	$sth->bindParam(':description', $description);
+	        	$sth->bindParam(':image_url', $image_url);
+	        	$sth->bindParam(':image_thumbnail_url', $image_thumbnail_url);
+	        	$sth->bindParam(':status', $status);
+	        	$sth->bindParam(':times_answered', $times_answered);
+	        	$sth->bindParam(':date_created', $date_created);
+	
+	        	$sth->execute();
+	
+	        	$success = true;
+	
+	        	// Return the new question's id
+	        	$insert_id = $db->lastInsertId();
+	
+	
+	        } catch(PDOException $e) {
+	        	$success = false;
+	        	$reason = $e->getMessage();
+	        }
+	    }
+	    
+	    if ($success) {
+	    	
+	    	// Deduct the balance from the user
+		    $sth = $db->prepare('UPDATE users SET balance-=:question_cost WHERE id=:user_id)');
+	        $sth->bindParam(':user_id', $student_id);
+	        $sth->bindParam(':question_cost', $ask_question_cost);
+	        $sth->execute();
+	    }
         
 	    // Create the response data
         $dataArray = array(
@@ -786,6 +856,42 @@ $app->post(
 	}
 	);
 
+// DELETE A QUESTION
+$app->delete(
+	'/questions/:id',
+	function ($id) use ($app,$db) {
+
+		// Initialize the response 
+		$success = false;
+		$reason = '';
+		
+		try {
+			$sth = $db->prepare('DELETE FROM questions WHERE id=:question_id');
+			$sth->bindParam(':question_id', $id);
+			$sth->execute();
+
+			$success = true;
+
+		} catch(PDOException $e) {
+			$success = false;
+			$reason = 'Error deleting question';
+		}
+		
+	    // Create the response data
+		$dataArray = array(
+			'success' => $success,
+			'reason' => $reason,
+			);
+		
+        // Return the JSON data
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($dataArray));
+	}
+	);
+	
+	
 // GET A SPECIFIC QUESTION'S ANSWERS
 $app->get(
 	'/questions/:id/answers',
