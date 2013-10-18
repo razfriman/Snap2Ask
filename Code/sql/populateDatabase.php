@@ -7,7 +7,7 @@
 //									//
 //EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE//
 
-//connect to teh database
+//connect to the database
 $dbConnection = mysql_connect("localhost", "cProject", "snap2ask");
 
 //checking connection
@@ -22,8 +22,8 @@ mysql_select_db("snap2ask", $dbConnection) or die("It couldn't select the snap2a
 //Calling the functions to populate each table
 //insertCategories ($dbConnection, "inputFiles/categories.csv");
 //insertSubcategories ($dbConnection, "inputFiles/subcategories.csv");
-insertUsers($dbConnection, "inputFiles/users.csv");
-
+//insertUsers($dbConnection, "inputFiles/users.csv");
+insertQuestions($dbConnection, "inputFiles/questions.csv");
 
 //eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
 //									//
@@ -184,4 +184,75 @@ function insertUsers ($dbConnection, $file)
         fclose($input);
         echo "sucesfully inserted the users\n";
 }
+
+
+
+//eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
+//									//
+//	This function read an input file with questions and use them	//
+//	to populate the database					//
+//									//
+//eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
+function insertQuestions($dbConnection, $file)
+{
+	echo "inserting questions \n\n";
+        //opening the file
+        $input = fopen($file, "r") or exit ("Unable to open the file");
+
+        //skip first line
+        $line = fgets($input);
+
+        //while there is some line to read
+        while (!feof($input))
+        {
+                //gets the line
+                $line = fgets($input);
+                //breaks the line on every comme
+                $name = explode(",", $line);
+
+                //checks that the line isn't empty
+                if ($name[0] != "")
+                {
+                        //get preferred category id
+                        $sqlQuery = "SELECT id FROM users WHERE email = '{$name[0]}';";
+                        $response = mysql_query ($sqlQuery);
+                        $student = mysql_fetch_assoc($response);
+			$studentID = $student['id'];
+			$sqlQuery = "SELECT id FROM categories WHERE name = '{$name[2]}';";
+			$response = mysql_query ($sqlQuery);
+			$category = mysql_fetch_assoc($response);
+			$categoryID = $category['id'];
+			$sqlQuery = "SELECT id FROM subcategories where name = '{$name[3]}' and category_id = '{$category['id']}';";
+			$response = mysql_query($sqlQuery);
+			$subcategory = mysql_fetch_assoc($response); 
+			$subcategoryID = $subcategory['id'];
+                        //echo "\nrow['id'] = " . $row['id'] . "\n";
+                        //get date_created
+                        $date = time();
+                        $date = date("Y-m-d H:i:s");	
+			$insertQuestion = "INSERT into questions(
+			student_id,
+			description,
+			category_id,
+			subcategory_id,
+			image_url,
+			image_thumbnail_url,
+			date_created) values (
+			'{$studentID}',
+			'{$name[1]}',
+			'{$categoryID}',
+			'{$subcategoryID}',
+			'{$name[4]}',
+			'{$name[5]}',
+			'{$date}');";
+		
+			if (!mysql_query($insertQuestion))
+			{
+				die("Impossible to insert the question" . mysql_error());
+			}
+		}
+	}
+	echo "questions sucsessfully inserted.\n";
+}
+
 ?>
