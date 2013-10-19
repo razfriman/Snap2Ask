@@ -20,9 +20,9 @@ if (!$dbConnection)
 mysql_select_db("snap2ask", $dbConnection) or die("It couldn't select the snap2ask database. Error: " . msql_error());
 
 //Calling the functions to populate each table
-//insertCategories ($dbConnection, "inputFiles/categories.csv");
-//insertSubcategories ($dbConnection, "inputFiles/subcategories.csv");
-//insertUsers($dbConnection, "inputFiles/users.csv");
+insertCategories ($dbConnection, "inputFiles/categories.csv");
+insertSubcategories ($dbConnection, "inputFiles/subcategories.csv");
+insertUsers($dbConnection, "inputFiles/users.csv");
 insertQuestions($dbConnection, "inputFiles/questions.csv");
 
 //eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
@@ -205,6 +205,7 @@ function insertQuestions($dbConnection, $file)
         //while there is some line to read
         while (!feof($input))
         {
+		echo "loop\n";
                 //gets the line
                 $line = fgets($input);
                 //breaks the line on every comme
@@ -217,15 +218,12 @@ function insertQuestions($dbConnection, $file)
                         $sqlQuery = "SELECT id FROM users WHERE email = '{$name[0]}';";
                         $response = mysql_query ($sqlQuery);
                         $student = mysql_fetch_assoc($response);
-			$studentID = $student['id'];
 			$sqlQuery = "SELECT id FROM categories WHERE name = '{$name[2]}';";
 			$response = mysql_query ($sqlQuery);
 			$category = mysql_fetch_assoc($response);
-			$categoryID = $category['id'];
 			$sqlQuery = "SELECT id FROM subcategories where name = '{$name[3]}' and category_id = '{$category['id']}';";
 			$response = mysql_query($sqlQuery);
 			$subcategory = mysql_fetch_assoc($response); 
-			$subcategoryID = $subcategory['id'];
                         //echo "\nrow['id'] = " . $row['id'] . "\n";
                         //get date_created
                         $date = time();
@@ -238,10 +236,10 @@ function insertQuestions($dbConnection, $file)
 			image_url,
 			image_thumbnail_url,
 			date_created) values (
-			'{$studentID}',
+			'{$student['id']}',
 			'{$name[1]}',
-			'{$categoryID}',
-			'{$subcategoryID}',
+			'{$category['id']}',
+			'{$subcategory['id']}',
 			'{$name[4]}',
 			'{$name[5]}',
 			'{$date}');";
