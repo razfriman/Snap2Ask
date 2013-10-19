@@ -24,6 +24,9 @@ insertCategories ($dbConnection, "inputFiles/categories.csv");
 insertSubcategories ($dbConnection, "inputFiles/subcategories.csv");
 insertUsers($dbConnection, "inputFiles/users.csv");
 insertQuestions($dbConnection, "inputFiles/questions.csv");
+insertAnswers($dbConnection, "inputFiles/answers.csv");
+
+
 
 //eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
 //									//
@@ -149,8 +152,6 @@ function insertUsers ($dbConnection, $file)
                         $sqlQuery = "SELECT id from categories WHERE name = '{$name[3]}';";
                         $response = mysql_query ($sqlQuery);
                         $row = mysql_fetch_assoc($response);
-			//echo "\nrow['id'] = " . $row['id'] . "\n";
-			//get date_created
 			$date = time();
 			$date = date("Y-m-d H:i:s");
 			$insertUser = "INSERT into users(
@@ -172,7 +173,8 @@ function insertUsers ($dbConnection, $file)
 				'{$name[5]}', 
 				'{$name[6]}', 
 				{$name[7]});";  
-			
+
+			//inserting the user in the databse
 			if (!mysql_query($insertUser))
                         {
                                 die("Imposible to insert the user" . mysql_error());
@@ -182,7 +184,7 @@ function insertUsers ($dbConnection, $file)
 
 	//closing the input file
         fclose($input);
-        echo "sucesfully inserted the users\n";
+        echo "sucesfully inserted the users\n\n";
 }
 
 
@@ -205,7 +207,6 @@ function insertQuestions($dbConnection, $file)
         //while there is some line to read
         while (!feof($input))
         {
-		echo "loop\n";
                 //gets the line
                 $line = fgets($input);
                 //breaks the line on every comme
@@ -223,9 +224,7 @@ function insertQuestions($dbConnection, $file)
 			$category = mysql_fetch_assoc($response);
 			$sqlQuery = "SELECT id FROM subcategories where name = '{$name[3]}' and category_id = '{$category['id']}';";
 			$response = mysql_query($sqlQuery);
-			$subcategory = mysql_fetch_assoc($response); 
-                        //echo "\nrow['id'] = " . $row['id'] . "\n";
-                        //get date_created
+			$subcategory = mysql_fetch_assoc($response);      
                         $date = time();
                         $date = date("Y-m-d H:i:s");	
 			$insertQuestion = "INSERT into questions(
@@ -243,14 +242,75 @@ function insertQuestions($dbConnection, $file)
 			'{$name[4]}',
 			'{$name[5]}',
 			'{$date}');";
-		
+
+			//inserting the questions in the database		
 			if (!mysql_query($insertQuestion))
 			{
 				die("Impossible to insert the question" . mysql_error());
 			}
 		}
 	}
-	echo "questions sucsessfully inserted.\n";
+	echo "questions sucsessfully inserted.\n\n";
 }
+
+
+
+//eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
+//									//
+//	This function reads an input file with answers and populates 	//
+//	the database with them						//
+//									//
+//eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
+
+function insertAnswers($dbConnection, $file)
+{
+        echo "inserting answers \n\n";
+        //opening the file
+        $input = fopen($file, "r") or exit ("Unable to open the file");
+
+        //skip first line
+        $line = fgets($input);
+
+        //while there is some line to read
+        while (!feof($input))
+        {
+                //gets the line
+                $line = fgets($input);
+                //breaks the line on every comme
+                $name = explode(",", $line);
+
+                //checks that the line isn't empty
+                if ($name[0] != "")
+                {
+                        //get preferred category id
+                        $sqlQuery = "SELECT id FROM questions  WHERE description = '{$name[0]}';";
+                        $response = mysql_query ($sqlQuery);
+                        $question = mysql_fetch_assoc($response);
+                        $sqlQuery = "SELECT id FROM users WHERE email = '{$name[1]}';";
+                        $response = mysql_query ($sqlQuery);
+                        $tutor = mysql_fetch_assoc($response);
+                        $date = time();
+                        $date = date("Y-m-d H:i:s");
+                        $insertAnswer = "INSERT into answers(
+					question_id,
+					tutor_id,
+					text,
+					date_created) values(
+					'{$question['id']}',
+					'{$tutor['id']}',
+					'{$name[2]}',
+					'{$date}');";
+
+			//inserting answer in the database
+			if(!mysql_query($insertAnswer))
+			{
+				die("Imposible to insert the answer." . mysql_error());
+			}
+		}
+	}
+	echo "answers succesfully inserted \n";
+}
+
+					
 
 ?>
