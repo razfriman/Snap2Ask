@@ -656,7 +656,7 @@ $app->get(
 				// Add the category and answer data
 				// Use the & here to pass the object by reference, and not by value
 				//  This way changes made to the paraters in the method, retain with the object
-				addCategories($question,$db);
+				addCategories($questionData,$db);
 				addAnswer($questionData,$db);
 			} else {
 				$questionData['error'] = "Question does not exists";
