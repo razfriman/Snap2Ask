@@ -1,6 +1,54 @@
 
+var baseUrl = "http://www.snap2ask.com/git/snap2ask/Code/web/api/index.php";
+//var baseUrl = "./api/index.php";
 
 
+
+function addQuestion(questionData) {
+	
+	var item = document.createElement('div');
+	$(item).addClass('questionItem');
+	
+	var image = document.createElement('img');
+	$(image).addClass('questionImage');
+	var image_url = questionData.image_url;
+	
+	if (!image_url) {
+		// Skip questions with an invalid image url
+		
+		// DEBUG
+		//image_url = 'http://placebox.es/150';
+		
+		return;
+	}
+	
+	image.setAttribute('src', image_url);
+
+	var categoryLabel = document.createElement('label');
+	$(categoryLabel).text('Category: ' + questionData.category);
+	
+	var subcategoryLabel = document.createElement('label');
+	$(subcategoryLabel).text('Subategory: ' + questionData.subcategory);
+	
+	var dateLabel = document.createElement('label');
+	$(dateLabel).text('Date: ' + questionData.date_created);
+	
+	item.appendChild(image);
+	item.appendChild(categoryLabel);
+	item.appendChild(subcategoryLabel);
+	item.appendChild(dateLabel);
+	
+	$(item).click(function() {
+		loadSelectedQuestion(questionData);
+	});
+	
+	$('#mainContent')[0].appendChild(item);
+}
+
+function loadSelectedQuestion(questionData) {
+	console.log(questionData);
+	window.location.href = 'viewQuestion.php?id=' + questionData.id;
+}
 
 function loadAllQuestions() {
 	$('#browseNav li').removeClass('selected');
@@ -10,31 +58,16 @@ function loadAllQuestions() {
 	
 	$('#mainContent').empty();
 	
-	for (var i = 0; i < 50; i++) {
-		var item = document.createElement('div');
-		$(item).addClass('questionItem');
-		
-		var image = document.createElement('img');
-		$(image).addClass('questionImage');
-		image.setAttribute('src', 'http://placebox.es/150');
-	
-		var categoryLabel = document.createElement('label');
-		$(categoryLabel).text('Category: Math');
-		
-		var subcategoryLabel = document.createElement('label');
-		$(subcategoryLabel).text('Subategory: Geometry');
-		
-		var dateLabel = document.createElement('label');
-		$(dateLabel).text('Date: 01/05/2013 01:52:13 PM');
-		
-		item.appendChild(image);
-		item.appendChild(categoryLabel);
-		item.appendChild(subcategoryLabel);
-		item.appendChild(dateLabel);
-		
-		$('#mainContent')[0].appendChild(item);
-	
-	}
+	var jqxhr = $.get( baseUrl + "/questions", function(data) {
+	  
+	  for (var i = 0; i < data.length; i++) {
+		 
+		 // Add the question to the UI
+		  addQuestion(data[i]); 
+	  }
+	}).fail(function() {
+	    console.log("error loading questions");
+	  });
 }
 
 function loadCategoryQuestions() {
