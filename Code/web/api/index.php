@@ -576,7 +576,7 @@ $app->get(
 		try {
 
 			// Get questions for a specific user
-			$sth = $db->prepare('SELECT * FROM questions WHERE student_id=:user_id ORDER BY date_created');
+			$sth = $db->prepare('SELECT * FROM questions WHERE student_id=:user_id ORDER BY date_created DESC');
 			$sth->bindParam(':user_id',$id);
 			$sth->execute();
 
@@ -668,7 +668,7 @@ $app->get(
 
 		// First get a list of all the categories
 		try {
-			$sth = $db->prepare('SELECT * FROM questions WHERE category_id=:category_id ORDER BY date_created');
+			$sth = $db->prepare('SELECT * FROM questions WHERE category_id=:category_id ORDER BY date_created DESC');
 			$sth->bindParam(':category_id', $id);
 			$sth->execute();
 			$questionData = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -711,7 +711,7 @@ $app->get(
 
 		try {
 			// Select all the questions from MySQL
-			$sth = $db->prepare('SELECT * FROM questions');
+			$sth = $db->prepare('SELECT * FROM questions ORDER BY date_created DESC');
 			$sth->execute();
 			$questionData = $sth->fetchAll(PDO::FETCH_ASSOC);
 
