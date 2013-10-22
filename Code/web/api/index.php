@@ -1071,6 +1071,44 @@ $app->post(
 	}
 	);
 
+
+//RATE ANSWER
+$app->put(
+	'/answers/:id',
+	function ($id) use ($app, $db) {
+		
+		$rateAnswer = array();
+	
+		//Get the JSON request with the data
+		$request = $app->request()->getBody();
+
+		//get data
+		$rate = $request['rate'];
+
+		$rateAnswer['sucess'] = true;
+		$rateAnswer['reason'] = "Question sucesfully rated";
+		try 
+		{
+			//prepare the query
+			$sth = $db->prepare('UPDATE answers set rating = :rate WHERE id = :answer_id');
+			$sth->bindParam(':rate', $rate);
+                	$sth->bindParam(':answer_id', $id);
+               		$sth->execute();
+		} catch(PDOException $e) {
+                        $rateAnswer['sucess'] = false;
+                        $rateAnswer['reason'] = 'Error rating the answer';
+                }
+
+		// Return the JSON data
+                $response = $app->response();
+                $response['Content-Type'] = 'application/json';
+                $response->status(200);
+                $response->write(json_encode($rateAnswer));
+        }
+
+		
+);
+
 // UPDATE AN ANSWER
 // OCCURS WHEN A USER REJECTS/ACCEPTS A QUESTION'S ANSWER
 $app->put(
@@ -1144,8 +1182,6 @@ $app->put(
 	}
 	);
 
-
-// TODO: RATE AN ANSWER
 
 // Run the Slim app as specified by the Slim Framework documentation
 $app->run();
