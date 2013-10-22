@@ -806,7 +806,7 @@ $app->post(
                 
         if ($sth->rowCount() > 0) {
 	        $balance_data = $sth->fetch();
-	        $current_balance = $balance[0];
+	        $current_balance = $balance_data[0];
 	        
 	        if ($current_balance > $ask_question_cost)
 	        {
@@ -852,7 +852,7 @@ $app->post(
 	    if ($success) {
 	    	
 	    	// Deduct the balance from the user
-		    $sth = $db->prepare('UPDATE users SET balance-=:question_cost WHERE id=:user_id)');
+		    $sth = $db->prepare('UPDATE users SET balance=balance - :question_cost WHERE id=:user_id');
 	        $sth->bindParam(':user_id', $student_id);
 	        $sth->bindParam(':question_cost', $ask_question_cost);
 	        $sth->execute();
@@ -1119,8 +1119,8 @@ $app->post(
 
 					// Set the Push notification request HTTP Headers
 					$headers = array(
-						'X-Parse-Application-Id: ' . APPLICATION_ID,
-						'X-Parse-REST-API-Key: ' . REST_API_KEY,
+						'X-Parse-Application-Id: ' . PARSE_APPLICATION_ID,
+						'X-Parse-REST-API-Key: ' . PARSE_REST_API_KEY,
 						'Content-Type: application/json',
 						'Content-Length: ' . strlen($json_push_data),
 						);
