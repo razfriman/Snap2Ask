@@ -6,21 +6,23 @@ var baseUrl = "http://www.snap2ask.com/git/snap2ask/Code/web/api/index.php";
 
 function addQuestion(questionData) {
 	
+	if (questionData.status != 0) {
+		// Skip questions that have been answered
+		return;
+	}
+	
+	var image_url = questionData.image_url;
+	
+	if (!image_url) {
+		// Skip questions with an invalid image url		
+		return;
+	}
+	
 	var item = document.createElement('div');
 	$(item).addClass('questionItem');
 	
 	var image = document.createElement('img');
 	$(image).addClass('questionImage');
-	var image_url = questionData.image_url;
-	
-	if (!image_url) {
-		// Skip questions with an invalid image url
-		
-		// DEBUG
-		//image_url = 'http://placebox.es/150';
-		
-		return;
-	}
 	
 	image.setAttribute('src', image_url);
 
