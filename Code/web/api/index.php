@@ -800,7 +800,7 @@ $app->post(
         $can_ask_question = false;
         
         // Get the current balance
-        $sth = $db->prepare('SELECT balance FROM users WHERE id=:user_id)');
+        $sth = $db->prepare('SELECT balance FROM users WHERE id=:user_id');
         $sth->bindParam(':user_id', $student_id);
         $sth->execute();
                 
