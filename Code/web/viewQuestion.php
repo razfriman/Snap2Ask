@@ -15,10 +15,21 @@ if (!isset($_SESSION['user_id'])) {
 
 if (!isset($_GET['id'])) {
 	// No question selected
-	header('Location: browse.php');
+	
+	// DEBUG
+	header('Location viewQuestion.php?id=40');
+	//header('Location: browse.php');
 	exit;
 
 }
+
+// Require the functions file
+require_once('functions.php');
+
+$question_info = getQuestionInfo($_GET['id']);
+
+//echo var_dump($question_info);
+//die;
 
 ?>
 
@@ -26,10 +37,11 @@ if (!isset($_GET['id'])) {
 <html>
 
 <head>
-	<title>Snap-2-Ask | Browse</title>
+	<title>Snap-2-Ask | View Question</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	<script src="js/answerQuestion.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
@@ -51,7 +63,38 @@ if (!isset($_GET['id'])) {
 		
 	
 		<div id="mainContent">
-			<p><?php echo 'Question ID: ' . $_GET['id']; ?></p>
+		
+			<div id="view-question">
+				<div id="view-question-left">
+					<img src="<?php echo $question_info['image_url']; ?>" width="400px" height="400px" />
+				</div>
+				
+				<div id="view-question-right">
+					
+					<label>Category:</label>
+					<p><?php echo $question_info['category']; ?></p>
+					
+					<label>Subcategory:</label>
+					<p><?php echo $question_info['subcategory']; ?></p>
+					
+					<label>Description:</label>
+					<p><?php echo $question_info['description']; ?></p>
+					
+					<label>Date Asked:</label>
+					<p><?php echo $question_info['date_created']; ?></p>
+				</div>			
+			</div>
+			
+			<div id="submit-answer-container">
+				<form id="submit-answer-form" action="#" method="POST">
+					<label for="answer">Answer:</label>
+					<textarea id="answer" name="answer"></textarea>
+					
+					<input type="hidden" id="user-id-hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" />
+					<input type="hidden" id="question-id-hidden" name="question_id" value="<?php echo $_GET['id']; ?>" />
+					<input type="submit" value="Submit Answer" />
+				</form>
+			</div>
 		</div>
 	
 	</div>

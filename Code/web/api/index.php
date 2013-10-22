@@ -944,7 +944,7 @@ $app->post(
 
 
 		// A debug variable to send push notificatino to the iOS users
-		$send_push_notification = false;
+		$send_push_notification = true;
 
 		try {
 
@@ -1005,8 +1005,8 @@ $app->post(
                     // USE PARSE'S REST API
 
                     // PARSE APPLICATION INFO
-					$APPLICATION_ID = "QbpUMWXgEKThPmDXUuAaqJw3caz1jCYORCeqGmn8";
-					$REST_API_KEY = "xsd0U7EIVkWrZ2xOkPsp3A5aVMLq8pEgNYKfFxdk";
+					$APPLICATION_ID = "qCO8s6oQwSxzwuBWekMQj2nqoiapfSk4ckrKkux5";
+					$REST_API_KEY = "tJYpTV7HqoN3SzvU73cyYTlu3K9ngTvOMXRwwmz0";
 
 					// The push notification info
 					$user_channel = "user_" . $student_id;
