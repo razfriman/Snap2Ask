@@ -1,5 +1,8 @@
 # Snap-2-Ask
 
+View the live website:
+### http://www.snap2ask.com
+
 Team 2
 
 ## Our Team
