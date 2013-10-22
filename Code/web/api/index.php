@@ -33,6 +33,10 @@ $app->response()->header('Access-Control-Allow-Origin', '*');
 $app->response()->header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
 
+
+
+
+
 // This function takes a password as an input
 // It returns an array with the hashed password and the salt used to create the hash
 function hashPassword($password) {
@@ -175,6 +179,13 @@ function addAnswer(&$question,$db) {
 	}
 }
 
+
+
+
+
+
+
+
 /*
  * Now we provide methods for the Slim API to use to creat the REST API
  * these methods will be executed when a user visits the corresponding route
@@ -269,6 +280,15 @@ $app->post(
 	}
 	);
 
+
+
+
+
+
+
+
+
+
 // GET LIST OF ALL USERS
 $app->get(
 	'/users',
@@ -338,6 +358,59 @@ $app->get(
 	}
 	);
 	
+// UPDATE A USER
+// OCCURS WHEN UPDATING A USER'S INFORMATION
+$app->put(
+	'/users/:id',
+	function ($id) use ($app,$db) {
+
+		// Get the JSON request
+		$request = $app->request()->getBody();
+
+	
+		$balance = $request['balance'];
+		$is_tutor = $request['is_tutor'];
+		$preferred_category_id = $request['preferred_category_id'];
+		$first_name = $request['first_name'];
+		$last_name = $request['last_name'];
+		$rating = $request['rating'];
+		
+		// Initialize the response data
+		$success = false;
+		$reason = '';
+
+		try {
+
+			$sth = $db->prepare('UPDATE USERS set balance=:balance, is_tutor=:is_tutor, preferred_category_id=:preferred_category_id, first_name=:first_name, last_name=:last_name, rating=:rating WHERE id=:user_id');
+			
+			$sth->bindParam(':balance', $balance);
+			$sth->bindParam('is_tutor', $is_tutor);
+			$sth->bindParam(':preferred_category_id', $preferred_category_id);
+			$sth->bindParam(':first_name', $first_name);
+			$sth->bindParam(':last_name', $last_name);
+			$sth->bindParam(':rating', $rating);
+			$sth->bindParam(':user_id', $id);
+			
+			$sth->execute();
+			
+		} catch(PDOException $e) {
+			$success = false;
+			$reason = $e->getMessage();
+		}
+
+		// Create the response data
+		$dataArray = array(
+			'success' => $success,
+			'reason' => $reason);
+
+		// Send the JSON response
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($dataArray));
+	}
+	);
+	
 // DELETE A USER ACCOUNT
 $app->delete(
 	'/users/:id',
@@ -370,41 +443,6 @@ $app->delete(
 		$response['Content-Type'] = 'application/json';
 		$response->status(200);
 		$response->write(json_encode($dataArray));
-	}
-	);
-
-// GET USER'S QUESTIONS
-$app->get(
-	'/users/:id/questions',
-	function ($id) use ($app,$db) {
-
-		$questionData = array();
-
-		try {
-
-			// Get questions for a specific user
-			$sth = $db->prepare('SELECT * FROM questions WHERE student_id=:user_id ORDER BY date_created');
-			$sth->bindParam(':user_id',$id);
-			$sth->execute();
-
-			// Fetch all the matching results
-			$questionData = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-			// For each question, add the category and answer data
-			foreach ($questionData as &$question) {
-				addCategories($question,$db);
-				addAnswer($question,$db);
-			}
-
-		} catch(PDOException $e) {
-         // SQL ERROR
-		}
-
-		// Return the JSON Response
-		$response = $app->response();
-		$response['Content-Type'] = 'application/json';
-		$response->status(200);
-		$response->write(json_encode($questionData));
 	}
 	);
 
@@ -528,6 +566,53 @@ $app->post(
 	}
 	);
 
+// GET USER'S QUESTIONS
+$app->get(
+	'/users/:id/questions',
+	function ($id) use ($app,$db) {
+
+		$questionData = array();
+
+		try {
+
+			// Get questions for a specific user
+			$sth = $db->prepare('SELECT * FROM questions WHERE student_id=:user_id ORDER BY date_created');
+			$sth->bindParam(':user_id',$id);
+			$sth->execute();
+
+			// Fetch all the matching results
+			$questionData = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+			// For each question, add the category and answer data
+			foreach ($questionData as &$question) {
+				addCategories($question,$db);
+				addAnswer($question,$db);
+			}
+
+		} catch(PDOException $e) {
+         // SQL ERROR
+		}
+
+		// Return the JSON Response
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($questionData));
+	}
+	);
+
+
+
+
+
+
+
+
+
+
+
+
+
 // GET LIST OF ALL CATEGORIES
 $app->get(
 	'/categories',
@@ -605,6 +690,17 @@ $app->get(
 		$response->write(json_encode($questionData));
 	}
 	);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 // GET LIST OF ALL QUESTIONS
 $app->get(
@@ -712,7 +808,7 @@ $app->post(
 	        $balance_data = $sth->fetch();
 	        $current_balance = $balance[0];
 	        
-	        if ($current_balance > $ASK_QUESTION_COST)
+	        if ($current_balance > $ask_question_cost)
 	        {
 	        	// The user has enough funds to ask a question
 		        $can_ask_question = true;
@@ -1004,11 +1100,7 @@ $app->post(
                     // SEND NOTIFICATION TO CLIENT HERE
                     // USE PARSE'S REST API
 
-                    // PARSE APPLICATION INFO
-					$APPLICATION_ID = "qCO8s6oQwSxzwuBWekMQj2nqoiapfSk4ckrKkux5";
-					$REST_API_KEY = "tJYpTV7HqoN3SzvU73cyYTlu3K9ngTvOMXRwwmz0";
-
-					// The push notification info
+                    // The push notification info
 					$user_channel = "user_" . $student_id;
 					$message = 'You received an answer to one of your questions!';
 					
@@ -1027,8 +1119,8 @@ $app->post(
 
 					// Set the Push notification request HTTP Headers
 					$headers = array(
-						'X-Parse-Application-Id: ' . $APPLICATION_ID,
-						'X-Parse-REST-API-Key: ' . $REST_API_KEY,
+						'X-Parse-Application-Id: ' . APPLICATION_ID,
+						'X-Parse-REST-API-Key: ' . REST_API_KEY,
 						'Content-Type: application/json',
 						'Content-Length: ' . strlen($json_push_data),
 						);
@@ -1070,6 +1162,18 @@ $app->post(
 
 	}
 	);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 // UPDATE AN ANSWER
 // OCCURS WHEN A USER REJECTS/ACCEPTS A QUESTION'S ANSWER
@@ -1143,6 +1247,11 @@ $app->put(
 		$response->write(json_encode($dataArray));
 	}
 	);
+
+
+
+
+
 
 
 // TODO: RATE AN ANSWER
