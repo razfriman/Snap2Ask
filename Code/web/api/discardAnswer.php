@@ -18,7 +18,7 @@
 
 	$answerID = $_POST['answerID'];
 	
-	$myQuery = "UPDATE answers set status = 'discarded'  where id = {$answerID};";
+	$myQuery = "UPDATE answers set status = 'rejected'  where id = {$answerID};";
 
 	if (!mysql_query($myQuery))
 	{
