@@ -31,6 +31,8 @@ function submitAnswer() {
 	                // Success
 					console.log("Success");
                 }
+                
+				window.location.href = 'browse.php';
             }
             });
 }

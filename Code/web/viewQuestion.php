@@ -28,6 +28,11 @@ require_once('functions.php');
 
 $question_info = getQuestionInfo($_GET['id']);
 
+if ($question_info['status'] != 0) {
+	// Question has already been answered. Redirect to browse page
+	header('Location: browse.php');
+}
+
 //echo var_dump($question_info);
 //die;
 
