@@ -29,10 +29,10 @@ function submitAnswer() {
                 
                 if (data.success === true) {
 	                // Success
-					console.log("Success");
+					console.log("Successfully posted answer");
                 }
                 
-				window.location.href = 'browse.php';
+                window.location.href = 'browse.php';
             }
             });
 }
@@ -51,10 +51,6 @@ $(document).ready(function () {
             
             // SUBMIT THE ANSWER TO THE REST API!!!!
             submitAnswer();
-            console.log('submitting');
-            return;
-            
-            
 		  },
 		  errorPlacement: function(error, element) {
 		  	error.insertBefore(element);

@@ -48,7 +48,6 @@ function addQuestion(questionData) {
 }
 
 function loadSelectedQuestion(questionData) {
-	console.log(questionData);
 	window.location.href = 'viewQuestion.php?id=' + questionData.id;
 }
 
@@ -102,12 +101,53 @@ function loadRecentQuestions() {
 	$('#mainContent p').text("RECENT QUESTIONS");
 }
 
+function loadQuestionsFromSearch(searchQuery) {
+	
+	$('#mainContent').empty();
+	
+	
+	$('#mainContent').html('Search Results For Query: ' + searchQuery);
+	
+	var searchData = {"search": searchQuery };
+	
+	$.ajax({
+            type: 'POST',
+            url: baseUrl + "/search/questions",
+            data: JSON.stringify(searchData),
+            contentType: "application/json",
+            traditional: true,
+            success: function (data) {
+            
+            console.log('got response');
+                     
+            	for (var i = 0; i < data.length; i++) {
+					// Add the question to the UI
+					addQuestion(data[i]); 
+				}
+            }
+    });
+}
 
 
 // we wait for the DOM to load
 $(document).ready(function () {
-	loadAllQuestions();
+
+	var searchQueryElement = $('#search-query-hidden');
+	var hasSearchQuery = searchQueryElement.length > 0 && searchQueryElement[0].value.length > 0;
+
+	if (hasSearchQuery) {
 	
+		// Display search results
+		var searchQuery = searchQueryElement[0].value;
+		loadQuestionsFromSearch(searchQuery);		
+	} else {
+	
+		// Display all recent questions
+		loadAllQuestions();	
+	}
+	
+	
+	// Add click event listeners for each tab (all,categories,preffered,recent)
 	$('#browseNav li:nth-child(1)').click(loadAllQuestions);
 	$('#browseNav li:nth-child(2)').click(loadCategoryQuestions);
 	$('#browseNav li:nth-child(3)').click(loadPreferredSubjectQuestions);

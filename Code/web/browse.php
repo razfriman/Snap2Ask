@@ -13,6 +13,13 @@ if (!isset($_SESSION['user_id'])) {
 	exit;
 }
 
+if(isset($_GET['search'])) {
+	// USER DID A SEARCH!
+	
+	// ADD TO HTML A HDIDEN INPUT
+	//var questionId = $('#question-id-hidden')[0].value;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -51,11 +58,17 @@ if (!isset($_SESSION['user_id'])) {
 			</ul>
 		</div>
 	
+		<?php 
 		
+		if(isset($_GET['search']))
+		{
+			echo('<input type="hidden" id="search-query-hidden" value="' . $_GET['search'] . '" />');
+		}
+		
+		?>
 	
 		<div id="mainContent">
 			<!--POPULATE QUESTIONS HERE-->
-			<p></p>
 		</div>
 	
 	</div>

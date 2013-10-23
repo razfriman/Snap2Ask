@@ -1252,9 +1252,59 @@ $app->put(
 
 
 
+// GET LIST OF ALL QUESTIONS
+$app->post(
+	'/search/questions',
+	function () use ($app,$db) {
+
+		// Load the JSON Request
+		$request = $app->request()->getBody();
+
+		// Load the request properties
+		$search_query = $request['search'];
+		
+		$questionDataFiltered = array();
+		
+		
+		try {
+			// Select all the questions from MySQL
+			$sth = $db->prepare('SELECT * FROM questions ORDER BY date_created DESC');
+			$sth->execute();
+			$questionDataAll = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        	// Add Answer and Category data to each question
+			foreach ($questionDataAll as &$question) {
+				addCategories($question,$db);
+				addAnswer($question,$db);
+			}
+			
+			foreach($questionDataAll as $question) {
+				// FILTER QUESTIONS HERE
+				
+				$questionDataFiltered.push($question);
+				
+			}
+
+		} catch(PDOException $e) {
+         // SQL ERROR
+		}
+
+		// Return the JSON data
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($questionDataFiltered));
+	}
+	);
 
 
-// TODO: RATE AN ANSWER
+
+
+/////////////////////////
+// TODO: RATE AN ANSWER//
+/////////////////////////
+
+
 
 // Run the Slim app as specified by the Slim Framework documentation
 $app->run();

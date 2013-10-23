@@ -1,25 +1,3 @@
-<script>
-//REMEMBER TO CHANGE URL QUERY STRING AS NECESSARY
-//BASED ON QUERY STRING WE WILL MANIPULATE INNER PHP QUESTION LOOKUP
-window.onload = function(){
-    var beg = window.location.href.indexOf("?search=");
-    if(beg > 0){
-        document.forms["searchfield"]["search"].value = window.location.href.substring(beg+8);
-    }
-     document.searchfield.addEventListener('submit', function(e){
-            e.preventDefault();
-            validateSearch();
-     }
-     , false); 
-    }; 
-
-function validateSearch(){
-    var y=document.forms["searchfield"]["search"].value;
-    var start = window.location.href.indexOf("web/");
-    window.location.href = window.location.href.substring(0,start+4) + "browse.php?search=" + y; 
-    return true;
-}//end function
-</script> 
 <?php
 
 if (!defined('inc_file')) {
@@ -40,6 +18,10 @@ if (isset($_SESSION['balance'])) {
 
 
 ?>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="js/search.js" type="text/javascript"></script>
+
 <header>
 	<div id="cash">
 		<h3>SnapCash</h3>
@@ -56,8 +38,8 @@ if (isset($_SESSION['balance'])) {
 			<a id="logoutLink" href="logout.php">Log-out</a>
 		</div>
 					
-		<form id="search" name="searchfield" method="POST" action="#">
-			<input type="text" name="search" list = "suggestionlist" placeholder="Search" title="Search a Question" x-webkit-speech />
+		<form id="search" method="POST" action="#">
+			<input type="text" name="searchQuery" id="searchQuery" list = "suggestionlist" value="<?php echo $_GET['search']; ?>" placeholder="Search" title="Enter a search query" x-webkit-speech />
 			<?php include("suggestionlist.php");?>
 			
 			<input type="submit" value="Search"/>
