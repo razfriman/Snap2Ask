@@ -50,6 +50,7 @@ $responseObj = getUserInfo(true);
 	
 		<div id="mainContent">
 			<!--POPULATE BALANCE INFO HERE-->
+			<!--Validate input values-->
 <?php
 
 // Echo the information using sprintf
@@ -57,6 +58,12 @@ $responseObj = getUserInfo(true);
 echo sprintf("<label>Balance</label><input readonly='YES' value='%s'>", htmlspecialchars($responseObj['balance']));
 
 ?>
+		<form name="addtutorfunds" id="addtutorfunds" action="#" method="put">
+		<input type="submit" value="Add funds">
+		</form>
+		<form name="withdrawfunds" id="withdrawfunds" action="#" method="put">
+		<input type="submit" value="Add funds">
+		</form>
 		</div>
 	
 	</div>
