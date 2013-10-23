@@ -1281,7 +1281,7 @@ $app->post(
 			foreach($questionDataAll as $question) {
 				// FILTER QUESTIONS HERE
 				
-				$questionDataFiltered.push($question);
+				array_push($questionDataFiltered, $question);
 				
 			}
 
