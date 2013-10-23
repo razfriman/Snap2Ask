@@ -36,7 +36,8 @@ if (isset($_SESSION['balance'])) {
 		</div>
 					
 		<form id="search" method="POST" action="#">
-			<input type="text" name="search" placeholder="Search" title="Search a Question" />
+			<input type="text" name="search" list = "suggestionlist" placeholder="Search" title="Search a Question" />
+			<?php include("suggestionlist.php");?>
 		</form>		
 	</div>		
 </header>
