@@ -1,8 +1,8 @@
 /**
- * @(#)subjects.java
+ * @todatalist.java
  *
  *
- * @author 
+ * @author Vipul Kohli
  * @version 1.00 2013/10/22
  */
 import java.lang.*;
