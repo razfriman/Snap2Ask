@@ -51,6 +51,7 @@ $responseObj = getUserInfo(true);
 		
 	
 		<div id="mainContent">
+		<h1>VIEW YOUR TUTOR PROFILE</h1>
 			<!--POPULATE PROFILE INFORMATION HERE-->
 			<!--Define the method for the edit profile button below!-->
 			
