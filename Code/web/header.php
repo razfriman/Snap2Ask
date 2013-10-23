@@ -38,6 +38,7 @@ if (isset($_SESSION['balance'])) {
 		<form id="search" method="POST" action="#">
 			<input type="text" name="search" list = "suggestionlist" placeholder="Search" title="Search a Question" x-webkit-speech />
 			<?php include("suggestionlist.php");?>
+			<input type="submit" value="search"/>
 		</form>		
 	</div>		
 </header>
