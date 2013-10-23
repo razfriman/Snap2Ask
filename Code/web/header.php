@@ -19,7 +19,7 @@ function validateSearch(){
     window.location.href = window.location.href.substring(0,start+4) + "browse.php?search=" + y; 
     return true;
 }//end function
-</script>    
+</script> 
 <?php
 
 if (!defined('inc_file')) {
@@ -57,7 +57,7 @@ if (isset($_SESSION['balance'])) {
 		</div>
 					
 		<form id="search" name="searchfield" method="POST" action="#">
-			<input type="text" name="search" list = "suggestionlist" placeholder="Type or say a keyword or school subject" title="Search a Question" x-webkit-speech />
+			<input type="text" name="search" list = "suggestionlist" placeholder="Search" title="Search a Question" x-webkit-speech />
 			<?php include("suggestionlist.php");?>
 			
 			<input type="submit" value="Search"/>

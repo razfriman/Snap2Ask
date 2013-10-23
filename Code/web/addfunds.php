@@ -1,6 +1,3 @@
-<h1>COMING SOON!</h1>
-
-
 <?php
 
 // Start the named session
