@@ -179,6 +179,29 @@ function addAnswer(&$question,$db) {
 	}
 }
 
+// Adds the user data to a answer object
+function addUserFromAnswer(&$answer,$db) {
+	try {
+
+		// Get the tutor id from the answer object
+		$tutor_id = $answer['tutor_id'];
+
+		// Select all the user data for the matching tutor id
+		$sth = $db->prepare("SELECT * FROM users WHERE id=:tutor_id");
+		$sth->bindParam(':tutor_id',$tutor_id);
+		$sth->execute();
+		$userData = $sth->fetch(PDO::FETCH_ASSOC);
+		
+		unset($userData['password']);
+		unset($userData['salt']);
+
+		// Append the  data of the user of the specific answer
+		$answer['tutor'] = $userData;
+
+	} catch(PDOException $e) {
+     // SQL ERROR
+	}
+}
 
 
 
@@ -587,6 +610,10 @@ $app->get(
 			foreach ($questionData as &$question) {
 				addCategories($question,$db);
 				addAnswer($question,$db);
+				
+				foreach($question['answers'] as &$answer) {
+					addUserFromAnswer($answer, $db);
+				}
 			}
 
 		} catch(PDOException $e) {

@@ -106,7 +106,7 @@ function loadQuestionsFromSearch(searchQuery) {
 	$('#mainContent').empty();
 	
 	
-	$('#mainContent').html('Search Results For Query: ' + searchQuery);
+	$('#mainContent').html('<p>Search Results For Query: ' + searchQuery + "</p>");
 	
 	var searchData = {"search": searchQuery };
 	

@@ -69,12 +69,7 @@ echo sprintf("<label>Balance</label><input readonly='YES' value='%s'>", htmlspec
 		</form>
         
         <section id="txnhistory">
-        <h3>Available Funds: $40.00</h3>
-        <h3>Pending Funds: $ 5.50</h3>
-        <a href="pending.php">Why are my funds pending?</a>
-		<h2>COMING SOON:</h2>
-		<p>Tutor's withdrawal and deposit history will be shown here in table format.</p>
-    
+        <h3>Available SnapCash: 40.00</h3>    
 		</section>
     
 		</div>

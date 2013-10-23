@@ -16,6 +16,12 @@ if (isset($_SESSION['balance'])) {
 	$balance = $_SESSION['balance'];
 }
 
+$searchQuery = '';
+
+if(isset($_GET['search'])) {
+	$searchQuery = $_GET['search'];
+}
+
 
 ?>
 
@@ -39,7 +45,7 @@ if (isset($_SESSION['balance'])) {
 		</div>
 					
 		<form id="search" method="POST" action="#">
-			<input type="text" name="searchQuery" id="searchQuery" list = "suggestionlist" value="<?php echo $_GET['search']; ?>" placeholder="Search" title="Enter a search query" x-webkit-speech />
+			<input type="text" name="searchQuery" id="searchQuery" list = "suggestionlist" value="<?php echo $searchQuery; ?>" placeholder="Search" title="Enter a search query" x-webkit-speech />
 			<?php include("suggestionlist.php");?>
 			
 			<input type="submit" value="Search"/>
