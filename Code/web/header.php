@@ -1,9 +1,14 @@
 <script>
 window.onload = function(){
+    if(window.location.href.indexOf("profile") > 0){
     document.getElementById("first_name").innerHTML = "<span class=\"label\">First Name: </span>" + document.forms["tutorprofile"]["firstname"].value;
     document.getElementById("last_name").innerHTML += "<span class=\"label\">Last Name: </span>" + document.forms["tutorprofile"]["lastname"].value;
     document.getElementById("email_address").innerHTML += "<span class=\"label\">E-mail Address: </span>" + document.forms["tutorprofile"]["emailaddy"].value;
     document.getElementById("about").innerHTML = document.forms["tutorprofile"]["firstname"].value + "'s Tutor Profile";
+    }
+    else{
+        document.getElementsByClassName("avail")[0].innerHTML = document.forms["bal"]["currentbalance"].value;
+    }
 };//end function
 </script>
 <?php
