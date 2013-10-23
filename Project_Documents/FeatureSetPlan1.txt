@@ -18,3 +18,54 @@ iOS Mobile Application
 1. Create login fields and process login
 2. Allow students to take pictures.
 3. Allow students to upload pictures from Photo Gallery.
+
+From Google Drive 10/23/2013:
+
+Web (Tutor)
+YES Registration
+YES Email and password (for Snap Account only)
+YES Personal information
+Payment information
+YES Login
+YES Facebook
+YES Google
+YES Snap Account
+YES Logout
+Tutor validation
+Placeholder (will just be a “preferred category” button for every category)
+Profile will hold list of preferred categories
+View/edit account
+View/edit personal information
+View/edit payment information
+Delete account
+View questions
+By all recent questions
+By specific academic category
+YES Answer questions
+YES Type answer
+Send answer
+
+iOS (Student)
+Registration
+Email and password (for Snap Account only)
+Personal information
+Payment information
+Login
+Facebook
+Google
+Snap Account
+Logout
+Ask question
+Take photo
+Optionally retake photo
+Select subject of question
+Add optional description
+Send question
+Click on a specific question
+Discarded answers
+New answers
+View question history
+View Unanswered
+View Answered
+View All
+
