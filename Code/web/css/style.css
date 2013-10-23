@@ -81,11 +81,6 @@ footer {
 	clear:both;
 }
 
-#search {
-	float:right;
-	margin-right:1em;
-}
-
 #logoSmall {
 	width:20em;
 	float:left;
@@ -125,13 +120,25 @@ footer {
 	margin-right: 1em;
 }
 
+#search {
+	float:right;
+	margin-right:1em;
+}
+
 #rightHeader #search {
 	clear:both;
 	width: 90%;
 }
 
-#rightHeader #search input {
-	width: 100%;
+#rightHeader #search input[type="text"] {
+	width: 70%;
+	float: left;
+}
+
+#rightHeader #search input[type="submit"] {
+	width: auto;
+	float: left;
+	height: 2.5em;
 }
 
 header {

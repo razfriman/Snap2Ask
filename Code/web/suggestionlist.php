@@ -1,5 +1,12 @@
+<?php
+
+if (!defined('inc_file')) {
+	die('Direct access is forbidden');
+}
+?>
+
 <datalist id='suggestionlist'>
-<option label="Algebra in Math" value="Algebra in Math">
+<option value="Algebra in Math">
 <option label="Geometry in Math" value="Geometry in Math">
 <option label="Precalculus in Math" value="Precalculus in Math">
 <option label="Calculus in Math" value="Calculus in Math">
