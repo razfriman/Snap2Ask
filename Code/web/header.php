@@ -2,7 +2,10 @@
 //REMEMBER TO CHANGE URL QUERY STRING AS NECESSARY
 //BASED ON QUERY STRING WE WILL MANIPULATE INNER PHP QUESTION LOOKUP
 window.onload = function(){
-    alert('loaded');
+    var beg = window.location.href.indexOf("?search=");
+    if(beg > 0){
+        document.forms["searchfield"]["search"].value = window.location.href.substring(beg+8);
+    }
      document.searchfield.addEventListener('submit', function(e){
             e.preventDefault();
             validateSearch();
@@ -12,9 +15,11 @@ window.onload = function(){
 
 function validateSearch(){
     var y=document.forms["searchfield"]["search"].value;
-        window.location.href = "http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=" + y; 
+    var start = window.location.href.indexOf("web/");
+    window.location.href = window.location.href.substring(0,start+4) + "browse.php?search=" + y; 
     return true;
 }//end function
+</script>    
 <?php
 
 if (!defined('inc_file')) {
@@ -34,7 +39,6 @@ if (isset($_SESSION['balance'])) {
 }
 
 
-
 ?>
 <header>
 	<div id="cash">
@@ -42,7 +46,7 @@ if (isset($_SESSION['balance'])) {
 		<h2>
 		<?php echo money_format('%i', $balance); ?></h2>
 	</div>
-	
+
 	<a href="http://www.snap2ask.com"><img src="res/temp_logo.png" alt="Snap-2-Ask Logo" id="logoSmall"/></a>
 	
 	<div id="rightHeader">		
@@ -53,12 +57,11 @@ if (isset($_SESSION['balance'])) {
 		</div>
 					
 		<form id="search" name="searchfield" method="POST" action="#">
-			<input type="text" name="search" list = "suggestionlist" placeholder="Search" title="Search a Question" x-webkit-speech />
+			<input type="text" name="search" list = "suggestionlist" placeholder="Type or say a keyword or school subject" title="Search a Question" x-webkit-speech />
 			<?php include("suggestionlist.php");?>
 			
 			<input type="submit" value="Search"/>
 			
 		</form>		
-	</div>		
+	</div>	
 </header>
-	
