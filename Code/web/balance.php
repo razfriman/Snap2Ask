@@ -51,14 +51,12 @@ $responseObj = getUserInfo(true);
 		<div id="mainContent">
 			<!--POPULATE BALANCE INFO HERE-->
 			<!--Validate input values-->
-
-		<form name="addtutorfunds" id="addtutorfunds" action="#" method="post">
-
+<form name="bal" id="bal" action="#" method="put">
 <?php
 
 // Echo the information using sprintf
 // Escape special html characters to enhance XSS security
-echo sprintf("<label>Balance</label><input readonly='YES' value='%s'>", htmlspecialchars($responseObj['balance']));
+echo sprintf("<label>Balance</label><input type = 'hidden' readonly='YES' name='currentbalance' value='%s'>", htmlspecialchars($responseObj['balance']));
 
 ?>
 		<form name="addtutorfunds" id="addtutorfunds" action="#" method="put">
@@ -69,7 +67,10 @@ echo sprintf("<label>Balance</label><input readonly='YES' value='%s'>", htmlspec
 		</form>
         
         <section id="txnhistory">
-        <h3>Available SnapCash: 40.00</h3>    
+        <h3>Available SnapCash: <span id="available"></span></h3>
+        <script>
+    document.getElementById("available").innerHTML = document.forms["bal"]["currentbalance"].value;
+    </script>
 		</section>
     
 		</div>
