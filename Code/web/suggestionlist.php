@@ -6,6 +6,204 @@ if (!defined('inc_file')) {
 ?>
 
 <datalist id='suggestionlist'>
+
+<!--HIGH SCHOOL CLASSES LIST-->
+<option label="Academic Decathlon H.S." value="Academic Decathlon H.S.">
+<option label="Academic Literacy I - III H.S." value="Academic Literacy I - III H.S.">
+<option label="Accounting H.S." value="Accounting H.S.">
+<option label="Advanced Quantitative Reasoning H.S." value="Advanced Quantitative Reasoning H.S.">
+<option label="Adventure / Outdoor Education H.S." value="Adventure / Outdoor Education H.S.">
+<option label="Aerobic Activities H.S." value="Aerobic Activities H.S.">
+<option label="Aerobic Activities (STEP) H.S." value="Aerobic Activities (STEP) H.S.">
+<option label="Aerospace Engineering (PLTW) H.S." value="Aerospace Engineering (PLTW) H.S.">
+<option label="Ag Mechanics and Metal Technologies H.S." value="Ag Mechanics and Metal Technologies H.S.">
+<option label="Algebra I H.S." value="Algebra I H.S.">
+<option label="Algebra II H.S." value="Algebra II H.S.">
+<option label="American Sign Language I - III H.S." value="American Sign Language I - III H.S.">
+<option label="American Studies H.S." value="American Studies H.S.">
+<option label="Anatomy and Physiology H.S." value="Anatomy and Physiology H.S.">
+<option label="Architectural Design H.S." value="Architectural Design H.S.">
+<option label="Art and Media Communications H.S." value="Art and Media Communications H.S.">
+<option label="Art H/AP Drawing Portfolio H.S." value="Art H/AP Drawing Portfolio H.S.">
+<option label="Art H/AP Three-Dimensional Design H.S." value="Art H/AP Three-Dimensional Design H.S.">
+<option label="Art H/AP Two-Dimensional Design H.S." value="Art H/AP Two-Dimensional Design H.S.">
+<option label="Art History H.S." value="Art History H.S.">
+<option label="Art I - III H.S." value="Art I - III H.S.">
+<option label="Art Sculpture H.S." value="Art Sculpture H.S.">
+<option label="Audio/Video Production - Advanced H.S." value="Audio/Video Production - Advanced H.S.">
+<option label="Audio/Video Production (Video Technology) H.S." value="Audio/Video Production (Video Technology) H.S.">
+<option label="Automotive Technology H.S." value="Automotive Technology H.S.">
+<option label="All courses may not be offered 126 on every campus. H.S." value="All courses may not be offered 126 on every campus. H.S.">
+<option label="AVID I - IV H.S." value="AVID I - IV H.S.">
+<option label="Band III - IV H H.S." value="Band III - IV H H.S.">
+<option label="Baseball H.S." value="Baseball H.S.">
+<option label="Basketball H.S." value="Basketball H.S.">
+<option label="Bible Literacy H.S." value="Bible Literacy H.S.">
+<option label="Biology H.S." value="Biology H.S.">
+<option label="Business Information Management H.S." value="Business Information Management H.S.">
+<option label="Business Law H.S." value="Business Law H.S.">
+<option label="Calculus H.S." value="Calculus H.S.">
+<option label="Career Preparation I - II H.S." value="Career Preparation I - II H.S.">
+<option label="Cheerleading H.S." value="Cheerleading H.S.">
+<option label="Chemistry H.S." value="Chemistry H.S.">
+<option label="Child Development H.S." value="Child Development H.S.">
+<option label="Chinese I - IV H.S." value="Chinese I - IV H.S.">
+<option label="Choir III - IV H H.S." value="Choir III - IV H H.S.">
+<option label="College Reading Applications H.S." value="College Reading Applications H.S.">
+<option label="Collision Repair and Refinishing H.S." value="Collision Repair and Refinishing H.S.">
+<option label="Communication Applications H.S." value="Communication Applications H.S.">
+<option label="Comparative Government H.S." value="Comparative Government H.S.">
+<option label="Computer Science H.S." value="Computer Science H.S.">
+<option label="Concert Band I - IV H.S." value="Concert Band I - IV H.S.">
+<option label="Concert Choir I - IV H.S." value="Concert Choir I - IV H.S.">
+<option label="Contemporary World Issues H.S." value="Contemporary World Issues H.S.">
+<option label="Creative Writing H.S." value="Creative Writing H.S.">
+<option label="Cross Country H.S." value="Cross Country H.S.">
+<option label="Culinary Arts H.S." value="Culinary Arts H.S.">
+<option label="All courses may not be offered 127 on every campus. H.S." value="All courses may not be offered 127 on every campus. H.S.">
+<option label="Dance I - IV H.S." value="Dance I - IV H.S.">
+<option label="Debate I - III H.S." value="Debate I - III H.S.">
+<option label="Digital and Interactive Media H.S." value="Digital and Interactive Media H.S.">
+<option label="Digital Design and Media Production (Desktop Publishing) H.S." value="Digital Design and Media Production (Desktop Publishing) H.S.">
+<option label="Diving H.S." value="Diving H.S.">
+<option label="Dollars and Sense H.S." value="Dollars and Sense H.S.">
+<option label="Drill Team H.S." value="Drill Team H.S.">
+<option label="Earth and Space Science H.S." value="Earth and Space Science H.S.">
+<option label="Economics, with Emphasis on the Free Enterprise System and Its Benefits H.S." value="Economics, with Emphasis on the Free Enterprise System and Its Benefits H.S.">
+<option label="Engineering Design and Presentation H.S." value="Engineering Design and Presentation H.S.">
+<option label="Engineering Design and Problem Solving H.S." value="Engineering Design and Problem Solving H.S.">
+<option label="English I H.S." value="English I H.S.">
+<option label="English I - II SOL (Speakers of Other Languages) H.S." value="English I - II SOL (Speakers of Other Languages) H.S.">
+<option label="English II H.S." value="English II H.S.">
+<option label="English III H.S." value="English III H.S.">
+<option label="English IV H.S." value="English IV H.S.">
+<option label="Entrepreneurship H.S." value="Entrepreneurship H.S.">
+<option label="Environmental Science H.S." value="Environmental Science H.S.">
+<option label="Environmental Systems H.S." value="Environmental Systems H.S.">
+<option label="Equine Science H.S." value="Equine Science H.S.">
+<option label="European History H.S." value="European History H.S.">
+<option label="Fashion Design H.S." value="Fashion Design H.S.">
+<option label="Fashion Marketing H.S." value="Fashion Marketing H.S.">
+<option label="Food Science H.S." value="Food Science H.S.">
+<option label="Football H.S." value="Football H.S.">
+<option label="All courses may not be offered 128 on every campus. H.S." value="All courses may not be offered 128 on every campus. H.S.">
+<option label="Forensic Science H.S." value="Forensic Science H.S.">
+<option label="Foundations of Personal Fitness H.S." value="Foundations of Personal Fitness H.S.">
+<option label="French I - V H.S." value="French I - V H.S.">
+<option label="Geometry H.S." value="Geometry H.S.">
+<option label="German I - IV H.S." value="German I - IV H.S.">
+<option label="Global Business H.S." value="Global Business H.S.">
+<option label="Golf H.S." value="Golf H.S.">
+<option label="Graphic Design and Illustration H.S." value="Graphic Design and Illustration H.S.">
+<option label="Health I H.S." value="Health I H.S.">
+<option label="Health Science H.S." value="Health Science H.S.">
+<option label="Health Science - Pharmacy Tech H.S." value="Health Science - Pharmacy Tech H.S.">
+<option label="Horticulture Science H.S." value="Horticulture Science H.S.">
+<option label="Human Experience - Culture, Media and Perception H.S." value="Human Experience - Culture, Media and Perception H.S.">
+<option label="Human Geography H.S." value="Human Geography H.S.">
+<option label="Humanities H.S." value="Humanities H.S.">
+<option label="Individual Sports H.S." value="Individual Sports H.S.">
+<option label="Instructional Practices in Education and Training H.S." value="Instructional Practices in Education and Training H.S.">
+<option label="Integrated Physics and Chemistry (IPC) H.S." value="Integrated Physics and Chemistry (IPC) H.S.">
+<option label="Interior Design H.S." value="Interior Design H.S.">
+<option label="Internetworking Technologies H.S." value="Internetworking Technologies H.S.">
+<option label="Interpersonal Studies H.S." value="Interpersonal Studies H.S.">
+<option label="Introduction to Engineering Design (PLTW) H.S." value="Introduction to Engineering Design (PLTW) H.S.">
+<option label="Jazz / Show Choir I - IV H.S." value="Jazz / Show Choir I - IV H.S.">
+<option label="Jazz Band I - IV H.S." value="Jazz Band I - IV H.S.">
+<option label="All courses may not be offered 129 on every campus. H.S." value="All courses may not be offered 129 on every campus. H.S.">
+<option label="Journalism H.S." value="Journalism H.S.">
+<option label="Journalism - Independent Study H.S." value="Journalism - Independent Study H.S.">
+<option label="Junior Reserve Officer Training (JROTC) H.S." value="Junior Reserve Officer Training (JROTC) H.S.">
+<option label="Landscape Design and Turf Grass Management H.S." value="Landscape Design and Turf Grass Management H.S.">
+<option label="Latin I - IV H.S." value="Latin I - IV H.S.">
+<option label="Law Enforcement H.S." value="Law Enforcement H.S.">
+<option label="Library Aide H.S." value="Library Aide H.S.">
+<option label="Lifetime Nutrition and Wellness H.S." value="Lifetime Nutrition and Wellness H.S.">
+<option label="Literary Genres H.S." value="Literary Genres H.S.">
+<option label="Livestock Production H.S." value="Livestock Production H.S.">
+<option label="Mapping for Academic and Personal Success (MAPS) H.S." value="Mapping for Academic and Personal Success (MAPS) H.S.">
+<option label="Marketing Dynamics H.S." value="Marketing Dynamics H.S.">
+<option label="Math Independent Study H.S." value="Math Independent Study H.S.">
+<option label="Mathematical Models with Applications H.S." value="Mathematical Models with Applications H.S.">
+<option label="Medical Terminology H.S." value="Medical Terminology H.S.">
+<option label="Mixed Choir I - IV H.S." value="Mixed Choir I - IV H.S.">
+<option label="Music Theory H.S." value="Music Theory H.S.">
+<option label="Newspaper I - II H.S." value="Newspaper I - II H.S.">
+<option label="Office Aide H.S." value="Office Aide H.S.">
+<option label="Oral Interpretation I - III H.S." value="Oral Interpretation I - III H.S.">
+<option label="Orchestra III - IV H H.S." value="Orchestra III - IV H H.S.">
+<option label="PAL - Peer Assistance and Leadership H.S." value="PAL - Peer Assistance and Leadership H.S.">
+<option label="Partners Physical Education H.S." value="Partners Physical Education H.S.">
+<option label="Peer Assistance for Students with Disabilities H.S." value="Peer Assistance for Students with Disabilities H.S.">
+<option label="Percussion Ensemble I - IV H.S." value="Percussion Ensemble I - IV H.S.">
+<option label="All courses may not be offered 130 on every campus. H.S." value="All courses may not be offered 130 on every campus. H.S.">
+<option label="Philharmonic Orchestra I - IV H.S." value="Philharmonic Orchestra I - IV H.S.">
+<option label="Photojournalism H.S." value="Photojournalism H.S.">
+<option label="Physics H.S." value="Physics H.S.">
+<option label="Practicum in Agriculture, Food and Natural Resources H.S." value="Practicum in Agriculture, Food and Natural Resources H.S.">
+<option label="Floral Design H.S." value="Floral Design H.S.">
+<option label="Veterinary Medicine H.S." value="Veterinary Medicine H.S.">
+<option label="Practicum in Business Management H.S." value="Practicum in Business Management H.S.">
+<option label="Practicum in Culinary Arts H.S." value="Practicum in Culinary Arts H.S.">
+<option label="Practicum in Education and Training H.S." value="Practicum in Education and Training H.S.">
+<option label="Practicum in Health Science H.S." value="Practicum in Health Science H.S.">
+<option label="Practicum in Marketing Dynamics H.S." value="Practicum in Marketing Dynamics H.S.">
+<option label="Pre-Calculus H.S." value="Pre-Calculus H.S.">
+<option label="Principles and Elements of Floral Design H.S." value="Principles and Elements of Floral Design H.S.">
+<option label="Principles of Business, Marketing and Finance H.S." value="Principles of Business, Marketing and Finance H.S.">
+<option label="Principles of Engineering (PLTW) H.S." value="Principles of Engineering (PLTW) H.S.">
+<option label="Principles of Health Science H.S." value="Principles of Health Science H.S.">
+<option label="Principles of Hospitality and Tourism H.S." value="Principles of Hospitality and Tourism H.S.">
+<option label="Principles of Human Services H.S." value="Principles of Human Services H.S.">
+<option label="Principles of Information Technology H.S." value="Principles of Information Technology H.S.">
+<option label="Principles of Law, Public Safety, Corrections and Security H.S." value="Principles of Law, Public Safety, Corrections and Security H.S.">
+<option label="Professional Standards in Agribusiness H.S." value="Professional Standards in Agribusiness H.S.">
+<option label="Psychology H.S." value="Psychology H.S.">
+<option label="Restaurant Management H.S." value="Restaurant Management H.S.">
+<option label="Scientific Research and Design H H.S." value="Scientific Research and Design H H.S.">
+<option label="Small Animal Management H.S." value="Small Animal Management H.S.">
+<option label="All courses may not be offered 131 on every campus. H.S." value="All courses may not be offered 131 on every campus. H.S.">
+<option label="Soccer H.S." value="Soccer H.S.">
+<option label="Sociology H.S." value="Sociology H.S.">
+<option label="Softball H.S." value="Softball H.S.">
+<option label="Spanish I - V H.S." value="Spanish I - V H.S.">
+<option label="Speech - Independent Study H.S." value="Speech - Independent Study H.S.">
+<option label="Sports and Entertainment Marketing H.S." value="Sports and Entertainment Marketing H.S.">
+<option label="Statistics H.S." value="Statistics H.S.">
+<option label="String Orchestra I - IV H.S." value="String Orchestra I - IV H.S.">
+<option label="Student Senate H.S." value="Student Senate H.S.">
+<option label="Swimming H.S." value="Swimming H.S.">
+<option label="Symphonic Band I - IV H.S." value="Symphonic Band I - IV H.S.">
+<option label="Syphony Orchestra I - IV H.S." value="Syphony Orchestra I - IV H.S.">
+<option label="Team or Individual Sports (Weight Training) H.S." value="Team or Individual Sports (Weight Training) H.S.">
+<option label="Team Sport Officiating H.S." value="Team Sport Officiating H.S.">
+<option label="Team Sports H.S." value="Team Sports H.S.">
+<option label="Technical Theater I - IV H.S." value="Technical Theater I - IV H.S.">
+<option label="Technical Writing Research Study Skills H.S." value="Technical Writing Research Study Skills H.S.">
+<option label="Tennis H.S." value="Tennis H.S.">
+<option label="Tenor / Bass Choir I - IV H.S." value="Tenor / Bass Choir I - IV H.S.">
+<option label="Theater Arts I - IV H.S." value="Theater Arts I - IV H.S.">
+<option label="Theater Production I - IV H.S." value="Theater Production I - IV H.S.">
+<option label="Touch System Data Entry H.S." value="Touch System Data Entry H.S.">
+<option label="Track H.S." value="Track H.S.">
+<option label="Treble Choir I - IV H.S." value="Treble Choir I - IV H.S.">
+<option label="United States Government H.S." value="United States Government H.S.">
+<option label="United States History H.S." value="United States History H.S.">
+<option label="Veterinary Medical Applications H.S." value="Veterinary Medical Applications H.S.">
+<option label="All courses may not be offered 132 on every campus. H.S." value="All courses may not be offered 132 on every campus. H.S.">
+<option label="Video Game Design H.S." value="Video Game Design H.S.">
+<option label="Virtual Business H.S." value="Virtual Business H.S.">
+<option label="Visual Media and Analysis Production H.S." value="Visual Media and Analysis Production H.S.">
+<option label="Volleyball H.S." value="Volleyball H.S.">
+<option label="Web Design (Web Mastering) H.S." value="Web Design (Web Mastering) H.S.">
+<option label="Wildlife, Fisheries and Ecology Management H.S." value="Wildlife, Fisheries and Ecology Management H.S.">
+<option label="Wind Ensemble I - IV H.S." value="Wind Ensemble I - IV H.S.">
+<option label="World Geography Studies H.S." value="World Geography Studies H.S.">
+<option label="World History H.S." value="World History H.S.">
+
+
+
 <!--COLLEGE CLASSES LIST-->
 <option label="3-D ANIMATION" value="3-D ANIMATION">
 <option label="ABNORMAL PSYCHOLOGY" value="ABNORMAL PSYCHOLOGY">
