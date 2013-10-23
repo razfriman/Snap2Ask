@@ -55,15 +55,16 @@ $responseObj = getUserInfo(true);
             <h1>EDIT YOUR PROFILE</H1>
 			<!--POPULATE PROFILE INFORMATION HERE-->
 			<!--NEED TO VALIDATE EDITING PROFILE-->
-			
+			<form name="edittutorprofile" id="edittutorprofile" action="#" method="post">
 <?php
 // Echo the information using sprintf
 // Escape special html characters to enhance XSS security
 echo sprintf("<label>First Name</label><input value='%s'>", htmlspecialchars($responseObj['first_name']));
 echo sprintf("<label>Last Name</label><input value='%s'>", htmlspecialchars($responseObj['last_name']));
 echo sprintf("<label>Email</label><input value='%s'>", htmlspecialchars($responseObj['email']));
-?>
-        <form name="edittutorprofile" id="edittutorprofile" action="#" method="post">
+?><select multiple="multiple">
+</select>
+        
 		<input type="submit" value="Save Changes">
 		<a href="deact.php">Deactivate account</a>
 		</form>
