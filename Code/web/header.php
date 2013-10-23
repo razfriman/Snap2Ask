@@ -1,3 +1,20 @@
+<script>
+//REMEMBER TO CHANGE URL QUERY STRING AS NECESSARY
+//BASED ON QUERY STRING WE WILL MANIPULATE INNER PHP QUESTION LOOKUP
+window.onload = function(){
+    alert('loaded');
+     document.searchfield.addEventListener('submit', function(e){
+            e.preventDefault();
+            validateSearch();
+     }
+     , false); 
+    }; 
+
+function validateSearch(){
+    var y=document.forms["searchfield"]["search"].value;
+        window.location.href = "http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=" + y; 
+    return true;
+}//end function
 <?php
 
 if (!defined('inc_file')) {
@@ -35,7 +52,7 @@ if (isset($_SESSION['balance'])) {
 			<a id="logoutLink" href="logout.php">Log-out</a>
 		</div>
 					
-		<form id="search" method="POST" action="#">
+		<form id="search" name="searchfield" method="POST" action="#">
 			<input type="text" name="search" list = "suggestionlist" placeholder="Search" title="Search a Question" x-webkit-speech />
 			<?php include("suggestionlist.php");?>
 			
