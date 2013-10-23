@@ -412,7 +412,7 @@ $app->put(
 
 		try {
 
-			$sth = $db->prepare('UPDATE USERS set balance=:balance, is_tutor=:is_tutor, preferred_category_id=:preferred_category_id, first_name=:first_name, last_name=:last_name, rating=:rating WHERE id=:user_id');
+			$sth = $db->prepare('UPDATE users set balance=:balance, is_tutor=:is_tutor, preferred_category_id=:preferred_category_id, first_name=:first_name, last_name=:last_name, rating=:rating WHERE id=:user_id');
 			
 			$sth->bindParam(':balance', $balance);
 			$sth->bindParam('is_tutor', $is_tutor);
