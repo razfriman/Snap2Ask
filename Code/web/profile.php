@@ -52,7 +52,8 @@ $responseObj = getUserInfo(true);
 	
 		<div id="mainContent">
 			<!--POPULATE PROFILE INFORMATION HERE-->
-			<form name="tutorprofile" id="tutorprofile">
+			<!--Define the method for the edit profile button below!-->
+			
 <?php
 
 // Echo the information using sprintf
@@ -62,7 +63,8 @@ echo sprintf("<label>Last Name</label><input readonly='YES' value='%s'>", htmlsp
 echo sprintf("<label>Email</label><input readonly='YES' value='%s'>", htmlspecialchars($responseObj['email']));
 
 ?>
-		<input type="submit" value="Save Changes">
+		<form name="edittutorprofile" id="edittutorprofile" action="#" method="">
+		<input type="submit" value="Edit Profile">
 		<a href="#">Deactivate account</a>
 		</form>
 		</div>
