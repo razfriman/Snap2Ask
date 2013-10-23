@@ -63,9 +63,9 @@ echo sprintf("<label>Last Name</label><input readonly='YES' value='%s'>", htmlsp
 echo sprintf("<label>Email</label><input readonly='YES' value='%s'>", htmlspecialchars($responseObj['email']));
 
 ?>
-		<form name="edittutorprofile" id="edittutorprofile" action="#" method="">
+		<form name="edittutorprofile" id="edittutorprofile" action="editprofile.php" method="">
 		<input type="submit" value="Edit Profile">
-		<a href="#">Deactivate account</a>
+		<a href="deact.php">Deactivate account</a>
 		</form>
 		</div>
 
