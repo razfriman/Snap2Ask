@@ -150,9 +150,6 @@
 {
     if (indexPath.row == 2) {
         // Select Category
-
-        // TODO: Show PUSH segue to select category
-        
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
@@ -255,7 +252,7 @@
     
 
     // Upload the image
-    //[self uploadQuestionForUser:[UserInfo sharedClient].userModel.userId withCategory:_selectedCategory.categoryId withSubcategory:_selectedSubcategory.subcategoryId withDescription:_descriptionText.text withImage:imageData];
+    [self uploadQuestionForUser:[UserInfo sharedClient].userModel.userId withCategory:_selectedCategory.categoryId withSubcategory:_selectedSubcategory.subcategoryId withDescription:_descriptionText.text withImage:imageData];
     
     // Show the upload progress indicator
     _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -296,6 +293,11 @@
         NSLog(@"Request: %@",content);
         
         NSLog(@"Error Uploading Image Metadata: %@", error);
+        
+        if (_hud) {
+            // Hide the progress HUD
+            [_hud hide:YES];
+        }
     }];
 }
 
@@ -315,6 +317,11 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error Uploading Image: %@", error);
+        
+        if (_hud) {
+            // Hide the progress HUD
+            [_hud hide:YES];
+        }
     }];
     
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {

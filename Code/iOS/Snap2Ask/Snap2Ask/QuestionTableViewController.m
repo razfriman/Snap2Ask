@@ -36,7 +36,7 @@
     
     // Register for notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionsUpdated:) name:QuestionsNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionDeleted:) name:QuestionDeletedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newQuestionSubmitted:) name:NewQuestionSubmittedNotification object:nil];
     
     // Load Questions
@@ -45,8 +45,7 @@
     
     self.clearsSelectionOnViewWillAppear = YES;
  
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,6 +65,11 @@
     QuestionModel *question = [[QuestionModel alloc] initWithJSON:notification.userInfo];
     [self.questions addObject:question];
     
+    [self.tableView reloadData];
+}
+
+- (void) questionDeleted:(NSNotification *)notification
+{
     [self.tableView reloadData];
 }
 
@@ -123,6 +127,32 @@
     return 115;
 }
 
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSArray *filteredQuestions = [self getFilteredQuestions];
+    
+    QuestionModel *question = [filteredQuestions objectAtIndex:indexPath.row];
+    
+    if (question) {
+        int questionId = question.questionId;
+        
+        // Delete the question from the DB
+        [[Snap2AskClient sharedClient] deleteQuestion:questionId];
+        
+        // Find the question in the questions array
+        for (int i = 0; i < _questions.count; i++) {
+            if (((QuestionModel *)[_questions objectAtIndex:i]).questionId == questionId) {
+
+                // Remove from the questions array
+                [_questions removeObjectAtIndex:i];
+            }
+        }
+        
+    }
+    
+}
+
 
 -(NSArray *) getFilteredQuestions {
     if(_segmentControl.selectedSegmentIndex == 0) {
@@ -143,6 +173,17 @@
     } else {
         return @[];
     }
+}
+
+- (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if ([identifier isEqualToString:@"showDetail"])
+    {
+        // Only show the question details if the table is not in edit mode
+        return !self.tableView.isEditing;
+    }
+    
+    return YES;
 }
 
 // In a story board-based application, you will often want to do a little preparation before navigation

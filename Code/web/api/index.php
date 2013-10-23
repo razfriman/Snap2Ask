@@ -169,6 +169,7 @@ function addAnswer(&$question,$db) {
 		$sth = $db->prepare("SELECT * FROM answers WHERE question_id=:question_id");
 		$sth->bindParam(':question_id',$id);
 		$sth->execute();
+		
 		$answerData = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 		// Append the array data of all answers of the specific question to the question object
@@ -182,7 +183,9 @@ function addAnswer(&$question,$db) {
 // Adds the user data to a answer object
 function addUserFromAnswer(&$answer,$db) {
 	try {
-
+		
+		$userData = array();
+		
 		// Get the tutor id from the answer object
 		$tutor_id = $answer['tutor_id'];
 
@@ -190,11 +193,16 @@ function addUserFromAnswer(&$answer,$db) {
 		$sth = $db->prepare("SELECT * FROM users WHERE id=:tutor_id");
 		$sth->bindParam(':tutor_id',$tutor_id);
 		$sth->execute();
-		$userData = $sth->fetch(PDO::FETCH_ASSOC);
 		
-		unset($userData['password']);
-		unset($userData['salt']);
-
+		if ($sth->rowCount() > 0) {
+			
+			$userData = $sth->fetch(PDO::FETCH_ASSOC);
+			
+			// Remove password/salt from the user data
+			unset($userData['password']);
+			unset($userData['salt']);
+		}
+		
 		// Append the  data of the user of the specific answer
 		$answer['tutor'] = $userData;
 
