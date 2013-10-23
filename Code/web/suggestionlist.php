@@ -1,4 +1,12 @@
 <datalist id='suggestionlist'>
+<option label="Algebra in Math" value="Algebra in Math">
+<option label="Geometry in Math" value="Geometry in Math">
+<option label="Precalculus in Math" value="Precalculus in Math">
+<option label="Calculus in Math" value="Calculus in Math">
+<option label="Linear Algebra in Math" value="Linear Algebra in Math">
+<option label="Discrete Mathematics in Math" value="Discrete Mathematics in Math">
+<option label="Probability and Statistics in Math" value="Probability and Statistics in Math">
+<option label="Statistics and Probability in Math" value="Statistics and Probability in Math">
 <option label="Graph of a function in Math" value="Graph of a function in Math">
 <option label="Linear function in Math" value="Linear function in Math">
 <option label="Secant in Math" value="Secant in Math">
