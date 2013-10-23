@@ -6,7 +6,7 @@ if (!defined('inc_file')) {
 ?>
 
 <datalist id='suggestionlist'>
---------------------Configuration: <Default>--------------------
+<!--COLLEGE CLASSES LIST-->
 <option label="3-D ANIMATION" value="3-D ANIMATION">
 <option label="ABNORMAL PSYCHOLOGY" value="ABNORMAL PSYCHOLOGY">
 <option label="ACADEMIC DISCOURSE" value="ACADEMIC DISCOURSE">
@@ -923,8 +923,8 @@ if (!defined('inc_file')) {
 <option label="YOGA FOR DANCERS" value="YOGA FOR DANCERS">
 <option label="ZOOARCHAEOLOGY" value="ZOOARCHAEOLOGY">
 
-Process completed.
 
+<!--begin general topics-->
 <option value="Algebra in Math">
 <option label="Geometry in Math" value="Geometry in Math">
 <option label="Precalculus in Math" value="Precalculus in Math">
