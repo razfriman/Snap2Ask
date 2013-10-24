@@ -1,7 +1,7 @@
 # Snap-2-Ask 
 Team 2 CSE 3330/3345 FALL 2013
 
-View the live website:
+View the live website (BETA):
 ### http://www.snap2ask.com
 
 
