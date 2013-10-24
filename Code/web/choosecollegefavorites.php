@@ -1,4 +1,4 @@
-<form name="collegesubjects" id="collegesubjects" class="menus">
+
 <option value="3-D ANIMATION">3-D ANIMATION</option>
 <option value="ABNORMAL PSYCHOLOGY">ABNORMAL PSYCHOLOGY</option>
 <option value="ACADEMIC DISCOURSE">ACADEMIC DISCOURSE</option>
@@ -914,5 +914,4 @@
 <option value="WRITING AND EDITING">WRITING AND EDITING</option>
 <option value="YOGA FOR DANCERS">YOGA FOR DANCERS</option>
 <option value="ZOOARCHAEOLOGY">ZOOARCHAEOLOGY</option>
-<input type="submit" value = "Save Subjects">
-</form>
+</select>
