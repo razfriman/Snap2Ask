@@ -230,7 +230,7 @@ header {
 }
 
 /* Set a different width when the width of the page becomes very small */
-@media all and (max-width: 1030px) and (min-width: 520px) {
+@media all and (max-width: 1030px) and (min-width: 0px) {
   #mainContent {
   	width: 652px;
   }
@@ -317,12 +317,12 @@ header {
 
 .profileItem {
 	height: 2em;
-	width: 30%;
+	width: 20em;
 	margin: .5em auto;
 }
 
 .profileItem label {
-width: 40%;
+	width: 40%;
 	float: left;
 	text-align: right;
 	margin: 0;
