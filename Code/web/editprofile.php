@@ -19,6 +19,45 @@ require_once('functions.php');
 
 $responseObj = getUserInfo(true);
 
+if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
+
+		
+	// UPDATE THE USER INFO VIA REST API
+	$request = array(
+			'last_name' => $_POST['last_name'],
+			'first_name' => $_POST['first_name'],
+			'balance' => $responseObj['balance'],
+			'is_tutor' => $responseObj['is_tutor'],
+			'rating' => $responseObj['rating'],
+			'preferred_category_id' => 1
+		);
+
+
+
+		//cURL used to collect login information
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id']);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
+		$updateResponse = curl_exec($ch);
+		curl_close($ch);
+	
+		
+		//sent to the be decoded
+		$updateResponseObj = json_decode($updateResponse,true);
+
+		//depending on the response we either ask for different credentials or log the user in
+		if($updateResponseObj['success'])
+		{
+			header('Location: profile.php');
+		} else {
+			die($updateResponseObj['reason']);
+		}
+}
+
 
 ?>
 
