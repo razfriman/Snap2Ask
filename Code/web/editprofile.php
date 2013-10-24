@@ -95,23 +95,49 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 		<div id="mainContent">
             <h1>EDIT PROFILE</H1>
 			<!--POPULATE PROFILE INFORMATION HERE-->
-			<form id="edittutorprofile" action="#" method="post">
-			
+			<form id="edittutorprofile" action="#" method="post">		
 <?php
 // Echo the information using sprintf
 // Escape special html characters to enhance XSS security
 echo sprintf("<label>First Name</label><input type='text' name='first_name' value='%s'>", htmlspecialchars($responseObj['first_name']));
 echo sprintf("<label>Last Name</label><input type='text'  name='last_name' value='%s'>", htmlspecialchars($responseObj['last_name']));
-echo "<h2>Choose up to 5 High School Subjects:</h2>";
-include ("choosehsfavorites.php");
-echo "<h2>Choose up to 5 College Subjects:</h2>";
-include ("choosecollegefavorites.php");
 ?>
-
-				<input type="submit" value="Save Changes">
-				<a href="reset.php">Reset Password</a>
+        <input type="submit" value="Save Changes to Name">
+        <div><a href="reset.php">Send Password Reset E-mail</a></div>
 				<a href="deact.php">Deactivate account</a>
 			</form>
+<form name="hsfavs">
+<?php
+echo "<h2>Choose up to 5 High School Subjects:</h2>";
+echo"<select name='hs1'><option label='Choose High School Subject 1'>";
+include ("choosehsfavorites.php");
+echo"<select name='hs2'><option label='Choose High School Subject 2'>";
+include ("choosehsfavorites.php");
+echo"<select name='hs3'><option label='Choose High School Subject 3'>";
+include ("choosehsfavorites.php");
+echo"<select name='hs4'><option label='Choose High School Subject 4'>";
+include ("choosehsfavorites.php");
+echo"<select name='hs5'><option label='Choose High School Subject 4'>";
+include ("choosehsfavorites.php");
+echo "<input type = 'submit' value='Save High School Subjects'>
+</form>";
+echo "<h2>Choose up to 5 College Subjects:</h2>";
+include ("choosecollegefavorites.php");
+echo "<form name='collegefavs'>";
+echo "<select name='college1'><option label='Choose College Subject 1'>";
+include ("choosecollegefavorites.php");
+echo "<select name='college2'><option label='Choose College Subject 2'>";
+include ("choosecollegefavorites.php");
+echo "<select name='college3'><option label='Choose College Subject 3'>";
+include ("choosecollegefavorites.php");
+echo "<select name='college4'><option label='Choose College Subject 4'>";
+include ("choosecollegefavorites.php");
+echo "<select name='college5'><option label='Choose College Subject 5'>";
+include ("choosecollegefavorites.php");
+echo "<input type = 'submit' value='Save College Subjects'>
+</form>";
+?>
+
 		</div>
 
 	</div>
