@@ -109,16 +109,14 @@ function loadQuestionsFromSearch(searchQuery) {
 	$('#mainContent').html('<p>Search Results For Query: ' + searchQuery + "</p>");
 	
 	var searchData = {"search": searchQuery };
-	
+		
 	$.ajax({
             type: 'POST',
             url: baseUrl + "/search/questions",
             data: JSON.stringify(searchData),
-            contentType: "application/json",
-            traditional: true,
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
             success: function (data) {
-            
-            console.log('got response');
                      
             	for (var i = 0; i < data.length; i++) {
 					// Add the question to the UI

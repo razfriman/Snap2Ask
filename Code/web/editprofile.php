@@ -30,6 +30,8 @@ $responseObj = getUserInfo(true);
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="js/validateEditProfile.js" type="text/javascript"></script>
 	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -52,22 +54,19 @@ $responseObj = getUserInfo(true);
 		
 	
 		<div id="mainContent">
-            <h1>EDIT YOUR PROFILE</H1>
+            <h1>EDIT PROFILE</H1>
 			<!--POPULATE PROFILE INFORMATION HERE-->
-			<!--NEED TO VALIDATE EDITING PROFILE-->
-			<form name="edittutorprofile" id="edittutorprofile" action="#" method="post">
+			<form id="edittutorprofile" action="#" method="post">
+			
 <?php
 // Echo the information using sprintf
 // Escape special html characters to enhance XSS security
-echo sprintf("<label>First Name</label><input value='%s'>", htmlspecialchars($responseObj['first_name']));
-echo sprintf("<label>Last Name</label><input value='%s'>", htmlspecialchars($responseObj['last_name']));
-echo sprintf("<label>Email</label><input value='%s'>", htmlspecialchars($responseObj['email']));
-?><select multiple="multiple">
-</select>
-        
-		<input type="submit" value="Save Changes">
-		<a href="deact.php">Deactivate account</a>
-		</form>
+echo sprintf("<label>First Name</label><input type='text' name='first_name' value='%s'>", htmlspecialchars($responseObj['first_name']));
+echo sprintf("<label>Last Name</label><input type='text'  name='last_name' value='%s'>", htmlspecialchars($responseObj['last_name']));
+?>
+				<input type="submit" value="Save Changes">
+				<a href="deact.php">Deactivate account</a>
+			</form>
 		</div>
 
 	</div>

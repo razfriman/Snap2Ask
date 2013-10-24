@@ -97,7 +97,7 @@ if ($question_info['status'] != 0) {
 					
 					<input type="hidden" id="user-id-hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" />
 					<input type="hidden" id="question-id-hidden" name="question_id" value="<?php echo $_GET['id']; ?>" />
-					<input type="submit" value="Submit Answer" />
+					<input type="submit" id="submitQuestionButton" value="Submit Answer" />
 				</form>
 			</div>
 		</div>

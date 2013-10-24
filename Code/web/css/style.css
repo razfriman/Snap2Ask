@@ -315,3 +315,29 @@ header {
 	height: 6em;
 }
 
+.profileItem {
+	height: 2em;
+	width: 30%;
+	margin: .5em auto;
+}
+
+.profileItem label {
+width: 40%;
+	float: left;
+	text-align: right;
+	margin: 0;
+	padding: 0;
+}
+
+.profileItem p {
+	float: right;
+	text-align: left;
+	width: 40%;
+		margin: 0;
+	padding: 0;
+}
+
+#edittutorprofile label.error {
+	display: block;
+}
+

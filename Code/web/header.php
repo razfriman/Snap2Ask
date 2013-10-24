@@ -1,16 +1,3 @@
-<script>
-window.onload = function(){
-    if(window.location.href.indexOf("profile") > 0){
-    document.getElementById("first_name").innerHTML = "<span class=\"label\">First Name: </span>" + document.forms["tutorprofile"]["firstname"].value;
-    document.getElementById("last_name").innerHTML += "<span class=\"label\">Last Name: </span>" + document.forms["tutorprofile"]["lastname"].value;
-    document.getElementById("email_address").innerHTML += "<span class=\"label\">E-mail Address: </span>" + document.forms["tutorprofile"]["emailaddy"].value;
-    document.getElementById("about").innerHTML = document.forms["tutorprofile"]["firstname"].value + "'s Tutor Profile";
-    }
-    else{
-        document.getElementsByClassName("avail")[0].innerHTML = document.forms["bal"]["currentbalance"].value;
-    }
-};//end function
-</script>
 <?php
 
 if (!defined('inc_file')) {
@@ -59,7 +46,13 @@ if(isset($_GET['search'])) {
 					
 		<form id="search" method="POST" action="#">
 			<input type="text" name="searchQuery" id="searchQuery" list = "suggestionlist" value="<?php echo $searchQuery; ?>" placeholder="Search" title="Enter a search query" x-webkit-speech />
-			<?php include("suggestionlist.php");?>
+			<?php 
+			// TODO:
+			// only include a list of categories/subcategories
+			
+			//include("suggestionlist.php");
+			
+			?>
 			
 			<input type="submit" value="Search"/>
 			

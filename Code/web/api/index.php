@@ -424,6 +424,8 @@ $app->put(
 			
 			$sth->execute();
 			
+			$success = true;
+			
 		} catch(PDOException $e) {
 			$success = false;
 			$reason = $e->getMessage();
@@ -1074,7 +1076,7 @@ $app->post(
 		$insert_id = 0;
 
 
-		// A debug variable to send push notificatino to the iOS users
+		// A debug variable to send push notification to the iOS users
 		$send_push_notification = true;
 
 		try {
@@ -1145,7 +1147,8 @@ $app->post(
 						'channel' => $user_channel,
 						'type' => 'ios',
 						'data' => array(
-							'alert' => $message
+							'alert' => $message,
+							'sound' => ''
 							),
 						);
 
@@ -1163,6 +1166,7 @@ $app->post(
 					// Create the push notification request
 					$curl = curl_init($url);
 					curl_setopt($curl, CURLOPT_POST, 1);
+					curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 					curl_setopt($curl, CURLOPT_POSTFIELDS, $json_push_data);
 					curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 					

@@ -51,21 +51,18 @@ $responseObj = getUserInfo(true);
 		
 	
 		<div id="mainContent">
-		<h1>VIEW YOUR TUTOR PROFILE</h1>
-				<!--POPULATE PROFILE INFORMATION HERE-->
-			<!--Define the method for the edit profile button below!-->
-            <form name="tutorprofile" id="tutorprofile" action="editprofile.php" method="post">
-            <h2 id="about"></h2>
-            <div id="first_name"></div>
-            <div id="last_name"></div>
-            <div id="email_address"></div>
+
+		<h1>VIEW PROFILE</h1>
+
+			<!--POPULATE PROFILE INFORMATION HERE-->
+            <form id="tutorprofile" action="editprofile.php" method="get">
 			
 <?php
 // Echo the information using sprintf
 // Escape special html characters to enhance XSS security
-echo sprintf("<input type = 'hidden'' readonly='YES' name='firstname' value='%s'>", htmlspecialchars($responseObj['first_name']));
-echo sprintf("<input type = 'hidden' readonly='YES' name='lastname' value='%s'>", htmlspecialchars($responseObj['last_name']));
-echo sprintf("<input type='hidden' readonly='YES' name='emailaddy' value='%s'>", htmlspecialchars($responseObj['email']));
+echo sprintf("<div class='profileItem'><label>First Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['first_name']));
+echo sprintf("<div class='profileItem'><label>Last Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['last_name']));
+echo sprintf("<div class='profileItem'><label>Email:</label><p>%s</p></div>", htmlspecialchars($responseObj['email']));
 ?>
 		<input type="submit" value="Edit Profile">
 		<a href="deact.php">Deactivate account</a>
