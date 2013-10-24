@@ -1307,7 +1307,13 @@ $app->post(
 		
 		try {
 			// Select all the questions from MySQL
-			$sth = $db->prepare('SELECT * FROM questions ORDER BY date_created DESC');
+			
+
+			$sth = $db->prepare('SELECT * FROM questions WHERE status=0 AND
+			(description LIKE concat("%", :search_query, "%") OR
+			(select name from categories where id=questions.category_id) LIKE concat("%", :search_query, "%") OR
+			(select name from subcategories where id=questions.subcategory_id) LIKE concat("%", :search_query, "%")
+			 ) ORDER BY date_created DESC');
 			$sth->execute();
 			$questionDataAll = $sth->fetchAll(PDO::FETCH_ASSOC);
 
