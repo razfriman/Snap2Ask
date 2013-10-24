@@ -69,7 +69,9 @@ echo sprintf("<div class='profileItem'><label>Email:</label><p>%s</p></div>", ht
 		<a href="deact.php">Deactivate account</a>
 		</form>
 		</div>
-
+<form id="favSubjects" action="editprofile.php" method="post">
+<input type="submit" value="Add To Favorite Subjects">
+</form>
 	</div>
 
 	<?php include('footer.php') ?>
