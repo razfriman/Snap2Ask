@@ -1314,6 +1314,8 @@ $app->post(
 			(select name from categories where id=questions.category_id) LIKE concat("%", :search_query, "%") OR
 			(select name from subcategories where id=questions.subcategory_id) LIKE concat("%", :search_query, "%")
 			 ) ORDER BY date_created DESC');
+			 
+			$sth->bindParam(':search_query', $search_query);
 			$sth->execute();
 			$questionDataAll = $sth->fetchAll(PDO::FETCH_ASSOC);
 
