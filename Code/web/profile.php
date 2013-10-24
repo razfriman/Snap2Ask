@@ -19,6 +19,7 @@ require_once('functions.php');
 
 $responseObj = getUserInfo(true);
 
+$categories = getCategories();
 
 ?>
 
@@ -63,28 +64,19 @@ $responseObj = getUserInfo(true);
 echo sprintf("<div class='profileItem'><label>First Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['first_name']));
 echo sprintf("<div class='profileItem'><label>Last Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['last_name']));
 echo sprintf("<div class='profileItem'><label>Email:</label><p>%s</p></div>", htmlspecialchars($responseObj['email']));
+
+foreach ($categories as $category) {
+	if ($responseObj['preferred_category_id'] == $category['id']) {
+		echo sprintf("<div class='profileItem'><label>Preferred Category:</label><p>%s</p></div>", htmlspecialchars($category['name']));		
+	}
+}
 ?>
-		<div class='profileItem'><label>Password:</label><p id="password">(hidden) <a href="reset.php">Reset</a></p></div>
-		<input type="submit" value="Edit Profile">
-		<a href="deact.php">Deactivate account</a>
-            	</form>
-        <h3>Click on Edit Profile to Edit your Preferred Subjects</h3>
-        <ol>
-        Your 5 High School Subjects:
-        <li>Subject 1</l1>
-        <li>Subject 2</l1>
-        <li>Subject 3</l1>
-        <li>Subject 4</l1>
-        <li>Subject 5</l1>
-        </ol>
-        <ol>
-        Your 5 College Subjects:
-        <li>Subject 1</l1>
-        <li>Subject 2</l1>
-        <li>Subject 3</l1>
-        <li>Subject 4</l1>
-        <li>Subject 5</l1>
-        </ol>
+		        
+				<input type="submit" value="Edit Profile">
+				
+				<a href="deact.php">Deactivate account</a>
+
+        	</form>
 		</div><!--end container div-->
 	</div>
 

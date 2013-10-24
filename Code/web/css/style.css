@@ -47,7 +47,7 @@ div.error,label.error {
 	background-color: inherit;
 }
 
-input,textarea {
+input,textarea,select {
 	display:block;
 	width:20em;
 	border-radius:5px;
@@ -337,7 +337,12 @@ header {
 	padding: 0;
 }
 
-#edittutorprofile label.error {
+#editTutorProfile label.error {
 	display: block;
+}
+
+#editTutorProfile #submitButton {
+	margin-top: 3em;
+	width: 10em;
 }
 
