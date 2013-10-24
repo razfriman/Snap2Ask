@@ -13,12 +13,10 @@ if (!isset($_SESSION['user_id'])) {
 	exit;
 }
 
-if(isset($_GET['search'])) {
-	// USER DID A SEARCH!
-	
-	// ADD TO HTML A HDIDEN INPUT
-	//var questionId = $('#question-id-hidden')[0].value;
-}
+// Require the functions file
+require_once('functions.php');
+
+$responseObj = getUserInfo(true);
 
 ?>
 
@@ -46,7 +44,6 @@ if(isset($_GET['search'])) {
 				<li>All</li>
 				<li>Categories</li>
 				<li>Familiar</li>
-				<li>Recent</li>
 			</ul>
 		</div>
 	
@@ -59,6 +56,8 @@ if(isset($_GET['search'])) {
 		</div>
 	
 		<?php 
+		
+		echo ('<input type="hidden" id="preferred_category-hidden" value="' . $responseObj['preferred_category_id'] . '" />');
 		
 		if(isset($_GET['search']))
 		{

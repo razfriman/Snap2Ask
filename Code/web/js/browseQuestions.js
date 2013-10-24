@@ -86,19 +86,19 @@ function loadPreferredSubjectQuestions() {
 	$('#browseNav li:nth-child(3)').addClass('selected');
 
 	$('#mainContent').empty();
-		
-	// LOAD PREFERRED SUBJECT QUESTIONS
-	$('#mainContent p').text("PREFERRED SUBJECT QUESTIONS");
-}
-
-function loadRecentQuestions() {
-	$('#browseNav li').removeClass('selected');
-	$('#browseNav li:nth-child(4)').addClass('selected');
 	
-	$('#mainContent').empty();
+	var preferredCategoryId = $('#preferred_category-hidden')[0].value;
 	
-	// LOAD RECENT QUESTIONS
-	$('#mainContent p').text("RECENT QUESTIONS");
+	var jqxhr = $.get( baseUrl + "/categories/" + preferredCategoryId + "/questions", function(data) {
+	  
+	  for (var i = 0; i < data.length; i++) {
+		 
+		 // Add the question to the UI
+		  addQuestion(data[i]); 
+	  }
+	}).fail(function() {
+	    console.log("error loading questions");
+	});
 }
 
 function loadQuestionsFromSearch(searchQuery) {
@@ -149,5 +149,4 @@ $(document).ready(function () {
 	$('#browseNav li:nth-child(1)').click(loadAllQuestions);
 	$('#browseNav li:nth-child(2)').click(loadCategoryQuestions);
 	$('#browseNav li:nth-child(3)').click(loadPreferredSubjectQuestions);
-	$('#browseNav li:nth-child(4)').click(loadRecentQuestions);
 });
