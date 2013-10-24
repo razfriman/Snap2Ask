@@ -64,6 +64,7 @@ echo sprintf("<div class='profileItem'><label>First Name:</label><p>%s</p></div>
 echo sprintf("<div class='profileItem'><label>Last Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['last_name']));
 echo sprintf("<div class='profileItem'><label>Email:</label><p>%s</p></div>", htmlspecialchars($responseObj['email']));
 ?>
+		<div class='profileItem'><label>Password:</label><p id="password">(hidden)</p></div>
 		<input type="submit" value="Edit Profile">
 		<a href="deact.php">Deactivate account</a>
 		</form>
