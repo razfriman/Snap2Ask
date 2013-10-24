@@ -1,6 +1,4 @@
 
-<form name="subjects">
-<select multiple="multiple">
 <option value="Academic Decathlon H.S.">Academic Decathlon H.S.</option>
 <option value="Academic Literacy I - III H.S.">Academic Literacy
 I - III H.S.</option>
@@ -314,7 +312,7 @@ H.S.</option>
 <option value="World Geography Studies H.S.">World Geography
 Studies H.S.</option>
 <option value="World History H.S.">World History H.S.</option>
+</optgroup>
 </select>
-<input type = "submit" value="Save Favorites">
-</form>
+
 
