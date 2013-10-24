@@ -64,14 +64,28 @@ echo sprintf("<div class='profileItem'><label>First Name:</label><p>%s</p></div>
 echo sprintf("<div class='profileItem'><label>Last Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['last_name']));
 echo sprintf("<div class='profileItem'><label>Email:</label><p>%s</p></div>", htmlspecialchars($responseObj['email']));
 ?>
-		<div class='profileItem'><label>Password:</label><p id="password">(hidden)</p></div>
+		<div class='profileItem'><label>Password:</label><p id="password">(hidden) <a href="reset.php">Reset</a></p></div>
 		<input type="submit" value="Edit Profile">
 		<a href="deact.php">Deactivate account</a>
-		</form>
-		</div>
-<form id="favSubjects" action="editprofile.php" method="post">
-<input type="submit" value="Add To Favorite Subjects">
-</form>
+            	</form>
+        <h3>Click on Edit Profile to Edit your Preferred Subjects</h3>
+        <ol>
+        Your 5 High School Subjects:
+        <li>Subject 1</l1>
+        <li>Subject 2</l1>
+        <li>Subject 3</l1>
+        <li>Subject 4</l1>
+        <li>Subject 5</l1>
+        </ol>
+        <ol>
+        Your 5 College Subjects:
+        <li>Subject 1</l1>
+        <li>Subject 2</l1>
+        <li>Subject 3</l1>
+        <li>Subject 4</l1>
+        <li>Subject 5</l1>
+        </ol>
+		</div><!--end container div-->
 	</div>
 
 	<?php include('footer.php') ?>
