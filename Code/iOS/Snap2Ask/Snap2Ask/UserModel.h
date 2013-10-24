@@ -11,7 +11,7 @@
 @interface UserModel : NSObject
 
 @property (nonatomic) NSInteger userId;
-@property (nonatomic) NSInteger balance;
+@property (nonatomic) double balance;
 @property (nonatomic) BOOL isTutor;
 @property (nonatomic) BOOL preferredCategoryId;
 @property (strong, nonatomic) NSString *authenticationMode;

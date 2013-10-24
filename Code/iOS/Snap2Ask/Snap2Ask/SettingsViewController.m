@@ -83,13 +83,18 @@
 - (void) balanceUpdated:(NSNotification *)notification
 {
     
-    // TODO: Get amount added from notification.userData
+    NSInteger amountAdded = [[notification.userInfo objectForKey:@"amount_added"] integerValue];
     
     [[[UIAlertView alloc] initWithTitle:@"Success"
-                                message:@"Added SnapCash"
+                                message:[NSString stringWithFormat:@"Added %d SnapCash", amountAdded]
                                delegate:nil
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
+    
+    // Update the UI with the new amount
+    int userId = [UserInfo sharedClient].userModel.userId;
+    [[Snap2AskClient sharedClient] loadUserInfo:userId];
+    
 }
 
 #pragma mark - Table view data source
@@ -206,7 +211,7 @@
     } else if (buttonIndex == 1) {
         
         // Add 50
-        [[Snap2AskClient sharedClient] updateSnapCash:10 forUser:[UserInfo sharedClient].userModel.userId];
+        [[Snap2AskClient sharedClient] updateSnapCash:50 forUser:[UserInfo sharedClient].userModel.userId];
 
     } else if (buttonIndex == 2) {
         // Cancel button

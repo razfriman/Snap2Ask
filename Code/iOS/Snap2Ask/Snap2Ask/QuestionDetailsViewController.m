@@ -12,8 +12,6 @@
 
 @interface QuestionDetailsViewController ()
 
-
-// Where does this go?
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *imageTapRecognizer;
 
 @end
@@ -32,6 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,12 +42,18 @@
 
 #pragma mark - Table view data source
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
     if (section == 0) {
         return @"Question";
     } else {
         return @"Answers";
     }
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,10 +102,8 @@
         cell.subcategoryLabel.text = [NSString stringWithFormat:@"Subcategory: %@", _question.subcategory];
         cell.descriptionLabel.text = [NSString stringWithFormat:@"Description: %@", _question.description];
         
-        [cell.imageView setImageWithURL:[NSURL URLWithString:_question.imageUrl] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
-        
-        // Add image tap recongnizer?
-        
+        [cell.questionImageView addGestureRecognizer:_imageTapRecognizer];
+        [cell.questionImageView setImageWithURL:[NSURL URLWithString:_question.imageUrl] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
         
         return cell;
     } else if (indexPath.section == 1) {
@@ -109,11 +113,53 @@
         cell.tutorLabel.text = [NSString stringWithFormat:@"Tutor: %@ %@", answer.tutor.firstName, answer.tutor.lastName];
         cell.tutorRankLabel.text = [NSString stringWithFormat:@"Rating: %d", 1];
         cell.answerLabel.text = [NSString stringWithFormat:@"%@", answer.text];
+        
+        if ([answer.status isEqualToString:@"pending"]) {
+            [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        } else {
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
+            [cell setBackgroundColor:[UIColor lightGrayColor]];
+        }
 
         return cell;
     }
     
     return nil;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 1) {
+    
+        AnswerModel *answer = [_question.answers objectAtIndex:indexPath.row];
+        
+        if ([answer.status isEqualToString:@"pending"]) {
+        
+            // Let the user choose the accept/reject the answer
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Accept Answer", @"Reject Answer", nil];
+            
+            [actionSheet showInView:self.view];
+        }
+    }
+}
+
+#pragma mark - Action Sheet
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        // Accept
+        NSLog(@"Accept answer");
+    } else if (buttonIndex == 1) {
+        // Reject
+        NSLog(@"Reject answer");
+    } else if (buttonIndex == 2) {
+        // Cancel button
+        
+        return;
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

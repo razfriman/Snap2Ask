@@ -12,7 +12,7 @@
 #import "AnswerModel.h"
 #import "ImageDetailsViewController.h"
 
-@interface QuestionDetailsViewController : UITableViewController
+@interface QuestionDetailsViewController : UITableViewController<UIActionSheetDelegate>
 
 @property (strong, nonatomic) QuestionModel *question;
 

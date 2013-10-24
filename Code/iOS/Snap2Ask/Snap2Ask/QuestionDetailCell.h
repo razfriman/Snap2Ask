@@ -10,7 +10,7 @@
 
 @interface QuestionDetailCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *questionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subcategoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;

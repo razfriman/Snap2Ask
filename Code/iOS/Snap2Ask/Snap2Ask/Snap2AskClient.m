@@ -228,26 +228,35 @@ NSString *const QuestionDeletedNotification = @"QuestionDeletedNotification";
     // Get the current balance
     [_manager GET:[NSString stringWithFormat:@"%@/users/%d", Snap2AskApiPath, userId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSDictionary *initialReturnedData = (NSDictionary *) responseObject;
+        NSMutableDictionary *initialReturnedData = [((NSDictionary *) responseObject) mutableCopy];
         
         NSInteger oldBalance = [[initialReturnedData objectForKey:@"balance"] integerValue];
         NSInteger newBalance = oldBalance + amountAdded;
         
-        NSDictionary *parameters =  @{ @"balance": @(newBalance) };
+        [initialReturnedData setValue:@(newBalance) forKey:@"balance"];
         
         // Update the balance
-        [_manager PUT:[NSString stringWithFormat:@"%@/users/%d", Snap2AskApiPath, userId] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [_manager PUT:[NSString stringWithFormat:@"%@/users/%d", Snap2AskApiPath, userId] parameters:initialReturnedData success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
-            NSDictionary *returnedData = (NSDictionary *) responseObject;
+            NSMutableDictionary *returnedData = [((NSDictionary *) responseObject) mutableCopy];
+            
+            [returnedData setObject:@(amountAdded) forKey:@"amount_added"];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:BalanceUpdatedNotification object:self userInfo:returnedData];
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
+            
+            NSString *responseString = [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding];
+            NSLog(@"%@", responseString);
         }];
 
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        
+        // SHOW RESPONSE AS STRING
+        NSString *responseString = [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", responseString);
     }];
 }
 

@@ -20,6 +20,7 @@
         self.email = [JsonData objectForKey:@"email"];
         self.isTutor = [[JsonData objectForKey:@"is_tutor"] boolValue];
         self.authenticationMode = [JsonData objectForKey:@"authentication_mode"];
+        self.balance = [[JsonData objectForKey:@"balance"] doubleValue];
     }
     return (self);
 }
