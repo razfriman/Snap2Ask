@@ -102,8 +102,12 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 // Escape special html characters to enhance XSS security
 echo sprintf("<label>First Name</label><input type='text' name='first_name' value='%s'>", htmlspecialchars($responseObj['first_name']));
 echo sprintf("<label>Last Name</label><input type='text'  name='last_name' value='%s'>", htmlspecialchars($responseObj['last_name']));
+echo "<h2>Choose up to 5 High School Subjects:</h2>";
+include ("choosefavorites.php");
 ?>
+
 				<input type="submit" value="Save Changes">
+				<a href="reset.php">Reset Password</a>
 				<a href="deact.php">Deactivate account</a>
 			</form>
 		</div>
