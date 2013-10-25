@@ -67,7 +67,7 @@ echo sprintf("<div class='profileItem'><label>Email:</label><p>%s</p></div>", ht
 
 foreach ($categories as $category) {
 	if ($responseObj['preferred_category_id'] == $category['id']) {
-		echo sprintf("<div class='profileItem'><label>Preferred Category:</label><p>%s</p></div>", htmlspecialchars($category['name']));		
+		echo sprintf("<div class='profileItem'><label>Expert in:</label><p>%s</p></div>", htmlspecialchars($category['name']));		
 	}
 }
 ?>
