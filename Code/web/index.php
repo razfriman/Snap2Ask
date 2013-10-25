@@ -303,7 +303,7 @@ if(isset($_SESSION['msg']['login-err']))
 				<input type="email" name="email" placeholder="Email" title="Please enter a valid email" required autocomplete="on" />
 				<input type="password" name="password" placeholder="Password" title="Please enter a password" required autocomplete="on" />
 				<input  class="button" type="submit" name="submit" value="Log in" />
-				<a href="http://cproject/Code/web/forgotPassword.php/">Forgot Password</a>
+				<a href="http://cproject/Code/web/forgotPassword.html/">Forgot Password</a>
 			</form>
 			
 			<!-- Google+ Signin Button -->
