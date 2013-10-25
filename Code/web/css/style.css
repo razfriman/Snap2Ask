@@ -8,6 +8,19 @@ Color Scheme:
 #a6c4bc - Light Blue
 
 */
+
+@font-face {
+    font-family: "Bebas";
+    src: url('../res/fonts/bebas/BebasNeue.otf')
+    format("truetype");
+}
+
+@font-face {
+    font-family: "Lobster";
+    src: url('../res/fonts/lobster/Lobster_1.3.otf')
+    format("truetype");
+}
+
 h1,h2,h3,h4,h5,h6 {
 	margin:0;
 	padding:0;
