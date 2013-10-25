@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UserModel.h"
 
 @interface AnswerModel : NSObject
 
@@ -15,6 +16,7 @@
 @property (nonatomic) NSInteger tutorId;
 @property (strong, nonatomic) NSString *text;
 @property (strong, nonatomic) NSString *status;
+@property (strong, nonatomic) UserModel *tutor;
 
 //rating
 //date_created

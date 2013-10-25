@@ -27,6 +27,9 @@ extern NSString *const RegisterUserNotification;
 extern NSString *const LoginUserNotification;
 extern NSString *const UploadQuestionImageNotification;
 extern NSString *const NewQuestionSubmittedNotification;
+extern NSString *const UserDeletedNotification;
+extern NSString *const BalanceUpdatedNotification;
+extern NSString *const QuestionDeletedNotification;
 
 @property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
 
@@ -40,6 +43,8 @@ extern NSString *const NewQuestionSubmittedNotification;
 
 - (void) registerUser:(NSString *)email withFirstName:(NSString *)firstName withLastName:(NSString *)lastName withPassword:(NSString *)password withAuthenticationMode:(NSString *)authenticationMode;
 
-
+- (void) deleteQuestion:(int)questionId;
+- (void) deleteUser:(int)userId;
+- (void) updateSnapCash:(int)amountAdded forUser:(int)userId;
 
 @end

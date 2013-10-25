@@ -14,6 +14,6 @@
 #import "KeychainItemWrapper.h"
 #import "UserInfo.h"
 
-@interface SettingsViewController : UITableViewController
+@interface SettingsViewController : UITableViewController <UIActionSheetDelegate,UIAlertViewDelegate>
 
 @end

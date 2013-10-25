@@ -18,6 +18,9 @@ NSString *const RegisterUserNotification = @"RegisterUserNotification";
 NSString *const LoginUserNotification = @"LoginUserNotification";
 NSString *const UploadQuestionImageNotification = @"UploadQuestionImageNotification";
 NSString *const NewQuestionSubmittedNotification = @"NewQuestionSubmittedNotification";
+NSString *const UserDeletedNotification = @"UserDeletedNotification";
+NSString *const BalanceUpdatedNotification = @"BalanceUpdatedNotification";
+NSString *const QuestionDeletedNotification = @"QuestionDeletedNotification";
 
 @implementation Snap2AskClient
 
@@ -203,6 +206,71 @@ NSString *const NewQuestionSubmittedNotification = @"NewQuestionSubmittedNotific
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+    }];
+}
+
+- (void) deleteUser:(int)userId
+{
+    [_manager DELETE:[NSString stringWithFormat:@"%@/users/%d", Snap2AskApiPath, userId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        NSDictionary *returnedData = (NSDictionary *) responseObject;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:UserDeletedNotification object:self userInfo:returnedData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+- (void) updateSnapCash:(int)amountAdded forUser:(int)userId
+{
+    
+    // Get the current balance
+    [_manager GET:[NSString stringWithFormat:@"%@/users/%d", Snap2AskApiPath, userId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSMutableDictionary *initialReturnedData = [((NSDictionary *) responseObject) mutableCopy];
+        
+        NSInteger oldBalance = [[initialReturnedData objectForKey:@"balance"] integerValue];
+        NSInteger newBalance = oldBalance + amountAdded;
+        
+        [initialReturnedData setValue:@(newBalance) forKey:@"balance"];
+        
+        // Update the balance
+        [_manager PUT:[NSString stringWithFormat:@"%@/users/%d", Snap2AskApiPath, userId] parameters:initialReturnedData success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+            NSMutableDictionary *returnedData = [((NSDictionary *) responseObject) mutableCopy];
+            
+            [returnedData setObject:@(amountAdded) forKey:@"amount_added"];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:BalanceUpdatedNotification object:self userInfo:returnedData];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+            
+            NSString *responseString = [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding];
+            NSLog(@"%@", responseString);
+        }];
+
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+        // SHOW RESPONSE AS STRING
+        NSString *responseString = [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", responseString);
+    }];
+}
+
+- (void) deleteQuestion:(int)questionId
+{
+    [_manager DELETE:[NSString stringWithFormat:@"%@/questions/%d", Snap2AskApiPath, questionId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *returnedData = (NSDictionary *) responseObject;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:QuestionDeletedNotification object:self userInfo:returnedData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error Deleting Question: %@", error);
+        [[NSNotificationCenter defaultCenter] postNotificationName:QuestionDeletedNotification object:self userInfo:nil];
     }];
 }
 

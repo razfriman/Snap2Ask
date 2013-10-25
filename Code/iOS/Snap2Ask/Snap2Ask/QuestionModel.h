@@ -22,7 +22,7 @@
 @property (strong, nonatomic) NSString *description;
 @property (strong, nonatomic) NSString *imageThumbnailUrl;
 @property (strong, nonatomic) NSString *imageUrl;
-@property (strong, nonatomic) AnswerModel *answer;
+@property (strong, nonatomic) NSArray *answers;
 
 //date_created
 

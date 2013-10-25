@@ -54,6 +54,7 @@
 		7577B11317EA48E500F1F363 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7577B11217EA48E500F1F363 /* RegisterViewController.m */; };
 		7577B11617EA490000F1F363 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7577B11517EA490000F1F363 /* MainViewController.m */; };
 		7591501A17F463CB00D01E46 /* AskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591501917F463CA00D01E46 /* AskQuestionViewController.m */; };
+		7591DDB01810D2D70059B896 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7591DDAF1810D2D70059B896 /* StoreKit.framework */; };
 		759828FD17EA4D2F007E72B0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759828FC17EA4D2F007E72B0 /* FacebookSDK.framework */; };
 		759D2C8317F0F1D80034E40E /* Snap2AskClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 759D2C8217F0F1D80034E40E /* Snap2AskClient.m */; };
 		759D91E117F28D8500C9F678 /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 759D91E017F28D8500C9F678 /* QuestionModel.m */; };
@@ -77,6 +78,8 @@
 		75C2665018003AFF00FA3CF1 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C2664518003AFF00FA3CF1 /* AFURLRequestSerialization.m */; };
 		75C2665118003AFF00FA3CF1 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C2664718003AFF00FA3CF1 /* AFURLResponseSerialization.m */; };
 		75C2665218003AFF00FA3CF1 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C2664918003AFF00FA3CF1 /* AFURLSessionManager.m */; };
+		75C83165181840E700983178 /* QuestionDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C83164181840E700983178 /* QuestionDetailCell.m */; };
+		75C83168181840EF00983178 /* AnswerDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C83167181840EF00983178 /* AnswerDetailCell.m */; };
 		75D7B61F17F9157200178785 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D7B61E17F9157200178785 /* CategoryModel.m */; };
 		75E0BC79180C3A97006C9360 /* SelectCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0BC78180C3A97006C9360 /* SelectCategoryViewController.m */; };
 		75E0BC7C180C3AA4006C9360 /* SelectSubcategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0BC7B180C3AA4006C9360 /* SelectSubcategoryViewController.m */; };
@@ -172,6 +175,7 @@
 		7577B11517EA490000F1F363 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		7591501817F463CA00D01E46 /* AskQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskQuestionViewController.h; sourceTree = "<group>"; };
 		7591501917F463CA00D01E46 /* AskQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskQuestionViewController.m; sourceTree = "<group>"; };
+		7591DDAF1810D2D70059B896 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		759828FC17EA4D2F007E72B0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		759D2C8117F0F1D80034E40E /* Snap2AskClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snap2AskClient.h; sourceTree = "<group>"; };
 		759D2C8217F0F1D80034E40E /* Snap2AskClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snap2AskClient.m; sourceTree = "<group>"; };
@@ -218,6 +222,10 @@
 		75C2664718003AFF00FA3CF1 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		75C2664818003AFF00FA3CF1 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		75C2664918003AFF00FA3CF1 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		75C83163181840E700983178 /* QuestionDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionDetailCell.h; sourceTree = "<group>"; };
+		75C83164181840E700983178 /* QuestionDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionDetailCell.m; sourceTree = "<group>"; };
+		75C83166181840EF00983178 /* AnswerDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerDetailCell.h; sourceTree = "<group>"; };
+		75C83167181840EF00983178 /* AnswerDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerDetailCell.m; sourceTree = "<group>"; };
 		75D7B61D17F9157200178785 /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
 		75D7B61E17F9157200178785 /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
 		75E0BC77180C3A97006C9360 /* SelectCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCategoryViewController.h; sourceTree = "<group>"; };
@@ -242,6 +250,7 @@
 				7505020717F890F400AE65CE /* SystemConfiguration.framework in Frameworks */,
 				7542D1A217FB0775004458F3 /* GooglePlus.framework in Frameworks */,
 				7505020317F890E900AE65CE /* Security.framework in Frameworks */,
+				7591DDB01810D2D70059B896 /* StoreKit.framework in Frameworks */,
 				7505020117F890E400AE65CE /* QuartzCore.framework in Frameworks */,
 				750501FF17F890DB00AE65CE /* libz.1.1.3.dylib in Frameworks */,
 				750501FD17F890D000AE65CE /* CoreLocation.framework in Frameworks */,
@@ -328,6 +337,7 @@
 		754A808D17EA161F00C15113 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7591DDAF1810D2D70059B896 /* StoreKit.framework */,
 				7542D1A517FB0814004458F3 /* GooglePlus.bundle */,
 				7542D1A117FB0775004458F3 /* GooglePlus.framework */,
 				7542D19F17FB0764004458F3 /* GoogleOpenSource.framework */,
@@ -392,6 +402,10 @@
 				75E0BC7E180C3B2D006C9360 /* CategoryCell.m */,
 				75E0BC80180C3B38006C9360 /* SubcategoryCell.h */,
 				75E0BC81180C3B38006C9360 /* SubcategoryCell.m */,
+				75C83163181840E700983178 /* QuestionDetailCell.h */,
+				75C83164181840E700983178 /* QuestionDetailCell.m */,
+				75C83166181840EF00983178 /* AnswerDetailCell.h */,
+				75C83167181840EF00983178 /* AnswerDetailCell.m */,
 			);
 			path = Snap2Ask;
 			sourceTree = "<group>";
@@ -551,7 +565,7 @@
 						DevelopmentTeam = LV2EQ49JTC;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -612,6 +626,7 @@
 				7530838217F4AC9F0016FBA9 /* SDWebImageCompat.m in Sources */,
 				75FA2B2717F8876D00308977 /* QuestionCell.m in Sources */,
 				75C2663018003A7C00FA3CF1 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				75C83165181840E700983178 /* QuestionDetailCell.m in Sources */,
 				75AED28817F70EC000B185AB /* SettingsViewController.m in Sources */,
 				75D7B61F17F9157200178785 /* CategoryModel.m in Sources */,
 				7530838717F4AC9F0016FBA9 /* SDWebImagePrefetcher.m in Sources */,
@@ -653,6 +668,7 @@
 				75C2665218003AFF00FA3CF1 /* AFURLSessionManager.m in Sources */,
 				75C2664C18003AFF00FA3CF1 /* AFHTTPSessionManager.m in Sources */,
 				75E0BC7C180C3AA4006C9360 /* SelectSubcategoryViewController.m in Sources */,
+				75C83168181840EF00983178 /* AnswerDetailCell.m in Sources */,
 				751A2DA417F59A550015FC68 /* QuestionDetailsViewController.m in Sources */,
 				7517725017F993D000A7B4A2 /* SubcategoryModel.m in Sources */,
 				75C2663518003A7C00FA3CF1 /* UIWebView+AFNetworking.m in Sources */,

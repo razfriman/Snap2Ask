@@ -7,16 +7,12 @@
 //
 
 #import "QuestionDetailsViewController.h"
+#import "QuestionDetailCell.h"
+#import "AnswerDetailCell.h"
 
 @interface QuestionDetailsViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *subCategoryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tutorLabel;
 
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *imageTapRecognizer;
-@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 
 @end
 
@@ -34,20 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-
-    _categoryLabel.text = [NSString stringWithFormat:@"Category: %@", _question.category];
-    _subCategoryLabel.text = [NSString stringWithFormat:@"Subcategory: %@", _question.subcategory];
-    _descriptionLabel.text = _question.description;
     
-    if (_question.answer) {
-        
-        _tutorLabel.text = @"Mark Fontenot";
-    }
-    [_imageView setImageWithURL:[NSURL URLWithString:_question.imageUrl] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
-    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,33 +42,124 @@
 
 #pragma mark - Table view data source
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"Question";
+    } else {
+        return @"Answers";
+    }
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        // Question height
+        return 428;
+    } else if (indexPath.section == 1) {
+        // Answer height
+        return 180;
+    } else {
+        // Default height
+        return 30;
+    }
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (_question && _question.answer) {
+    if (_question.answers.count > 0) {
         return 2;
-    } else if (_question) {
-        return 1;
     } else {
-        return 0;
+        return 1;
     }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    if (section == 0) {
-        return 3;
+    if(section == 0) {
+        return 1;
     } else if (section == 1) {
+        return _question.answers.count;
+    } else {
+        return 0;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *QuestionCellIdentifier = @"questionCell";
+    static NSString *AnswerCellIdentifier = @"answerCell";
+    
+    if (indexPath.section == 0) {
+        QuestionDetailCell *cell = [self.tableView dequeueReusableCellWithIdentifier:QuestionCellIdentifier forIndexPath:indexPath];
         
-        if ([_question.answer.status isEqualToString:@"pending"])
-        {
-            return 3;
+        cell.categoryLabel.text = [NSString stringWithFormat:@"Category: %@", _question.category];
+        cell.subcategoryLabel.text = [NSString stringWithFormat:@"Subcategory: %@", _question.subcategory];
+        cell.descriptionLabel.text = [NSString stringWithFormat:@"Description: %@", _question.description];
+        
+        [cell.questionImageView addGestureRecognizer:_imageTapRecognizer];
+        [cell.questionImageView setImageWithURL:[NSURL URLWithString:_question.imageUrl] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+        
+        return cell;
+    } else if (indexPath.section == 1) {
+        AnswerDetailCell *cell = [self.tableView dequeueReusableCellWithIdentifier:AnswerCellIdentifier forIndexPath:indexPath];
+        
+        AnswerModel *answer = [_question.answers objectAtIndex:indexPath.row];
+        cell.tutorLabel.text = [NSString stringWithFormat:@"Tutor: %@ %@", answer.tutor.firstName, answer.tutor.lastName];
+        cell.tutorRankLabel.text = [NSString stringWithFormat:@"Rating: %d", 1];
+        cell.answerLabel.text = [NSString stringWithFormat:@"%@", answer.text];
+        
+        if ([answer.status isEqualToString:@"pending"]) {
+            [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         } else {
-            return 2;
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
+            [cell setBackgroundColor:[UIColor lightGrayColor]];
         }
+
+        return cell;
     }
     
-    return 0;
+    return nil;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 1) {
+    
+        AnswerModel *answer = [_question.answers objectAtIndex:indexPath.row];
+        
+        if ([answer.status isEqualToString:@"pending"]) {
+        
+            // Let the user choose the accept/reject the answer
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Accept Answer", @"Reject Answer", nil];
+            
+            [actionSheet showInView:self.view];
+        }
+    }
+}
+
+#pragma mark - Action Sheet
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        // Accept
+        NSLog(@"Accept answer");
+    } else if (buttonIndex == 1) {
+        // Reject
+        NSLog(@"Reject answer");
+    } else if (buttonIndex == 2) {
+        // Cancel button
+        
+        return;
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

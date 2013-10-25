@@ -48,7 +48,6 @@ function addQuestion(questionData) {
 }
 
 function loadSelectedQuestion(questionData) {
-	console.log(questionData);
 	window.location.href = 'viewQuestion.php?id=' + questionData.id;
 }
 
@@ -87,29 +86,67 @@ function loadPreferredSubjectQuestions() {
 	$('#browseNav li:nth-child(3)').addClass('selected');
 
 	$('#mainContent').empty();
-		
-	// LOAD PREFERRED SUBJECT QUESTIONS
-	$('#mainContent p').text("PREFERRED SUBJECT QUESTIONS");
+	
+	var preferredCategoryId = $('#preferred_category-hidden')[0].value;
+	
+	var jqxhr = $.get( baseUrl + "/categories/" + preferredCategoryId + "/questions", function(data) {
+	  
+	  for (var i = 0; i < data.length; i++) {
+		 
+		 // Add the question to the UI
+		  addQuestion(data[i]); 
+	  }
+	}).fail(function() {
+	    console.log("error loading questions");
+	});
 }
 
-function loadRecentQuestions() {
-	$('#browseNav li').removeClass('selected');
-	$('#browseNav li:nth-child(4)').addClass('selected');
+function loadQuestionsFromSearch(searchQuery) {
 	
 	$('#mainContent').empty();
 	
-	// LOAD RECENT QUESTIONS
-	$('#mainContent p').text("RECENT QUESTIONS");
+	
+	$('#mainContent').html('<p>Search Results For Query: ' + searchQuery + "</p>");
+	
+	var searchData = {"search": searchQuery };
+		
+	$.ajax({
+            type: 'POST',
+            url: baseUrl + "/search/questions",
+            data: JSON.stringify(searchData),
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                     
+            	for (var i = 0; i < data.length; i++) {
+					// Add the question to the UI
+					addQuestion(data[i]); 
+				}
+            }
+    });
 }
-
 
 
 // we wait for the DOM to load
 $(document).ready(function () {
-	loadAllQuestions();
+
+	var searchQueryElement = $('#search-query-hidden');
+	var hasSearchQuery = searchQueryElement.length > 0 && searchQueryElement[0].value.length > 0;
+
+	if (hasSearchQuery) {
 	
+		// Display search results
+		var searchQuery = searchQueryElement[0].value;
+		loadQuestionsFromSearch(searchQuery);		
+	} else {
+	
+		// Display all recent questions
+		loadAllQuestions();	
+	}
+	
+	
+	// Add click event listeners for each tab (all,categories,preffered,recent)
 	$('#browseNav li:nth-child(1)').click(loadAllQuestions);
 	$('#browseNav li:nth-child(2)').click(loadCategoryQuestions);
 	$('#browseNav li:nth-child(3)').click(loadPreferredSubjectQuestions);
-	$('#browseNav li:nth-child(4)').click(loadRecentQuestions);
 });

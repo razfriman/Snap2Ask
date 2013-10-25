@@ -13,6 +13,11 @@ if (!isset($_SESSION['user_id'])) {
 	exit;
 }
 
+// Require the functions file
+require_once('functions.php');
+
+$responseObj = getUserInfo(true);
+
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +26,9 @@ if (!isset($_SESSION['user_id'])) {
 <head>
 	<title>Snap-2-Ask | Browse</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="js/browseQuestions.js" type="text/javascript"></script>
-	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
@@ -39,7 +44,6 @@ if (!isset($_SESSION['user_id'])) {
 				<li>All</li>
 				<li>Categories</li>
 				<li>Familiar</li>
-				<li>Recent</li>
 			</ul>
 		</div>
 	
@@ -51,11 +55,19 @@ if (!isset($_SESSION['user_id'])) {
 			</ul>
 		</div>
 	
+		<?php 
 		
+		echo ('<input type="hidden" id="preferred_category-hidden" value="' . $responseObj['preferred_category_id'] . '" />');
+		
+		if(isset($_GET['search']))
+		{
+			echo('<input type="hidden" id="search-query-hidden" value="' . $_GET['search'] . '" />');
+		}
+		
+		?>
 	
 		<div id="mainContent">
 			<!--POPULATE QUESTIONS HERE-->
-			<p></p>
 		</div>
 	
 	</div>
