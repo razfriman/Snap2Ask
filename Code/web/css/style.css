@@ -47,7 +47,7 @@ div.error,label.error {
 	background-color: inherit;
 }
 
-input,textarea {
+input,textarea,select {
 	display:block;
 	width:20em;
 	border-radius:5px;
@@ -79,11 +79,6 @@ input.button:hover {
 footer {
 	margin:2em auto;
 	clear:both;
-}
-
-#search {
-	float:right;
-	margin-right:1em;
 }
 
 #logoSmall {
@@ -125,13 +120,26 @@ footer {
 	margin-right: 1em;
 }
 
+#search {
+	float:right;
+	margin-right:1em;
+}
+
 #rightHeader #search {
 	clear:both;
 	width: 90%;
 }
 
-#rightHeader #search input {
-	width: 100%;
+
+#rightHeader #search input[type="text"] {
+	width: 70%;
+	float: left;
+}
+
+#rightHeader #search input[type="submit"] {
+	width: auto;
+	float: left;
+	height: 2.5em;
 }
 
 header {
@@ -222,7 +230,7 @@ header {
 }
 
 /* Set a different width when the width of the page becomes very small */
-@media all and (max-width: 1030px) and (min-width: 520px) {
+@media all and (max-width: 1030px) and (min-width: 0px) {
   #mainContent {
   	width: 652px;
   }
@@ -305,5 +313,36 @@ header {
 #submit-answer-container textarea {
 	width: 70%;
 	height: 6em;
+}
+
+.profileItem {
+	height: 2em;
+	width: 20em;
+	margin: .5em auto;
+}
+
+.profileItem label {
+	width: 40%;
+	float: left;
+	text-align: right;
+	margin: 0;
+	padding: 0;
+}
+
+.profileItem p {
+	float: right;
+	text-align: left;
+	width: 40%;
+		margin: 0;
+	padding: 0;
+}
+
+#editTutorProfile label.error {
+	display: block;
+}
+
+#editTutorProfile #submitButton {
+	margin-top: 3em;
+	width: 10em;
 }
 

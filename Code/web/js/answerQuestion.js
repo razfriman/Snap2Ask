@@ -1,4 +1,12 @@
 
+$( document ).ajaxError(function(event, jqxhr, settings, exception ) {
+  console.log('Global Ajax Error Handler');
+  console.log(event);
+  console.log(jqxhr);
+  console.log(settings);
+  console.log(exception);
+});
+
 var baseUrl = "http://www.snap2ask.com/git/snap2ask/Code/web/api/index.php";
 //var baseUrl = "./api/index.php";
 
@@ -21,19 +29,24 @@ function submitAnswer() {
             type: 'POST',
             url: baseUrl + "/questions/" + questionId + "/answers",
             data: JSON.stringify(answerData),
-            contentType: "application/json",
-            traditional: true,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
             success: function (data) {
                 
                 console.log(data);
                 
                 if (data.success === true) {
 	                // Success
-					console.log("Success");
+					console.log("Successfully posted answer");
                 }
                 
-				window.location.href = 'browse.php';
-            }
+                $('#submitQuestionButton').prop('disabled', false);
+                window.location.href = 'browse.php';
+            },
+            failure: function(errMsg) {
+	            console.log(errMsg);
+                $('#submitQuestionButton').prop('disabled', false);
+	        }
             });
 }
 
@@ -48,12 +61,10 @@ $(document).ready(function () {
         },
         submitHandler: function(form) {
 
-            
+			// Disable the submit button from clicking multiple times
+            $('#submitQuestionButton').prop('disabled', true);
             // SUBMIT THE ANSWER TO THE REST API!!!!
             submitAnswer();
-            console.log('submitting');
-            return;
-            
             
 		  },
 		  errorPlacement: function(error, element) {

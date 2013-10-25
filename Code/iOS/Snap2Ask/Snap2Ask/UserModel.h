@@ -10,12 +10,8 @@
 
 @interface UserModel : NSObject
 
-extern NSInteger const AuthenticationModeCustomLogin;
-extern NSInteger const AuthenticationModeFacebookLogin;
-extern NSInteger const AuthenticationModeGoogleLogin;
-
 @property (nonatomic) NSInteger userId;
-@property (nonatomic) NSInteger balance;
+@property (nonatomic) double balance;
 @property (nonatomic) BOOL isTutor;
 @property (nonatomic) BOOL preferredCategoryId;
 @property (strong, nonatomic) NSString *authenticationMode;

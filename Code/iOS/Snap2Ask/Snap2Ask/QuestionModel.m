@@ -23,11 +23,16 @@
         self.imageUrl = [JsonData objectForKey:@"image_url"];
         self.imageThumbnailUrl = [JsonData objectForKey:@"image_thumbnail_url"];
         
-        NSArray *answerArray = [JsonData objectForKey:@"answers"];
+        NSArray *answerDataArray = [JsonData objectForKey:@"answers"];
         
-        if (answerArray.count > 0) {
-            self.answer = [[AnswerModel alloc] initWithJSON:[answerArray objectAtIndex:0]];
+        NSMutableArray *answerArray = [@[] mutableCopy];
+        
+        for (int i = 0; i < answerDataArray.count; i++) {
+            AnswerModel *answer = [[AnswerModel alloc] initWithJSON:[answerDataArray objectAtIndex:i]];
+            [answerArray addObject:answer];
         }
+        
+        self.answers = answerArray;
 
     }
     return (self);

@@ -33,6 +33,10 @@ $app->response()->header('Access-Control-Allow-Origin', '*');
 $app->response()->header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
 
+
+
+
+
 // This function takes a password as an input
 // It returns an array with the hashed password and the salt used to create the hash
 function hashPassword($password) {
@@ -165,6 +169,7 @@ function addAnswer(&$question,$db) {
 		$sth = $db->prepare("SELECT * FROM answers WHERE question_id=:question_id");
 		$sth->bindParam(':question_id',$id);
 		$sth->execute();
+		
 		$answerData = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 		// Append the array data of all answers of the specific question to the question object
@@ -174,6 +179,43 @@ function addAnswer(&$question,$db) {
      // SQL ERROR
 	}
 }
+
+// Adds the user data to a answer object
+function addUserFromAnswer(&$answer,$db) {
+	try {
+		
+		$userData = array();
+		
+		// Get the tutor id from the answer object
+		$tutor_id = $answer['tutor_id'];
+
+		// Select all the user data for the matching tutor id
+		$sth = $db->prepare("SELECT * FROM users WHERE id=:tutor_id");
+		$sth->bindParam(':tutor_id',$tutor_id);
+		$sth->execute();
+		
+		if ($sth->rowCount() > 0) {
+			
+			$userData = $sth->fetch(PDO::FETCH_ASSOC);
+			
+			// Remove password/salt from the user data
+			unset($userData['password']);
+			unset($userData['salt']);
+		}
+		
+		// Append the  data of the user of the specific answer
+		$answer['tutor'] = $userData;
+
+	} catch(PDOException $e) {
+     // SQL ERROR
+	}
+}
+
+
+
+
+
+
 
 /*
  * Now we provide methods for the Slim API to use to creat the REST API
@@ -269,6 +311,15 @@ $app->post(
 	}
 	);
 
+
+
+
+
+
+
+
+
+
 // GET LIST OF ALL USERS
 $app->get(
 	'/users',
@@ -338,6 +389,61 @@ $app->get(
 	}
 	);
 	
+// UPDATE A USER
+// OCCURS WHEN UPDATING A USER'S INFORMATION
+$app->put(
+	'/users/:id',
+	function ($id) use ($app,$db) {
+
+		// Get the JSON request
+		$request = $app->request()->getBody();
+
+	
+		$balance = $request['balance'];
+		$is_tutor = $request['is_tutor'];
+		$preferred_category_id = $request['preferred_category_id'];
+		$first_name = $request['first_name'];
+		$last_name = $request['last_name'];
+		$rating = $request['rating'];
+		
+		// Initialize the response data
+		$success = false;
+		$reason = '';
+
+		try {
+
+			$sth = $db->prepare('UPDATE users set balance=:balance, is_tutor=:is_tutor, preferred_category_id=:preferred_category_id, first_name=:first_name, last_name=:last_name, rating=:rating WHERE id=:user_id');
+			
+			$sth->bindParam(':balance', $balance);
+			$sth->bindParam('is_tutor', $is_tutor);
+			$sth->bindParam(':preferred_category_id', $preferred_category_id);
+			$sth->bindParam(':first_name', $first_name);
+			$sth->bindParam(':last_name', $last_name);
+			$sth->bindParam(':rating', $rating);
+			$sth->bindParam(':user_id', $id);
+			
+			$sth->execute();
+			
+			$success = true;
+			
+		} catch(PDOException $e) {
+			$success = false;
+			$reason = $e->getMessage();
+		}
+
+		// Create the response data
+		$dataArray = array(
+			'success' => $success,
+			'reason' => $reason);
+
+		// Send the JSON response
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($dataArray));
+	}
+	);
+	
 // DELETE A USER ACCOUNT
 $app->delete(
 	'/users/:id',
@@ -370,41 +476,6 @@ $app->delete(
 		$response['Content-Type'] = 'application/json';
 		$response->status(200);
 		$response->write(json_encode($dataArray));
-	}
-	);
-
-// GET USER'S QUESTIONS
-$app->get(
-	'/users/:id/questions',
-	function ($id) use ($app,$db) {
-
-		$questionData = array();
-
-		try {
-
-			// Get questions for a specific user
-			$sth = $db->prepare('SELECT * FROM questions WHERE student_id=:user_id ORDER BY date_created');
-			$sth->bindParam(':user_id',$id);
-			$sth->execute();
-
-			// Fetch all the matching results
-			$questionData = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-			// For each question, add the category and answer data
-			foreach ($questionData as &$question) {
-				addCategories($question,$db);
-				addAnswer($question,$db);
-			}
-
-		} catch(PDOException $e) {
-         // SQL ERROR
-		}
-
-		// Return the JSON Response
-		$response = $app->response();
-		$response['Content-Type'] = 'application/json';
-		$response->status(200);
-		$response->write(json_encode($questionData));
 	}
 	);
 
@@ -528,6 +599,57 @@ $app->post(
 	}
 	);
 
+// GET USER'S QUESTIONS
+$app->get(
+	'/users/:id/questions',
+	function ($id) use ($app,$db) {
+
+		$questionData = array();
+
+		try {
+
+			// Get questions for a specific user
+			$sth = $db->prepare('SELECT * FROM questions WHERE student_id=:user_id ORDER BY date_created DESC');
+			$sth->bindParam(':user_id',$id);
+			$sth->execute();
+
+			// Fetch all the matching results
+			$questionData = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+			// For each question, add the category and answer data
+			foreach ($questionData as &$question) {
+				addCategories($question,$db);
+				addAnswer($question,$db);
+				
+				foreach($question['answers'] as &$answer) {
+					addUserFromAnswer($answer, $db);
+				}
+			}
+
+		} catch(PDOException $e) {
+         // SQL ERROR
+		}
+
+		// Return the JSON Response
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($questionData));
+	}
+	);
+
+
+
+
+
+
+
+
+
+
+
+
+
 // GET LIST OF ALL CATEGORIES
 $app->get(
 	'/categories',
@@ -583,7 +705,7 @@ $app->get(
 
 		// First get a list of all the categories
 		try {
-			$sth = $db->prepare('SELECT * FROM questions WHERE category_id=:category_id ORDER BY date_created');
+			$sth = $db->prepare('SELECT * FROM questions WHERE category_id=:category_id ORDER BY date_created DESC');
 			$sth->bindParam(':category_id', $id);
 			$sth->execute();
 			$questionData = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -606,6 +728,17 @@ $app->get(
 	}
 	);
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 // GET LIST OF ALL QUESTIONS
 $app->get(
 	'/questions',
@@ -615,7 +748,7 @@ $app->get(
 
 		try {
 			// Select all the questions from MySQL
-			$sth = $db->prepare('SELECT * FROM questions');
+			$sth = $db->prepare('SELECT * FROM questions ORDER BY date_created DESC');
 			$sth->execute();
 			$questionData = $sth->fetchAll(PDO::FETCH_ASSOC);
 
@@ -704,15 +837,15 @@ $app->post(
         $can_ask_question = false;
         
         // Get the current balance
-        $sth = $db->prepare('SELECT balance FROM users WHERE id=:user_id)');
+        $sth = $db->prepare('SELECT balance FROM users WHERE id=:user_id');
         $sth->bindParam(':user_id', $student_id);
         $sth->execute();
                 
         if ($sth->rowCount() > 0) {
 	        $balance_data = $sth->fetch();
-	        $current_balance = $balance[0];
+	        $current_balance = $balance_data[0];
 	        
-	        if ($current_balance > $ASK_QUESTION_COST)
+	        if ($current_balance > $ask_question_cost)
 	        {
 	        	// The user has enough funds to ask a question
 		        $can_ask_question = true;
@@ -756,7 +889,7 @@ $app->post(
 	    if ($success) {
 	    	
 	    	// Deduct the balance from the user
-		    $sth = $db->prepare('UPDATE users SET balance-=:question_cost WHERE id=:user_id)');
+		    $sth = $db->prepare('UPDATE users SET balance=balance - :question_cost WHERE id=:user_id');
 	        $sth->bindParam(':user_id', $student_id);
 	        $sth->bindParam(':question_cost', $ask_question_cost);
 	        $sth->execute();
@@ -943,7 +1076,7 @@ $app->post(
 		$insert_id = 0;
 
 
-		// A debug variable to send push notificatino to the iOS users
+		// A debug variable to send push notification to the iOS users
 		$send_push_notification = true;
 
 		try {
@@ -1004,11 +1137,7 @@ $app->post(
                     // SEND NOTIFICATION TO CLIENT HERE
                     // USE PARSE'S REST API
 
-                    // PARSE APPLICATION INFO
-					$APPLICATION_ID = "qCO8s6oQwSxzwuBWekMQj2nqoiapfSk4ckrKkux5";
-					$REST_API_KEY = "tJYpTV7HqoN3SzvU73cyYTlu3K9ngTvOMXRwwmz0";
-
-					// The push notification info
+                    // The push notification info
 					$user_channel = "user_" . $student_id;
 					$message = 'You received an answer to one of your questions!';
 					
@@ -1018,7 +1147,8 @@ $app->post(
 						'channel' => $user_channel,
 						'type' => 'ios',
 						'data' => array(
-							'alert' => $message
+							'alert' => $message,
+							'sound' => ''
 							),
 						);
 
@@ -1027,8 +1157,8 @@ $app->post(
 
 					// Set the Push notification request HTTP Headers
 					$headers = array(
-						'X-Parse-Application-Id: ' . $APPLICATION_ID,
-						'X-Parse-REST-API-Key: ' . $REST_API_KEY,
+						'X-Parse-Application-Id: ' . PARSE_APPLICATION_ID,
+						'X-Parse-REST-API-Key: ' . PARSE_REST_API_KEY,
 						'Content-Type: application/json',
 						'Content-Length: ' . strlen($json_push_data),
 						);
@@ -1036,6 +1166,7 @@ $app->post(
 					// Create the push notification request
 					$curl = curl_init($url);
 					curl_setopt($curl, CURLOPT_POST, 1);
+					curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 					curl_setopt($curl, CURLOPT_POSTFIELDS, $json_push_data);
 					curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 					
@@ -1070,6 +1201,18 @@ $app->post(
 
 	}
 	);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 // UPDATE AN ANSWER
 // OCCURS WHEN A USER REJECTS/ACCEPTS A QUESTION'S ANSWER
@@ -1145,7 +1288,70 @@ $app->put(
 	);
 
 
-// TODO: RATE AN ANSWER
+
+
+
+// GET LIST OF ALL QUESTIONS
+$app->post(
+	'/search/questions',
+	function () use ($app,$db) {
+
+		// Load the JSON Request
+		$request = $app->request()->getBody();
+
+		// Load the request properties
+		$search_query = $request['search'];
+		
+		$questionDataFiltered = array();
+		
+		
+		try {
+			// Select all the questions from MySQL
+			
+
+			$sth = $db->prepare('SELECT * FROM questions WHERE status=0 AND
+			(description LIKE concat("%", :search_query, "%") OR
+			(select name from categories where id=questions.category_id) LIKE concat("%", :search_query, "%") OR
+			(select name from subcategories where id=questions.subcategory_id) LIKE concat("%", :search_query, "%")
+			 ) ORDER BY date_created DESC');
+			 
+			$sth->bindParam(':search_query', $search_query);
+			$sth->execute();
+			$questionDataAll = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        	// Add Answer and Category data to each question
+			foreach ($questionDataAll as &$question) {
+				addCategories($question,$db);
+				addAnswer($question,$db);
+			}
+			
+			foreach($questionDataAll as $question) {
+				// FILTER QUESTIONS HERE
+				
+				array_push($questionDataFiltered, $question);
+				
+			}
+
+		} catch(PDOException $e) {
+         // SQL ERROR
+		}
+
+		// Return the JSON data
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($questionDataFiltered));
+	}
+	);
+
+
+
+
+/////////////////////////
+// TODO: RATE AN ANSWER//
+/////////////////////////
+
+
 
 // Run the Slim app as specified by the Slim Framework documentation
 $app->run();

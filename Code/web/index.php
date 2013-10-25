@@ -185,6 +185,7 @@ if (isset($_SESSION['user_id']))
 	<title>Snap-2-Ask</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	
+	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
       (function() {

@@ -19,6 +19,7 @@ require_once('functions.php');
 
 $responseObj = getUserInfo(true);
 
+$categories = getCategories();
 
 ?>
 
@@ -28,6 +29,7 @@ $responseObj = getUserInfo(true);
 <head>
 	<title>Snap-2-Ask | Profile</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -50,18 +52,32 @@ $responseObj = getUserInfo(true);
 		
 	
 		<div id="mainContent">
-			<!--POPULATE PROFILE INFORMATION HERE-->
-<?php
 
+		<h1>VIEW PROFILE</h1>
+
+			<!--POPULATE PROFILE INFORMATION HERE-->
+            <form id="tutorprofile" action="editprofile.php" method="get">
+			
+<?php
 // Echo the information using sprintf
 // Escape special html characters to enhance XSS security
-echo sprintf("<label>First Name</label><input readonly='YES' value='%s'>", htmlspecialchars($responseObj['first_name']));
-echo sprintf("<label>Last Name</label><input readonly='YES' value='%s'>", htmlspecialchars($responseObj['last_name']));
-echo sprintf("<label>Email</label><input readonly='YES' value='%s'>", htmlspecialchars($responseObj['email']));
+echo sprintf("<div class='profileItem'><label>First Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['first_name']));
+echo sprintf("<div class='profileItem'><label>Last Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['last_name']));
+echo sprintf("<div class='profileItem'><label>Email:</label><p>%s</p></div>", htmlspecialchars($responseObj['email']));
 
+foreach ($categories as $category) {
+	if ($responseObj['preferred_category_id'] == $category['id']) {
+		echo sprintf("<div class='profileItem'><label>Expert in:</label><p>%s</p></div>", htmlspecialchars($category['name']));		
+	}
+}
 ?>
-		</div>
+		        
+				<input type="submit" value="Edit Profile">
+				
+				<a href="deact.php">Deactivate account</a>
 
+        	</form>
+		</div><!--end container div-->
 	</div>
 
 	<?php include('footer.php') ?>

@@ -16,16 +16,25 @@ if (isset($_SESSION['balance'])) {
 	$balance = $_SESSION['balance'];
 }
 
+$searchQuery = '';
+
+if(isset($_GET['search'])) {
+	$searchQuery = $_GET['search'];
+}
 
 
 ?>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="js/search.js" type="text/javascript"></script>
+
 <header>
 	<div id="cash">
 		<h3>SnapCash</h3>
 		<h2>
 		<?php echo money_format('%i', $balance); ?></h2>
 	</div>
-	
+
 	<a href="http://www.snap2ask.com"><img src="res/temp_logo.png" alt="Snap-2-Ask Logo" id="logoSmall"/></a>
 	
 	<div id="rightHeader">		
@@ -36,8 +45,17 @@ if (isset($_SESSION['balance'])) {
 		</div>
 					
 		<form id="search" method="POST" action="#">
-			<input type="text" name="search" placeholder="Search" title="Search a Question" />
+			<input type="text" name="searchQuery" id="searchQuery" list = "suggestionlist" value="<?php echo $searchQuery; ?>" placeholder="Search" title="Enter a search query" x-webkit-speech />
+			<?php 
+			// TODO:
+			// only include a list of categories/subcategories
+			
+			//include("suggestionlist.php");
+			
+			?>
+			
+			<input type="submit" value="Search"/>
+			
 		</form>		
-	</div>		
+	</div>	
 </header>
-	
