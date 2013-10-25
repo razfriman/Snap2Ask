@@ -125,9 +125,12 @@ foreach ($categories as $category) {
 echo "</select>";
 
 ?>
-				<a href = "resetpass.php">Reset Password</a>
+    		</form>
 	        	<input type="submit" id="submitButton" value="Save Changes">
-			</form>
+                <form name="passreset" id="passreset" action="logoutreset.php">
+                <input type="submit" id="submitButton" value="Reset Password">
+                </form>
+
 
 		</div>
 
