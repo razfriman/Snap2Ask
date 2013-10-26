@@ -53,14 +53,20 @@
             <a href="http://hotmail.com" name="yahoo" id="yahoo" class="email">Hotmail</a>
             <a href="http://gmail.com" name="yahoo" id="yahoo" class="email">Gmail</a>
             </p>
+            
             <p>Your new password has been sent to 
-            <?php echo $_POST['toemail'] . 
-            "</p><p>For Iteration 1 verification, your new password is:" . $_POST['newpass']
+            
+            <?php 
+            
+            echo $_POST['toemail'] . 
+            "</p><p>For Iteration 1 verification, your new password is:" . $_POST['newpass'];
             
             //Elena insert db code here!
             
             
-            ?></p>
+            ?>
+            
+            </p>
             <p>Confirm this password with the password received in your e-mail inbox!</p>
             <p>IMPORTANT: It may take 48 hours for your new password to take effect on our site. Until then use your old password.</p>
     		<!--POPULATE PROFILE INFORMATION HERE-->
