@@ -15,15 +15,24 @@
 	if ($myUser != NULL)
 	{
 		//generate password
-		$password = "elena";
+		$password = rand(100000, 1000000);
+		$password = (string)$password;
 		//update new password in the db 
 		$resetPass = "UPDATE users set password = '{$password}' where id = {$myUser['id']};";
 		if (!mysql_query($resetPass))
 		{
 			die ("Impossible to reset Password" . mysql_error());
 		}
-		echo "new password: " . $password;
+		$subject = "Snap2ask Reset Password";
+		$message = "Your new password is: " . $password;
+		$headers = "From: snap2ask";
+		mail($to, $subject, $message, $headers); 
+		echo "An email has been sent with your new password";
 ;
 	//email new password
+	}
+	else 
+	{
+		echo "couldn't find email " . $email . "\n";
 	}
 ?>
