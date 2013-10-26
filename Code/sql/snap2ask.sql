@@ -39,6 +39,25 @@ CREATE TABLE `answers` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `validationQuestions`
+--
+
+DROP TABLE IF EXISTS `validationQuestions`;
+
+CREATE TABLE `validationQuestions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `question` varchar(200) NOT NULL,
+  `optionA` varchar(150) NOT NULL,
+  `optionB` varchar(150) NOT NULL,
+  `optionC` varchar(150) NOT NULL,
+  `rightAnswer` varchar(2) NOT NULL,
+  `categoryID` int(11) NOT NULL,
+  PRIMARY KEY (`id`),	
+  FOREIGN KEY (`categoryID`) REFERENCES categories(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION 
+) ENGINE = INNODB AUTO_INCREMENT = 2 DEFAULT CHARSET = latin1;
+
+
+--
 -- Table structure for table `categories`
 --
 

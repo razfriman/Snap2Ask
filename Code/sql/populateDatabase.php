@@ -20,12 +20,12 @@ if (!$dbConnection)
 mysql_select_db("snap2ask", $dbConnection) or die("It couldn't select the snap2ask database. Error: " . msql_error());
 
 //Calling the functions to populate each table
-insertCategories ($dbConnection, "inputFiles/categories.csv");
-insertSubcategories ($dbConnection, "inputFiles/subcategories.csv");
-insertUsers($dbConnection, "inputFiles/users.csv");
-insertQuestions($dbConnection, "inputFiles/questions.csv");
-insertAnswers($dbConnection, "inputFiles/answers.csv");
-
+//insertCategories ($dbConnection, "inputFiles/categories.csv");
+//insertSubcategories ($dbConnection, "inputFiles/subcategories.csv");
+//insertUsers($dbConnection, "inputFiles/users.csv");
+//insertQuestions($dbConnection, "inputFiles/questions.csv");
+//insertAnswers($dbConnection, "inputFiles/answers.csv");
+insertValidationQuestions($dbConnection, "inputFiles/validation.csv");
 
 
 //eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
@@ -309,6 +309,64 @@ function insertAnswers($dbConnection, $file)
 		}
 	}
 	echo "answers succesfully inserted \n";
+}
+
+
+
+//eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
+//                                                                      //
+//      This function opens the csv file with validation questions and  //
+//      inserts the information in the database       		        //
+//                                                                      //
+//eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee//
+
+function insertValidationQuestions ($dbConnection, $file)
+{
+        echo "inserting validation questions \n\n";
+        //opening the file
+        $input = fopen($file, "r") or exit ("Unable to open the file");
+
+        //skip first line
+        $line = fgets($input);
+
+        //while there is some line to read
+        while (!feof($input))
+        {
+                //gets the line
+                $line = fgets($input);
+                //breaks the line on every comme
+                $name = explode(",", $line);
+
+                //checks that hte line isn't empty
+                if ($name[0] != "")
+                {
+                        //get question ID
+                        $selectCategoryID = "SELECT id from categories where name = '{$name[5]}';";
+			$response = mysql_query ($selectCategoryID);
+                        $category = mysql_fetch_assoc($response);
+			
+			//insert question
+        		$insertQuestion = "INSERT into validationQuestions(
+			question,
+			optionA,
+			optionB,
+			optionC,
+			rightAnswer,
+			categoryID) values (
+			'{$name[0]}',
+			'{$name[1]}',
+			'{$name[2]}',
+			'{$name[3]}',
+			'{$name[4]}',
+			'{$category['id']}');";
+
+	                if (!mysql_query($insertQuestion))
+                        {
+				die ("Impossible ot insert the validation question. Error " . mysql_error()); 
+			}
+		}
+	}
+	echo "Validation questions sucesfully entered\n";
 }
 
 					
