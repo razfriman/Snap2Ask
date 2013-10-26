@@ -12,8 +12,8 @@
             </p>
             <p>Your new password has been sent to <?php echo $_POST['toemail'] . 
             "</p><p>For Iteration 1 verification, your new password is:" . $_POST['newpass']?></p>
-            <p>Confirm this password with the password received in your e-mail inbox!</p>
-            <p>IMPORTANT: It may take 48 hours for your new password to take effect on our site. Until then use your old password.</p>
+            <p>Confirm this password with the password received in your e-mail inbox!</p> 
+	   <p>IMPORTANT: It may take 48 hours for your new password to take effect on our site. Until then use your old password.</p>
     		<!--POPULATE PROFILE INFORMATION HERE-->
 		</div>
         <p><a href="resetpass.php" name="login" id="login">Send another E-mail</a></p>
@@ -24,3 +24,31 @@
 	</div>
 </body>
 </html>
+<?php
+	$email = $_POST['toemail'];
+	$password = $_POST['newpass'];
+	//connect to databe
+	$dbConnection = mysql_connect("localhost", "cProject", "snap2ask");
+	if (!$dbConnection)
+	{
+        	die("Connection failure: " . mysql_error());
+	}
+	mysql_select_db("snap2ask", $dbConnection) or die ("It couldn'tslect snap2ask database. Error: " . mysql_error());
+
+	$getUser = "SELECT * from users WHERE email = '{$email}';";
+$user = mysql_query($getUser);
+$myUser = mysql_fetch_assoc($user);
+if ($myUser != NULL)
+{
+	$resetPass = "UPDATE users set password = '{$password}' where id = {$myUser['id']};";
+        if (!mysql_query($resetPass))
+        {
+                die ("Impossible to reset Password" . mysql_error());
+        }
+
+}
+else
+{
+echo "couldn't find email " . $email . " in our database\r\n";
+}
+?>
