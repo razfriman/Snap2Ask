@@ -26,8 +26,8 @@ if ($myUser != NULL)
 	}
 	$subject = "Snap2ask Reset Password";
 	$message = "Your new password is: " . $password;
-	//$headers = "From: ";	
-	if (mail($email, $subject, $message))
+	$headers = "From: snap2ask.com";	
+	if (mail($email, $subject, $message, $headers))
 	{ 
 		echo "An email has been sent to " . $email . " with your new password";
 	}
