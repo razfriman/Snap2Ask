@@ -61,7 +61,7 @@
             echo $_POST['toemail'] . 
             "</p><p>For Iteration 1 verification, your new password is:" . $_POST['newpass'];
             
-            //Elena insert db code here!
+            //Elena insert db code here! See resetpass.php for e-mail sending code!
             
             
             ?>
