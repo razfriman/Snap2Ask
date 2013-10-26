@@ -1,5 +1,5 @@
 <?php include('logoutheader.php');?>
-	<div id="mainContainer">
+    <div id="mainContainer">
 
 		<div class="divider"></div>
 

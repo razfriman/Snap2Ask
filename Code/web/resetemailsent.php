@@ -1,7 +1,5 @@
-<!--CODE FROM ELENA'S FILE-->
-<!--
-<?php
-	$email = $_GET['email'];
+<?php /*
+    $email = $_GET['email'];
 	//connect to databe
 	$dbConnection = mysql_connect("localhost", "cProject", "snap2ask");
 	if (!$dbConnection)
@@ -30,21 +28,13 @@
 		$headers = "From: snap2ask";
 		mail($to, $subject, $message, $headers); 
 		echo "An email has been sent with your new password";
-;
-	//email new password
-	}
-	else 
-	{
-		echo "couldn't find email " . $email . "\n";
-	}
-?>
 
--->
-<--CODE FROM VIPUL'S FILE-->
+ */
+?>
 <?php include('logoutheader.php');?>
     <div id="mainContainer">
 
-		<div class="divider"></div>
+    	<div class="divider"></div>
 
 		<div id="loginContainer" >
             <h1>CHECK YOUR E-MAIL</H1>
@@ -53,20 +43,24 @@
             <a href="http://hotmail.com" name="yahoo" id="yahoo" class="email">Hotmail</a>
             <a href="http://gmail.com" name="yahoo" id="yahoo" class="email">Gmail</a>
             </p>
-            
             <p>Your new password has been sent to 
             
-            <?php 
             
+            <?php 
             echo $_POST['toemail'] . 
             "</p><p>For Iteration 1 verification, your new password is:" . $_POST['newpass'];
             
-            //Elena insert db code here! See resetpass.php for e-mail sending code!
             
             
-            ?>
+            //ELENA THIS SPACE JUST FOR YOU! YOUR CODE IS IN COMMENTS ABOVE!
             
-            </p>
+            //SORRY FOR THE CONFUSION! I ALREADY DID THIS JUST FORGOT TO COMMIT IT PROPERLY!
+            
+            
+            
+            
+            
+            ?></p>
             <p>Confirm this password with the password received in your e-mail inbox!</p>
             <p>IMPORTANT: It may take 48 hours for your new password to take effect on our site. Until then use your old password.</p>
     		<!--POPULATE PROFILE INFORMATION HERE-->
