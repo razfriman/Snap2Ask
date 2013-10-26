@@ -1,4 +1,3 @@
-
 <?php include('logoutheader.php');?>
     <div id="mainContainer">
 
@@ -21,6 +20,15 @@
             
             
             <?php 
+            $toUserEmail = $_POST['toemail']; 
+            $from = "service@snap2ask.com"; 
+            $headers = "From:" . $from; 
+            $message = "Your new Snap2Ask password is: " . $_POST['newpass']; 
+            mail($toUserEmail,'New Password',$message,$headers);
+            echo $_POST['toemail'] . 
+            "</p><p>For Iteration 1 verification, your new password is:" . $_POST['newpass'];
+            
+            
             echo $_POST['toemail'] . 
             "</p><p>For Iteration 1 verification, your new password is:" . $_POST['newpass'];
             
