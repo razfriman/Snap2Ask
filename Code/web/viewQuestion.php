@@ -91,14 +91,9 @@ if ($question_info['status'] != 0) {
 			</div>
 			
 			<div id="submit-answer-container">
-				<form id="submit-answer-form" action="#" method="POST">
-					<label for="answer">Answer:</label>
-					<textarea id="answer" name="answer"></textarea>
-					
-					<input type="hidden" id="user-id-hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" />
-					<input type="hidden" id="question-id-hidden" name="question_id" value="<?php echo $_GET['id']; ?>" />
-					<input type="submit" id="submitQuestionButton" value="Submit Answer" />
-				</form>
+           <?php
+           include ("submitanswer.php");
+           ?>
 			</div>
 		</div>
 	

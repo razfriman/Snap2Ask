@@ -34,7 +34,8 @@
 //	}
 
 	//get the answers in json
-	echo makeJsonFromRows($myAnswer, array('question_id', 'tutor_id', 'text', 'rating', 'status', 'date_created'));
+	$response =  makeJsonFromRows($myAnswer, array('question_id', 'tutor_id', 'text', 'rating', 'status', 'date_created'));
 
 	mysql_close($dbConnection);
+	return $response;
 ?>
