@@ -8,7 +8,7 @@
 //EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE//
 
 //connect to the database
-$dbConnection = mysql_connect("localhost", "cProject", "snap2ask");
+$dbConnection = mysql_connect("localhost", "root", "razraz");
 
 //checking connection
 if (!$dbConnection)
@@ -19,12 +19,12 @@ if (!$dbConnection)
 //select snap2ask database
 mysql_select_db("snap2ask", $dbConnection) or die("It couldn't select the snap2ask database. Error: " . msql_error());
 
-//Calling the functions to populate each table
-//insertCategories ($dbConnection, "inputFiles/categories.csv");
-//insertSubcategories ($dbConnection, "inputFiles/subcategories.csv");
-//insertUsers($dbConnection, "inputFiles/users.csv");
-//insertQuestions($dbConnection, "inputFiles/questions.csv");
-//insertAnswers($dbConnection, "inputFiles/answers.csv");
+Calling the functions to populate each table
+insertCategories ($dbConnection, "inputFiles/categories.csv");
+insertSubcategories ($dbConnection, "inputFiles/subcategories.csv");
+insertUsers($dbConnection, "inputFiles/users.csv");
+insertQuestions($dbConnection, "inputFiles/questions.csv");
+insertAnswers($dbConnection, "inputFiles/answers.csv");
 insertValidationQuestions($dbConnection, "inputFiles/validation.csv");
 
 

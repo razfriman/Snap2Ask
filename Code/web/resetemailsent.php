@@ -36,7 +36,7 @@
         $email = $_POST['toemail'];
         $password = $_POST['newpass'];
         //connect to databe
-        $dbConnection = mysql_connect("localhost", "cProject", "snap2ask");
+        $dbConnection = mysql_connect("localhost", "root", "razraz");
         if (!$dbConnection)
         {
                 die("Connection failure: " . mysql_error());
