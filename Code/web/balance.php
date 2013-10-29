@@ -23,12 +23,17 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 
 	// WITHDRAW FUNDS
 	// Simulate withdrawing money by settings the user's balance to 0
-	
+	$current = $responseObj['balance'];
+	$withdraw = $_POST['withdraw_amount'];
+	if ($current < $withdraw){
+		
+	}
 	// UPDATE THE USER INFO VIA REST API 
+
 	$request = array(
 			'last_name' => $responseObj['last_name'],
 			'first_name' => $responseObj['first_name'],
-			'balance' => 0,
+			'balance' => $responseObj['balance'] - $_POST['withdraw_amount'],
 			'is_tutor' => $responseObj['is_tutor'],
 			'rating' => $responseObj['rating'],
 			'preferred_category_id' => 1
@@ -65,12 +70,12 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 
 // FOR TESTING ONLY
 // ADD FUNCTIONALITY TO ADD 10 SNAPCASH
-if (isset($_POST['submit']) && $_POST['submit'] == 'Add 10 SnapCash (FOR TESTING ONLY)') {
+if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit SnapCash') {
 
 	$request = array(
 			'last_name' => $responseObj['last_name'],
 			'first_name' => $responseObj['first_name'],
-			'balance' => $responseObj['balance'] + 10,
+			'balance' => $responseObj['balance'] + $_POST['deposit_amount'],
 			'is_tutor' => $responseObj['is_tutor'],
 			'rating' => $responseObj['rating'],
 			'preferred_category_id' => 1
@@ -146,11 +151,13 @@ echo sprintf("<h3>Available SnapCash: %s</h3>", htmlspecialchars($responseObj['b
 
 		
 		<form id="withdrawSnapCashForm" action="#" method="post">
+			<input type="text" name="withdraw_amount" placeholder="Withdraw Amount" autocomplete="off">
 			<input type="submit" name="submit" value="Withdraw SnapCash">
 		</form>
 		
 		<form action="#" method="post">
-			<input type="submit" name="submit" value="Add 10 SnapCash (FOR TESTING ONLY)">
+			<input type="text" name="deposit_amount" autocomplete="off" placeholder="Deposit Amount">
+			<input type="submit" name="submit" value="Deposit SnapCash">
 		</form>
     
 		</div>

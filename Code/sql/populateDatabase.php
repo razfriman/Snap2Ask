@@ -8,7 +8,7 @@
 //EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE//
 
 //connect to the database
-$dbConnection = mysql_connect("localhost", "root", "razraz");
+$dbConnection = mysql_connect("127.0.0.1", "root", "razraz");
 
 //checking connection
 if (!$dbConnection)
@@ -19,7 +19,7 @@ if (!$dbConnection)
 //select snap2ask database
 mysql_select_db("snap2ask", $dbConnection) or die("It couldn't select the snap2ask database. Error: " . msql_error());
 
-Calling the functions to populate each table
+//Calling the functions to populate each table
 insertCategories ($dbConnection, "inputFiles/categories.csv");
 insertSubcategories ($dbConnection, "inputFiles/subcategories.csv");
 insertUsers($dbConnection, "inputFiles/users.csv");
