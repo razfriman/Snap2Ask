@@ -2,35 +2,55 @@
 var baseUrl = "../web/api/index.php";
 
 
-function addTestQuestion(testQuestionData) {
+function addTestQuestion(testQuestionData,questionNumber) {
 
 	var id = testQuestionData.id;
-	var question = testQuestionData.question;
-	var choiceA = testQuestionData.choiceA;
-	var choiceB = testQuestionData.choiceB;
-	var choiceC = testQuestionData.choiceC;
-	$('#Test').html(question);
+	var question_text = testQuestionData.question;
+	var choiceA = testQuestionData.optionA;
+	var choiceB = testQuestionData.optionB;
+	var choiceC = testQuestionData.optionC;
 	var testQuestion = document.createElement('div');
-	$(testQuestion).addClass("question_wrapper");
 	var question = document.createElement('div');
-	$(question).addClass("question");
 	var choices = document.createElement('div');
-	#(choices).addClass("choices");
 	testQuestion.appendChild(question);
 	testQuestion.appendChild(choices);
+	$(testQuestion).addClass("question_wrapper");
+	$(question).addClass("question");
+	question.innerHTML = question_text;
+	$(choices).addClass("choice_list");
 	for (var i = 1; i < 4; i++){
-		var possibleChoice = document.createElement('div');
-		$(choices).appendChild(possibleChoice);
+		var choice_wrapper = document.createElement('div');
+		choices.appendChild(choice_wrapper);
 		var input = document.createElement('input');
-		$(possibleChoice).appendChild(input);
-		$(input).attr("type","radio","name",id.toString(),"value",i.toString(),"class","choice");
+		var choice = document.createElement('span');
+		choice_wrapper.appendChild(input);
+		choice_wrapper.appendChild(choice);
+		$(input).attr("type","radio","name",questionNumber.toString(),"value",i.toString(),"class","choice_input");
+		$(choice).addClass("choice_text");
+		$(choice).addClass(questionNumber.toString());
+		switch(i){
+			case 1:
+				choice.innerHTML = choiceA;
+			break;
+			case 2:
+				choice.innerHTML = choiceB;
+			break;
+			case 3:
+				choice.innerHTML = choiceC;
+			break;
+		}
+
 	}
 
-	$(answerTable)[0].html(choiceA);
-	$(answerTable)[1].html(choiceB);
-	$(answerTable)[2].html(choiceC);
+	// var el = document.getElementsByClassName(questionNumber.toString());
+	// console.log("got here");
+	// console.log(el);
+	// el[0].text(choiceA);
+	// el[1].text(choiceB);
+	// el[2].text(choiceC);
 
-	$('#Test').appendChild(testQuestion);
+
+	$('#Test').append(testQuestion);
 	
 }
 
@@ -40,17 +60,18 @@ function addTestQuestion(testQuestionData) {
 $(document).ready(function () {
 
 	$('#Test').empty();
-	console.log("byebye");
 	//just a test category
 	var category = "mathematics";
 	
 	var jqxhr = $.get( baseUrl + "/test", function(data) {
 	  
 	  for (var i = 0; i < data.length; i++) {
-		 console.log("hello");
 		 // Add the question to the UI
-		  addTestQuestion(data[i]); 
+		  addTestQuestion(data[i],i); 
 	  }
+	  var submit = document.createElement("input");
+	  $(submit).attr("type","submit","value","Submit","id","submit")
+	  $('#Test').append(submit);
 	}).fail(function() {
 	    console.log("error loading questions");
 	  });		

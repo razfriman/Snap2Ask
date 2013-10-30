@@ -738,7 +738,7 @@ $app->get(
 	'/test',
 	function () use ($app,$db) {
 		$request = $app->request()->getBody();
-		$category = $request['category'];
+//		$category = $request['category'];
 		$testQuestions = array();
 
 		try{
@@ -759,13 +759,17 @@ $app->get(
 	}
 	);
 
-$app->post(
-	'/validateTest',
-	function () use ($app,$db){
-		$request = $app->request()->getBody();
-		$category = $request[''];
-	}
-	);
+// $app->post(
+// 	'/validateTest',
+// 	function () use ($app,$db){
+// 		$request = $app->request()->getBody();
+// 		var i = 1;
+// 		var moreQuestions = true;
+// 		while(moreQuestions){
+// 			$selection = 
+// 		}
+// 	}
+// 	);
 	
 	
 	
