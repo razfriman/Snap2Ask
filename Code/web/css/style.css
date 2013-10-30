@@ -142,8 +142,8 @@ input.button {
 }
 
 input.button:hover {
-	background-color:#524656;
-	color:#fff;
+	background-color: #524656;
+	color: #fff;
 }
 
 .divider {
@@ -413,7 +413,7 @@ header {
 	float: right;
 	text-align: left;
 	width: 40%;
-		margin: 0;
+	margin: 0;
 	padding: 0;
 }
 
