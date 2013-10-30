@@ -733,7 +733,31 @@ $app->get(
 	
 	
 	
+//GET LIST OF ALL TEST VALIDATION QUESTIONS
+$app->get(
+	'/testQuestions/hello',
+	function () use ($app,$db) {
+		$request = $app->request()->getBody();
+		$category = $request['category'];
+		$testQuestions = array();
+
+		try{
+			$sth = $db->prepare("SELECT * FROM validationQuestions");
+			$sth->execute();
+			$results = $sth->fetchAll(PDO::FETCH_ASSOC);
+			foreach ($results as &$result){
+				array_push($testQuestions, $result);
+			}
+		} catch(PDOException $e) {
+         // SQL ERROR
+		}
 	
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($testQuestions));
+	}
+	);
 	
 	
 	
@@ -1286,9 +1310,6 @@ $app->put(
 		$response->write(json_encode($dataArray));
 	}
 	);
-
-
-
 
 
 // GET LIST OF ALL QUESTIONS
