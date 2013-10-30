@@ -7,7 +7,15 @@ Color Scheme:
 #e4dccb - Off White
 #a6c4bc - Light Blue
 
+#C63D0F - burnt red
+#3B3738 - black
+#FDF3E7 - off white
+#7E8F7C - olive
+#74AFAD - off blue
+
+
 */
+
 
 @font-face {
     font-family: "Bebas";
@@ -21,24 +29,38 @@ Color Scheme:
     format("truetype");
 }
 
+@font-face {
+  font-family: 'Amaranth';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Amaranth'), url(http://themes.googleusercontent.com/static/fonts/amaranth/v3/RvdVaxHTnYbJDko8dLi4zvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+
 h1,h2,h3,h4,h5,h6 {
 	margin:0;
 	padding:0;
 }
 
 html {
-	background-image:url(../res/geometry.png);
+	/*background-image:url(../res/geometry.png);*/
+    background-color: #a6c4bc;
+    color: #3B3738; 
 	height: 100%;
 }
 
+#registerContainer {
+    margin-bottom:20px;
+}
+
 body {
-	font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+	font-family: 'Amaranth';
 	font-weight:300;
-	border:solid #000 5px;
+	border:solid #7E8F7C 4px;
 	margin-left:10%;
 	margin-right:10%;
-	background-color:#fff;
-	color:#000;
+	background-color: #FFF;
+    border-radius: 15px;
+	color: #74AFAD ; 
 	text-align:center;
 	min-width:800px;
 	min-height: 90%;
@@ -70,7 +92,7 @@ input,textarea,select {
 }
 
 input[type="text"],input[type="password"],input[type="email"] {
-	border:2px solid #000;
+	border:2px solid #7E8F7C;
 }
 
 input.button {
@@ -84,7 +106,7 @@ input.button:hover {
 }
 
 .divider {
-	border-top:2px solid #000;
+	border-top:2px solid #7E8F7C;
 	width:70%;
 	margin:1em auto;
 }
