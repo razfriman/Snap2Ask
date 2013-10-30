@@ -36,7 +36,7 @@ $responseObj = getUserInfo(true);
 	<h1 id="title">Tutor Validation Test</h1>
 	<form id="Test" method="post" action="/api/index.php/validateTest">
 		<!---Population test questions here.-->
-		<input type="submit" value="Submit" id="submit">
+		<!-- <input type="submit" value="Submit" id="submit"> -->
 	</form>
 </body>
 </html>
