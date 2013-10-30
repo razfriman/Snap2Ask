@@ -34,9 +34,9 @@ $responseObj = getUserInfo(true);
 <body>
 
 	<h1 id="title">Tutor Validation Test</h1>
-	<div id="Test">
+	<form id="Test" method="post" action="/api/index.php/validateTest">
 		<!---Population test questions here.-->
-
-	</div>
+		<input type="submit" value="Submit" id="submit">
+	</form>
 </body>
 </html>

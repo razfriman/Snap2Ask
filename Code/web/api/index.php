@@ -735,7 +735,7 @@ $app->get(
 	
 //GET LIST OF ALL TEST VALIDATION QUESTIONS
 $app->get(
-	'/testQuestions/hello',
+	'/test',
 	function () use ($app,$db) {
 		$request = $app->request()->getBody();
 		$category = $request['category'];
@@ -756,6 +756,14 @@ $app->get(
 		$response['Content-Type'] = 'application/json';
 		$response->status(200);
 		$response->write(json_encode($testQuestions));
+	}
+	);
+
+$app->post(
+	'/validateTest',
+	function () use ($app,$db){
+		$request = $app->request()->getBody();
+		$category = $request[''];
 	}
 	);
 	

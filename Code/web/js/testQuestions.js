@@ -1,9 +1,10 @@
 
-var baseUrl = "http://www.snap2ask.com/git/snap2ask/Code/web/api/index.php";
+var baseUrl = "../web/api/index.php";
 
 
 function addTestQuestion(testQuestionData) {
 
+	var id = testQuestionData.id;
 	var question = testQuestionData.question;
 	var choiceA = testQuestionData.choiceA;
 	var choiceB = testQuestionData.choiceB;
@@ -11,17 +12,23 @@ function addTestQuestion(testQuestionData) {
 	$('#Test').html(question);
 	var testQuestion = document.createElement('div');
 	$(testQuestion).addClass("question_wrapper");
-	var answerTable = document.createElement('table');
-	$(answerTable).addClass("choices");
-	for (var i = 0; i < 3; i++){
-		var tr = document.createElement('tr');
-		$(answerTable).appendChild(tr);
-		var td = document.createElement('td');
-		$(tr).appendChild(td);
+	var question = document.createElement('div');
+	$(question).addClass("question");
+	var choices = document.createElement('div');
+	#(choices).addClass("choices");
+	testQuestion.appendChild(question);
+	testQuestion.appendChild(choices);
+	for (var i = 1; i < 4; i++){
+		var possibleChoice = document.createElement('div');
+		$(choices).appendChild(possibleChoice);
+		var input = document.createElement('input');
+		$(possibleChoice).appendChild(input);
+		$(input).attr("type","radio","name",id.toString(),"value",i.toString(),"class","choice");
 	}
-	$(answerTable)[0][0].html('A. '+choiceA);
-	$(answerTable)[1][0].html('B. '+choiceB);
-	$(answerTable)[2][0].html('C. '+choiceC);
+
+	$(answerTable)[0].html(choiceA);
+	$(answerTable)[1].html(choiceB);
+	$(answerTable)[2].html(choiceC);
 
 	$('#Test').appendChild(testQuestion);
 	
@@ -37,7 +44,7 @@ $(document).ready(function () {
 	//just a test category
 	var category = "mathematics";
 	
-	var jqxhr = $.get( baseUrl + "/testQuestions", function(data) {
+	var jqxhr = $.get( baseUrl + "/test", function(data) {
 	  
 	  for (var i = 0; i < data.length; i++) {
 		 console.log("hello");
