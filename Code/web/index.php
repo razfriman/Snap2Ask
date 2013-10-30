@@ -281,7 +281,7 @@ if (isset($_SESSION['user_id']))
 	</header>
     
     <div id="infoContainer">
-        <h2>Snap-2-Ask Gives You Connections With Mant People Willing To Answer Your Academic Questions!</h2>
+        <h2>Snap-2-Ask helps you get your academic questions answered and make money answering questions</h2>
         <h3>All Questions on Snap-2-Ask are picture based and answered by certified tutors.</h3>
         <p>
             Snap-2-Ask is an Academic Question and Answer Forum where you can submit questions 
