@@ -271,7 +271,7 @@ if (isset($_SESSION['user_id']))
 
 	<header>
 
-		<h1><img src="res/temp_logo.png" alt="Snap-2-Ask Logo" id="logo"/></h1>
+		<h1><img src="res/new_logo.png" alt="Snap-2-Ask Logo" id="logo"/></h1>
 
 		<!-- content -->
 		<div id="slogan">
@@ -279,6 +279,18 @@ if (isset($_SESSION['user_id']))
 		</div>
 
 	</header>
+    
+    <div id="infoContainer">
+        <h2>Snap-2-Ask helps you get your academic questions answered and make money answering questions</h2>
+        <h3>All Questions on Snap-2-Ask are picture based and answered by certified tutors.</h3>
+        <p>
+            Snap-2-Ask is an Academic Question and Answer Forum where you can submit questions 
+            through our mobile app, while answering other's question through this website.
+            You can start earning SnapCash by answering user submitted questions today!
+            All you have to do is create an account.
+            Certification exams will soon be avaliable for more accurate answers and better pay.
+        <p>
+    </div>
 
 	<div id="mainContainer">
 

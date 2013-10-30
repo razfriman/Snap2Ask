@@ -23,6 +23,11 @@ Color Scheme:
     format("truetype");
 }
 
+@font-face{
+    font-family: "Gothic";
+    src: url('../res/fonts/gothic.ttf');
+}
+
 @font-face {
     font-family: "Lobster";
     src: url('../res/fonts/lobster/Lobster_1.3.otf')
@@ -42,40 +47,75 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 html {
-	/*background-image:url(../res/geometry.png);*/
-    background-color: #a6c4bc;
+	background-image:url(../res/subtle_stripes.png);
+    background-color: #a6c4bc; /*<- Fall back*/
+    
+
+
+    /* Gradient Background (doesn't scale well with page as a background)
+     *
+     * Safari 4-5, Chrome 1-9
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1a82f7), to(#2F2727));
+
+    /* Safari 5.1, Chrome 10+
+    background: -webkit-linear-gradient(top, #74AFAD,  #a6c4bc);
+
+    /* Firefox 3.6+
+    background: -moz-linear-gradient(top, #2F2727, #1a82f7);
+
+    /* IE 10
+    background: -ms-linear-gradient(top, #2F2727, #1a82f7);
+
+    /* Opera 11.10+ 
+    background: -o-linear-gradient(top, #2F2727, #1a82f7);
+    */
+
+
     color: #3B3738; 
 	height: 100%;
 }
 
-#registerContainer {
-    margin-bottom:20px;
-}
 
 body {
-	font-family: 'Amaranth';
+	font-family: 'Gothic';
 	font-weight:300;
-	border:solid #7E8F7C 4px;
+	/*border:solid #7E8F7C 4px;*/
 	margin-left:10%;
 	margin-right:10%;
-	background-color: #FFF;
+	/*background-color:#FFF;*/
     border-radius: 15px;
-	color: #74AFAD ; 
+	color: #cf4747; 
 	text-align:center;
 	min-width:800px;
 	min-height: 90%;
 }
 
+#infoContainer{
+    text-align: left;
+    width:50%;
+    float:left;
+}
+
+
+#mainContainer{
+    margin-left:50%;
+} 
+
 img#logo {
 	display:block;
 	width:15em;
-	margin-left:auto;
-	margin-right:auto;
+}
+
+h1{
+    border-bottom:solid  #524656 3px;
 }
 
 #slogan {
 	margin:1em;
+    text-align:right;
 }
+
+
 
 div.error,label.error {
 	color: red;
@@ -92,7 +132,7 @@ input,textarea,select {
 }
 
 input[type="text"],input[type="password"],input[type="email"] {
-	border:2px solid #7E8F7C;
+	border:2px solid #524656;
 }
 
 input.button {
@@ -106,9 +146,13 @@ input.button:hover {
 }
 
 .divider {
-	border-top:2px solid #7E8F7C;
+	border-top:2px solid #524656;
 	width:70%;
 	margin:1em auto;
+}
+
+#registerContainer {
+    margin-bottom:20px;
 }
 
 footer {
