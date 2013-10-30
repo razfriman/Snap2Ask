@@ -6,7 +6,6 @@ function addTestQuestion(testQuestionData,questionNumber) {
 
 	var id = testQuestionData.id;
 	var question_text = testQuestionData.question;
-	console.log(question_text);
 	var choiceA = testQuestionData.optionA;
 	var choiceB = testQuestionData.optionB;
 	var choiceC = testQuestionData.optionC;
@@ -67,10 +66,12 @@ $(document).ready(function () {
 	var jqxhr = $.get( baseUrl + "/test", function(data) {
 	  
 	  for (var i = 0; i < data.length; i++) {
-		 console.log("hello");
 		 // Add the question to the UI
 		  addTestQuestion(data[i],i); 
 	  }
+	  var submit = document.createElement("input");
+	  $(submit).attr("type","submit","value","Submit","id","submit")
+	  $('#Test').append(submit);
 	}).fail(function() {
 	    console.log("error loading questions");
 	  });		
