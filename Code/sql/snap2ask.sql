@@ -51,7 +51,7 @@ CREATE TABLE `validationQuestions` (
   `optionB` varchar(150) NOT NULL,
   `optionC` varchar(150) NOT NULL,
   `rightAnswer` varchar(2) NOT NULL,
-  `categoryID` int(11) NOT NULL,validationQuestions
+  `categoryID` int(11) NOT NULL,
   PRIMARY KEY (`id`),	
   CONSTRAINT `fk_validationQuestions_1` FOREIGN KEY (`categoryID`) REFERENCES categories(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARSET = latin1;
