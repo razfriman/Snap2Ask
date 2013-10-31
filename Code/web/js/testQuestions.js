@@ -1,5 +1,5 @@
 
-var baseUrl = "../web/api/index.php";
+var baseUrl = "./api/index.php";
 
 
 function addTestQuestion(testQuestionData,questionNumber) {

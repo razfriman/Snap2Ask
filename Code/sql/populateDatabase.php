@@ -8,12 +8,49 @@
 //EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE//
 
 //connect to the database
-$dbConnection = mysql_connect("127.0.0.1", "root", "ArikElik0058");
+$dbConnection = mysql_connect("127.0.0.1", "root", "razraz");
 
 //checking connection
 if (!$dbConnection)
 {
 	die('Connection failure: ' . mysql_error());
+}
+
+
+// This function takes a password as an input
+// It returns an array with the hashed password and the salt used to create the hash
+function hashPassword($password) {
+	
+	// This is the syntax to use PHP's built-in hashing methods
+	// it uses 5 rounds of the blowfish algorithm to create the hash 
+	$Blowfish_Pre = '$2a$05$';
+	$Blowfish_End = '$';
+
+    // these are the allowed blowfish salt characters
+	$Allowed_Chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789./';
+	$Chars_Len = 63;
+
+	// The length of the salt
+	$Salt_Length = 21;
+
+	// The salt string
+	$salt = "";
+
+	// Generate the salt string by randomly selcting letters from the allowed salt characters list
+	for($i=0; $i < $Salt_Length; $i++)
+	{
+		$salt .= $Allowed_Chars[mt_rand(0,$Chars_Len)];
+	}
+
+	// Add the hash information to the salt
+	// This is required to use the crypt() method that PHP provides
+	$bcrypt_salt = $Blowfish_Pre . $salt . $Blowfish_End;
+
+	// Creates the hashed password using PHP's crypt() method
+	$hashed_password = crypt($password, $bcrypt_salt);
+
+	// Return an array of the hash and the salt
+	return array($hashed_password,$salt);
 }
 
 //select snap2ask database
@@ -148,6 +185,10 @@ function insertUsers ($dbConnection, $file)
                 //checks that the line isn't empty
                 if ($name[0] != "")
                 {
+                
+                $hashResult = hashPassword($name[1]);
+                
+                echo ($name[1] . " " . $name[0] . '<br />');
 			//get preferred category id
                         $sqlQuery = "SELECT id from categories WHERE name = '{$name[3]}';";
                         $response = mysql_query ($sqlQuery);
@@ -157,6 +198,7 @@ function insertUsers ($dbConnection, $file)
 			$insertUser = "INSERT into users(
 				email, 
 				password, 
+				salt,
 				is_tutor, 
 				preferred_category_id, 
 				date_created, 
@@ -165,7 +207,8 @@ function insertUsers ($dbConnection, $file)
 				last_name, 
 				rating) values (
 				'{$name[0]}', 
-				'{$name[1]}', 
+				'{$hashResult[0]}', 
+				'{$hashResult[1]}', 
 				{$name[2]}, 
 				'{$row['id']}',
 				'{$date}',

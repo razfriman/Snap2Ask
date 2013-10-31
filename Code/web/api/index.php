@@ -496,8 +496,8 @@ $app->post(
 		$salt = '';
 		$balance = 40;
 		$is_tutor = $request['is_tutor'];
-		$is_admin = false;
-		$preferred_category_id = 0;
+		$is_admin = 0;
+		$preferred_category_id = null;
 		$authentication_mode = $request['authentication_mode'];
 		$date_created = date("Y-m-d H:i:s");
 		$register_or_login = $request['register_or_login'];

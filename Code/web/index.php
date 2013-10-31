@@ -31,6 +31,7 @@ if (isset($_POST['authentication_mode']))
 			'preferred_category_id' => 1
 		);
 
+
 		//cURL used to collect login information
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users');
@@ -151,6 +152,7 @@ if (isset($_POST['submit'])) {
 		else
 		{
 			$err[]='Could not create account.';
+			$err[]=$responseObj['reason'];
 		}
 
 		if($err)
