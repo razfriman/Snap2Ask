@@ -7,11 +7,11 @@ session_start();
 // Allow the included files to be executed
 define('inc_file', TRUE);
 
-/*if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id'])) {
 	// The user is not logged in
 	header('Location: index.php');
 	exit;
-}*/
+}
 
 // Require the functions file
 require_once('functions.php');
