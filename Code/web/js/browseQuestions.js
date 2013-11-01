@@ -1,6 +1,6 @@
 
-var baseUrl = "http://www.snap2ask.com/git/snap2ask/Code/web/api/index.php";
-//var baseUrl = "./api/index.php";
+//var baseUrl = "http://www.snap2ask.com/git/snap2ask/Code/web/api/index.php";
+var baseUrl = "./api/index.php";
 
 
 

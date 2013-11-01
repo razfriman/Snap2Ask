@@ -1,6 +1,6 @@
 question,optionA,optionB,optionC,rightAnser,categoryName,
 Which type of language is C++, interpreted, high level, compiled,C,Computer Science,
-Which is the difference between and AVL tree and a binary tree, an AVL tree has to be balanced, AVL tree doesn't have to be balanced, Binary tree can have up to 3 children,A,Computer Science, 
+Which is the difference between and AVL tree and a binary tree, an AVL tree has to be balanced, AVL tree does not have to be balanced, Binary tree can have up to 3 children,A,Computer Science, 
 In relational algebra the projection operator selects,horizontal rows,vertical columns,both,B,Computer Science,
 What is the worst case performance of selecting an element from an array and from an a list,log n and constant time respectively,log n and log n,constant time and n respectively,C,Computer Science,
 Which type of boundary meassures Big O performance,Lower bounderay,Upper boundary,Both,B,Computer Science,

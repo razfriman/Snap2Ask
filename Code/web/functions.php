@@ -10,7 +10,7 @@ $domain = $_SERVER['HTTP_HOST'];
 $base_url = $prefix . $domain . dirname($_SERVER['PHP_SELF']);
 
 // Use official REST API
-$base_url = "http://snap2ask.com/git/snap2ask/Code/web";
+//$base_url = "http://snap2ask.com/git/snap2ask/Code/web";
 
 
 function refreshSessionInfo($responseObj) {
