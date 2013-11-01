@@ -395,7 +395,7 @@ function insertValidationQuestions ($dbConnection, $file)
 			optionB,
 			optionC,
 			rightAnswer,
-			categoryID) values (
+			category_id) values (
 			'{$name[0]}',
 			'{$name[1]}',
 			'{$name[2]}',
