@@ -244,7 +244,7 @@ if(isset($_SESSION['msg']['login-err']))
 				<input type="email" name="email" placeholder="Email" title="Please enter a valid email" required autocomplete="on" />
 				<input type="password" name="password" placeholder="Password" title="Please enter a password" required autocomplete="on" />
 				<input  class="button" type="submit" name="submit" value="Log in" />
-				<a href="resetpass.php">Forgot Password</a>
+				<a href="resetPassword.php">Forgot Password</a>
 			</form>
 			
 			<!-- Google+ Signin Button -->

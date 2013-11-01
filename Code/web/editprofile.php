@@ -128,10 +128,6 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 
 					<input type="submit" id="submitButton" value="Save Changes">
 				</form>
-				
-				<form name="passreset" id="passreset" action="logoutreset.php">
-					<input type="submit" id="submitButton" value="Reset Password">
-				</form>
 
 
 			</div>
