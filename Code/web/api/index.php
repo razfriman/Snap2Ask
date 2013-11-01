@@ -24,7 +24,7 @@ try {
 
 // This is part of the required code to use the Slim Framework
 // Create the Slim app
-\Slim\Slim::registerAutoloader();
+\Slim\Slim::Autoloader();
 $app = new \Slim\Slim();
 $app->add(new \Slim\Middleware\ContentTypes());
 

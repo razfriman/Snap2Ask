@@ -42,14 +42,6 @@ function addTestQuestion(testQuestionData,questionNumber) {
 
 	}
 
-	// var el = document.getElementsByClassName(questionNumber.toString());
-	// console.log("got here");
-	// console.log(el);
-	// el[0].text(choiceA);
-	// el[1].text(choiceB);
-	// el[2].text(choiceC);
-
-
 	$('#Test').append(testQuestion);
 	
 }
