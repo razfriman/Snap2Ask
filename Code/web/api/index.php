@@ -211,6 +211,30 @@ function addUserFromAnswer(&$answer,$db) {
 	}
 }
 
+// Adds the user verification info to the user object
+function addVerifiedCategories(&$user, $db)
+{
+	try {
+		$verified_categories = array();
+		
+		// Get the user id from the user object
+		$user_id = $user['id'];
+
+		// Select all the verification data for the matching user id
+		$sth = $db->prepare("SELECT category_id,is_verified FROM verified_categories WHERE user_id=:user_id");
+		$sth->bindParam(':user_id',$user_id);
+		$sth->execute();
+		
+		$verified_categories = $sth->fetchAll(PDO::FETCH_ASSOC);
+		
+		// Append the  data of the user of the specific answer
+		$user['verified_categories'] = $verified_categories;
+		
+	} catch(PDOException $e) {
+     // SQL ERROR
+     $user['verified_categories'] = array();
+	}
+}
 
 
 
@@ -316,6 +340,30 @@ $app->post(
 
 
 
+// RESET A USER'S PASSWORD
+$app->post(
+	'/reset_password',
+	function () use ($app,$db) {
+
+
+		// TODO
+	}
+	);
+	
+// UPDATE THE USER'S PASSWORD AFTER A PASSWORD RESET
+$app->delete(
+	'/reset_password',
+	function () use ($app,$db) {
+
+
+		// TODO	
+	}
+	);
+
+
+
+
+
 
 
 
@@ -370,6 +418,9 @@ $app->get(
 			// Only fetch the data if the user exists
 			if ($sth->rowCount() > 0) {
 				$userData = $sth->fetch(PDO::FETCH_ASSOC);
+				
+				// Add verified categories info
+				addVerifiedCategories($userData, $db);
 
 	            // Remove the password/salt fields
 				unset($userData['password']);
@@ -1136,7 +1187,7 @@ $app->post(
 				$sth->bindParam(':tutor_id', $tutor_id);
 				$sth->bindParam(':answer_text', $answer_text);
 				$sth->bindParam(':date_created', $date_created);
-
+				$sth->execute();
 				// Get the new answer's id
 				$insert_id = $db->lastInsertId();
 
