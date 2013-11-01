@@ -16,9 +16,7 @@ if (!isset($_SESSION['user_id'])) {
 if (!isset($_GET['id'])) {
 	// No question selected
 	
-	// DEBUG
-	header('Location viewQuestion.php?id=40');
-	//header('Location: browse.php');
+	header('Location: browse.php');
 	exit;
 
 }

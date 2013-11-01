@@ -1105,7 +1105,8 @@ $app->post(
 		// Load the request properties
 		$tutor_id = $request['tutor_id'];
 		$answer_text = $request['answer_text'];
-
+		$date_created = date("Y-m-d H:i:s");
+		
 		// Initialize the retunr values
 		$success = false;
 		$reason = '';
@@ -1128,13 +1129,13 @@ $app->post(
 			if ($times_answered < 3) {
 
                 // INSERT THE ANSWER
-				$sth = $db->prepare('INSERT INTO answers (question_id,tutor_id,`text`) 
-					VALUES (:question_id,:tutor_id,:answer_text)');
+				$sth = $db->prepare('INSERT INTO answers (question_id,tutor_id,`text`,date_created) 
+					VALUES (:question_id,:tutor_id,:answer_text,:date_created)');
 
 				$sth->bindParam(':question_id', $id);
 				$sth->bindParam(':tutor_id', $tutor_id);
 				$sth->bindParam(':answer_text', $answer_text);
-				$sth->execute();
+				$sth->bindParam(':date_created', $date_created);
 
 				// Get the new answer's id
 				$insert_id = $db->lastInsertId();
