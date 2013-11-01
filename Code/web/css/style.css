@@ -171,12 +171,14 @@ footer {
 
 #cash {
 	float:left;
-	border:solid #000 5px;
-	background-color: inherit;
-	color:#000;
-	margin-top:-5px;
-	margin-left:10px;
-	padding:3px;
+    font-family: Bebas;
+	/*border:solid #000 3px;*/
+	background-color: #524656;
+	color: #e4dccb;
+	margin-top:-50px;
+    width: 80px;
+	margin-left:0px;
+	padding:10px;
 }
 
 #rightHeader {
@@ -208,6 +210,10 @@ footer {
 	margin-right:1em;
 }
 
+#search input[type=submit]{
+    margin-top:9px;
+}
+
 #rightHeader #search {
 	clear:both;
 	width: 90%;
@@ -236,8 +242,8 @@ header {
 /* BROWSENAV */
 #browseNav ul {
 	clear:left;
+    clear:right;
 	list-style-type:none;
-	float:left;
 	margin-left:4.7em;
 }
 
@@ -247,24 +253,24 @@ header {
 	height:2em;
 	display:inline;
 	line-height:2em;
-	width:10em;
-	border:5px solid #000;
+	width:33%;
 	margin-left: -0.2em;
 	margin-right: -0.2em;
 	margin-top: 0.2em;
-	margin-bottom:-1.25em;
 }
 
 /*  Hover over a browseNav link */
 #browseNav li:hover {
-	background-color:#000;
-	color:#fff;
+	text-decoration:underline;
+    font-size: 110%;
+    color: #524656;
+    margin-bottom:-5px;
 }
 
 /* Selected tab */
 #browseNav li.selected,#linksNav li.selected {
-	background-color:gray;
-	color: inherit;
+	text-decoration:underline;
+    color: #524656;
 }
 
 /* LINKNAV */
@@ -272,17 +278,22 @@ header {
 	clear:left;
 	float:left;
 	width:7em;
+    margin-top:0;
+    height:100%;
+    color:white;
 	text-align:right;
 	list-style-type:none;
 	padding:0;
+    background-color:#524656;
 }
 
 /* linksNav list item */
 #linksNav li {
 	margin:1em 0;
 	height:2em;
-	border-top:5px solid #000;
-	border-bottom:5px solid #000;
+	/*border-top:5px solid #000;
+	border-bottom:5px solid #000;*/
+    color:white;
 }
 
 /* Hover over a linksNav link */
@@ -298,13 +309,13 @@ header {
 	text-decoration:none;
 	padding-right:.5em;
 	margin:0;
-	color:#000;
+    color:white;
 	background-color: inherit;
 }
 
 #mainContent {
 	margin-bottom:0;
-	border:5px solid #000;
+	border-top:3px solid #524656;
 	float: left;
 	overflow-y: scroll;
 	height:40em;

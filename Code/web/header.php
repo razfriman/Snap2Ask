@@ -35,7 +35,7 @@ if(isset($_GET['search'])) {
 		<?php echo money_format('%i', $balance); ?></h2>
 	</div>
 
-	<a href="http://www.snap2ask.com"><img src="res/temp_logo.png" alt="Snap-2-Ask Logo" id="logoSmall"/></a>
+	<a href="http://www.snap2ask.com"><img src="res/new_logo.png" alt="Snap-2-Ask Logo" id="logoSmall"/></a>
 	
 	<div id="rightHeader">		
 	
