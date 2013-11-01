@@ -48,7 +48,7 @@ h1,h2,h3,h4,h5,h6 {
 
 html {
 	background-image:url(../res/subtle_stripes.png);
-    background-color: #a6c4bc; /*<- Fall back*/
+    /*background-color: #a6c4bc; /*<- Fall back*/
     
 
 
