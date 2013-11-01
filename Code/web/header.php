@@ -4,16 +4,22 @@ if (!defined('inc_file')) {
 	die('Direct access is forbidden');
 }
 
+// Require the functions file
+require_once('functions.php');
+
+$responseObj = getUserInfo(true);
+$categories = getCategories();
+
 // Load these from the session (set during log-in)
 $first_name = '';
 $balance = 0;
 
-if (isset($_SESSION['first_name'])) {
-	$first_name = $_SESSION['first_name'];
+if (isset($responseObj['first_name'])) {
+	$first_name = $responseObj['first_name'];
 }
 
-if (isset($_SESSION['balance'])) {
-	$balance = $_SESSION['balance'];
+if (isset($responseObj['balance'])) {
+	$balance = $responseObj['balance'];
 }
 
 $searchQuery = '';
@@ -46,13 +52,22 @@ if(isset($_GET['search'])) {
 					
 		<form id="search" method="POST" action="#">
 			<input type="text" name="searchQuery" id="searchQuery" list = "suggestionlist" value="<?php echo $searchQuery; ?>" placeholder="Search" title="Enter a search query" x-webkit-speech />
+			<datalist id='suggestionlist'>
 			<?php 
-			// TODO:
-			// only include a list of categories/subcategories
 			
-			//include("suggestionlist.php");
-			
+			// Add all categories and subcategories to the suggestion list
+			foreach($categories as $category)
+			{
+				echo sprintf('<option value="%s">%s</option>', htmlspecialchars($category['name']), htmlspecialchars($category['name']));
+				
+				foreach($category['subcategories'] as $subcategory)
+				{
+					echo sprintf('<option value="%s">%s</option>', htmlspecialchars($subcategory['name']), htmlspecialchars($subcategory['name']));
+				}
+			}
+						
 			?>
+			</datalist>
 			
 			<input type="submit" value="Search"/>
 			
