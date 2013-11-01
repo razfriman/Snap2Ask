@@ -4,25 +4,10 @@
 	<div class="divider"></div>
 
 	<div id="loginContainer" >
-		<h1>CHECK YOUR E-MAIL</H1>
-			<p>
-				<a href="http://mail.yahoo.com" name="yahoo" id="yahoo" class="email">Yahoo!</a>
-				<a href="http://hotmail.com" name="yahoo" id="yahoo" class="email">Hotmail</a>
-				<a href="http://gmail.com" name="yahoo" id="yahoo" class="email">Gmail</a>
-			</p>
-			<p>Your new password has been sent to <?php echo $_POST['toemail'] . "</p><p>For Iteration 1 verification, your new password is:" . $_POST['newpass']?></p>
-			<p>Confirm this password with the password received in your e-mail inbox!</p> 
-			<p>Your new password has been sent to 
-				
-				
-				<?php 
+        			<?php 
 				$toUserEmail = $_POST['toemail']; 
 				$from = "service@snap2ask.com"; 
 				$headers = "From:" . $from; 
-				$message = "Your new Snap2Ask password is: " . $_POST['newpass']; 
-				mail($toUserEmail,'New Password',$message,$headers);
-				echo $_POST['toemail'] . "</p><p>For Iteration 1 verification, your new password is:" . $_POST['newpass'];
-				echo $_POST['toemail'] . "</p><p>For Iteration 1 verification, your new password is:" . $_POST['newpass'];
 				
 				
 				$email = $_POST['toemail'];
@@ -45,22 +30,33 @@
 					{
 						die ("Impossible to reset Password" . mysql_error());
 					}
-
-				}
-				else
-				{
-					echo "couldn't find email " . $email . " in our database\r\n";
-				}
 				
+				$message = "Your new Snap2Ask password is: " . $_POST['newpass']; 
+    			mail($toUserEmail,'New Password',$message,$headers);
+				echo $_POST['toemail'] . "</p><p>For Iteration 1 verification, your new password is:" . $_POST['newpass'];
+				echo $_POST['toemail'] . "</p><p>For Iteration 1 verification, your new password is:" . $_POST['newpass'];
 				
-				
-				
-				?></p>
+				?>
+		<h1>CHECK YOUR E-MAIL</H1>
+			<p>
+				<a href="http://mail.yahoo.com" name="yahoo" id="yahoo" class="email">Yahoo!</a>
+				<a href="http://hotmail.com" name="yahoo" id="yahoo" class="email">Hotmail</a>
+				<a href="http://gmail.com" name="yahoo" id="yahoo" class="email">Gmail</a>
+			</p>
+			<p>Your new password has been sent to <?php echo $_POST['toemail'] . "</p><p>For Iteration 1 verification, your new password is:" . $_POST['newpass']?></p>
+			<p>Confirm this password with the password received in your e-mail inbox!</p> 
+			<p>Your new password has been sent to </p>
 				<p>Confirm this password with the password received in your e-mail inbox!</p>
 			</div>
 			<p><a href="resetpass.php" name="login" id="login">Send another E-mail</a></p>
 			<p><a href="index.php" name="login" id="login">Login</a></p>
-
+<?php
+}
+    			else
+				{
+					echo "couldn't find email " . $email . " in our database\r\n";
+				}
+?>
 			<div class="divider"></div>
 			<?php include('footer.php');?>
 		</div>
