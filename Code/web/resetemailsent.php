@@ -1,4 +1,19 @@
-<?php include('logoutheader.php');?>
+
+<?php 
+/*
+SQL ERROR!
+
+UPDATED:
+This file finds the user's email in the database to reset password.
+If e-mail not found displays error. 
+Otherwise updates password in database & sends verification e-mail.
+
+PREVIOUS VERSION:
+Send e-mail and then access database!
+
+*/
+include('logoutheader.php');
+?>
 <div id="mainContainer">
 
 	<div class="divider"></div>
