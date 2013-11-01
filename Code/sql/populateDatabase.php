@@ -8,7 +8,7 @@
 //EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE//
 
 //connect to the database
-$dbConnection = mysql_connect("127.0.0.1", "root", "razraz");
+$dbConnection = mysql_connect("127.0.0.1", "snap2ask", "snap2ask");
 
 //checking connection
 if (!$dbConnection)

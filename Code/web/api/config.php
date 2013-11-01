@@ -1,8 +1,8 @@
 <?php
 
 define ( 'DB_HOST', 'localhost' );
-define ( 'DB_USER', 'root' );
-define ( 'DB_PASSWORD', 'ArikElik0058' );
+define ( 'DB_USER', 'snap2ask' );
+define ( 'DB_PASSWORD', 'snap2ask' );
 define ( 'DB_NAME', 'snap2ask' );
 
 define ( 'AWS_S3_BUCKET', 'snap2ask');
