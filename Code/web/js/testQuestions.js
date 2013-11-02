@@ -3,7 +3,6 @@ var baseUrl = "./api/index.php";
 
 
 function addTestQuestion(testQuestionData,questionNumber) {
-
 	var id = testQuestionData.id;
 	var question_text = testQuestionData.question;
 	var choiceA = testQuestionData.optionA;
@@ -15,31 +14,39 @@ function addTestQuestion(testQuestionData,questionNumber) {
 	testQuestion.appendChild(question);
 	testQuestion.appendChild(choices);
 	$(testQuestion).addClass("question_wrapper");
+	$(testQuestion).attr("id",id);
 	$(question).addClass("question");
-	question.innerHTML = question_text;
+	question.innerHTML = questionNumber.toString() + ". " + question_text;
 	$(choices).addClass("choice_list");
 	for (var i = 1; i < 4; i++){
 		var choice_wrapper = document.createElement('div');
 		choices.appendChild(choice_wrapper);
 		var input = document.createElement('input');
 		var choice = document.createElement('span');
+		var letter;
 		choice_wrapper.appendChild(input);
 		choice_wrapper.appendChild(choice);
-		$(input).attr("type","radio","name",questionNumber.toString(),"value",i.toString(),"class","choice_input");
 		$(choice).addClass("choice_text");
-		$(choice).addClass(questionNumber.toString());
 		switch(i){
 			case 1:
 				choice.innerHTML = choiceA;
+				letter = 'A';
 			break;
 			case 2:
 				choice.innerHTML = choiceB;
+				letter = 'B';
 			break;
 			case 3:
 				choice.innerHTML = choiceC;
+				letter = 'C';
 			break;
 		}
-
+		$(input).attr({
+			type:"radio",
+			name:questionNumber.toString(),
+			value:letter,
+			class:"choice_input"
+		});
 	}
 
 	$('#Test').append(testQuestion);
@@ -53,19 +60,22 @@ $(document).ready(function () {
 
 	$('#Test').empty();
 	//just a test category
-	var category = "mathematics";
-	
+	console.log("hello");	
 	var jqxhr = $.get( baseUrl + "/test", function(data) {
 	  
-	  for (var i = 0; i < data.length; i++) {
+	  for (var i = 1; i <= data.length; i++) {
 		 // Add the question to the UI
-		  addTestQuestion(data[i],i); 
+		  addTestQuestion(data[i-1],i); 
 	  }
 	  var submit = document.createElement("input");
-	  $(submit).attr("type","submit","value","Submit","id","submit")
+	  $(submit).attr({
+	  	type:"submit",
+	  	value:"Submit",
+	  	id:"submit_test"
+	  });
+	  console.log($(submit));
 	  $('#Test').append(submit);
 	}).fail(function() {
 	    console.log("error loading questions");
 	  });		
-
 });

@@ -35,7 +35,7 @@ $responseObj = getUserInfo(true);
 	<form id="taketest" method="post" action="">
 	<p id="test-title">Our records indicate you are a first time tutor. In order to start answering questions and get paid, you have to pass a test. You can choose to take it now or later.</p>
 	<div id="buttons">
-		<input class="button" type="submit" value="Take Now" id="take"/>
+		<input class="button" type="submit" value="Take Now" id="take" onClick="javascript:console.log("hello"); window.location.href='subjectTest.php';"/>
 		<input class="button" type="submit" value="Take Later" id="notake"/>
 	</div>
 	</form>

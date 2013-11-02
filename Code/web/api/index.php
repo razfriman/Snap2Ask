@@ -5,7 +5,7 @@ require 'vendor/autoload.php';
 use Aws\S3\S3Client;
 
 // Include the config file with Database credentials
-require_once __DIR__ . '/config.php';
+require __DIR__ . '/config.php';
 
 // Open the MySQL Connection using PDO
 // PDO is a robust method to access Databases and provides built in security to protect from MySQL injections 
@@ -24,7 +24,7 @@ try {
 
 // This is part of the required code to use the Slim Framework
 // Create the Slim app
-\Slim\Slim::Autoloader();
+\Slim\Slim::registerAutoloader();
 $app = new \Slim\Slim();
 $app->add(new \Slim\Middleware\ContentTypes());
 
@@ -810,17 +810,57 @@ $app->get(
 	}
 	);
 
-// $app->post(
-// 	'/validateTest',
-// 	function () use ($app,$db){
-// 		$request = $app->request()->getBody();
-// 		var i = 1;
-// 		var moreQuestions = true;
-// 		while(moreQuestions){
-// 			$selection = 
-// 		}
-// 	}
-// 	);
+$app->post(
+	'/validateTest',
+	function () use ($app,$db){
+		$request = $app->request();
+		$testAnswers = array();
+		$testAns = array();
+		$numberCorrect = 0;
+		$numberSkipped = 0;
+		try{
+				$sth = $db->prepare("SELECT id,rightAnswer FROM validationQuestions");
+				$sth->execute();
+				$results = $sth->fetchAll(PDO::FETCH_ASSOC);
+				foreach ($results as &$result){
+					$testAnswers[$result["id"]] = $result["rightAnswer"];
+
+				}
+			}catch (PDOException $e){
+				//SQL ERROR
+			}
+		for ($i = 1; $i <= QUESTIONS_PER_TEST; $i++){
+			$a = $request->post(strval($i));
+			$b = $testAnswers[strval($i)];
+			if ($a == $b){
+				$numberCorrect += 1;
+			} else if (!isset($_POST[$i])){
+				$numberSkipped += 1;
+			}
+		}
+		$percentCorrect = $numberCorrect/QUESTIONS_PER_TEST;
+		$numberInCorrect = QUESTIONS_PER_TEST - $numberCorrect - $numberSkipped;
+		$pass = false;
+		if ($percentCorrect >= PASS_THRESHOLD){
+			$pass = true;
+			$app->redirect('../../browse.php');
+
+		}
+		$testResults = array(
+			"Correct"=>$numberCorrect,
+			"Skipped"=>$numberSkipped,
+			"Incorrect"=>$numberInCorrect,
+			"TotalQuestions"=>QUESTIONS_PER_TEST,
+			"PercentCorrect"=>$percentCorrect,
+			"Pass"=>$pass
+			);
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response.write(json_encode($testResults));
+		$app->redirect('../../browse.php');
+	}
+	);
 	
 	
 	

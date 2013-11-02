@@ -5,6 +5,8 @@ session_start();
 
 // Allow the included files to be executed
 define('inc_file', TRUE);
+require __DIR__ . '/api/config.php';
+
 
 if (!isset($_SESSION['user_id'])) {
 	// The user is not logged in
@@ -34,7 +36,7 @@ $responseObj = getUserInfo(true);
 <body>
 
 	<h1 id="title">Tutor Validation Test</h1>
-	<form id="Test" method="post" action="/api/index.php/validateTest">
+	<form id="Test" method="post" action="./api/index.php/validateTest">
 		<!---Population test questions here.-->
 	</form>
 </body>
