@@ -186,21 +186,15 @@ function insertUsers ($dbConnection, $file)
                 if ($name[0] != "")
                 {
                 
-                $hashResult = hashPassword($name[1]);
+                	$hashResult = hashPassword($name[1]);
                 
-                echo ($name[1] . " " . $name[0] . '<br />');
-			//get preferred category id
-                        $sqlQuery = "SELECT id from categories WHERE name = '{$name[3]}';";
-                        $response = mysql_query ($sqlQuery);
-                        $row = mysql_fetch_assoc($response);
 			$date = time();
 			$date = date("Y-m-d H:i:s");
 			$insertUser = "INSERT into users(
 				email, 
 				password, 
 				salt,
-				is_tutor, 
-				preferred_category_id, 
+				is_tutor,
 				date_created, 
 				authentication_mode, 
 				first_name, 
@@ -210,7 +204,6 @@ function insertUsers ($dbConnection, $file)
 				'{$hashResult[0]}', 
 				'{$hashResult[1]}', 
 				{$name[2]}, 
-				'{$row['id']}',
 				'{$date}',
 				'{$name[4]}',
 				'{$name[5]}', 
@@ -222,6 +215,20 @@ function insertUsers ($dbConnection, $file)
                         {
                                 die("Imposible to insert the user" . mysql_error());
                         }
+			
+			//get preferred category id
+                        $sqlQuery = "SELECT id from categories WHERE name = '{$name[3]}';";
+                        $response = mysql_query ($sqlQuery);
+                        $row = mysql_fetch_assoc($response);
+			$categoryID = $row['id'];
+			$sqlQuery = "SELECT id from users WHERE email = '{$name[0]}' AND authentication_mode = '{$name[4]}';";
+			$response = mysql_query($sqlQuery);
+			$row = mysql_fetch_assoc($response);
+			$sqlQuery = "INSERT into prefered_category values({$categoryID}, {$row['id']});";
+			if (!mysql_query($sqlQuery))
+			{
+				die ("Imposible to insert prefered category" . mysql_error());
+			}
 		}
 	}
 
