@@ -38,7 +38,6 @@ $responseObj = getUserInfo(true);
 	
 	<div id="content">
 
-
 		<div id="browseNav">
 			<ul>
 				<li>All</li>

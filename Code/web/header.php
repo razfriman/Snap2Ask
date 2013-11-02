@@ -34,23 +34,21 @@ if(isset($_GET['search'])) {
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script src="js/search.js" type="text/javascript"></script>
 
-<header>
+<header class="short">
 	<div id="cash">
-		<h3>SnapCash</h3>
-		<h2>
-		<?php echo money_format('%i', $balance); ?></h2>
+		<h2>SnapCash</h2>
+		<h3>
+		<?php echo money_format('%i', $balance); ?>
+		</32>
 	</div>
 
-	<a href="http://www.snap2ask.com"><img src="res/new_logo.png" alt="Snap-2-Ask Logo" id="logoSmall"/></a>
+	<a href="index.php"><img src="res/logo.png" alt="Snap-2-Ask Logo" id="logoShort"/></a>
+		
 	
-	<div id="rightHeader">		
-	
-		<div id="welcomeTab">
-			<p><?php echo 'Welcome, ' . $first_name; ?></p>	
-			<a id="logoutLink" href="logout.php">Log-out</a>
-		</div>
+	<a id="logoutLink" href="logout.php">Log-out</a>
 					
 		<form id="search" method="POST" action="#">
+			<input type="submit" value="Search"/>
 			<input type="text" name="searchQuery" id="searchQuery" list = "suggestionlist" value="<?php echo $searchQuery; ?>" placeholder="Search" title="Enter a search query" x-webkit-speech />
 			<datalist id='suggestionlist'>
 			<?php 
@@ -69,8 +67,6 @@ if(isset($_GET['search'])) {
 			?>
 			</datalist>
 			
-			<input type="submit" value="Search"/>
 			
-		</form>		
-	</div>	
+		</form>			
 </header>

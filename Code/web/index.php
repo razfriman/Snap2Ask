@@ -146,7 +146,8 @@ if (isset($_POST['submit'])) {
 		//depending on the response we either ask for different credentials or log the user in
 		if($responseObj['success'])
 		{
-			$_SESSION['user_id'] = $responseObj['user_id'];			
+			$_SESSION['user_id'] = $responseObj['user_id'];		
+			$_SESSION['authentication_mode'] = 'custom';	
 			setcookie('rememberCookie',true);
 		}
 		else
@@ -198,53 +199,28 @@ if (isset($_SESSION['user_id']))
 
 <body>
 
-	<header>
+	<header class="tall">
 
-		<h1><img src="res/new_logo.png" alt="Snap-2-Ask Logo" id="logo"/></h1>
-
-		<!-- content -->
-		<div id="slogan">
-				<h2>Snap. Ask. Done.</h2>
-		</div>
-
-	</header>
-    
-    <div id="infoContainer">
-        <h2>Snap-2-Ask helps you get your academic questions answered and make money answering questions</h2>
-        <h3>All Questions on Snap-2-Ask are picture based and answered by certified tutors.</h3>
-        <p>
-            Snap-2-Ask is an Academic Question and Answer Forum where you can submit questions 
-            through our mobile app, while answering other's question through this website.
-            You can start earning SnapCash by answering user submitted questions today!
-            All you have to do is create an account.
-            Certification exams will soon be avaliable for more accurate answers and better pay.
-        <p>
-    </div>
-
-	<div id="mainContainer">
-
-		<div class="divider"></div>
+		<img id="logoTall" src="res/logo.png" alt="Snap-2-Ask Logo"/>
 
 		<div id="loginContainer" >
-
-			<h2>Login</h2>
-
+	
 <?php
 
 if(isset($_SESSION['msg']['login-err']))
 {
-	// Display the login error message
-	echo '<div class="error">'.$_SESSION['msg']['login-err'].'</div>';
-	unset($_SESSION['msg']['login-err']);
+// Display the login error message
+echo '<div class="error">'.$_SESSION['msg']['login-err'].'</div>';
+unset($_SESSION['msg']['login-err']);
 }
 
 ?>
-				<!-- Login Form in html that sends email and pass to corresponding php script -->
+			<!-- Login Form in html that sends email and pass to corresponding php script -->
 			<form id="loginForm" method="POST" action="index.php">
 				<input type="email" name="email" placeholder="Email" title="Please enter a valid email" required autocomplete="on" />
 				<input type="password" name="password" placeholder="Password" title="Please enter a password" required autocomplete="on" />
-				<input  class="button" type="submit" name="submit" value="Log in" />
-				<a href="resetPassword.php">Forgot Password</a>
+				<input  id="loginButton" class="button" type="submit" name="submit" value="Log in" />
+				<a id="forgotPassword" href="resetPassword.php">Forgot Password</a>
 			</form>
 			
 			<!-- Google+ Signin Button -->
@@ -261,18 +237,25 @@ if(isset($_SESSION['msg']['login-err']))
 			
 			<div id="fb-root"></div>
 			<script src="js/facebookLogin.js" type="text/javascript"></script>
-			<fb:login-button size="xlarge"></fb:login-button>
+			<fb:login-button id="facebookLoginButton" size="large"></fb:login-button>
 										
 		</div>
 
-
-
-		<div class="divider"></div>
+	</header>
+	
+	<div id="content">
+    
+	    <div id="infoContainer">
+	        
+	        <h2>Snap-2-Ask helps you get your academic questions answered and make money answering questions</h2>
+	        
+	        <h2>All Questions on Snap-2-Ask are picture based and answered by certified tutors.</h2>
+		</div>
 
 		<div id="registerContainer">
 
 		<h2>Create an Account</h2>
-
+	
 <?php
 
 if(isset($_SESSION['msg']['register-err']))
@@ -294,9 +277,10 @@ if(isset($_SESSION['msg']['register-err']))
 
 
 				<input class="button" type="submit" name="submit" value="Sign Up" />
-
 			</form>
 		</div>
 	</div>
+	
+	<?php include('footer.php') ?>
 </body>
 </html>

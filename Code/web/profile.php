@@ -57,7 +57,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Delete Account')
 
 	<?php include('header.php') ?>
 
-	<div id="container">
+	<div id="content">
 	
 		<div id="linksNav">
 			<ul>
@@ -72,7 +72,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Delete Account')
 		<div id="mainContent">
 
 		<h1>VIEW PROFILE</h1>
-
+		
 			<!--POPULATE PROFILE INFORMATION HERE-->
             <form id="tutorprofile" action="editprofile.php" method="get">
 			

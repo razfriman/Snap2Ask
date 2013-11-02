@@ -82,7 +82,7 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 	<?php include('header.php') ?>
 
 
-	<div id="container">
+	<div id="content">
 		
 		<div id="linksNav">
 			<ul>

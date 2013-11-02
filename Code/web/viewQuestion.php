@@ -29,10 +29,8 @@ $question_info = getQuestionInfo($_GET['id']);
 if ($question_info['status'] != 0) {
 	// Question has already been answered. Redirect to browse page
 	header('Location: browse.php');
+	exit;
 }
-
-//echo var_dump($question_info);
-//die;
 
 ?>
 
@@ -80,11 +78,11 @@ if ($question_info['status'] != 0) {
 					<label>Subcategory:</label>
 					<p><?php echo $question_info['subcategory']; ?></p>
 					
-					<label>Description:</label>
-					<p><?php echo $question_info['description']; ?></p>
-					
 					<label>Date Asked:</label>
 					<p><?php echo $question_info['date_created']; ?></p>
+					
+					<label>Description:</label>
+					<p><?php echo $question_info['description']; ?></p>
 				</div>			
 			</div>
 			
