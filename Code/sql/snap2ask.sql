@@ -29,7 +29,6 @@ CREATE TABLE `subcategories` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 
-
 --
 -- Table structure for table `users`
 --
@@ -43,19 +42,26 @@ CREATE TABLE `users` (
   `balance` int(11) NOT NULL DEFAULT '10',
   `is_tutor` tinyint(4) NOT NULL DEFAULT '0',
   `is_admin` tinyint(4) NOT NULL DEFAULT '0',
-  `preferred_category_id` int(11) DEFAULT '1',
   `date_created` datetime NOT NULL,
   `authentication_mode` enum('custom','facebook','google') NOT NULL,
   `first_name` varchar(45) NOT NULL,
   `last_name` varchar(45) NOT NULL,
   `rating` int(11),
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email_UNIQUE` (`email`,`authentication_mode`),
-  KEY `fk_users_1_idx` (`preferred_category_id`),
-  CONSTRAINT `fk_users_1` FOREIGN KEY (`preferred_category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  UNIQUE KEY `email_UNIQUE` (`email`,`authentication_mode`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
-
+--
+-- Table structure for table `prefered_category`
+--
+DROP TABLE IF EXISTS `prefered_category`;
+CREATE TABLE `prefered_category` (
+  `category_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`category_id`, `user_id`),
+  CONSTRAINT `fk_category` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = InnoBD DEFAULT CHARSET = latin1;
 
 --
 -- Table structure for table `validationQuestions`
