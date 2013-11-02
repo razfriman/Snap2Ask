@@ -844,6 +844,7 @@ $app->post(
 		if ($percentCorrect >= PASS_THRESHOLD){
 			$pass = true;
 			$app->redirect('../../browse.php');
+			//$sth = $db->prepare("UPDATE users SET is_tutor=1 WHERE ");
 
 		}
 		$testResults = array(
@@ -862,7 +863,23 @@ $app->post(
 	}
 	);
 	
-	
+
+$app->post(
+	'/testChoices',
+	function () use ($app,$db){
+		$request = $app->request();
+		switch ($request->post("testChoice")){
+			case "Take Now":
+			case "Retake Now":
+				$app->redirect('../../subjectTest.php');
+			break;
+			case "Take Later":
+			case "Retake Later":
+			case "Continue":
+				$app->redirect('../../browse.php');
+			break;
+		}
+	});
 	
 	
 	
