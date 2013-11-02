@@ -497,3 +497,30 @@ input.button:hover {
 	width: 10em;
 }
 /* END PROFILE */
+
+
+/*TEST CHOICE*/
+#taketest{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative;
+	margin-top:200px;
+	text-align:center;
+	width:80%;
+	color:#524656;
+}
+input.button{
+	display:inline;
+	margin:20px;
+	width:100px;
+	height:40px;
+	font-size:100%;
+}
+div#buttons{
+	width:400px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/*END TEST CHOICE*/
