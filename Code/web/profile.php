@@ -20,6 +20,25 @@ $responseObj = getUserInfo(true);
 
 $categories = getCategories();
 
+if (isset($_POST['submit']) && $_POST['submit'] == 'Delete Account')
+{
+
+	// DELETE ACCOUNT VIA REST API
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id']);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	curl_setopt($ch, CURLOPT_HEADER, FALSE);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
+	$deleteResponse = curl_exec($ch);
+	curl_close($ch);
+	
+	// Redirect to the logout page	
+	header('Location: logout.php');
+	exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +57,7 @@ $categories = getCategories();
 
 	<?php include('header.php') ?>
 
-	<div id="container">
+	<div id="content">
 	
 		<div id="linksNav">
 			<ul>
@@ -53,7 +72,7 @@ $categories = getCategories();
 		<div id="mainContent">
 
 		<h1>VIEW PROFILE</h1>
-
+		
 			<!--POPULATE PROFILE INFORMATION HERE-->
             <form id="tutorprofile" action="editprofile.php" method="get">
 			
@@ -72,10 +91,13 @@ foreach ($categories as $category) {
 ?>
 		        
 				<input type="submit" value="Edit Profile">
-				
-				<a href="deact.php">Deactivate account</a>
 
         	</form>
+        	
+        	<form id="deleteAccountForm" action="profile.php" method="post">
+        		<input type="submit" name="submit" value="Delete Account" />
+        	</form>
+        	
 		</div><!--end container div-->
 	</div>
 

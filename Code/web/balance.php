@@ -126,7 +126,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit SnapCash') {
 
 	<?php include('header.php') ?>
 	
-	<div id="container">
+	<div id="content">
 
 		<div id="linksNav">
 			<ul>
@@ -139,8 +139,8 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit SnapCash') {
 		
 	
 		<div id="mainContent">
-			<!--POPULATE BALANCE INFO HERE-->
-			<!--Validate input values-->
+			
+			<h1>ACCOUNT BALANCE</h1>
 <?php
 
 // Echo the information using sprintf

@@ -21,11 +21,22 @@ function refreshSessionInfo($responseObj) {
 
 function getUserInfo($refresh_session_info) {
 
+	$user_id = $_SESSION['user_id'];
+	
+	$responseObj = getUserData($user_id);
+	
+	if ($refresh_session_info) {
+		refreshSessionInfo($responseObj);
+	}
+	
+	return $responseObj;
+}
+
+function getUserData($user_id) {
+
 	// a function cannot reference variables outside of the function's scope.
 	// Declare the $base_url variable global while in the scope of the function/
 	global $base_url;
-	
-	$user_id = $_SESSION['user_id'];
 	
 	// Load the user information to populate the name and balance for the user
 	$ch = curl_init();
@@ -37,11 +48,7 @@ function getUserInfo($refresh_session_info) {
 
 	//decode the response from JSON into PHP
 	$responseObj = json_decode($response,true);
-	
-	if ($refresh_session_info) {
-		refreshSessionInfo($responseObj);
-	}
-	
+		
 	return $responseObj;
 }
 
