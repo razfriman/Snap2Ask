@@ -60,7 +60,9 @@ $responseObj = getUserInfo(true);
 		
 		foreach($responseObj['verified_categories'] as $category)
 		{
-			$concatenatedCategories = $concatenatedCategories . $category['category_id'] . ' ';
+			if ($category['is_preferred']) {
+				$concatenatedCategories = $concatenatedCategories . $category['category_id'] . ' ';
+			}
 		}
 		
 		echo ('<input type="hidden" id="verified-categories-hidden" value="' . $concatenatedCategories . '" />');
