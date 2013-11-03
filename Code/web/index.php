@@ -25,8 +25,8 @@ if (isset($_POST['authentication_mode']))
 			'email' => $_POST['email'],
 			'oauth_id' => $_POST['oauth_id'],
 			'password' => $_POST['token'],
-			'is_tutor' => false,
-			'register_or_login' => true,
+			'is_tutor' => 1,
+			'register_or_login' => 1,
 			'authentication_mode' => $_POST['authentication_mode']
 		);
 
@@ -121,7 +121,7 @@ if (isset($_POST['submit'])) {
 			'password' => $_POST['password'],
 			'first_name' => $_POST['first_name'],
 			'last_name' => $_POST['last_name'],
-			'is_tutor' => false,
+			'is_tutor' => 1,
 			'authentication_mode' => 'custom',
 			'register_or_login' => false
 		);

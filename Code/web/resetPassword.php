@@ -49,7 +49,9 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'Reset Password')
 		$subject = "Snap-2-Ask Password Reset";
 		$message = sprintf('<a href="%s" >Click here</a> to reset your password.', $reset_url);
 		$from = "support@local.snap2ask.com";
-		$headers = "From:" . $from;
+		$headers = "From:" . $from . "\r\n";
+		$headers .= 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		
 		mail($to,$subject,$message,$headers);
 		
