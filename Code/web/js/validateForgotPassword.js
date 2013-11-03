@@ -5,14 +5,12 @@ $(document).ready(function () {
 	
 	//login form
 	//must be an email and password that is 8 characters in length
-	$('#editTutorProfile').validate({ 
+	$('#forgotPasswordForm').validate({ 
         rules: {
-        	first_name: {
-            	required: true,
+        	email: {
+                required: true,
+                email: true
             },
-            last_name: {
-            	required: true,
-            }
         },
         submitHandler: function(form) {
             form.submit();
