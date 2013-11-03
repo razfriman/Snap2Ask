@@ -34,8 +34,12 @@ $responseObj = getUserInfo(true);
 </head>
 
 <body>
+	<?php
+		$name = $_SESSION['test_category_name'];
 
-	<h1 id="title">Tutor Validation Test</h1>
+		echo "<h1 id='title'>Tutor Validation Test for " . $name . "</h1>"
+	?>
+	
 	<form id="Test" method="post" action="./api/index.php/validateTest">
 		<!---Population test questions here.-->
 	</form>

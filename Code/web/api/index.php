@@ -926,12 +926,14 @@ $app->get(
 $app->get(
 	'/test',
 	function () use ($app,$db) {
+		session_name('loginSession');
+		session_start();
 		$request = $app->request()->getBody();
-//		$category = $request['category'];
+		$category = $_SESSION['test_category_id'];
 		$testQuestions = array();
-
 		try{
-			$sth = $db->prepare("SELECT * FROM validationQuestions");
+			$sth = $db->prepare("SELECT * FROM validationQuestions WHERE category_id=:id");
+			$sth->bindParam(":id",$category);
 			$sth->execute();
 			$results = $sth->fetchAll(PDO::FETCH_ASSOC);
 			foreach ($results as &$result){
@@ -1015,10 +1017,16 @@ $app->post(
 	'/testChoices',
 	function () use ($app,$db){
 		$request = $app->request();
+
 		switch ($request->post("testChoice")){
 			case "Take Now":
 			case "Retake Now":
 			case "Take Test";
+				session_name('loginSession');
+				session_start();
+				$list = explode("|",$request->post("category")); 
+				$_SESSION['test_category_id'] = $list[0];
+				$_SESSION['test_category_name'] = $list[1];
 				$app->redirect('../../subjectTest.php');
 			break;
 			case "Take Later":
