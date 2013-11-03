@@ -23,7 +23,7 @@ $responseObj = getUserInfo(true);
 <html>
 
 <head>
-	<title>Snap-2-Ask | Test-Choice</title>
+	<title>Snap-2-Ask | Test-Failed</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -31,13 +31,11 @@ $responseObj = getUserInfo(true);
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body id="test-choice">
+<body>
 	<form id="testfailed" method="post" action="./api/index.php/testChoices">
-	<p id="test-title">You have failed the test. You can choose to retake the test now or later.</p>
-	<div id="buttons">
-		<input class="decision_point button" type="submit" value="Retake Now" name="testChoice"/>
-		<input class="decision_point button" type="submit" value="Retake Later" name="testChoice"/>
-	</div>
+	<p>You have failed the test. You can choose to retake the test now or later.</p>
+	<input class="decision_point button" type="submit" value="Retake Now" name="testChoice"/>
+	<input class="decision_point button" type="submit" value="Retake Later" name="testChoice"/>
 	</form>
 </body>
 </html>
