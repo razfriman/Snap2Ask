@@ -221,7 +221,7 @@ function addVerifiedCategories(&$user, $db)
 		$user_id = $user['id'];
 
 		// Select all the verification data for the matching user id
-		$sth = $db->prepare("SELECT category_id,is_verified FROM verified_categories WHERE user_id=:user_id");
+		$sth = $db->prepare("SELECT category_id,is_preferred FROM verified_categories WHERE user_id=:user_id");
 		$sth->bindParam(':user_id',$user_id);
 		$sth->execute();
 		
@@ -781,7 +781,54 @@ $app->get(
 
 
 
+// ADD NEW VERIFIED CATEGORY
+$app->post(
+	'/users/:id/verified_categories',
+	function ($id) use ($app,$db) {
 
+
+		// Get the JSON Request
+		$request = $app->request()->getBody();
+
+		// Read all the Request properties used to create the account
+		$category_id = $request['category_id'];
+		$is_preferred = $request['is_preferred'];
+		
+		$insert_id = -1;
+		$success = false;
+		$reason = '';
+		
+		try {
+
+			// Get questions for a specific user
+			$sth = $db->prepare('REPLACE INTO verified_categories (user_id,category_id,is_preferred) VALUES (:user_id,:category_id,:is_preferred)');
+			$sth->bindParam(':user_id',$id);
+			$sth->bindParam(':category_id',$category_id);
+			$sth->bindParam(':is_preferred', $is_preferred);
+			$sth->execute();
+			
+			$insert_id = $db->lastInsertId();
+			$success = true;
+
+		} catch(PDOException $e) {
+         // SQL ERROR
+         $reason = $e->getMessage();
+		}
+
+		// Create the return data
+		$dataArray = array(
+			'success' => $success,
+			'reason' => $reason,
+			'insert_id' => $insert_id
+			);
+		
+        // Return the JSON data
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($dataArray));
+	}
+	);
 
 
 

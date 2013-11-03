@@ -88,7 +88,7 @@ echo "<div class='profileItem'><label>Verified Categories:</label>";
 foreach ($responseObj['verified_categories'] as $verified_category)
 {
 	foreach ($categories as $category) {
-		if($verified_category['category_id'] != $category['id'])
+		if($verified_category['category_id'] == $category['id'] && $verified_category['is_preferred'])
 		{
 			echo sprintf("<p>%s</p>",$category['name']);
 		}
