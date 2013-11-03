@@ -1694,7 +1694,7 @@ $app->post(
 		try {
 
 	                //insert an user prefered category
-        	        $sth = $db->prepare('INSERT into verified_category(user_id, category_id) VALUES (:user, :category)');
+        	        $sth = $db->prepare('INSERT into verified_categories(user_id, category_id) VALUES (:user, :category)');
                 	$sth->bindParam(':category', $categoryID);
 	                $sth->bindParam(':user', $userID);
         	        $sth->execute();
