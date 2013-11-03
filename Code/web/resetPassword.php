@@ -1,4 +1,7 @@
 <?php
+//ResetPassword-User fills in fields and if successful message is 
+//displayed telling user all is well!
+//NEEDS VALIDATION WITH DATABASE!!!
 
 // Start the named session
 session_name('loginSession');
