@@ -271,7 +271,7 @@ input[type="submit"]:hover {
 
 
 
- BROWSE QUESTIONS NAV (ALL,CATEGORIES,FAMILIAR) 
+/* BROWSE QUESTIONS NAV (ALL,CATEGORIES,FAMILIAR) */
 #browseNav ul {
 	clear:left;
     clear:right;
@@ -280,7 +280,7 @@ input[type="submit"]:hover {
 }
 
 /* BrowseNav list item */
-#browseNav li {
+#browseNav li.mainLink {
 	float:left;
 	width:33%;
 	height:2em;
@@ -292,21 +292,42 @@ input[type="submit"]:hover {
 }
 
 /* Selected tab */
-#browseNav li.selected {
+#browseNav li.mainLink.selected {
 	text-decoration:underline;
     color: #292a2b;
 }
 
 /*  Hover over a browseNav link */
-#browseNav li:hover {
+#browseNav li.mainLink:hover {
     color: #005A8C;
-    margin-bottom:-5px;
+
 }
 
-ul#categories{
-	display:inline;
+li#categoriesTab ul {
+	display: none;
+	position: absolute;
+	padding: 0;
+	margin-left: 5em;
 }
 
+li#categoriesTab:hover ul {
+	display: block;
+	border-top: 1px solid black;
+}
+
+li#categoriesTab li {
+	clear:left;
+	float:left;
+	border-top: 1px solid black;
+	background-color: white;
+	width: 10em;
+	height: 3em;
+	color: black;
+}
+
+li#categoriesTab li:hover {
+	color: #005A8C;
+}
 /* END BROWSE QUESTIONS NAV (ALL,CATEGORIES,FAMILIAR) */
 
 

@@ -18,6 +18,8 @@ require_once('functions.php');
 
 $responseObj = getUserInfo(true);
 
+$categories = getCategories();
+
 ?>
 
 <!DOCTYPE html>
@@ -40,17 +42,26 @@ $responseObj = getUserInfo(true);
 
 		<div id="browseNav">
 			<ul>
-				<li>All</li>
-				<li>Categories</li>
-				<li>Familiar</li>
+				<li class="mainLink">All</li>
+				<li id="categoriesTab" class="mainLink">Categories
+					<ul id="categoriesMenu">
+						<?php
+						
+						foreach($categories as $category)
+						{
+							echo sprintf('<li class="subLink" value="%s">%s</li>', $category['id'], $category['name']);
+						}
+						
+						?>
+					</ul>
+				</li>
+				
+				<li class="mainLink">Familiar</li>
 			</ul>
 		</div>
-		<ul id="categories">
-			<li>Math</li>
-			<li>Science</li>
-			<li>English</li>
-			<li>History</li>
-		</ul>
+		
+		
+		
 		<div id="linksNav">
 			<ul>
 				<li class="selected" ><a href="browse.php" >Browse</a></li>
