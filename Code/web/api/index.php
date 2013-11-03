@@ -1672,9 +1672,9 @@ $app->post(
 
 
 
-//ADD PREFERED CATEGORY
+//ADD VALIDATED CATEGORY
 $app->post(
-        '/preferedCategory',
+        '/validateCategory',
         function () use ($app, $db) {
 
 		$status = array();
@@ -1694,7 +1694,7 @@ $app->post(
 		try {
 
 	                //insert an user prefered category
-        	        $sth = $db->prepare('INSERT into prefered_category VALUES (:category, :user)');
+        	        $sth = $db->prepare('INSERT into verified_category(user_id, category_id) VALUES (:user, :category)');
                 	$sth->bindParam(':category', $categoryID);
 	                $sth->bindParam(':user', $userID);
         	        $sth->execute();
@@ -1716,59 +1716,7 @@ $app->post(
 
 	}
 );
-
-
-
-//DELETE PREFERED CATEGORY
-$app->post(
-        '/dropPreferedCategory',
-        function () use ($app, $db) {
-
-                $status = array();
-                $status['success'] = 'true';
-
-                //get the request informaiton
-                $request = $app->request()->getBody();
-                $userID = $request['userID'];
-                $category = $request['categoryName'];
-
-                //get category id
-                $sth = $db->prepare('SELECT id FROM categories WHERE name = :categoryName');
-                $sth->bindParam(':categoryName', $category);
-                $sth->execute();
-                $categoryID = $sth->fetch()[0];
-		if ($categoryID == NULL)
-		{
-			$status['success'] = 'false';
-			$status['error'] = 'invalid category';
-		}
-                try {
-
-                        //insert an user prefered category
-                        $sth = $db->prepare('delete from prefered_category WHERE category_id = :category and user_id = :user');
-                        $sth->bindParam(':category', $categoryID);
-                        $sth->bindParam(':user', $userID);
-                        $sth->execute();
-
-                }
-                catch(PDOException $e)
-                {
-                        $status['success'] = 'false';
-			$status['error'] = 'sql error';
-			$status['sqlError'] = $sth->errorCode();
-			$status['errorDescription'] = $sth->errorInfo()[2];
-		}
-
-		// Return JSON with the status of the insertion
-                $response = $app->response();
-                $response['Content-Type'] = 'application/json';
-                $response->status(200);
-                $response->write(json_encode($status));
-
-	}
-);
-
-
+              
 
 // Run the Slim app as specified by the Slim Framework documentation
 $app->run();
