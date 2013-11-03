@@ -103,7 +103,7 @@ function insertCategories ($dbConnection, $file)
 
 	//closing the input file
 	fclose($input);
-	echo "categories succesfully inserted\n\n";
+	echo "categories succesfully inserted\n\n<br />";
 }
 
 
@@ -153,7 +153,7 @@ function insertSubcategories ($dbConnection, $file)
 
 	//closing input file
         fclose($input);
-	echo "subcategories sucesfully inserted\n\n";
+	echo "subcategories sucesfully inserted\n\n<br />";
 }
 
 
@@ -220,11 +220,11 @@ function insertUsers ($dbConnection, $file)
                         $sqlQuery = "SELECT id from categories WHERE name = '{$name[3]}';";
                         $response = mysql_query ($sqlQuery);
                         $row = mysql_fetch_assoc($response);
-			$categoryID = $row['id'];
+			$category_id = $row['id'];
 			$sqlQuery = "SELECT id from users WHERE email = '{$name[0]}' AND authentication_mode = '{$name[4]}';";
 			$response = mysql_query($sqlQuery);
 			$row = mysql_fetch_assoc($response);
-			$sqlQuery = "INSERT into prefered_category values({$categoryID}, {$row['id']});";
+			$sqlQuery = "INSERT into verified_categories (user_id,category_id,is_preferred) values({$row['id']}, {$category_id}, true);";
 			if (!mysql_query($sqlQuery))
 			{
 				die ("Imposible to insert prefered category" . mysql_error());
@@ -234,7 +234,7 @@ function insertUsers ($dbConnection, $file)
 
 	//closing the input file
         fclose($input);
-        echo "sucesfully inserted the users\n\n";
+        echo "sucesfully inserted the users\n\n<br />";
 }
 
 
@@ -300,7 +300,7 @@ function insertQuestions($dbConnection, $file)
 			}
 		}
 	}
-	echo "questions sucsessfully inserted.\n\n";
+	echo "questions sucsessfully inserted.\n\n<br />";
 }
 
 
@@ -354,11 +354,11 @@ function insertAnswers($dbConnection, $file)
 			//inserting answer in the database
 			if(!mysql_query($insertAnswer))
 			{
-				die("Imposible to insert the answer." . mysql_error());
+				die("Imposible to insert the answer.<br />" . mysql_error());
 			}
 		}
 	}
-	echo "answers succesfully inserted \n";
+	echo "answers succesfully inserted \<br />n";
 }
 
 
@@ -416,7 +416,7 @@ function insertValidationQuestions ($dbConnection, $file)
 			}
 		}
 	}
-	echo "Validation questions sucesfully entered\n";
+	echo "Validation questions sucesfully entered\n<br />";
 }
 
 					

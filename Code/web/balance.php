@@ -35,8 +35,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 			'first_name' => $responseObj['first_name'],
 			'balance' => $responseObj['balance'] - $_POST['withdraw_amount'],
 			'is_tutor' => $responseObj['is_tutor'],
-			'rating' => $responseObj['rating'],
-			'preferred_category_id' => 1
+			'rating' => $responseObj['rating']
 		);
 
 
@@ -77,8 +76,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit SnapCash') {
 			'first_name' => $responseObj['first_name'],
 			'balance' => $responseObj['balance'] + $_POST['deposit_amount'],
 			'is_tutor' => $responseObj['is_tutor'],
-			'rating' => $responseObj['rating'],
-			'preferred_category_id' => 1
+			'rating' => $responseObj['rating']
 		);
 
 

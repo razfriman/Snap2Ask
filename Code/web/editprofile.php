@@ -30,8 +30,7 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 		'first_name' => $_POST['first_name'],
 		'balance' => $responseObj['balance'],
 		'is_tutor' => $responseObj['is_tutor'],
-		'rating' => $responseObj['rating'],
-		'preferred_category_id' => $_POST['preferred_category']
+		'rating' => $responseObj['rating']
 		);
 
 
@@ -95,43 +94,39 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 		
 		
 		<div id="mainContent">
-			<h1>EDIT PROFILE</H1>
+			<h1>EDIT PROFILE</h1>
 				<!--POPULATE PROFILE INFORMATION HERE-->
 				<form id="editTutorProfile" action="#" method="post">		
 					<?php
 						// Echo the information using sprintf
 						// Escape special html characters to enhance XSS security
-					echo sprintf("<label>First Name</label><input type='text' name='first_name' value='%s'>", htmlspecialchars($responseObj['first_name']));
-					echo sprintf("<label>Last Name</label><input type='text'  name='last_name' value='%s'>", htmlspecialchars($responseObj['last_name']));
+					echo sprintf("<label>First Name</label><input type='text' name='first_name' value='%s' />", htmlspecialchars($responseObj['first_name']));
+					echo sprintf("<label>Last Name</label><input type='text'  name='last_name' value='%s' />", htmlspecialchars($responseObj['last_name']));
 					?>
 
 					<?php
 					echo "<label>Preferred Subjects</label>";
-					echo"<select name='preferred_category'>";
-					echo "<option selected disabled>Select a preferred subject</option>";
-
+					
 					foreach ($categories as $category) {
 
 
-						$selected = '';
+						$checked = '';
 						
-						if ($category['id'] == $responseObj['preferred_category_id']) {
-							$selected = "selected";
+						foreach($responseObj['verified_categories'] as $verifiedCategory)
+						{
+							if ($category['id'] == $verifiedCategory['category_id']) {
+								$checked = "checked";			
+							}
 						}
 						
-						echo sprintf("<option %s value='%d'>%s</option>", $selected, $category['id'], $category['name']);
+						echo sprintf("<div class='editProfileItem'><input type='checkbox' name='preferredCategories' %s id='%s' value='%d' /><label for='%s'>%s</label></div>", $checked, $category['id'], $category['id'], $category['id'], $category['name']);
 					}
-
-					echo "</select>";
-
+					
 					?>
 
-					<input type="submit" id="submitButton" value="Save Changes">
+					<input type="submit" id="submitButton" value="Save Changes" />
 				</form>
-
-
 			</div>
-
 		</div>
 
 		<?php include('footer.php') ?>

@@ -83,22 +83,30 @@ echo sprintf("<div class='profileItem'><label>First Name:</label><p>%s</p></div>
 echo sprintf("<div class='profileItem'><label>Last Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['last_name']));
 echo sprintf("<div class='profileItem'><label>Email:</label><p>%s</p></div>", htmlspecialchars($responseObj['email']));
 
-foreach ($categories as $category) {
-	if ($responseObj['preferred_category_id'] == $category['id']) {
-		echo sprintf("<div class='profileItem'><label>Expert in:</label><p>%s</p></div>", htmlspecialchars($category['name']));		
+echo "<div class='profileItem'><label>Verified Categories:</label>";
+
+foreach ($responseObj['verified_categories'] as $verified_category)
+{
+	foreach ($categories as $category) {
+		if($verified_category['category_id'] != $category['id'])
+		{
+			echo sprintf("<p>%s</p>",$category['name']);
+		}
 	}
 }
+
+echo "</div>";
 ?>
 		        
-				<input type="submit" value="Edit Profile">
+				<input type="submit" value="Edit Profile" />
 
         	</form>
         	
         	<form id="deleteAccountForm" action="profile.php" method="post">
-        		<input type="submit" name="submit" value="Delete Account" />
+        		<input id="deleteAccountButton" type="submit" name="submit" value="Delete Account" />
         	</form>
         	
-		</div><!--end container div-->
+		</div>
 	</div>
 
 	<?php include('footer.php') ?>
