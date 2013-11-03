@@ -1680,12 +1680,51 @@ $app->post(
 
 
 
+//ADD VALIDATED CATEGORY
+$app->post(
+        '/validateCategory',
+        function () use ($app, $db) {
 
-/////////////////////////
-// TODO: RATE AN ANSWER//
-/////////////////////////
+		$status = array();
+		$status['success'] = 'true';
 
+                //get the request informaiton
+                $request = $app->request()->getBody();
+                $userID = $request['userID'];
+                $category = $request['categoryName'];
 
+                //get category id
+                $sth = $db->prepare('SELECT id FROM categories WHERE name = :categoryName');
+                $sth->bindParam(':categoryName', $category);
+                $sth->execute();
+                $row = $sth->fetch();
+		$categoryID = $row[0];
+		try {
+
+	                //insert an user prefered category
+        	        $sth = $db->prepare('INSERT into verified_categories(user_id, category_id) VALUES (:user, :category)');
+                	$sth->bindParam(':category', $categoryID);
+	                $sth->bindParam(':user', $userID);
+        	        $sth->execute();
+        	
+		}
+		catch(PDOException $e)
+		{
+			$status['success'] = 'false';
+			$status['error'] = 'sql error';
+			$status['sqlError'] = $sth->errorCode();
+			$status['errorDescription'] = $sth->errorInfo()[2];
+		}
+
+		// Return JSON with the status of the insertion
+                $response = $app->response();
+                $response['Content-Type'] = 'application/json';
+                $response->status(200);
+                $response->write(json_encode($status));
+
+	}
+);
+              
 
 // Run the Slim app as specified by the Slim Framework documentation
 $app->run();

@@ -31,6 +31,13 @@
   src: local('Amaranth'), url(http://themes.googleusercontent.com/static/fonts/amaranth/v3/RvdVaxHTnYbJDko8dLi4zvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
 }
 
+@font-face {
+    font-family: 'Actor';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Actor Regular'), local('Actor-Regular'), url(http://themes.googleusercontent.com/static/fonts/actor/v3/gZ8EM_Gzaq4WRjCimioyzQ.woff) format('woff');
+}
+
 h1,h2,h3,h4,h5,h6 {
 	margin:0;
 	padding:0;
