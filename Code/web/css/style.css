@@ -532,3 +532,33 @@ input[type="submit"]:hover {
 	width: 10em;
 }
 /* END PROFILE */
+
+
+
+
+
+
+/*TEST CHOICE*/
+
+div.question_wrapper {
+	margin: 2em;
+	
+}
+div.choice_list input {
+	display: inline;
+		margin-right: .5em;
+		margin-bottom: 0;
+		margin-top: 0;
+		margin-left: 0;
+	padding: 0;
+	width: auto;
+}
+
+div.choice_list span {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+
+/*END TEST CHOICE*/
