@@ -80,8 +80,6 @@ function getCategories() {
 	// Declare the $base_url variable global while in the scope of the function/
 	global $base_url;
 	
-	$user_id = $_SESSION['user_id'];
-	
 	// Load the question information 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/categories');

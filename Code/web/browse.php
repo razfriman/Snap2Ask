@@ -18,6 +18,8 @@ require_once('functions.php');
 
 $responseObj = getUserInfo(true);
 
+$categories = getCategories();
+
 ?>
 
 <!DOCTYPE html>
@@ -40,12 +42,26 @@ $responseObj = getUserInfo(true);
 
 		<div id="browseNav">
 			<ul>
-				<li>All</li>
-				<li>Categories</li>
-				<li>Familiar</li>
+				<li class="mainLink">All</li>
+				<li id="categoriesTab" class="mainLink">Categories
+					<ul id="categoriesMenu">
+						<?php
+						
+						foreach($categories as $category)
+						{
+							echo sprintf('<li class="subLink" value="%s">%s</li>', $category['id'], $category['name']);
+						}
+						
+						?>
+					</ul>
+				</li>
+				
+				<li class="mainLink">Familiar</li>
 			</ul>
 		</div>
-	
+		
+		
+		
 		<div id="linksNav">
 			<ul>
 				<li class="selected" ><a href="browse.php" >Browse</a></li>
@@ -56,7 +72,16 @@ $responseObj = getUserInfo(true);
 	
 		<?php 
 		
-		echo ('<input type="hidden" id="preferred_category-hidden" value="' . $responseObj['preferred_category_id'] . '" />');
+		$concatenatedCategories = '';
+		
+		foreach($responseObj['verified_categories'] as $category)
+		{
+			if ($category['is_preferred']) {
+				$concatenatedCategories = $concatenatedCategories . $category['category_id'] . ' ';
+			}
+		}
+		
+		echo ('<input type="hidden" id="verified-categories-hidden" value="' . $concatenatedCategories . '" />');
 		
 		if(isset($_GET['search']))
 		{

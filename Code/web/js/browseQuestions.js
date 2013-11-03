@@ -27,10 +27,10 @@ function addQuestion(questionData) {
 	image.setAttribute('src', image_url);
 
 	var categoryLabel = document.createElement('label');
-	$(categoryLabel).text('Category: ' + questionData.category);
+	$(categoryLabel).text('' + questionData.category);
 	
 	var subcategoryLabel = document.createElement('label');
-	$(subcategoryLabel).text('Subategory: ' + questionData.subcategory);
+	$(subcategoryLabel).text(' ' + questionData.subcategory);
 	
 	var dateLabel = document.createElement('label');
 	$(dateLabel).text('Date: ' + questionData.date_created);
@@ -72,26 +72,16 @@ function loadAllQuestions() {
 	  });
 }
 
-function loadCategoryQuestions() {
-	$('#browseNav li').removeClass('selected');
-	$('#browseNav li:nth-child(2)').addClass('selected');
-	
-	$('#mainContent').empty();
-
-	// LOAD QUESTIONS BY CATEGORY
-	$('#mainContent p').text("QUESTIONS BY CATEGORY");
-}
-
-function loadPreferredSubjectQuestions() {
+function loadCategoryQuestions(e) {
 	$('#browseNav li').removeClass('selected');
 	$('#browseNav li:nth-child(3)').addClass('selected');
 
 	$('#mainContent').empty();
-	
-	var preferredCategoryId = $('#preferred_category-hidden')[0].value;
-	
-	var jqxhr = $.get( baseUrl + "/categories/" + preferredCategoryId + "/questions", function(data) {
-	  
+		
+	var categoryId = e.target.value;
+				
+	var jqxhr = $.get( baseUrl + "/categories/" + categoryId + "/questions", function(data) {
+  
 	  for (var i = 0; i < data.length; i++) {
 		 
 		 // Add the question to the UI
@@ -99,7 +89,35 @@ function loadPreferredSubjectQuestions() {
 	  }
 	}).fail(function() {
 	    console.log("error loading questions");
-	});
+	}); 
+}
+
+function loadPreferredSubjectQuestions() {
+	$('#browseNav li').removeClass('selected');
+	$('#browseNav li:nth-child(3)').addClass('selected');
+
+	$('#mainContent').empty();
+		
+	var validatedCategoryIds = $('#verified-categories-hidden')[0].value;
+	
+	var categories = validatedCategoryIds.split(" ");
+	
+	for(var k = 0; k < categories.length - 1; k++)
+	{
+	
+		var categoryId = categories[k];
+					
+		var jqxhr = $.get( baseUrl + "/categories/" + categoryId + "/questions", function(data) {
+	  
+		  for (var i = 0; i < data.length; i++) {
+			 
+			 // Add the question to the UI
+			  addQuestion(data[i]); 
+		  }
+		}).fail(function() {
+		    console.log("error loading questions");
+		});
+	}
 }
 
 function loadQuestionsFromSearch(searchQuery) {
@@ -127,6 +145,10 @@ function loadQuestionsFromSearch(searchQuery) {
     });
 }
 
+function loadCategoriesTab() {
+	
+	var categoriesTab = $('#browseNav li:nth-child(2)');	
+}
 
 // we wait for the DOM to load
 $(document).ready(function () {
@@ -145,9 +167,14 @@ $(document).ready(function () {
 		loadAllQuestions();	
 	}
 	
+	loadCategoriesTab();
 	
-	// Add click event listeners for each tab (all,categories,preffered,recent)
-	$('#browseNav li:nth-child(1)').click(loadAllQuestions);
-	$('#browseNav li:nth-child(2)').click(loadCategoryQuestions);
-	$('#browseNav li:nth-child(3)').click(loadPreferredSubjectQuestions);
+	
+	// Add click event listeners for each tab (all,categories,preffered)
+	$('#browseNav li.mainLink:nth-child(1)').click(loadAllQuestions);
+	$('#browseNav li.mainLink:nth-child(3)').click(loadPreferredSubjectQuestions);
+	
+	$('#browseNav li.subLink').click(loadCategoryQuestions);
+	
+
 });

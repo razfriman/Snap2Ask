@@ -37,13 +37,15 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 html {
-	background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0.31, rgb(248,249,251)), color-stop(1, rgb(233,237,241)));
+
 }
 
 body {
 	font-family: 'Lucida Grande';
 	margin: 0;
 	padding: 0;
+	
+    background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0.31, rgb(248,249,251)), color-stop(1, rgb(233,237,241)));
 }
 
 header {
@@ -56,7 +58,6 @@ header {
 
 header.short {	
 	height: 4em;
-	min-width: 860px;
 }
 
 header.tall {
@@ -82,7 +83,6 @@ footer {
 	text-align: center;
 	background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0.31, rgb(248,249,251)), color-stop(1, rgb(233,237,241)));
 	border-top: 1px solid #404040;
-
 }
 
 /* MAIN WEBSITE HEADER */
@@ -148,12 +148,19 @@ footer {
 	margin-top: 0.8em;
 }
 
+#loginContainer label.error {
+	font-size: small;
+	clear:left;
+}
+
 #loginForm * {
 	float:left;
 	margin-top: 0;
 	margin-bottom: 0;
 	margin-right: 0.5em;
 }
+
+
 
 #forgotPassword {
 	clear: left;
@@ -239,24 +246,21 @@ input,textarea,select {
 	margin:1em auto;
 	height:2em;
 	font-size:12px;
-}
-
-input[type="text"],input[type="password"],input[type="email"] {
-	border:2px solid #524656;
+	border:2px solid rgba(63,63,63,0.80);
 }
 
 input.button {
 	width:5em;
-	border:none;
+	border:2px solid rgba(63,63,63,0.80);
 }
 
-input.button:hover {
-	background-color: #524656;
+input[type="submit"]:hover {
+	background-color: rgba(63,63,63,0.80);
 	color: #fff;
 }
 
 .divider {
-	border-top:2px solid #524656;
+	border-top:2px solid #292a2b;
 	width:70%;
 	margin:1em auto;
 }
@@ -276,27 +280,53 @@ input.button:hover {
 }
 
 /* BrowseNav list item */
-#browseNav li {
+#browseNav li.mainLink {
 	float:left;
-	height:2em;
-	display:inline;
-	line-height:2em;
 	width:33%;
+	height:2em;
+	line-height:2em;
+	
 	margin-left: -0.2em;
 	margin-right: -0.2em;
 	margin-top: 0.2em;
 }
 
-/*  Hover over a browseNav link */
-#browseNav li:hover {
-    color: #524656;
-    margin-bottom:-5px;
+/* Selected tab */
+#browseNav li.mainLink.selected {
+	text-decoration:underline;
+    color: #292a2b;
 }
 
-/* Selected tab */
-#browseNav li.selected,#linksNav li.selected {
-	text-decoration:underline;
-    color: #524656;
+/*  Hover over a browseNav link */
+#browseNav li.mainLink:hover {
+    color: #005A8C;
+
+}
+
+li#categoriesTab ul {
+	display: none;
+	position: absolute;
+	padding: 0;
+	margin-left: 5em;
+}
+
+li#categoriesTab:hover ul {
+	display: block;
+	border-top: 1px solid black;
+}
+
+li#categoriesTab li {
+	clear:left;
+	float:left;
+	border-top: 1px solid black;
+	background-color: white;
+	width: 10em;
+	height: 3em;
+	color: black;
+}
+
+li#categoriesTab li:hover {
+	color: #005A8C;
 }
 /* END BROWSE QUESTIONS NAV (ALL,CATEGORIES,FAMILIAR) */
 
@@ -317,34 +347,40 @@ input.button:hover {
 	text-align:right;
 	list-style-type:none;
 	padding:0;
-    background-color:#524656;
+	
+	
+	
+
 }
 
 /* linksNav list item */
 #linksNav li {
-	margin:1em 0;
-	height:2em;
-	/*border-top:5px solid #000;
-	border-bottom:5px solid #000;*/
-    color:white;
+	height:3em;
+	line-height: 3em;
 }
 
 /* Hover over a linksNav link */
 #linksNav li:hover a {
-	color:#fff;
-	background-color:#000;
+	color: #005A8C;
+	
 }
 
 /* linksNav link */
 #linksNav li a {
 	display:block;
-	line-height:2em;
+	line-height:3em;
 	text-decoration:none;
 	padding-right:.5em;
 	margin:0;
-    color:white;
+    color: #404040;
 	background-color: inherit;
 }
+
+#linksNav li.selected {
+	text-decoration:underline;
+    color: #292a2b;
+}
+
 /* END LINKS NAV (BROWSE, BALANCE, PROFILE) */
 
 
@@ -359,12 +395,7 @@ input.button:hover {
 	width: 85%;
 }
 
-/* Set a different width when the width of the page becomes very small */
-@media all and (max-width: 1030px) and (min-width: 0px) {
-  #mainContent {
-  	width: 652px;
-  }
-}
+
 
 #mainContent h1 {
 	margin-top: 0.5em;
@@ -468,12 +499,12 @@ input.button:hover {
 /* PROFILE */
 .profileItem {
 	height: 2em;
-	width: 20em;
+	width: 25em;
 	margin: .5em auto;
 }
 
 .profileItem label {
-	width: 40%;
+	width: 45%;
 	float: left;
 	text-align: right;
 	margin: 0;
@@ -483,13 +514,42 @@ input.button:hover {
 .profileItem p {
 	float: right;
 	text-align: left;
-	width: 40%;
+	width: 45%;
 	margin: 0;
 	padding: 0;
 }
 
+#deleteAccountButton {
+	background: #ff3019;
+	color: white;
+	border: none;
+	width: 9em;
+}
+
+#deleteAccountButton:hover {
+	background: #cc0000;
+}
+
 #editTutorProfile label.error {
 	display: block;
+}
+
+.editProfileItem {
+	margin: 0 auto;
+	width: 15em;
+}
+
+.editProfileItem input {
+	display: inline-block;
+	width: auto;
+	height: auto;
+	margin-left: 1em;
+}
+.editProfileItem label {
+	display: inline-block;
+	margin: .2em;
+	width: 12em;
+	height: auto;
 }
 
 #editTutorProfile #submitButton {
@@ -499,28 +559,64 @@ input.button:hover {
 /* END PROFILE */
 
 
+
 /*TEST CHOICE*/
-#taketest{
-	display:block;
-	margin-left:auto;
-	margin-right:auto;
-	position:relative;
-	margin-top:200px;
+
+div.question_wrapper {
+	margin: 2em;
+	
+}
+
+div.choice_list input {
+	display: inline;
+		margin-right: .5em;
+		margin-bottom: 0;
+		margin-top: 0;
+		margin-left: 0;
+	padding: 0;
+	width: auto;
+}
+
+div.choice_list span {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+form#testpassed{
+	width:500px;
 	text-align:center;
-	width:80%;
-	color:#524656;
-}
-input.button{
-	display:inline;
-	margin:20px;
-	width:100px;
-	height:40px;
-	font-size:100%;
-}
-div#buttons{
-	width:400px;
+	position:relative;
+	top:150px;
 	margin-left:auto;
 	margin-right:auto;
 }
 
+form#testchoice{
+	width:500px;
+	text-align:center;
+	position:relative;
+	top:170px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+form#testfailed{
+	width:500px;
+	text-align:center;
+	position:relative;
+	top:170px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+input.decision_point {
+	width:100px;
+	height:50px;
+	display:inline;
+	margin:20px;
+
+}
+
+
 /*END TEST CHOICE*/
+
