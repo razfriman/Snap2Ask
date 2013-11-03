@@ -355,6 +355,7 @@ $app->post(
 		$token = '';
 		$success = false;
 		$reason = '';
+		$password_reset_token = '';
 		
 		try {
 		
@@ -385,6 +386,8 @@ $app->post(
 				mail($to, $subject, $message, $headers);
 				
 				$success = true;
+			} else {
+				$reason = 'An account with that email does not exists';
 			}
 
 		} catch(PDOException $e) {

@@ -38,23 +38,29 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'Reset Password')
 	curl_close($ch);
 	$responseObj = json_decode($response,true);
 	
-	$email = $_POST['email'];
-	$user_id = $responseObj['user_id'];
-	$reset_token = $responseObj['token'];
-	
-	$reset_url = $base_url . '/updatePassword.php?user_id=' . $user_id . '&token=' . $reset_token;
-	
-	$to = $email;
-	$subject = "Snap-2-Ask Password Reset";
-	$message = sprintf('<a href="%s" >Click here</a> to reset your password.', $reset_url);
-	$from = "support@local.snap2ask.com";
-	$headers = "From:" . $from;
-	
-	mail($to,$subject,$message,$headers);
-	
-	$_SESSION['msg']['forgot-password-err'] = 'A link has been sent to ' . $to . ' to reset your password.' . '<br />';
-	header('Location: resetPassword.php');
-	exit;
+	if ($responseObj['success']) {
+		$email = $_POST['email'];
+		$user_id = $responseObj['user_id'];
+		$reset_token = $responseObj['token'];
+		
+		$reset_url = $base_url . '/updatePassword.php?user_id=' . $user_id . '&token=' . $reset_token;
+		
+		$to = $email;
+		$subject = "Snap-2-Ask Password Reset";
+		$message = sprintf('<a href="%s" >Click here</a> to reset your password.', $reset_url);
+		$from = "support@local.snap2ask.com";
+		$headers = "From:" . $from;
+		
+		mail($to,$subject,$message,$headers);
+		
+		$_SESSION['msg']['forgot-password-err'] = 'A link has been sent to ' . $to . ' to reset your password.' . '<br />';
+		header('Location: resetPassword.php');
+		exit;
+	} else {
+		$_SESSION['msg']['forgot-password-err'] =  $responseObj['reason'] . '<br />';
+		header('Location: resetPassword.php');
+		exit;
+	}
 	
 	}
 ?>
