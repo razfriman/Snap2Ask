@@ -56,7 +56,16 @@ $responseObj = getUserInfo(true);
 	
 		<?php 
 		
-		echo ('<input type="hidden" id="preferred_category-hidden" value="' . $responseObj['preferred_category_id'] . '" />');
+		$concatenatedCategories = '';
+		
+		foreach($responseObj['verified_categories'] as $category)
+		{
+			if ($category['is_preferred']) {
+				$concatenatedCategories = $concatenatedCategories . $category['category_id'] . ' ';
+			}
+		}
+		
+		echo ('<input type="hidden" id="verified-categories-hidden" value="' . $concatenatedCategories . '" />');
 		
 		if(isset($_GET['search']))
 		{

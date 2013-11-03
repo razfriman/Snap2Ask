@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `snap2ask` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE  IF NOT EXISTS `snap2ask`;
 USE `snap2ask`;
 
 
@@ -47,21 +47,34 @@ CREATE TABLE `users` (
   `first_name` varchar(45) NOT NULL,
   `last_name` varchar(45) NOT NULL,
   `rating` int(11),
+  `password_reset_token` VARCHAR(50) NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`,`authentication_mode`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
---
--- Table structure for table `prefered_category`
---
-DROP TABLE IF EXISTS `prefered_category`;
-CREATE TABLE `prefered_category` (
-  `category_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`category_id`, `user_id`),
-  CONSTRAINT `fk_category` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoBD DEFAULT CHARSET = latin1;
+-- 
+-- Table structure for table `verified_categories`
+-- 
+DROP TABLE IF EXISTS `verified_categories`;
+CREATE TABLE IF NOT EXISTS `verified_categories` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `category_id` INT NOT NULL,
+  `is_preferred` TINYINT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `index2` (`user_id` ASC, `category_id` ASC),
+  INDEX `fk_verified_categories_2_idx` (`category_id` ASC),
+  CONSTRAINT `fk_verified_categories_1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_verified_categories_2`
+    FOREIGN KEY (`category_id`)
+    REFERENCES `categories` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 --
 -- Table structure for table `validationQuestions`
@@ -123,28 +136,4 @@ CREATE TABLE `answers` (
   CONSTRAINT `fk_answers_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
-
--- 
--- Table structure for table `verified_categories`
--- 
-DROP TABLE IF EXISTS `verified_categories`;
-CREATE TABLE IF NOT EXISTS `verified_categories` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  `category_id` INT NOT NULL,
-  `is_preferred` TINYINT NOT NULL DEFAULT 1,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `index2` (`user_id` ASC, `category_id` ASC),
-  INDEX `fk_verified_categories_2_idx` (`category_id` ASC),
-  CONSTRAINT `fk_verified_categories_1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_verified_categories_2`
-    FOREIGN KEY (`category_id`)
-    REFERENCES `categories` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
 

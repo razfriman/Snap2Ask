@@ -19,7 +19,10 @@ $(document).ready(function () {
             form.submit();
 		  },
 		  errorPlacement: function(error, element) {
-		  	error.insertBefore(element);
+		  	$('#loginError').html(error[0].innerHTML);
+		  }, success: function()
+		  {
+			$('#loginError').html('');  
 		  }
     });
 

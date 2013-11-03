@@ -27,10 +27,10 @@ function addQuestion(questionData) {
 	image.setAttribute('src', image_url);
 
 	var categoryLabel = document.createElement('label');
-	$(categoryLabel).text('Category: ' + questionData.category);
+	$(categoryLabel).text('' + questionData.category);
 	
 	var subcategoryLabel = document.createElement('label');
-	$(subcategoryLabel).text('Subategory: ' + questionData.subcategory);
+	$(subcategoryLabel).text(' ' + questionData.subcategory);
 	
 	var dateLabel = document.createElement('label');
 	$(dateLabel).text('Date: ' + questionData.date_created);
@@ -87,19 +87,27 @@ function loadPreferredSubjectQuestions() {
 	$('#browseNav li:nth-child(3)').addClass('selected');
 
 	$('#mainContent').empty();
+		
+	var validatedCategoryIds = $('#verified-categories-hidden')[0].value;
 	
-	var preferredCategoryId = $('#preferred_category-hidden')[0].value;
+	var categories = validatedCategoryIds.split(" ");
 	
-	var jqxhr = $.get( baseUrl + "/categories/" + preferredCategoryId + "/questions", function(data) {
+	for(var k = 0; k < categories.length - 1; k++)
+	{
+	
+		var categoryId = categories[k];
+					
+		var jqxhr = $.get( baseUrl + "/categories/" + categoryId + "/questions", function(data) {
 	  
-	  for (var i = 0; i < data.length; i++) {
-		 
-		 // Add the question to the UI
-		  addQuestion(data[i]); 
-	  }
-	}).fail(function() {
-	    console.log("error loading questions");
-	});
+		  for (var i = 0; i < data.length; i++) {
+			 
+			 // Add the question to the UI
+			  addQuestion(data[i]); 
+		  }
+		}).fail(function() {
+		    console.log("error loading questions");
+		});
+	}
 }
 
 function loadQuestionsFromSearch(searchQuery) {

@@ -27,8 +27,7 @@ if (isset($_POST['authentication_mode']))
 			'password' => $_POST['token'],
 			'is_tutor' => false,
 			'register_or_login' => true,
-			'authentication_mode' => $_POST['authentication_mode'],
-			'preferred_category_id' => 1
+			'authentication_mode' => $_POST['authentication_mode']
 		);
 
 
@@ -117,7 +116,6 @@ if (isset($_POST['submit'])) {
 		$err = array();
 		
 
-		// preferred_category_id is TEMPORARY
 		$request = array(
 			'email' => $_POST['email'],
 			'password' => $_POST['password'],
@@ -125,8 +123,7 @@ if (isset($_POST['submit'])) {
 			'last_name' => $_POST['last_name'],
 			'is_tutor' => false,
 			'authentication_mode' => 'custom',
-			'register_or_login' => false,
-			'preferred_category_id' => 1
+			'register_or_login' => false
 		);
 
 		//cURL used to collect login information
@@ -204,19 +201,24 @@ if (isset($_SESSION['user_id']))
 		<img id="logoTall" src="res/logo.png" alt="Snap-2-Ask Logo"/>
 
 		<div id="loginContainer" >
-	
+
+
+
 <?php
 
 if(isset($_SESSION['msg']['login-err']))
 {
 // Display the login error message
-echo '<div class="error">'.$_SESSION['msg']['login-err'].'</div>';
+echo '<label class="error">'.$_SESSION['msg']['login-err'].'</label>';
 unset($_SESSION['msg']['login-err']);
 }
 
 ?>
+<label id="loginError" class="error"></label>
+
 			<!-- Login Form in html that sends email and pass to corresponding php script -->
 			<form id="loginForm" method="POST" action="index.php">
+			
 				<input type="email" name="email" placeholder="Email" title="Please enter a valid email" required autocomplete="on" />
 				<input type="password" name="password" placeholder="Password" title="Please enter a password" required autocomplete="on" />
 				<input  id="loginButton" class="button" type="submit" name="submit" value="Log in" />

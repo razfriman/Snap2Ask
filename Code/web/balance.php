@@ -35,13 +35,14 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 			'first_name' => $responseObj['first_name'],
 			'balance' => $responseObj['balance'] - $_POST['withdraw_amount'],
 			'is_tutor' => $responseObj['is_tutor'],
-			'rating' => $responseObj['rating'],
-			'preferred_category_id' => 1
+			'rating' => $responseObj['rating']
 		);
+		
+	if ($request['balance'] < 0)
+	{
+		$request['balance'] = 0;
+	}
 
-
-
-	//cURL used to collect login information
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id']);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -68,8 +69,8 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 
 
 
-// FOR TESTING ONLY
-// ADD FUNCTIONALITY TO ADD 10 SNAPCASH
+// FOR TESTING ONLY (THIS WOULD NEVER REALLY HAPPEN)
+// TUTORS ONLY WITHDRAW THEIR EARNED SNAPCASH
 if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit SnapCash') {
 
 	$request = array(
@@ -77,10 +78,13 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit SnapCash') {
 			'first_name' => $responseObj['first_name'],
 			'balance' => $responseObj['balance'] + $_POST['deposit_amount'],
 			'is_tutor' => $responseObj['is_tutor'],
-			'rating' => $responseObj['rating'],
-			'preferred_category_id' => 1
+			'rating' => $responseObj['rating']
 		);
-
+	
+	if ($request['balance'] < 0)
+	{
+		$request['balance'] = 0;
+	}
 
 
 	//cURL used to collect login information

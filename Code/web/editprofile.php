@@ -30,13 +30,12 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 		'first_name' => $_POST['first_name'],
 		'balance' => $responseObj['balance'],
 		'is_tutor' => $responseObj['is_tutor'],
-		'rating' => $responseObj['rating'],
-		'preferred_category_id' => $_POST['preferred_category']
+		'rating' => $responseObj['rating']
 		);
+		
 
 
-
-		//cURL used to collect login information
+	//cURL used to collect login information
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id']);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -46,12 +45,56 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
 	$updateResponse = curl_exec($ch);
 	curl_close($ch);
-	
-	
-		//sent to the be decoded
 	$updateResponseObj = json_decode($updateResponse,true);
+	
+	foreach ($categories as $category) {	
+		$addedCategory = false;
+		
+		foreach($_POST['preferredCategories'] as $preferredCategory)
+		{
+			
+			$request = array(
+			'category_id' => $category['id'],
+			'is_preferred' => 1,
+			);
+			
+			if ($category['id'] == $preferredCategory) {
+				// ADD CATEGORY
+				$addedCategory = true;
+				
+				$ch = curl_init();
+				curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id'] . '/verified_categories');
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+				curl_setopt($ch, CURLOPT_HEADER, FALSE);
+				curl_setopt($ch, CURLOPT_POST, TRUE);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+				curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
+				$response = curl_exec($ch);
+				curl_close($ch);
+			}
+		}
+		
+		if (!$addedCategory)
+		{
+		
+			// REMOVE CATEGORY
+			$request = array(
+			'category_id' => $category['id'],
+			'is_preferred' => 0,
+			);
+			
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id'] . '/verified_categories');
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			curl_setopt($ch, CURLOPT_HEADER, FALSE);
+			curl_setopt($ch, CURLOPT_POST, TRUE);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
+			$response = curl_exec($ch);
+			curl_close($ch);
+		}
+	}
 
-		//depending on the response we either ask for different credentials or log the user in
 	if($updateResponseObj['success'])
 	{
 		header('Location: profile.php');
@@ -95,43 +138,39 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 		
 		
 		<div id="mainContent">
-			<h1>EDIT PROFILE</H1>
+			<h1>EDIT PROFILE</h1>
 				<!--POPULATE PROFILE INFORMATION HERE-->
 				<form id="editTutorProfile" action="#" method="post">		
 					<?php
 						// Echo the information using sprintf
 						// Escape special html characters to enhance XSS security
-					echo sprintf("<label>First Name</label><input type='text' name='first_name' value='%s'>", htmlspecialchars($responseObj['first_name']));
-					echo sprintf("<label>Last Name</label><input type='text'  name='last_name' value='%s'>", htmlspecialchars($responseObj['last_name']));
+					echo sprintf("<label>First Name</label><input type='text' name='first_name' value='%s' />", htmlspecialchars($responseObj['first_name']));
+					echo sprintf("<label>Last Name</label><input type='text'  name='last_name' value='%s' />", htmlspecialchars($responseObj['last_name']));
 					?>
 
 					<?php
 					echo "<label>Preferred Subjects</label>";
-					echo"<select name='preferred_category'>";
-					echo "<option selected disabled>Select a preferred subject</option>";
-
+					
 					foreach ($categories as $category) {
 
 
-						$selected = '';
+						$checked = '';
 						
-						if ($category['id'] == $responseObj['preferred_category_id']) {
-							$selected = "selected";
+						foreach($responseObj['verified_categories'] as $verifiedCategory)
+						{
+							if ($category['id'] == $verifiedCategory['category_id'] && $verifiedCategory['is_preferred']) {
+								$checked = "checked";			
+							}
 						}
 						
-						echo sprintf("<option %s value='%d'>%s</option>", $selected, $category['id'], $category['name']);
+						echo sprintf("<div class='editProfileItem'>   <input type='checkbox' name='preferredCategories[]' %s id='category_%s' value='%s' />   <label for='category_%s' />%s</label>    </div>", $checked, $category['id'], $category['id'], $category['id'], $category['name']);
 					}
-
-					echo "</select>";
-
+					
 					?>
 
-					<input type="submit" id="submitButton" value="Save Changes">
+					<input type="submit" id="submitButton" value="Save Changes" />
 				</form>
-
-
 			</div>
-
 		</div>
 
 		<?php include('footer.php') ?>

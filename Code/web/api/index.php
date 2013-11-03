@@ -5,7 +5,7 @@ require 'vendor/autoload.php';
 use Aws\S3\S3Client;
 
 // Include the config file with Database credentials
-require __DIR__ . '/config.php';
+require_once __DIR__ . '/config.php';
 
 // Open the MySQL Connection using PDO
 // PDO is a robust method to access Databases and provides built in security to protect from MySQL injections 
@@ -221,7 +221,7 @@ function addVerifiedCategories(&$user, $db)
 		$user_id = $user['id'];
 
 		// Select all the verification data for the matching user id
-		$sth = $db->prepare("SELECT category_id,is_verified FROM verified_categories WHERE user_id=:user_id");
+		$sth = $db->prepare("SELECT category_id,is_preferred FROM verified_categories WHERE user_id=:user_id");
 		$sth->bindParam(':user_id',$user_id);
 		$sth->execute();
 		
@@ -346,7 +346,65 @@ $app->post(
 	function () use ($app,$db) {
 
 
-		// TODO
+		// Get the JSON Request
+		$request = $app->request()->getBody();
+
+		// Read all the Request properties used to create the account
+		$email = $request['email'];
+		$user_id = 0;
+		$token = '';
+		$success = false;
+		$reason = '';
+		
+		try {
+		
+			$sth = $db->prepare('SELECT id FROM users WHERE email=:email AND authentication_mode="custom"');
+			$sth->bindParam(':email',$email);
+			$sth->execute();
+			$row = $sth->fetch();
+			$user_id = $row[0];
+			
+			if ($sth->rowCount() > 0)
+			{
+				
+				// CREATE A PASSWORD RESET TOKEN
+				// TODO
+				$password_reset_token = sha1(microtime(true).mt_rand(10000,90000));
+				
+				// UPDATE THE DB
+				$sth = $db->prepare('UPDATE users set password_reset_token=:password_reset_token WHERE id=:user_id');
+				$sth->bindParam(':user_id',$user_id);
+				$sth->bindParam(':password_reset_token',$password_reset_token);
+				$sth->execute();
+			
+				// SEND AN EMAIL
+				$to      = $email;
+				$subject = 'Snap-2-Ask Password Reset';
+				$message = 'Click this link to reset your password: ' . $password_reset_token;
+				$headers = 'From: support@snap2ask.com' . "\r\n" . 'Reply-To: support@snap2ask.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+				mail($to, $subject, $message, $headers);
+				
+				$success = true;
+			}
+
+		} catch(PDOException $e) {
+         // SQL ERROR
+         $reason = $e->getMessage();
+		}
+
+		// Create the return data
+		$dataArray = array(
+			'success' => $success,
+			'reason' => $reason,
+			'user_id' => $user_id,
+			'token' => $password_reset_token
+			);
+		
+        // Return the JSON data
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($dataArray));
 	}
 	);
 	
@@ -356,7 +414,46 @@ $app->delete(
 	function () use ($app,$db) {
 
 
-		// TODO	
+		// Get the JSON Request
+		$request = $app->request()->getBody();
+
+		// Read all the Request properties
+		$password = $request['password'];
+		$user_id = $request['user_id'];
+		
+		$hashResult = hashPassword($password);
+		$hashed_password = $hashResult[0];
+		$salt = $hashResult[1];
+		
+		$success = false;
+		$reason = '';
+		
+		try {
+	
+			// UPDATE THE DB
+			$sth = $db->prepare('UPDATE users SET password_reset_token=null,password=:password,salt=:salt WHERE id=:user_id');
+			$sth->bindParam(':user_id',$user_id);
+			$sth->bindParam(':password',$hashed_password);
+			$sth->bindParam(':salt',$salt);
+			$sth->execute();
+			
+			$success = true;
+		} catch(PDOException $e) {
+         // SQL ERROR
+         $reason = $e->getMessage();
+		}
+
+		// Create the return data
+		$dataArray = array(
+			'success' => $success,
+			'reason' => $reason
+			);
+		
+        // Return the JSON data
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($dataArray));
 	}
 	);
 
@@ -452,7 +549,6 @@ $app->put(
 	
 		$balance = $request['balance'];
 		$is_tutor = $request['is_tutor'];
-		$preferred_category_id = $request['preferred_category_id'];
 		$first_name = $request['first_name'];
 		$last_name = $request['last_name'];
 		$rating = $request['rating'];
@@ -463,11 +559,10 @@ $app->put(
 
 		try {
 
-			$sth = $db->prepare('UPDATE users set balance=:balance, is_tutor=:is_tutor, preferred_category_id=:preferred_category_id, first_name=:first_name, last_name=:last_name, rating=:rating WHERE id=:user_id');
+			$sth = $db->prepare('UPDATE users set balance=:balance, is_tutor=:is_tutor, first_name=:first_name, last_name=:last_name, rating=:rating WHERE id=:user_id');
 			
 			$sth->bindParam(':balance', $balance);
 			$sth->bindParam('is_tutor', $is_tutor);
-			$sth->bindParam(':preferred_category_id', $preferred_category_id);
 			$sth->bindParam(':first_name', $first_name);
 			$sth->bindParam(':last_name', $last_name);
 			$sth->bindParam(':rating', $rating);
@@ -548,7 +643,6 @@ $app->post(
 		$balance = 40;
 		$is_tutor = $request['is_tutor'];
 		$is_admin = 0;
-		$preferred_category_id = null;
 		$authentication_mode = $request['authentication_mode'];
 		$date_created = date("Y-m-d H:i:s");
 		$register_or_login = $request['register_or_login'];
@@ -558,11 +652,6 @@ $app->post(
 			$oauth_id = $request['oauth_id'];
 		}
 		
-        // Ony add the preferred category id if the user is a tutor
-		if ($is_tutor) { 
-			$preferred_category_id = $request['preferred_category_id'];
-		}
-
         // Create the password hash
 		$hashResult = hashPassword($password);
 		$hashed_password = $hashResult[0];
@@ -605,8 +694,8 @@ $app->post(
 				
 				// Try to insert the user into the database
 				// This uses named parameters, which prevent any SQL Injections
-				$sth = $db->prepare('INSERT INTO users (email,oauth_id,first_name,last_name,password,salt,balance,is_tutor,is_admin,preferred_category_id,authentication_mode,date_created) 
-					VALUES (:email,:oauth_id,:first_name,:last_name,:password,:salt,:balance,:is_tutor,:is_admin,:preferred_category_id,:authentication_mode,:date_created)');
+				$sth = $db->prepare('INSERT INTO users (email,oauth_id,first_name,last_name,password,salt,balance,is_tutor,is_admin,authentication_mode,date_created) 
+					VALUES (:email,:oauth_id,:first_name,:last_name,:password,:salt,:balance,:is_tutor,:is_admin,:authentication_mode,:date_created)');
 				$sth->bindParam(':email', $email);
 				$sth->bindParam(':oauth_id', $oauth_id);
 				$sth->bindParam(':first_name', $first_name);
@@ -616,7 +705,6 @@ $app->post(
 				$sth->bindParam(':balance', $balance);
 				$sth->bindParam(':is_tutor', $is_tutor);
 				$sth->bindParam(':is_admin', $is_admin);
-				$sth->bindParam(':preferred_category_id', $preferred_category_id);
 				$sth->bindParam(':authentication_mode', $authentication_mode);
 				$sth->bindParam(':date_created', $date_created);
 				$sth->execute();
@@ -693,7 +781,54 @@ $app->get(
 
 
 
+// ADD NEW VERIFIED CATEGORY
+$app->post(
+	'/users/:id/verified_categories',
+	function ($id) use ($app,$db) {
 
+
+		// Get the JSON Request
+		$request = $app->request()->getBody();
+
+		// Read all the Request properties used to create the account
+		$category_id = $request['category_id'];
+		$is_preferred = $request['is_preferred'];
+		
+		$insert_id = -1;
+		$success = false;
+		$reason = '';
+		
+		try {
+
+			// Get questions for a specific user
+			$sth = $db->prepare('REPLACE INTO verified_categories (user_id,category_id,is_preferred) VALUES (:user_id,:category_id,:is_preferred)');
+			$sth->bindParam(':user_id',$id);
+			$sth->bindParam(':category_id',$category_id);
+			$sth->bindParam(':is_preferred', $is_preferred);
+			$sth->execute();
+			
+			$insert_id = $db->lastInsertId();
+			$success = true;
+
+		} catch(PDOException $e) {
+         // SQL ERROR
+         $reason = $e->getMessage();
+		}
+
+		// Create the return data
+		$dataArray = array(
+			'success' => $success,
+			'reason' => $reason,
+			'insert_id' => $insert_id
+			);
+		
+        // Return the JSON data
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($dataArray));
+	}
+	);
 
 
 
@@ -889,6 +1024,10 @@ $app->post(
 			break;
 		}
 	});
+	
+	
+	
+	
 	
 	
 	
