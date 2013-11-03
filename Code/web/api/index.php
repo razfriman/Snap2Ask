@@ -813,6 +813,9 @@ $app->get(
 $app->post(
 	'/validateTest',
 	function () use ($app,$db){
+		session_name('loginSession');
+		session_start();
+		$user_id = $_SESSION["user_id"];
 		$request = $app->request();
 		$testAnswers = array();
 		$testAns = array();
@@ -839,30 +842,53 @@ $app->post(
 			}
 		}
 		$percentCorrect = $numberCorrect/QUESTIONS_PER_TEST;
-		$numberInCorrect = QUESTIONS_PER_TEST - $numberCorrect - $numberSkipped;
-		$pass = false;
 		if ($percentCorrect >= PASS_THRESHOLD){
-			$pass = true;
-			$app->redirect('../../browse.php');
+			// $pass = true;
+			try{
+				$sth = $db->prepare("UPDATE users SET is_tutor=1 WHERE id=:user_id");
+				$sth->bindParam(':user_id',$user_id);
+				$sth->execute();
+			}catch(PDOException $e){
+				//SQL Error
+			}
+			$app->redirect('../../testPassed.php');
 
+		}else{
+			$app->redirect('../../testFailed.php');
 		}
-		$testResults = array(
-			"Correct"=>$numberCorrect,
-			"Skipped"=>$numberSkipped,
-			"Incorrect"=>$numberInCorrect,
-			"TotalQuestions"=>QUESTIONS_PER_TEST,
-			"PercentCorrect"=>$percentCorrect,
-			"Pass"=>$pass
-			);
-		$response = $app->response();
-		$response['Content-Type'] = 'application/json';
-		$response->status(200);
-		$response.write(json_encode($testResults));
-		$app->redirect('../../browse.php');
+		// $testResults = array(
+		// 	"Correct"=>$numberCorrect,
+		// 	"Skipped"=>$numberSkipped,
+		// 	"Incorrect"=>$numberInCorrect,
+		// 	"TotalQuestions"=>QUESTIONS_PER_TEST,
+		// 	"PercentCorrect"=>$percentCorrect,
+		// 	"Pass"=>$pass
+		// 	);
+		// $response = $app->response();
+		// $response['Content-Type'] = 'application/json';
+		// $response->status(200);
+		// $response.write(json_encode($testResults));
+		// $app->redirect('../../browse.php');
 	}
 	);
 	
-	
+
+$app->post(
+	'/testChoices',
+	function () use ($app,$db){
+		$request = $app->request();
+		switch ($request->post("testChoice")){
+			case "Take Now":
+			case "Retake Now":
+				$app->redirect('../../subjectTest.php');
+			break;
+			case "Take Later":
+			case "Retake Later":
+			case "Continue":
+				$app->redirect('../../browse.php');
+			break;
+		}
+	});
 	
 	
 	
