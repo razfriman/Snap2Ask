@@ -11,7 +11,7 @@ define('inc_file', TRUE);
 require_once('functions.php');
 
 if (isset($_SESSION['user_id'])) {
-	
+    
 	// Can't click forgot password if you are already logged in
 	header('Location: index.php');
 	exit;
@@ -49,7 +49,7 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'Reset Password')
 	
 	mail($to,$subject,$message,$headers);
 	
-	$_SESSION['msg']['forgot-password-err'] = 'A link has been sent to your email to reset your password.' . '<br />';
+	$_SESSION['msg']['forgot-password-err'] = 'A link has been sent to ' . $to . ' to reset your password.' . '<br />';
 	header('Location: resetPassword.php');
 	exit;
 	
@@ -74,7 +74,7 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'Reset Password')
 <body>
 
 	<header class="tall">
-		<img id="logoTall" src="res/logo.png" alt="Snap-2-Ask Logo"/>
+		<a href="index.php"> <img id="logoTall" src="res/logo.png" alt="Snap-2-Ask Logo"/> </a>
 	</header>
 
 	<div id="content">
