@@ -159,7 +159,8 @@ if (isset($_POST['submit'])) {
 			$_SESSION['msg']['register-err'] = implode('<br />',$err);
 		}
 		
-		header("Location: index.php");
+		header('Location: testChoice.php');
+		//header("Location: index.php");
 		exit;
 	}
 }
