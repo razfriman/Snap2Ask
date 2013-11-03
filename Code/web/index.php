@@ -25,7 +25,7 @@ if (isset($_POST['authentication_mode']))
 			'email' => $_POST['email'],
 			'oauth_id' => $_POST['oauth_id'],
 			'password' => $_POST['token'],
-			'is_tutor' => true,
+			'is_tutor' => false,
 			'register_or_login' => true,
 			'authentication_mode' => $_POST['authentication_mode'],
 			'preferred_category_id' => 1
@@ -123,7 +123,7 @@ if (isset($_POST['submit'])) {
 			'password' => $_POST['password'],
 			'first_name' => $_POST['first_name'],
 			'last_name' => $_POST['last_name'],
-			'is_tutor' => true,
+			'is_tutor' => false,
 			'authentication_mode' => 'custom',
 			'register_or_login' => false,
 			'preferred_category_id' => 1
@@ -174,7 +174,7 @@ if (isset($_SESSION['user_id']))
 	getUserInfo(true);
 	
 	// User is already logged in.
-	// Redirect to the browse questions page
+	
 	header('Location: browse.php');
 	exit;
 }
