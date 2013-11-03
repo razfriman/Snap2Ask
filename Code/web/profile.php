@@ -101,7 +101,9 @@ echo "</div>";
 				<input type="submit" value="Edit Profile" />
 
         	</form>
-        	
+        	<form id="taketutortest" action="./api/index.php/testChoices" method="post">
+        		<input id="tutortestbutton" type="submit" name="testChoice" value="Take Test"/>
+        	</form>
         	<form id="deleteAccountForm" action="profile.php" method="post">
         		<input id="deleteAccountButton" type="submit" name="submit" value="Delete Account" />
         	</form>

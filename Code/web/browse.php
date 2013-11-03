@@ -45,7 +45,12 @@ $responseObj = getUserInfo(true);
 				<li>Familiar</li>
 			</ul>
 		</div>
-	
+		<ul id="categories">
+			<li>Math</li>
+			<li>Science</li>
+			<li>English</li>
+			<li>History</li>
+		</ul>
 		<div id="linksNav">
 			<ul>
 				<li class="selected" ><a href="browse.php" >Browse</a></li>

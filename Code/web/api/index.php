@@ -1015,6 +1015,7 @@ $app->post(
 		switch ($request->post("testChoice")){
 			case "Take Now":
 			case "Retake Now":
+			case "Take Test";
 				$app->redirect('../../subjectTest.php');
 			break;
 			case "Take Later":

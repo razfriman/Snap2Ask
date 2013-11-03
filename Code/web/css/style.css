@@ -303,6 +303,10 @@ input[type="submit"]:hover {
     margin-bottom:-5px;
 }
 
+ul#categories{
+	display:inline;
+}
+
 /* END BROWSE QUESTIONS NAV (ALL,CATEGORIES,FAMILIAR) */
 
 
