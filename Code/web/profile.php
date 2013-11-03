@@ -102,6 +102,17 @@ echo "</div>";
 
         	</form>
         	<form id="taketutortest" action="./api/index.php/testChoices" method="post">
+        	<select name="category">
+				<option value="Select Category">Select Category</option>
+				<!-- Populate menu -->
+				<?php
+					$categ = getCategories();
+
+				for ($a = 0; $a < sizeof($categ); $a++){
+					echo "<option value='" . $categ[$a]["id"] . "|" . $categ[$a]["name"] . "'>" . $categ[$a]["name"] . "</option>";
+				}
+				?>
+			</select>
         		<input id="tutortestbutton" type="submit" name="testChoice" value="Take Test"/>
         	</form>
         	<form id="deleteAccountForm" action="profile.php" method="post">

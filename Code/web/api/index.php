@@ -1020,13 +1020,15 @@ $app->post(
 
 		switch ($request->post("testChoice")){
 			case "Take Now":
-			case "Retake Now":
 			case "Take Test";
 				session_name('loginSession');
 				session_start();
 				$list = explode("|",$request->post("category")); 
 				$_SESSION['test_category_id'] = $list[0];
 				$_SESSION['test_category_name'] = $list[1];
+				$app->redirect('../../subjectTest.php');
+			break;
+			case "Retake Now":
 				$app->redirect('../../subjectTest.php');
 			break;
 			case "Take Later":

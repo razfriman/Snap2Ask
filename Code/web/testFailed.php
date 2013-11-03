@@ -33,17 +33,7 @@ $responseObj = getUserInfo(true);
 
 <body>
 	<form id="testfailed" method="post" action="./api/index.php/testChoices">
-	<p>You have failed the test. You can choose to retake the test now or later.</p>
-	<select name="category">
-		<option value="Select Category">Select Category</option>
-		<!-- Populate menu -->
-		<?php
-			$categ = getCategories();
-			for ($a = 0; $a < sizeof($categ); $a++){
-				echo "<option value='" . $categ[$a]["id"] ."'>" . $categ[$a]["name"] . "</option>";
-			}
-		?>
-	</select>
+	<p>You have failed the test. The minimum passing percentage is 70%. You can choose to retake the test now or later.</p>
 	<input class="decision_point button" type="submit" value="Retake Now" name="testChoice"/>
 	<input class="decision_point button" type="submit" value="Retake Later" name="testChoice"/>
 	</form>
