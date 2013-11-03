@@ -956,6 +956,7 @@ $app->post(
 		session_name('loginSession');
 		session_start();
 		$user_id = $_SESSION["user_id"];
+		$category_id = $_SESSION["test_category_id"];
 		$request = $app->request();
 		$testAnswers = array();
 		$testAns = array();
@@ -982,18 +983,30 @@ $app->post(
 			}
 		}
 		$percentCorrect = $numberCorrect/QUESTIONS_PER_TEST;
+		$_SESSION['test_numberCorrect'] = $numberCorrect;
+		$_SESSION['test_percentCorrect'] = round($percentCorrect,2)*100;
+		$_SESSION['test_numberOfQuestions'] = QUESTIONS_PER_TEST;
 		if ($percentCorrect >= PASS_THRESHOLD){
 			// $pass = true;
 			try{
 				$sth = $db->prepare("UPDATE users SET is_tutor=1 WHERE id=:user_id");
 				$sth->bindParam(':user_id',$user_id);
 				$sth->execute();
+
+				$sth = $db->prepare("INSERT INTO verified_categories(user_id,category_id,is_preferred) VALUES (:user_id,:category_id,'1')");
+				$sth->bindParam(":user_id",$user_id);
+				$sth->bindParam(":category_id",$category_id);
+				$sth->execute();
+				$_SESSION['test_pass'] = 1;
+
+
 			}catch(PDOException $e){
 				//SQL Error
 			}
 			$app->redirect('../../testPassed.php');
 
 		}else{
+			$_SESSION['test_pass'] = 0;
 			$app->redirect('../../testFailed.php');
 		}
 		// $testResults = array(

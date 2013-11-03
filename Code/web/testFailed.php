@@ -32,8 +32,18 @@ $responseObj = getUserInfo(true);
 </head>
 
 <body>
+	<?php
+	$pass = $_SESSION['test_pass'];
+	$corr = $_SESSION['test_numberCorrect'];
+	$perc = $_SESSION['test_percentCorrect'];
+	$tot = $_SESSION['test_numberOfQuestions'];
+		?>
 	<form id="testfailed" method="post" action="./api/index.php/testChoices">
-	<p>You have failed the test. The minimum passing percentage is 70%. You can choose to retake the test now or later.</p>
+	<?php
+	$output = "<p>You have failed the test. </p><p>You answered " . $corr . " out of " . $tot . " questions correctly, meaning your score was " . $perc . "%. However, the minimum passing percentage is 70%. </p><p>You can choose to retake the test now or later.</p>";
+	echo $output;
+	?>
+
 	<input class="decision_point button" type="submit" value="Retake Now" name="testChoice"/>
 	<input class="decision_point button" type="submit" value="Retake Later" name="testChoice"/>
 	</form>
