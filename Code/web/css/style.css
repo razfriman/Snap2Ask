@@ -271,7 +271,7 @@ input[type="submit"]:hover {
 
 
 
-/* BROWSE QUESTIONS NAV (ALL,CATEGORIES,FAMILIAR) */
+ BROWSE QUESTIONS NAV (ALL,CATEGORIES,FAMILIAR) 
 #browseNav ul {
 	clear:left;
     clear:right;
@@ -535,15 +535,13 @@ input[type="submit"]:hover {
 
 
 
-
-
-
 /*TEST CHOICE*/
 
 div.question_wrapper {
 	margin: 2em;
 	
 }
+
 div.choice_list input {
 	display: inline;
 		margin-right: .5em;
@@ -559,6 +557,23 @@ div.choice_list span {
 	margin: 0;
 	padding: 0;
 }
+form#testpassed{
+	width:500px;
+	text-align:center;
+	position:relative;
+	top:150px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+input.decision_point {
+	width:100px;
+	height:50px;
+	display:inline;
+	margin:20px;
+
+}
 
 
 /*END TEST CHOICE*/
+

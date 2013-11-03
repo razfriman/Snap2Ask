@@ -20,6 +20,7 @@ function addTestQuestion(testQuestionData,questionNumber) {
 	$(choices).addClass("choice_list");
 	for (var i = 1; i < 4; i++){
 		var choice_wrapper = document.createElement('div');
+		$(choice_wrapper).addClass("choice_wrapper");
 		choices.appendChild(choice_wrapper);
 		var input = document.createElement('input');
 		var choice = document.createElement('span');
@@ -60,7 +61,6 @@ $(document).ready(function () {
 
 	$('#Test').empty();
 	//just a test category
-	console.log("hello");	
 	var jqxhr = $.get( baseUrl + "/test", function(data) {
 	  
 	  for (var i = 1; i <= data.length; i++) {
@@ -73,7 +73,6 @@ $(document).ready(function () {
 	  	value:"Submit",
 	  	id:"submit_test"
 	  });
-	  console.log($(submit));
 	  $('#Test').append(submit);
 	}).fail(function() {
 	    console.log("error loading questions");

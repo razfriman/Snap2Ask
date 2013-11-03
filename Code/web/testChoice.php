@@ -32,11 +32,11 @@ $responseObj = getUserInfo(true);
 </head>
 
 <body id="test-choice">
-	<form id="taketest" method="post" action="./api/index.php/testChoices">
+	<form id="testchoice" method="post" action="./api/index.php/testChoices">
 	<p id="test-title">Our records indicate you are a first time tutor. In order to start answering questions and get paid, you have to pass a test. You can choose to take it now or later.</p>
 	<div id="buttons">
-		<input class="button" type="submit" value="Take Now" name="testChoice"/>
-		<input class="button" type="submit" value="Take Later" name="testChoice"/>
+		<input  class="decision_point button" type="submit" value="Take Now" name="testChoice"/>
+		<input class="decision_point button" type="submit" value="Take Later" name="testChoice"/>
 	</div>
 	</form>
 </body>

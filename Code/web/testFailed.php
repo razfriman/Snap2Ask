@@ -32,11 +32,11 @@ $responseObj = getUserInfo(true);
 </head>
 
 <body id="test-choice">
-	<form id="taketest" method="post" action="./api/index.php/testChoices">
+	<form id="testfailed" method="post" action="./api/index.php/testChoices">
 	<p id="test-title">You have failed the test. You can choose to retake the test now or later.</p>
 	<div id="buttons">
-		<input class="button" type="submit" value="Retake Now" name="testChoice"/>
-		<input class="button" type="submit" value="Retake Later" name="testChoice"/>
+		<input class="decision_point button" type="submit" value="Retake Now" name="testChoice"/>
+		<input class="decision_point button" type="submit" value="Retake Later" name="testChoice"/>
 	</div>
 	</form>
 </body>
