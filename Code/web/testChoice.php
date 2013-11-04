@@ -32,21 +32,31 @@ $responseObj = getUserInfo(true);
 </head>
 
 <body>
-	<form id="testchoice" method="post" action="./api/index.php/testChoices">
-	<p>Our records indicate you are a first time tutor. In order to start answering questions and get paid, you have to pass a test. You can choose to take it now or later.</p>
-	<select name="category">
-		<option value="Select Category">Select Category</option>
-		<!-- Populate menu -->
-		<?php
-			$categ = getCategories();
 
-			for ($a = 0; $a < sizeof($categ); $a++){
-				echo "<option value='" . $categ[$a]["id"] . "|" . $categ[$a]["name"] . "'>" . $categ[$a]["name"] . "</option>";
-			}
-		?>
-	</select>
-	<input  class="decision_point button" type="submit" value="Take Now" name="testChoice"/>
-	<input class="decision_point button" type="submit" value="Take Later" name="testChoice"/>
-	</form>
+	<header class="tall">
+		<a href="index.php"> <img id="logoTall" src="res/logo.png" alt="Snap-2-Ask Logo"/> </a>
+	</header>
+
+	<div id="content">
+
+		<form id="testchoice" method="post" action="./api/index.php/testChoices">
+		<p>Our records indicate you are a first time tutor. In order to start answering questions and get paid, you have to pass a test. You can choose to take it now or later.</p>
+		<select name="category">
+			<option value="Select Category">Select Category</option>
+			<!-- Populate menu -->
+			<?php
+				$categ = getCategories();
+	
+				for ($a = 0; $a < sizeof($categ); $a++){
+					echo "<option value='" . $categ[$a]["id"] . "|" . $categ[$a]["name"] . "'>" . $categ[$a]["name"] . "</option>";
+				}
+			?>
+		</select>
+		<input  class="decision_point button" type="submit" value="Take Now" name="testChoice"/>
+		<input class="decision_point button" type="submit" value="Take Later" name="testChoice"/>
+		</form>
+	</div>
+	
+	<?php include('footer.php') ?>
 </body>
 </html>
