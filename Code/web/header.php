@@ -44,6 +44,7 @@ if(isset($_GET['search'])) {
 
 	<a href="index.php"><img src="res/logo.png" alt="Snap-2-Ask Logo" id="logoShort"/></a>
 	
+	<?php echo sprintf('<p id="welcomeNotice">Welcome, %s</p>',htmlspecialchars($responseObj['first_name'])); ?>
 	
 	<a id="logoutLink" href="logout.php">Log-out</a>
 	

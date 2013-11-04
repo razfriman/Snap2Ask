@@ -116,6 +116,16 @@ footer {
 	font-size: large;
 }
 
+#welcomeNotice {
+	float:left;
+	margin-left: 1em;
+	margin-top: 1.5em;
+	width: 12em;
+	font-size: 12px;
+	height: 3.5em;
+	overflow-x: hidden;
+}
+
 
 #search {
 	float:right;
@@ -509,6 +519,11 @@ li#categoriesTab li:hover {
 
 
 /* PROFILE */
+
+#tutorprofile input[type="submit"] {
+	clear:both;
+	margin-top: 1em;
+}
 .profileItem {
 	height: 2em;
 	width: 25em;
