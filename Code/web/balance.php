@@ -31,13 +31,13 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 	// UPDATE THE USER INFO VIA REST API 
 
 	$request = array(
-			'last_name' => $responseObj['last_name'],
-			'first_name' => $responseObj['first_name'],
-			'balance' => $responseObj['balance'] - $_POST['withdraw_amount'],
-			'is_tutor' => $responseObj['is_tutor'],
-			'rating' => $responseObj['rating']
+		'last_name' => $responseObj['last_name'],
+		'first_name' => $responseObj['first_name'],
+		'balance' => $responseObj['balance'] - $_POST['withdraw_amount'],
+		'is_tutor' => $responseObj['is_tutor'],
+		'rating' => $responseObj['rating']
 		);
-		
+	
 	if ($request['balance'] < 0)
 	{
 		$request['balance'] = 0;
@@ -47,7 +47,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id']);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	curl_setopt($ch, CURLOPT_HEADER, FALSE);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
 	$updateResponse = curl_exec($ch);
@@ -74,11 +74,11 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit SnapCash') {
 
 	$request = array(
-			'last_name' => $responseObj['last_name'],
-			'first_name' => $responseObj['first_name'],
-			'balance' => $responseObj['balance'] + $_POST['deposit_amount'],
-			'is_tutor' => $responseObj['is_tutor'],
-			'rating' => $responseObj['rating']
+		'last_name' => $responseObj['last_name'],
+		'first_name' => $responseObj['first_name'],
+		'balance' => $responseObj['balance'] + $_POST['deposit_amount'],
+		'is_tutor' => $responseObj['is_tutor'],
+		'rating' => $responseObj['rating']
 		);
 	
 	if ($request['balance'] < 0)
@@ -92,7 +92,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit SnapCash') {
 	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id']);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	curl_setopt($ch, CURLOPT_HEADER, FALSE);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
 	$updateResponse = curl_exec($ch);
@@ -139,31 +139,31 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit SnapCash') {
 				<li><a href="profile.php" >Profile</a></li>
 			</ul>
 		</div>
-	
 		
-	
+		
+		
 		<div id="mainContent">
 			
 			<h1>ACCOUNT BALANCE</h1>
-<?php
+			<?php
 
-// Echo the information using sprintf
-// Escape special html characters to enhance XSS security
-echo sprintf("<h3>Available SnapCash: %s</h3>", htmlspecialchars($responseObj['balance']));
+				// Echo the information using sprintf
+				// Escape special html characters to enhance XSS security
+			echo sprintf("<h3>Available SnapCash: %s</h3>", htmlspecialchars($responseObj['balance']));
 
-?>
+			?>
 
-		
-		<form id="withdrawSnapCashForm" action="#" method="post">
-			<input type="text" name="withdraw_amount" placeholder="Withdraw Amount" autocomplete="off">
-			<input type="submit" name="submit" value="Withdraw SnapCash">
-		</form>
-		
-		<form action="#" method="post">
-			<input type="text" name="deposit_amount" autocomplete="off" placeholder="Deposit Amount">
-			<input type="submit" name="submit" value="Deposit SnapCash">
-		</form>
-    
+			
+			<form id="withdrawSnapCashForm" action="#" method="post">
+				<input type="text" name="withdraw_amount" placeholder="Withdraw Amount" autocomplete="off">
+				<input type="submit" name="submit" value="Withdraw SnapCash">
+			</form>
+			
+			<form action="#" method="post">
+				<input type="text" name="deposit_amount" autocomplete="off" placeholder="Deposit Amount">
+				<input type="submit" name="submit" value="Deposit SnapCash">
+			</form>
+			
 		</div>
 	</div>
 	

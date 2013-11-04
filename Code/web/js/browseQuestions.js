@@ -61,15 +61,15 @@ function loadAllQuestions() {
 	
 	
 	var jqxhr = $.get( baseUrl + "/questions", function(data) {
-	  
-	  for (var i = 0; i < data.length; i++) {
-		 
+		
+		for (var i = 0; i < data.length; i++) {
+			
 		 // Add the question to the UI
-		  addQuestion(data[i]); 
-	  }
+		 addQuestion(data[i]); 
+		}
 	}).fail(function() {
-	    console.log("error loading questions");
-	  });
+		console.log("error loading questions");
+	});
 }
 
 function loadCategoryQuestions(e) {
@@ -77,18 +77,18 @@ function loadCategoryQuestions(e) {
 	$('#browseNav li:nth-child(3)').addClass('selected');
 
 	$('#mainContent').empty();
-		
+	
 	var categoryId = e.target.value;
-				
+	
 	var jqxhr = $.get( baseUrl + "/categories/" + categoryId + "/questions", function(data) {
-  
-	  for (var i = 0; i < data.length; i++) {
-		 
+		
+		for (var i = 0; i < data.length; i++) {
+			
 		 // Add the question to the UI
-		  addQuestion(data[i]); 
-	  }
+		 addQuestion(data[i]); 
+		}
 	}).fail(function() {
-	    console.log("error loading questions");
+		console.log("error loading questions");
 	}); 
 }
 
@@ -97,25 +97,25 @@ function loadPreferredSubjectQuestions() {
 	$('#browseNav li:nth-child(3)').addClass('selected');
 
 	$('#mainContent').empty();
-		
+	
 	var validatedCategoryIds = $('#verified-categories-hidden')[0].value;
 	
 	var categories = validatedCategoryIds.split(" ");
 	
 	for(var k = 0; k < categories.length - 1; k++)
 	{
-	
+		
 		var categoryId = categories[k];
-					
+		
 		var jqxhr = $.get( baseUrl + "/categories/" + categoryId + "/questions", function(data) {
-	  
-		  for (var i = 0; i < data.length; i++) {
-			 
+			
+			for (var i = 0; i < data.length; i++) {
+				
 			 // Add the question to the UI
-			  addQuestion(data[i]); 
-		  }
+			 addQuestion(data[i]); 
+			}
 		}).fail(function() {
-		    console.log("error loading questions");
+			console.log("error loading questions");
 		});
 	}
 }
@@ -128,21 +128,21 @@ function loadQuestionsFromSearch(searchQuery) {
 	$('#mainContent').html('<p>Search Results For Query: ' + searchQuery + "</p>");
 	
 	var searchData = {"search": searchQuery };
-		
+	
 	$.ajax({
-            type: 'POST',
-            url: baseUrl + "/search/questions",
-            data: JSON.stringify(searchData),
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                     
-            	for (var i = 0; i < data.length; i++) {
+		type: 'POST',
+		url: baseUrl + "/search/questions",
+		data: JSON.stringify(searchData),
+		dataType: 'json',
+		contentType: "application/json; charset=utf-8",
+		success: function (data) {
+			
+			for (var i = 0; i < data.length; i++) {
 					// Add the question to the UI
 					addQuestion(data[i]); 
 				}
-            }
-    });
+			}
+		});
 }
 
 function loadCategoriesTab() {
@@ -157,12 +157,12 @@ $(document).ready(function () {
 	var hasSearchQuery = searchQueryElement.length > 0 && searchQueryElement[0].value.length > 0;
 
 	if (hasSearchQuery) {
-	
+		
 		// Display search results
 		var searchQuery = searchQueryElement[0].value;
 		loadQuestionsFromSearch(searchQuery);		
 	} else {
-	
+		
 		// Display all recent questions
 		loadAllQuestions();	
 	}

@@ -52,7 +52,7 @@ if ($question_info['status'] != 0) {
 	
 	<div id="content">
 
-	
+		
 		<div id="linksNav">
 			<ul>
 				<li class="selected" ><a href="browse.php" >Browse</a></li>
@@ -60,11 +60,11 @@ if ($question_info['status'] != 0) {
 				<li><a href="profile.php" >Profile</a></li>
 			</ul>
 		</div>
-	
 		
-	
+		
+		
 		<div id="mainContent">
-		
+			
 			<div id="view-question">
 				<div id="view-question-left">
 					<img src="<?php echo $question_info['image_url']; ?>" width="400px" height="400px" />
@@ -97,7 +97,7 @@ if ($question_info['status'] != 0) {
 				</form>
 			</div>
 		</div>
-	
+		
 	</div>
 
 	<?php include('footer.php') ?>

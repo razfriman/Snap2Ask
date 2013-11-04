@@ -38,19 +38,19 @@ if(isset($_GET['search'])) {
 	<div id="cash">
 		<h2>SnapCash</h2>
 		<h3>
-		<?php echo money_format('%i', $balance); ?>
+			<?php echo money_format('%i', $balance); ?>
 		</32>
 	</div>
 
 	<a href="index.php"><img src="res/logo.png" alt="Snap-2-Ask Logo" id="logoShort"/></a>
-		
+	
 	
 	<a id="logoutLink" href="logout.php">Log-out</a>
-					
-		<form id="search" method="POST" action="#">
-			<input type="submit" value="Search"/>
-			<input type="text" name="searchQuery" id="searchQuery" list = "suggestionlist" value="<?php echo $searchQuery; ?>" placeholder="Search" title="Enter a search query" x-webkit-speech />
-			<datalist id='suggestionlist'>
+	
+	<form id="search" method="POST" action="#">
+		<input type="submit" value="Search"/>
+		<input type="text" name="searchQuery" id="searchQuery" list = "suggestionlist" value="<?php echo $searchQuery; ?>" placeholder="Search" title="Enter a search query" x-webkit-speech />
+		<datalist id='suggestionlist'>
 			<?php 
 			
 			// Add all categories and subcategories to the suggestion list
@@ -63,10 +63,10 @@ if(isset($_GET['search'])) {
 					echo sprintf('<option value="%s">%s</option>', htmlspecialchars($subcategory['name']), htmlspecialchars($subcategory['name']));
 				}
 			}
-						
+			
 			?>
-			</datalist>
-			
-			
-		</form>			
+		</datalist>
+		
+		
+	</form>			
 </header>

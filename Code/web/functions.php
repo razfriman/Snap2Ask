@@ -14,7 +14,7 @@ $base_url = $prefix . $domain . dirname($_SERVER['PHP_SELF']);
 
 
 function refreshSessionInfo($responseObj) {
-		
+	
 	$_SESSION['first_name'] = $responseObj['first_name'];
 	$_SESSION['balance'] = $responseObj['balance'];
 }
@@ -48,7 +48,7 @@ function getUserData($user_id) {
 
 	//decode the response from JSON into PHP
 	$responseObj = json_decode($response,true);
-		
+	
 	return $responseObj;
 }
 

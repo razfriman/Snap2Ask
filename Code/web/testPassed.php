@@ -33,8 +33,8 @@ $responseObj = getUserInfo(true);
 
 <body>
 	<form id="testpassed" method="post" action="./api/index.php/testChoices">
-	<p>Congratulations, you have passed the test and are ready to make money answering questions!</p>
-	<input class="decision_point button" type="submit" value="Continue" name="testChoice"/>
+		<p>Congratulations, you have passed the test and are ready to make money answering questions!</p>
+		<input class="decision_point button" type="submit" value="Continue" name="testChoice"/>
 	</form>
 </body>
 </html>

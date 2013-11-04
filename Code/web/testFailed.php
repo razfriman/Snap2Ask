@@ -6,11 +6,11 @@ session_start();
 // Allow the included files to be executed
 define('inc_file', TRUE);
 
-// if (!isset($_SESSION['user_id'])) {
-// 	// The user is not logged in
-// 	header('Location: index.php');
-// 	exit;
-// }
+if (!isset($_SESSION['user_id'])) {
+	// The user is not logged in
+	header('Location: index.php');
+	exit;
+}
 
 // Require the functions file
 require_once('functions.php');
@@ -37,15 +37,15 @@ $responseObj = getUserInfo(true);
 	$corr = $_SESSION['test_numberCorrect'];
 	$perc = $_SESSION['test_percentCorrect'];
 	$tot = $_SESSION['test_numberOfQuestions'];
-		?>
-	<form id="testfailed" method="post" action="./api/index.php/testChoices">
-	<?php
-	$output = "<p>You have failed the test. </p><p>You answered " . $corr . " out of " . $tot . " questions correctly, meaning your score was " . $perc . "%. However, the minimum passing percentage is 70%. </p><p>You can choose to retake the test now or later.</p>";
-	echo $output;
 	?>
+	<form id="testfailed" method="post" action="./api/index.php/testChoices">
+		<?php
+		$output = "<p>You have failed the test. </p><p>You answered " . $corr . " out of " . $tot . " questions correctly, meaning your score was " . $perc . "%. However, the minimum passing percentage is 70%. </p><p>You can choose to retake the test now or later.</p>";
+		echo $output;
+		?>
 
-	<input class="decision_point button" type="submit" value="Retake Now" name="testChoice"/>
-	<input class="decision_point button" type="submit" value="Retake Later" name="testChoice"/>
+		<input class="decision_point button" type="submit" value="Retake Now" name="testChoice"/>
+		<input class="decision_point button" type="submit" value="Retake Later" name="testChoice"/>
 	</form>
 </body>
 </html>

@@ -69,7 +69,7 @@ $categories = getCategories();
 				<li><a href="profile.php" >Profile</a></li>
 			</ul>
 		</div>
-	
+		
 		<?php 
 		
 		$concatenatedCategories = '';
@@ -89,11 +89,11 @@ $categories = getCategories();
 		}
 		
 		?>
-	
+		
 		<div id="mainContent">
 			<!--POPULATE QUESTIONS HERE-->
 		</div>
-	
+		
 	</div>
 
 	<?php include('footer.php') ?>

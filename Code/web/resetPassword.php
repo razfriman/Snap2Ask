@@ -1,7 +1,4 @@
 <?php
-//ResetPassword-User fills in fields and if successful message is 
-//displayed telling user all is well!
-//NEEDS VALIDATION WITH DATABASE!!!
 
 // Start the named session
 session_name('loginSession');
@@ -14,7 +11,7 @@ define('inc_file', TRUE);
 require_once('functions.php');
 
 if (isset($_SESSION['user_id'])) {
-    
+	
 	// Can't click forgot password if you are already logged in
 	header('Location: index.php');
 	exit;
@@ -31,7 +28,7 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'Reset Password')
 	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/reset_password');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	curl_setopt($ch, CURLOPT_HEADER, FALSE);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
 	$response = curl_exec($ch);
@@ -64,7 +61,7 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'Reset Password')
 		exit;
 	}
 	
-	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +73,7 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'Reset Password')
 	
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/validateForgotPassword.js" type="text/javascript"></script>    
+	<script src="js/validateForgotPassword.js" type="text/javascript"></script>    
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -94,17 +91,17 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'Reset Password')
 
 			<h2>Forgot Password</h2>
 
-<?php
+			<?php
 
-if(isset($_SESSION['msg']['forgot-password-err']))
-{
-	// Display the login error message
-	echo '<div class="message">'.$_SESSION['msg']['forgot-password-err'].'</div>';
-	unset($_SESSION['msg']['forgot-password-err']);
-}
+			if(isset($_SESSION['msg']['forgot-password-err']))
+			{
+				// Display the login error message
+				echo '<div class="message">'.$_SESSION['msg']['forgot-password-err'].'</div>';
+				unset($_SESSION['msg']['forgot-password-err']);
+			}
 
-?>
-				<!-- Login Form in html that sends email and pass to corresponding php script -->
+			?>
+			<!-- Login Form in html that sends email and pass to corresponding php script -->
 			<form id="forgotPasswordForm" method="POST" action="#">
 				<input type="email" name="email" placeholder="Email" title="Please enter a valid email" required autocomplete="on" />
 				<input type="submit" name="submit" value="Reset Password" />

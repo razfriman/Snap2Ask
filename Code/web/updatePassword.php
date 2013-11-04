@@ -44,7 +44,7 @@ if (isset($_POST['submit']))
 	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/reset_password');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	curl_setopt($ch, CURLOPT_HEADER, FALSE);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
 	$response = curl_exec($ch);
@@ -73,7 +73,7 @@ if (isset($_POST['submit']))
 	
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/validateUpdatePassword.js" type="text/javascript"></script>    
+	<script src="js/validateUpdatePassword.js" type="text/javascript"></script>    
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -91,17 +91,17 @@ if (isset($_POST['submit']))
 
 			<h2>Update Password</h2>
 
-<?php
+			<?php
 
-if(isset($_SESSION['msg']['update-password-err']))
-{
-	// Display the login error message
-	echo '<div class="error">'.$_SESSION['msg']['update-password-err'].'</div>';
-	unset($_SESSION['msg']['update-password-err']);
-}
+			if(isset($_SESSION['msg']['update-password-err']))
+			{
+				// Display the login error message
+				echo '<div class="error">'.$_SESSION['msg']['update-password-err'].'</div>';
+				unset($_SESSION['msg']['update-password-err']);
+			}
 
-?>
-				<!-- Login Form in html that sends email and pass to corresponding php script -->
+			?>
+			<!-- Login Form in html that sends email and pass to corresponding php script -->
 			<form id="updatePasswordForm" method="POST" action="#">
 				<input type="password" id="password" name="password" placeholder="Password" title="Please enter a valid password" required autocomplete="on" />
 				<input type="password" id="confirmPassword" name="confirmPassword" placeholder="Password" title="The two passwords must match" required autocomplete="on" />

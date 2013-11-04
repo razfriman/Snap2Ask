@@ -58,7 +58,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Delete Account')
 	<?php include('header.php') ?>
 
 	<div id="content">
-	
+		
 		<div id="linksNav">
 			<ul>
 				<li><a href="browse.php" >Browse</a></li>
@@ -66,59 +66,59 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Delete Account')
 				<li class="selected" ><a href="profile.php" >Profile</a></li>
 			</ul>
 		</div>
-	
 		
-	
+		
+		
 		<div id="mainContent">
 
-		<h1>VIEW PROFILE</h1>
-		
-			<!--POPULATE PROFILE INFORMATION HERE-->
-            <form id="tutorprofile" action="editprofile.php" method="get">
+			<h1>VIEW PROFILE</h1>
 			
-<?php
-// Echo the information using sprintf
-// Escape special html characters to enhance XSS security
-echo sprintf("<div class='profileItem'><label>First Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['first_name']));
-echo sprintf("<div class='profileItem'><label>Last Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['last_name']));
-echo sprintf("<div class='profileItem'><label>Email:</label><p>%s</p></div>", htmlspecialchars($responseObj['email']));
+			<!--POPULATE PROFILE INFORMATION HERE-->
+			<form id="tutorprofile" action="editprofile.php" method="get">
+				
+				<?php
+				// Echo the information using sprintf
+				// Escape special html characters to enhance XSS security
+				echo sprintf("<div class='profileItem'><label>First Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['first_name']));
+				echo sprintf("<div class='profileItem'><label>Last Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['last_name']));
+				echo sprintf("<div class='profileItem'><label>Email:</label><p>%s</p></div>", htmlspecialchars($responseObj['email']));
 
-echo "<div class='profileItem'><label>Verified Categories:</label>";
+				echo "<div class='profileItem'><label>Verified Categories:</label>";
 
-foreach ($responseObj['verified_categories'] as $verified_category)
-{
-	foreach ($categories as $category) {
-		if($verified_category['category_id'] == $category['id'] && $verified_category['is_preferred'])
-		{
-			echo sprintf("<p>%s</p>",$category['name']);
-		}
-	}
-}
+				foreach ($responseObj['verified_categories'] as $verified_category)
+				{
+					foreach ($categories as $category) {
+						if($verified_category['category_id'] == $category['id'] && $verified_category['is_preferred'])
+						{
+							echo sprintf("<p>%s</p>",$category['name']);
+						}
+					}
+				}
 
-echo "</div>";
-?>
-		        
+				echo "</div>";
+				?>
+				
 				<input type="submit" value="Edit Profile" />
 
-        	</form>
-        	<form id="taketutortest" action="./api/index.php/testChoices" method="post">
-        	<select name="category">
-				<option value="Select Category">Select Category</option>
-				<!-- Populate menu -->
-				<?php
+			</form>
+			<form id="taketutortest" action="./api/index.php/testChoices" method="post">
+				<select name="category">
+					<option value="Select Category">Select Category</option>
+					<!-- Populate menu -->
+					<?php
 					$categ = getCategories();
 
-				for ($a = 0; $a < sizeof($categ); $a++){
-					echo "<option value='" . $categ[$a]["id"] . "|" . $categ[$a]["name"] . "'>" . $categ[$a]["name"] . "</option>";
-				}
-				?>
-			</select>
-        		<input id="tutortestbutton" type="submit" name="testChoice" value="Take Test"/>
-        	</form>
-        	<form id="deleteAccountForm" action="profile.php" method="post">
-        		<input id="deleteAccountButton" type="submit" name="submit" value="Delete Account" />
-        	</form>
-        	
+					for ($a = 0; $a < sizeof($categ); $a++){
+						echo "<option value='" . $categ[$a]["id"] . "|" . $categ[$a]["name"] . "'>" . $categ[$a]["name"] . "</option>";
+					}
+					?>
+				</select>
+				<input id="tutortestbutton" type="submit" name="testChoice" value="Take Test"/>
+			</form>
+			<form id="deleteAccountForm" action="profile.php" method="post">
+				<input id="deleteAccountButton" type="submit" name="submit" value="Delete Account" />
+			</form>
+			
 		</div>
 	</div>
 

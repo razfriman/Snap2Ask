@@ -232,7 +232,7 @@ function addVerifiedCategories(&$user, $db)
 		
 	} catch(PDOException $e) {
      // SQL ERROR
-     $user['verified_categories'] = array();
+		$user['verified_categories'] = array();
 	}
 }
 
@@ -358,7 +358,7 @@ $app->post(
 		$password_reset_token = '';
 		
 		try {
-		
+			
 			$sth = $db->prepare('SELECT id FROM users WHERE email=:email AND authentication_mode="custom"');
 			$sth->bindParam(':email',$email);
 			$sth->execute();
@@ -377,7 +377,7 @@ $app->post(
 				$sth->bindParam(':user_id',$user_id);
 				$sth->bindParam(':password_reset_token',$password_reset_token);
 				$sth->execute();
-			
+				
 				// SEND AN EMAIL
 				$to      = $email;
 				$subject = 'Snap-2-Ask Password Reset';
@@ -392,7 +392,7 @@ $app->post(
 
 		} catch(PDOException $e) {
          // SQL ERROR
-         $reason = $e->getMessage();
+			$reason = $e->getMessage();
 		}
 
 		// Create the return data
@@ -410,7 +410,7 @@ $app->post(
 		$response->write(json_encode($dataArray));
 	}
 	);
-	
+
 // UPDATE THE USER'S PASSWORD AFTER A PASSWORD RESET
 $app->delete(
 	'/reset_password',
@@ -432,7 +432,7 @@ $app->delete(
 		$reason = '';
 		
 		try {
-	
+			
 			// UPDATE THE DB
 			$sth = $db->prepare('UPDATE users SET password_reset_token=null,password=:password,salt=:salt WHERE id=:user_id');
 			$sth->bindParam(':user_id',$user_id);
@@ -443,7 +443,7 @@ $app->delete(
 			$success = true;
 		} catch(PDOException $e) {
          // SQL ERROR
-         $reason = $e->getMessage();
+			$reason = $e->getMessage();
 		}
 
 		// Create the return data
@@ -539,7 +539,7 @@ $app->get(
 		$response->write(json_encode($userData));
 	}
 	);
-	
+
 // UPDATE A USER
 // OCCURS WHEN UPDATING A USER'S INFORMATION
 $app->put(
@@ -549,7 +549,7 @@ $app->put(
 		// Get the JSON request
 		$request = $app->request()->getBody();
 
-	
+		
 		$balance = $request['balance'];
 		$is_tutor = $request['is_tutor'];
 		$first_name = $request['first_name'];
@@ -592,7 +592,7 @@ $app->put(
 		$response->write(json_encode($dataArray));
 	}
 	);
-	
+
 // DELETE A USER ACCOUNT
 $app->delete(
 	'/users/:id',
@@ -815,7 +815,7 @@ $app->post(
 
 		} catch(PDOException $e) {
          // SQL ERROR
-         $reason = $e->getMessage();
+			$reason = $e->getMessage();
 		}
 
 		// Create the return data
@@ -884,7 +884,7 @@ $app->get(
 		$response->write(json_encode($categoryData));
 	}
 	);
-	
+
 // GET LIST OF QUESTIONS BY CATEGORY
 $app->get(
 	'/categories/:id/questions',
@@ -916,12 +916,12 @@ $app->get(
 		$response->write(json_encode($questionData));
 	}
 	);
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 //GET LIST OF ALL TEST VALIDATION QUESTIONS
 $app->get(
 	'/test',
@@ -942,7 +942,7 @@ $app->get(
 		} catch(PDOException $e) {
          // SQL ERROR
 		}
-	
+		
 		$response = $app->response();
 		$response['Content-Type'] = 'application/json';
 		$response->status(200);
@@ -963,16 +963,16 @@ $app->post(
 		$numberCorrect = 0;
 		$numberSkipped = 0;
 		try{
-				$sth = $db->prepare("SELECT id,rightAnswer FROM validationQuestions");
-				$sth->execute();
-				$results = $sth->fetchAll(PDO::FETCH_ASSOC);
-				foreach ($results as &$result){
-					$testAnswers[$result["id"]] = $result["rightAnswer"];
+			$sth = $db->prepare("SELECT id,rightAnswer FROM validationQuestions");
+			$sth->execute();
+			$results = $sth->fetchAll(PDO::FETCH_ASSOC);
+			foreach ($results as &$result){
+				$testAnswers[$result["id"]] = $result["rightAnswer"];
 
-				}
-			}catch (PDOException $e){
-				//SQL ERROR
 			}
+		}catch (PDOException $e){
+				//SQL ERROR
+		}
 		for ($i = 1; $i <= QUESTIONS_PER_TEST; $i++){
 			$a = $request->post(strval($i));
 			$b = $testAnswers[strval($i)];
@@ -1024,7 +1024,7 @@ $app->post(
 		// $app->redirect('../../browse.php');
 	}
 	);
-	
+
 
 $app->post(
 	'/testChoices',
@@ -1034,30 +1034,30 @@ $app->post(
 		switch ($request->post("testChoice")){
 			case "Take Now":
 			case "Take Test";
-				session_name('loginSession');
-				session_start();
-				$list = explode("|",$request->post("category")); 
-				$_SESSION['test_category_id'] = $list[0];
-				$_SESSION['test_category_name'] = $list[1];
-				$app->redirect('../../subjectTest.php');
+			session_name('loginSession');
+			session_start();
+			$list = explode("|",$request->post("category")); 
+			$_SESSION['test_category_id'] = $list[0];
+			$_SESSION['test_category_name'] = $list[1];
+			$app->redirect('../../subjectTest.php');
 			break;
 			case "Retake Now":
-				$app->redirect('../../subjectTest.php');
+			$app->redirect('../../subjectTest.php');
 			break;
 			case "Take Later":
 			case "Retake Later":
 			case "Continue":
-				$app->redirect('../../browse.php');
+			$app->redirect('../../browse.php');
 			break;
 		}
 	});
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
 // GET LIST OF ALL QUESTIONS
 $app->get(
 	'/questions',
@@ -1159,60 +1159,60 @@ $app->post(
         $sth = $db->prepare('SELECT balance FROM users WHERE id=:user_id');
         $sth->bindParam(':user_id', $student_id);
         $sth->execute();
-                
+        
         if ($sth->rowCount() > 0) {
-	        $balance_data = $sth->fetch();
-	        $current_balance = $balance_data[0];
-	        
-	        if ($current_balance > $ask_question_cost)
-	        {
+        	$balance_data = $sth->fetch();
+        	$current_balance = $balance_data[0];
+        	
+        	if ($current_balance > $ask_question_cost)
+        	{
 	        	// The user has enough funds to ask a question
-		        $can_ask_question = true;
-	        } else {
-		        $reason = 'Not enough SnapCash';
-	        }
+        		$can_ask_question = true;
+        	} else {
+        		$reason = 'Not enough SnapCash';
+        	}
         } else {
-	        $reason = 'User does not exist';
+        	$reason = 'User does not exist';
         }
         
         if ($can_ask_question) {
-	        
+        	
 	        // Create the prepared statement to insert the question to the database
-	        try {
-	        	$sth = $db->prepare('INSERT INTO questions (student_id,category_id,subcategory_id,description,image_url,image_thumbnail_url,status,times_answered,date_created) 
-	        		VALUES (:student_id,:category_id,:subcategory_id,:description,:image_url,:image_thumbnail_url,:status,:times_answered,:date_created)');
-	        	$sth->bindParam(':student_id', $student_id);
-	        	$sth->bindParam(':category_id', $category_id);
-	        	$sth->bindParam(':subcategory_id', $subcategory_id);
-	        	$sth->bindParam(':description', $description);
-	        	$sth->bindParam(':image_url', $image_url);
-	        	$sth->bindParam(':image_thumbnail_url', $image_thumbnail_url);
-	        	$sth->bindParam(':status', $status);
-	        	$sth->bindParam(':times_answered', $times_answered);
-	        	$sth->bindParam(':date_created', $date_created);
-	
-	        	$sth->execute();
-	
-	        	$success = true;
-	
+        	try {
+        		$sth = $db->prepare('INSERT INTO questions (student_id,category_id,subcategory_id,description,image_url,image_thumbnail_url,status,times_answered,date_created) 
+        			VALUES (:student_id,:category_id,:subcategory_id,:description,:image_url,:image_thumbnail_url,:status,:times_answered,:date_created)');
+        		$sth->bindParam(':student_id', $student_id);
+        		$sth->bindParam(':category_id', $category_id);
+        		$sth->bindParam(':subcategory_id', $subcategory_id);
+        		$sth->bindParam(':description', $description);
+        		$sth->bindParam(':image_url', $image_url);
+        		$sth->bindParam(':image_thumbnail_url', $image_thumbnail_url);
+        		$sth->bindParam(':status', $status);
+        		$sth->bindParam(':times_answered', $times_answered);
+        		$sth->bindParam(':date_created', $date_created);
+        		
+        		$sth->execute();
+        		
+        		$success = true;
+        		
 	        	// Return the new question's id
-	        	$insert_id = $db->lastInsertId();
-	
-	
-	        } catch(PDOException $e) {
-	        	$success = false;
-	        	$reason = $e->getMessage();
-	        }
-	    }
-	    
-	    if ($success) {
-	    	
+        		$insert_id = $db->lastInsertId();
+        		
+        		
+        	} catch(PDOException $e) {
+        		$success = false;
+        		$reason = $e->getMessage();
+        	}
+        }
+        
+        if ($success) {
+        	
 	    	// Deduct the balance from the user
-		    $sth = $db->prepare('UPDATE users SET balance=balance - :question_cost WHERE id=:user_id');
-	        $sth->bindParam(':user_id', $student_id);
-	        $sth->bindParam(':question_cost', $ask_question_cost);
-	        $sth->execute();
-	    }
+        	$sth = $db->prepare('UPDATE users SET balance=balance - :question_cost WHERE id=:user_id');
+        	$sth->bindParam(':user_id', $student_id);
+        	$sth->bindParam(':question_cost', $ask_question_cost);
+        	$sth->execute();
+        }
         
 	    // Create the response data
         $dataArray = array(
@@ -1343,8 +1343,8 @@ $app->delete(
 		$response->write(json_encode($dataArray));
 	}
 	);
-	
-	
+
+
 // GET A SPECIFIC QUESTION'S ANSWERS
 $app->get(
 	'/questions/:id/answers',
@@ -1524,47 +1524,47 @@ $app->post(
 
 //RATE answer	
 $app->put(
-        '/rateAnswers/:id',
-        function ($id) use ($app, $db) {
+	'/rateAnswers/:id',
+	function ($id) use ($app, $db) {
 
-                $rateAnswer = array();
+		$rateAnswer = array();
 
                 //Get the JSON request with the data
-                $request = $app->request()->getBody();
+		$request = $app->request()->getBody();
 
                 //get data
-                $rate = $request['rate'];
+		$rate = $request['rate'];
 
-                $rateAnswer['sucess'] = true;
-                $rateAnswer['reason'] = "Question sucesfully rated";
-                try
-                {
+		$rateAnswer['sucess'] = true;
+		$rateAnswer['reason'] = "Question sucesfully rated";
+		try
+		{
                         //prepare the query
-                        $sth = $db->prepare('UPDATE answers set rating = :rate WHERE id = :answer_id');
-                        $sth->bindParam(':rate', $rate);
-                        $sth->bindParam(':answer_id', $id);
-                        $sth->execute();
-                } catch(PDOException $e) {
-                        $rateAnswer['sucess'] = false;
-                        $rateAnswer['reason'] = 'Error rating the answer';
-                }
+			$sth = $db->prepare('UPDATE answers set rating = :rate WHERE id = :answer_id');
+			$sth->bindParam(':rate', $rate);
+			$sth->bindParam(':answer_id', $id);
+			$sth->execute();
+		} catch(PDOException $e) {
+			$rateAnswer['sucess'] = false;
+			$rateAnswer['reason'] = 'Error rating the answer';
+		}
 
                 // Return the JSON data
-                $response = $app->response();
-                $response['Content-Type'] = 'application/json';
-                $response->status(200);
-                $response->write(json_encode($rateAnswer));
-        }
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($rateAnswer));
+	}
 
-);	
-	
-	
-	
-	
-	
-	
-	
-	
+	);	
+
+
+
+
+
+
+
+
 
 // UPDATE AN ANSWER
 // OCCURS WHEN A USER REJECTS/ACCEPTS A QUESTION'S ANSWER
@@ -1659,11 +1659,11 @@ $app->post(
 			
 
 			$sth = $db->prepare('SELECT * FROM questions WHERE status=0 AND
-			(description LIKE concat("%", :search_query, "%") OR
-			(select name from categories where id=questions.category_id) LIKE concat("%", :search_query, "%") OR
-			(select name from subcategories where id=questions.subcategory_id) LIKE concat("%", :search_query, "%")
-			 ) ORDER BY date_created DESC');
-			 
+				(description LIKE concat("%", :search_query, "%") OR
+					(select name from categories where id=questions.category_id) LIKE concat("%", :search_query, "%") OR
+					(select name from subcategories where id=questions.subcategory_id) LIKE concat("%", :search_query, "%")
+					) ORDER BY date_created DESC');
+			
 			$sth->bindParam(':search_query', $search_query);
 			$sth->execute();
 			$questionDataAll = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -1697,31 +1697,31 @@ $app->post(
 
 //ADD VALIDATED CATEGORY
 $app->post(
-        '/validateCategory',
-        function () use ($app, $db) {
+	'/validateCategory',
+	function () use ($app, $db) {
 
 		$status = array();
 		$status['success'] = 'true';
 
                 //get the request informaiton
-                $request = $app->request()->getBody();
-                $userID = $request['userID'];
-                $category = $request['categoryName'];
+		$request = $app->request()->getBody();
+		$userID = $request['userID'];
+		$category = $request['categoryName'];
 
                 //get category id
-                $sth = $db->prepare('SELECT id FROM categories WHERE name = :categoryName');
-                $sth->bindParam(':categoryName', $category);
-                $sth->execute();
-                $row = $sth->fetch();
+		$sth = $db->prepare('SELECT id FROM categories WHERE name = :categoryName');
+		$sth->bindParam(':categoryName', $category);
+		$sth->execute();
+		$row = $sth->fetch();
 		$categoryID = $row[0];
 		try {
 
 	                //insert an user prefered category
-        	        $sth = $db->prepare('INSERT into verified_categories(user_id, category_id) VALUES (:user, :category)');
-                	$sth->bindParam(':category', $categoryID);
-	                $sth->bindParam(':user', $userID);
-        	        $sth->execute();
-        	
+			$sth = $db->prepare('INSERT into verified_categories(user_id, category_id) VALUES (:user, :category)');
+			$sth->bindParam(':category', $categoryID);
+			$sth->bindParam(':user', $userID);
+			$sth->execute();
+			
 		}
 		catch(PDOException $e)
 		{
@@ -1732,14 +1732,14 @@ $app->post(
 		}
 
 		// Return JSON with the status of the insertion
-                $response = $app->response();
-                $response['Content-Type'] = 'application/json';
-                $response->status(200);
-                $response->write(json_encode($status));
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($status));
 
 	}
-);
-              
+	);
+
 
 // Run the Slim app as specified by the Slim Framework documentation
 $app->run();

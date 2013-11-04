@@ -39,16 +39,16 @@ function addTestQuestion(testQuestionData,questionNumber) {
 		
 		switch(i){
 			case 1:
-				choice.innerHTML = choiceA;
-				letter = 'A';
+			choice.innerHTML = choiceA;
+			letter = 'A';
 			break;
 			case 2:
-				choice.innerHTML = choiceB;
-				letter = 'B';
+			choice.innerHTML = choiceB;
+			letter = 'B';
 			break;
 			case 3:
-				choice.innerHTML = choiceC;
-				letter = 'C';
+			choice.innerHTML = choiceC;
+			letter = 'C';
 			break;
 		}
 		
@@ -77,19 +77,19 @@ $(document).ready(function () {
 	$('#Test').empty();
 	//just a test category
 	var jqxhr = $.get( baseUrl + "/test", function(data) {
-	  
-	  for (var i = 1; i <= data.length; i++) {
+		
+		for (var i = 1; i <= data.length; i++) {
 		 // Add the question to the UI
-		  addTestQuestion(data[i-1],i); 
-	  }
-	  var submit = document.createElement("input");
-	  $(submit).attr({
-	  	type:"submit",
-	  	value:"Submit",
-	  	id:"submit_test"
-	  });
-	  $('#Test').append(submit);
+		 addTestQuestion(data[i-1],i); 
+		}
+		var submit = document.createElement("input");
+		$(submit).attr({
+			type:"submit",
+			value:"Submit",
+			id:"submit_test"
+		});
+		$('#Test').append(submit);
 	}).fail(function() {
-	    console.log("error loading questions");
-	  });		
+		console.log("error loading questions");
+	});		
 });
