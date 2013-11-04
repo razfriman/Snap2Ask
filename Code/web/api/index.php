@@ -221,7 +221,7 @@ function addVerifiedCategories(&$user, $db)
 		$user_id = $user['id'];
 
 		// Select all the verification data for the matching user id
-		$sth = $db->prepare("SELECT category_id,is_preferred FROM verified_categories WHERE user_id=:user_id");
+		$sth = $db->prepare("SELECT category_id,is_preferred,name FROM verified_categories JOIN categories ON (verified_categories.category_id=categories.id)  WHERE user_id=:user_id");
 		$sth->bindParam(':user_id',$user_id);
 		$sth->execute();
 		
@@ -785,7 +785,7 @@ $app->get(
 
 
 // ADD NEW VERIFIED CATEGORY
-$app->post(
+$app->put(
 	'/users/:id/verified_categories',
 	function ($id) use ($app,$db) {
 
@@ -797,7 +797,6 @@ $app->post(
 		$category_id = $request['category_id'];
 		$is_preferred = $request['is_preferred'];
 		
-		$insert_id = -1;
 		$success = false;
 		$reason = '';
 		
@@ -810,7 +809,6 @@ $app->post(
 			$sth->bindParam(':is_preferred', $is_preferred);
 			$sth->execute();
 			
-			$insert_id = $db->lastInsertId();
 			$success = true;
 
 		} catch(PDOException $e) {
@@ -821,8 +819,7 @@ $app->post(
 		// Create the return data
 		$dataArray = array(
 			'success' => $success,
-			'reason' => $reason,
-			'insert_id' => $insert_id
+			'reason' => $reason
 			);
 		
         // Return the JSON data

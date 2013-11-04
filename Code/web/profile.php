@@ -49,6 +49,8 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Delete Account')
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	<script src="js/validateProfile.js" type="text/javascript"></script>
 	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -83,16 +85,23 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Delete Account')
 				echo sprintf("<div class='profileItem'><label>Last Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['last_name']));
 				echo sprintf("<div class='profileItem'><label>Email:</label><p>%s</p></div>", htmlspecialchars($responseObj['email']));
 
-				echo "<div class='profileItem'><label>Verified Categories:</label>";
+				echo "<div class='profileItem'><label>Preferred Categories:</label>";
 
-				foreach ($responseObj['verified_categories'] as $verified_category)
-				{
+				
+				$count = 0;
+				foreach ($responseObj['verified_categories'] as $verified_category) {
 					foreach ($categories as $category) {
 						if($verified_category['category_id'] == $category['id'] && $verified_category['is_preferred'])
 						{
 							echo sprintf("<p>%s</p>",$category['name']);
+							$count++;
 						}
 					}
+				}
+					
+				if ($count == 0)
+				{
+					echo '<p>&lt;None&gt;</p>';
 				}
 
 				echo "</div>";
@@ -101,20 +110,50 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Delete Account')
 				<input type="submit" value="Edit Profile" />
 
 			</form>
+			
+			<?php 
+			
+			if (sizeof($responseObj['verified_categories']) < sizeof($categories)) {
+			
+			?>	
+			
+			<div class="divider"></div>
+			<h1>ADD VERIFIED CATEGORY</h1>
 			<form id="taketutortest" action="./api/index.php/testChoices" method="post">
 				<select name="category">
-					<option value="Select Category">Select Category</option>
+					<option value="Select Category" selected="true" disabled="disabled">Select Category</option>
 					<!-- Populate menu -->
 					<?php
-					$categ = getCategories();
-
-					for ($a = 0; $a < sizeof($categ); $a++){
-						echo "<option value='" . $categ[$a]["id"] . "|" . $categ[$a]["name"] . "'>" . $categ[$a]["name"] . "</option>";
+					
+					foreach($categories as $category)
+					{
+						$isVerified = false;
+						foreach ($responseObj['verified_categories'] as $verified_category)
+						{
+							if ($category['id'] == $verified_category['category_id']) {
+								$isVerified = true;
+							}
+						}
+						
+						if (!$isVerified)
+						{
+							echo sprintf('<option value="%s|%s">%s</option>', $category['id'],$category['name'],$category['name']);
+						}
 					}
+					
 					?>
 				</select>
 				<input id="tutortestbutton" type="submit" name="testChoice" value="Take Test"/>
 			</form>
+			
+			<?php
+			
+			}
+			
+			?>
+			
+			<div class="divider"></div>
+			<h1>ACCOUNT ACTIONS</h1>
 			<form id="deleteAccountForm" action="profile.php" method="post">
 				<input id="deleteAccountButton" type="submit" name="submit" value="Delete Account" />
 			</form>

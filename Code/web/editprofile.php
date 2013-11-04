@@ -47,52 +47,32 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 	curl_close($ch);
 	$updateResponseObj = json_decode($updateResponse,true);
 	
-	foreach ($categories as $category) {	
+	foreach ($responseObj['verified_categories'] as $category) {	
 		$addedCategory = false;
 		
-		foreach($_POST['preferredCategories'] as $preferredCategory)
-		{
-			
-			$request = array(
-				'category_id' => $category['id'],
-				'is_preferred' => 1,
-				);
-			
-			if ($category['id'] == $preferredCategory) {
-				// ADD CATEGORY
-				$addedCategory = true;
-				
-				$ch = curl_init();
-				curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id'] . '/verified_categories');
-				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-				curl_setopt($ch, CURLOPT_HEADER, FALSE);
-				curl_setopt($ch, CURLOPT_POST, TRUE);
-				curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-				curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
-				$response = curl_exec($ch);
-				curl_close($ch);
-			}
-		}
-		
-		if (!$addedCategory)
-		{
-			
-			// REMOVE CATEGORY
-			$request = array(
-				'category_id' => $category['id'],
+		$request = array(
+				'category_id' => $category['category_id'],
 				'is_preferred' => 0,
 				);
-			
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id'] . '/verified_categories');
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-			curl_setopt($ch, CURLOPT_HEADER, FALSE);
-			curl_setopt($ch, CURLOPT_POST, TRUE);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
-			$response = curl_exec($ch);
-			curl_close($ch);
+
+		foreach($_POST['preferredCategories'] as $preferredCategory)
+		{
+			if ($category['category_id'] == $preferredCategory) {
+				// ADD CATEGORY
+				$request['is_preferred'] = 1;
+			}
 		}
+				
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id'] . '/verified_categories');
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch, CURLOPT_HEADER, FALSE);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
+		$response = curl_exec($ch);
+		curl_close($ch);
+		
 	}
 
 	if($updateResponseObj['success'])
@@ -150,21 +130,24 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 
 				<?php
 				echo "<label>Preferred Subjects</label>";
-				
-				foreach ($categories as $category) {
-
-
-					$checked = '';
 					
-					foreach($responseObj['verified_categories'] as $verifiedCategory)
+					if (sizeof($responseObj['verified_categories']) == 0)
 					{
-						if ($category['id'] == $verifiedCategory['category_id'] && $verifiedCategory['is_preferred']) {
-							$checked = "checked";			
+						echo '<p>&lt;None&gt;</p>';
+					} else {
+					
+						foreach($responseObj['verified_categories'] as $verifiedCategory)
+						{
+							$checked = '';
+							
+							if ($verifiedCategory['is_preferred']) {
+								$checked = "checked";			
+							}
+						
+						
+						echo sprintf("<div class='editProfileItem'>   <input type='checkbox' name='preferredCategories[]' %s id='category_%s' value='%s' />   <label for='category_%s' />%s</label>    </div>", $checked, $verifiedCategory['category_id'], $verifiedCategory['category_id'], $verifiedCategory['category_id'], $verifiedCategory['name']);
 						}
 					}
-					
-					echo sprintf("<div class='editProfileItem'>   <input type='checkbox' name='preferredCategories[]' %s id='category_%s' value='%s' />   <label for='category_%s' />%s</label>    </div>", $checked, $category['id'], $category['id'], $category['id'], $category['name']);
-				}
 				
 				?>
 
