@@ -117,6 +117,13 @@
     cell.description.text = question.description;
     [cell.isAnsweredLabel setHidden:question.status == 0];
     
+    if (question.status == 0)
+    {
+        //cell.backgroundColor = [UIColor colorWithRed:100 green:0 blue:0 alpha:0.1];
+    } else {
+        //cell.backgroundColor = [UIColor colorWithRed:0 green:100 blue:0 alpha:0.1];
+    }
+    
     [cell.thumbnailView setImageWithURL:[NSURL URLWithString:question.imageThumbnailUrl] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
     
     return cell;

@@ -13,7 +13,7 @@
 @property (nonatomic) NSInteger userId;
 @property (nonatomic) double balance;
 @property (nonatomic) BOOL isTutor;
-@property (nonatomic) BOOL preferredCategoryId;
+@property (nonatomic) NSInteger preferredCategoryId;
 @property (strong, nonatomic) NSString *authenticationMode;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *firstName;

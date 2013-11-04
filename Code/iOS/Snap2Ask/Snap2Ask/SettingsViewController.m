@@ -66,7 +66,7 @@
     _emailLabel.text = userInfo.email;
     _balanceLabel.text = [[NSNumber numberWithInteger:userInfo.balance ] stringValue];
 
-    //_questionsAskedLabel.text = userInfo.questionsAsked;
+    _questionsAskedLabel.text = @"Not Implemented";
 }
 
 - (void) userDeleted:(NSNotification *)notification

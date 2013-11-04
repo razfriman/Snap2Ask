@@ -139,8 +139,12 @@
         
         if ([answer.status isEqualToString:@"pending"]) {
         
-            // Let the user choose the accept/reject the answer
-            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Accept Answer", @"Reject Answer", nil];
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Rate Answer:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"\U00002B50 \U00002B50 \U00002B50 \U00002B50 \U00002B50",
+                                          @"\U00002B50 \U00002B50 \U00002B50 \U00002B50",
+                                          @"\U00002B50 \U00002B50 \U00002B50",
+                                          @"\U00002B50 \U00002B50",
+                                          @"\U00002B50",
+                                          @"Reject Answer", nil];
             
             [actionSheet showInView:self.view];
         }
@@ -149,17 +153,27 @@
 
 #pragma mark - Action Sheet
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        // Accept
-        NSLog(@"Accept answer");
-    } else if (buttonIndex == 1) {
-        // Reject
-        NSLog(@"Reject answer");
-    } else if (buttonIndex == 2) {
-        // Cancel button
-        
+    
+    if (buttonIndex == 6) {
+        // Cancel Button
         return;
     }
+    
+    if (buttonIndex == 0) {
+        // 5 Stars
+    } else if (buttonIndex == 1) {
+        // 4 Stars
+    } else if (buttonIndex == 2) {
+        // 3 Stars
+    } else if (buttonIndex == 3) {
+        // 2 Stars
+    } else if (buttonIndex == 4) {
+        // 1 Stars
+    } else if (buttonIndex == 5) {
+        // Reject Answer
+    }
+    
+    [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"This feature is not implemented yet." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
