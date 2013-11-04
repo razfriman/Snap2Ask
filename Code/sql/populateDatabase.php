@@ -146,7 +146,7 @@ function insertSubcategories ($dbConnection, $file)
                         $insertSubcategory = "INSERT INTO subcategories(name, category_id) VALUES ('{$name[1]}', {$row['id']});";
                         if (!mysql_query($insertSubcategory))
                         {
-                                die("Imposible to insert the subCategory" . mysql_error());               
+                                die("Imposible to insert the subCategory" . mysql_error()); 
 		 	}
                 }
         }
@@ -216,6 +216,9 @@ function insertUsers ($dbConnection, $file)
                                 die("Imposible to insert the user" . mysql_error());
                         }
 			
+			
+			if ($name[3] != '')
+			{
 			//get preferred category id
                         $sqlQuery = "SELECT id from categories WHERE name = '{$name[3]}';";
                         $response = mysql_query ($sqlQuery);
@@ -228,6 +231,7 @@ function insertUsers ($dbConnection, $file)
 			if (!mysql_query($sqlQuery))
 			{
 				die ("Imposible to insert prefered category" . mysql_error());
+			}
 			}
 		}
 	}
