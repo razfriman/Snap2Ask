@@ -38,7 +38,7 @@ if(isset($_GET['search'])) {
 	<div id="cash">
 		<h2>SnapCash</h2>
 		<h3>
-			<?php echo money_format('%i', $balance); ?>
+			<?php echo $balance; ?>
 		</32>
 	</div>
 

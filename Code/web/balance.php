@@ -22,26 +22,26 @@ $responseObj = getUserInfo(true);
 if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 
 	// WITHDRAW FUNDS
-	// Simulate withdrawing money by settings the user's balance to 0
 	$current = $responseObj['balance'];
 	$withdraw = $_POST['withdraw_amount'];
-	if ($current < $withdraw){
-		
+	
+	if ($withdraw < 0) {
+		$withdraw = 0;
 	}
+	
+	if ($withdraw > $current) {
+		$withdraw = $current;
+	}
+	
 	// UPDATE THE USER INFO VIA REST API 
 
 	$request = array(
 		'last_name' => $responseObj['last_name'],
 		'first_name' => $responseObj['first_name'],
-		'balance' => $responseObj['balance'] - $_POST['withdraw_amount'],
+		'balance' => $responseObj['balance'] - $withdraw,
 		'is_tutor' => $responseObj['is_tutor'],
 		'rating' => $responseObj['rating']
 		);
-	
-	if ($request['balance'] < 0)
-	{
-		$request['balance'] = 0;
-	}
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id']);
@@ -71,21 +71,17 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 
 // FOR TESTING ONLY (THIS WOULD NEVER REALLY HAPPEN)
 // TUTORS ONLY WITHDRAW THEIR EARNED SNAPCASH
-if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit SnapCash') {
+if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit 50 SnapCash') {
 
 	$request = array(
 		'last_name' => $responseObj['last_name'],
 		'first_name' => $responseObj['first_name'],
-		'balance' => $responseObj['balance'] + $_POST['deposit_amount'],
+		'balance' => $responseObj['balance'] + 50,
 		'is_tutor' => $responseObj['is_tutor'],
 		'rating' => $responseObj['rating']
 		);
 	
-	if ($request['balance'] < 0)
-	{
-		$request['balance'] = 0;
-	}
-
+	
 
 	//cURL used to collect login information
 	$ch = curl_init();
@@ -122,7 +118,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit SnapCash') {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	
+	<script src="js/validateBalance.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
@@ -155,13 +151,15 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit SnapCash') {
 
 			
 			<form id="withdrawSnapCashForm" action="#" method="post">
-				<input type="text" name="withdraw_amount" placeholder="Withdraw Amount" autocomplete="off">
+				<input type="text" name="withdraw_amount" placeholder="Withdraw Amount" autocomplete="off" title="Please enter a valid amount to withdraw">
 				<input type="submit" name="submit" value="Withdraw SnapCash">
 			</form>
 			
+			<!-- TODO:
+			REMOVE THIS IN THE FUTURE
+			THIS IS ONLY FOR TESTING PURPOSES -->
 			<form action="#" method="post">
-				<input type="text" name="deposit_amount" autocomplete="off" placeholder="Deposit Amount">
-				<input type="submit" name="submit" value="Deposit SnapCash">
+				<input type="submit" name="submit" value="Deposit 50 SnapCash">
 			</form>
 			
 		</div>

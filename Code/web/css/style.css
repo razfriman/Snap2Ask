@@ -619,25 +619,6 @@ div.choice_wrapper {
 	width: 30em;
 }
 
-
-form#testpassed{
-	width:500px;
-	text-align:center;
-	position:relative;
-	top:150px;
-	margin-left:auto;
-	margin-right:auto;
-}
-
-form#testfailed{
-	width:500px;
-	text-align:center;
-	position:relative;
-	top:170px;
-	margin-left:auto;
-	margin-right:auto;
-}
-
 input.decision_point {
 	width:100px;
 	height:50px;
