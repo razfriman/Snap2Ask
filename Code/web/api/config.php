@@ -13,6 +13,6 @@ define ( 'PARSE_APPLICATION_ID', 'qCO8s6oQwSxzwuBWekMQj2nqoiapfSk4ckrKkux5');
 define ( 'PARSE_REST_API_KEY', 'tJYpTV7HqoN3SzvU73cyYTlu3K9ngTvOMXRwwmz0');
 
 define('ASK_QUESTION_COST', 5.00);
-define('QUESTIONS_PER_TEST',13);
-define('PASS_THRESHOLD', 0.7);
+
+define('VALIDATION_TEST_PASS_THRESHOLD', 70);
 ?>

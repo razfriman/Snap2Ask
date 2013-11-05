@@ -12,10 +12,23 @@ if (!isset($_SESSION['user_id'])) {
 	exit;
 }
 
+if (isset($_POST['submit'])) {
+
+	if ($_POST['submit'] == 'Take Now' && isset($_POST['category'])) {
+		$category_id = $_POST['category'];
+		header(sprintf('Location: subjectTest.php?category_id=%s', $category_id));
+	} else if ($_POST['submit'] == 'Take Later') {
+		header('Location: index.php');
+	} else {
+		header('Location: index.php');
+	}
+}
+
 // Require the functions file
 require_once('functions.php');
 
 $responseObj = getUserInfo(true);
+$categories = getCategories();
 
 ?>
 
@@ -27,7 +40,8 @@ $responseObj = getUserInfo(true);
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="js/populateList.js" type="text/javascript"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	<script src="js/validateSelectTest.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
@@ -39,21 +53,26 @@ $responseObj = getUserInfo(true);
 
 	<div id="content">
 
-		<form id="testchoice" method="post" action="./api/index.php/testChoices">
+		<form id="categoryTestForm" method="post" action="#">
 			<p>Our records indicate you are a first time tutor. In order to start answering questions and get paid, you have to pass a test. You can choose to take it now or later.</p>
+			
 			<select name="category">
-				<option value="Select Category">Select Category</option>
+									<option value="Select Category" selected="true" disabled="disabled">Select Category</option>
 				<!-- Populate menu -->
 				<?php
-				$categ = getCategories();
-				
-				for ($a = 0; $a < sizeof($categ); $a++){
-					echo "<option value='" . $categ[$a]["id"] . "|" . $categ[$a]["name"] . "'>" . $categ[$a]["name"] . "</option>";
+								
+				foreach($categories as $category) {
+					echo sprintf('<option value="%s">%s</option>"', $category['id'], $category['name']);
 				}
+				
 				?>
 			</select>
-			<input  class="decision_point button" type="submit" value="Take Now" name="testChoice"/>
-			<input class="decision_point button" type="submit" value="Take Later" name="testChoice"/>
+			
+			<input  class="decision_point button" name="submit" type="submit" value="Take Now"/>
+		</form>
+		
+		<form id="takeTestLater" method="post" action="#">	
+			<input class="decision_point button" name="submit"  type="submit" value="Take Later"/>
 		</form>
 	</div>
 	

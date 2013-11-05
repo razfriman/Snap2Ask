@@ -611,7 +611,7 @@ $app->delete(
 
 		} catch(PDOException $e) {
 			$success = false;
-			$reason = 'Error deleting user';
+			$reason = 'Error deleting user: ' . $e->getMessage();
 		}
 		
 	    // Create the response data
@@ -785,6 +785,53 @@ $app->get(
 
 
 // ADD NEW VERIFIED CATEGORY
+$app->post(
+	'/users/:id/verified_categories',
+	function ($id) use ($app,$db) {
+
+
+		// Get the JSON Request
+		$request = $app->request()->getBody();
+
+		// Read all the Request properties used to create the account
+		$category_id = $request['category_id'];
+		$is_preferred = 1;
+		
+		$success = false;
+		$reason = '';
+		
+		try {
+
+			// Get questions for a specific user
+			$sth = $db->prepare('INSERT INTO verified_categories (user_id,category_id,is_preferred) VALUES (:user_id,:category_id,:is_preferred)');
+			$sth->bindParam(':user_id',$id);
+			$sth->bindParam(':category_id',$category_id);
+			$sth->bindParam(':is_preferred', $is_preferred);
+			$sth->execute();
+			
+			$success = true;
+
+		} catch(PDOException $e) {
+        	// SQL ERROR
+			$reason = $e->getMessage();
+		}
+
+		// Create the return data
+		$dataArray = array(
+			'success' => $success,
+			'reason' => $reason
+			);
+		
+        // Return the JSON data
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($dataArray));
+	}
+	);
+	
+
+// UPDATE PREFERRED STATUS OF A VERIFIED CATEGORY
 $app->put(
 	'/users/:id/verified_categories',
 	function ($id) use ($app,$db) {
@@ -803,7 +850,7 @@ $app->put(
 		try {
 
 			// Get questions for a specific user
-			$sth = $db->prepare('REPLACE INTO verified_categories (user_id,category_id,is_preferred) VALUES (:user_id,:category_id,:is_preferred)');
+			$sth = $db->prepare('UPDATE verified_categories SET is_preferred=:is_preferred WHERE user_id=:user_id AND category_id=:category_id');
 			$sth->bindParam(':user_id',$id);
 			$sth->bindParam(':category_id',$category_id);
 			$sth->bindParam(':is_preferred', $is_preferred);
@@ -914,28 +961,18 @@ $app->get(
 	}
 	);
 
-
-
-
-
-
 //GET LIST OF ALL TEST VALIDATION QUESTIONS
 $app->get(
-	'/test',
-	function () use ($app,$db) {
-		session_name('loginSession');
-		session_start();
-		$request = $app->request()->getBody();
-		$category = $_SESSION['test_category_id'];
-		$testQuestions = array();
+	'/categories/:id/validation_questions',
+	function ($id) use ($app,$db) {
+		
+		$testData = array();
+		
 		try{
-			$sth = $db->prepare("SELECT * FROM validationQuestions WHERE category_id=:id");
-			$sth->bindParam(":id",$category);
+			$sth = $db->prepare("SELECT * FROM validationQuestions WHERE category_id=:category_id");
+			$sth->bindParam(":category_id",$id);
 			$sth->execute();
-			$results = $sth->fetchAll(PDO::FETCH_ASSOC);
-			foreach ($results as &$result){
-				array_push($testQuestions, $result);
-			}
+			$testData = $sth->fetchAll(PDO::FETCH_ASSOC);
 		} catch(PDOException $e) {
          // SQL ERROR
 		}
@@ -943,113 +980,11 @@ $app->get(
 		$response = $app->response();
 		$response['Content-Type'] = 'application/json';
 		$response->status(200);
-		$response->write(json_encode($testQuestions));
+		$response->write(json_encode($testData));
 	}
 	);
-
-$app->post(
-	'/validateTest',
-	function () use ($app,$db){
-		session_name('loginSession');
-		session_start();
-		$user_id = $_SESSION["user_id"];
-		$category_id = $_SESSION["test_category_id"];
-		$request = $app->request();
-		$testAnswers = array();
-		$testAns = array();
-		$numberCorrect = 0;
-		$numberSkipped = 0;
-		try{
-			$sth = $db->prepare("SELECT id,rightAnswer FROM validationQuestions");
-			$sth->execute();
-			$results = $sth->fetchAll(PDO::FETCH_ASSOC);
-			foreach ($results as &$result){
-				$testAnswers[$result["id"]] = $result["rightAnswer"];
-
-			}
-		}catch (PDOException $e){
-				//SQL ERROR
-		}
-		for ($i = 1; $i <= QUESTIONS_PER_TEST; $i++){
-			$a = $request->post(strval($i));
-			$b = $testAnswers[strval($i)];
-			if ($a == $b){
-				$numberCorrect += 1;
-			} else if (!isset($_POST[$i])){
-				$numberSkipped += 1;
-			}
-		}
-		$percentCorrect = $numberCorrect/QUESTIONS_PER_TEST;
-		$_SESSION['test_numberCorrect'] = $numberCorrect;
-		$_SESSION['test_percentCorrect'] = round($percentCorrect,2)*100;
-		$_SESSION['test_numberOfQuestions'] = QUESTIONS_PER_TEST;
-		if ($percentCorrect >= PASS_THRESHOLD){
-			// $pass = true;
-			try{
-				$sth = $db->prepare("UPDATE users SET is_tutor=1 WHERE id=:user_id");
-				$sth->bindParam(':user_id',$user_id);
-				$sth->execute();
-
-				$sth = $db->prepare("INSERT INTO verified_categories(user_id,category_id,is_preferred) VALUES (:user_id,:category_id,'1')");
-				$sth->bindParam(":user_id",$user_id);
-				$sth->bindParam(":category_id",$category_id);
-				$sth->execute();
-				$_SESSION['test_pass'] = 1;
-
-
-			}catch(PDOException $e){
-				//SQL Error
-			}
-			$app->redirect('../../testPassed.php');
-
-		}else{
-			$_SESSION['test_pass'] = 0;
-			$app->redirect('../../testFailed.php');
-		}
-		// $testResults = array(
-		// 	"Correct"=>$numberCorrect,
-		// 	"Skipped"=>$numberSkipped,
-		// 	"Incorrect"=>$numberInCorrect,
-		// 	"TotalQuestions"=>QUESTIONS_PER_TEST,
-		// 	"PercentCorrect"=>$percentCorrect,
-		// 	"Pass"=>$pass
-		// 	);
-		// $response = $app->response();
-		// $response['Content-Type'] = 'application/json';
-		// $response->status(200);
-		// $response.write(json_encode($testResults));
-		// $app->redirect('../../browse.php');
-	}
-	);
-
-
-$app->post(
-	'/testChoices',
-	function () use ($app,$db){
-		$request = $app->request();
-
-		switch ($request->post("testChoice")){
-			case "Take Now":
-			case "Take Test";
-			session_name('loginSession');
-			session_start();
-			$list = explode("|",$request->post("category")); 
-			$_SESSION['test_category_id'] = $list[0];
-			$_SESSION['test_category_name'] = $list[1];
-			$app->redirect('../../subjectTest.php');
-			break;
-			case "Retake Now":
-			$app->redirect('../../subjectTest.php');
-			break;
-			case "Take Later":
-			case "Retake Later":
-			case "Continue":
-			$app->redirect('../../browse.php');
-			break;
-		}
-	});
-
-
+	
+	
 
 
 
@@ -1557,12 +1492,6 @@ $app->put(
 
 
 
-
-
-
-
-
-
 // UPDATE AN ANSWER
 // OCCURS WHEN A USER REJECTS/ACCEPTS A QUESTION'S ANSWER
 $app->put(
@@ -1637,6 +1566,8 @@ $app->put(
 	);
 
 
+
+
 // GET LIST OF ALL QUESTIONS
 $app->post(
 	'/search/questions',
@@ -1687,53 +1618,6 @@ $app->post(
 		$response['Content-Type'] = 'application/json';
 		$response->status(200);
 		$response->write(json_encode($questionDataFiltered));
-	}
-	);
-
-
-
-//ADD VALIDATED CATEGORY
-$app->post(
-	'/validateCategory',
-	function () use ($app, $db) {
-
-		$status = array();
-		$status['success'] = 'true';
-
-                //get the request informaiton
-		$request = $app->request()->getBody();
-		$userID = $request['userID'];
-		$category = $request['categoryName'];
-
-                //get category id
-		$sth = $db->prepare('SELECT id FROM categories WHERE name = :categoryName');
-		$sth->bindParam(':categoryName', $category);
-		$sth->execute();
-		$row = $sth->fetch();
-		$categoryID = $row[0];
-		try {
-
-	                //insert an user prefered category
-			$sth = $db->prepare('INSERT into verified_categories(user_id, category_id) VALUES (:user, :category)');
-			$sth->bindParam(':category', $categoryID);
-			$sth->bindParam(':user', $userID);
-			$sth->execute();
-			
-		}
-		catch(PDOException $e)
-		{
-			$status['success'] = 'false';
-			$status['error'] = 'sql error';
-			$status['sqlError'] = $sth->errorCode();
-			$status['errorDescription'] = $sth->errorInfo()[2];
-		}
-
-		// Return JSON with the status of the insertion
-		$response = $app->response();
-		$response['Content-Type'] = 'application/json';
-		$response->status(200);
-		$response->write(json_encode($status));
-
 	}
 	);
 

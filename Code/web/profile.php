@@ -29,13 +29,17 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Delete Account')
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	curl_setopt($ch, CURLOPT_HEADER, FALSE);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
 	$deleteResponse = curl_exec($ch);
 	curl_close($ch);
 	
 	// Redirect to the logout page	
 	header('Location: logout.php');
+	exit;
+}
+
+if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
+	$category_id = $_POST['category'];
+	header(sprintf('Location: subjectTest.php?category_id=%s', $category_id));
 	exit;
 }
 
@@ -50,7 +54,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Delete Account')
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-	<script src="js/validateProfile.js" type="text/javascript"></script>
+	<script src="js/validateSelectTest.js" type="text/javascript"></script>
 	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -119,7 +123,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Delete Account')
 			
 			<div class="divider"></div>
 			<h1>ADD VERIFIED CATEGORY</h1>
-			<form id="taketutortest" action="./api/index.php/testChoices" method="post">
+			<form id="categoryTestForm" action="#" method="post">
 				<select name="category">
 					<option value="Select Category" selected="true" disabled="disabled">Select Category</option>
 					<!-- Populate menu -->
@@ -137,13 +141,13 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Delete Account')
 						
 						if (!$isVerified)
 						{
-							echo sprintf('<option value="%s|%s">%s</option>', $category['id'],$category['name'],$category['name']);
+							echo sprintf('<option value="%s">%s</option>', $category['id'],$category['name']);
 						}
 					}
 					
 					?>
 				</select>
-				<input id="tutortestbutton" type="submit" name="testChoice" value="Take Test"/>
+				<input id="tutortestbutton" type="submit" name="submit" value="Take Test"/>
 			</form>
 			
 			<?php

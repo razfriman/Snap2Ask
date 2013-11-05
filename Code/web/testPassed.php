@@ -32,9 +32,19 @@ $responseObj = getUserInfo(true);
 </head>
 
 <body>
-	<form id="testpassed" method="post" action="./api/index.php/testChoices">
-		<p>Congratulations, you have passed the test and are ready to make money answering questions!</p>
-		<input class="decision_point button" type="submit" value="Continue" name="testChoice"/>
-	</form>
+
+	<header class="tall">
+		<a href="index.php"> <img id="logoTall" src="res/logo.png" alt="Snap-2-Ask Logo"/> </a>
+	</header>
+
+	<div id="content">
+	
+		<form id="testpassed" method="post" action="index.php">
+			<p>Congratulations, you have passed the test and are ready to start answering questions!</p>
+			<input class="decision_point" type="submit" value="Continue" name="testChoice"/>
+		</form>
+	</div>
+	
+	<?php include('footer.php') ?>
 </body>
 </html>

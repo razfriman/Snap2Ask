@@ -5,7 +5,7 @@ $(document).ready(function () {
 	
 	//login form
 	//must be an email and password that is 8 characters in length
-	$('#taketutortest').validate({ 
+	$('#categoryTestForm').validate({ 
 		rules: {
 			category: {
 				required: true,

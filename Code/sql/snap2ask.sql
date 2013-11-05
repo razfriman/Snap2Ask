@@ -66,12 +66,12 @@ CREATE TABLE IF NOT EXISTS `verified_categories` (
   CONSTRAINT `fk_verified_categories_1`
     FOREIGN KEY (`user_id`)
     REFERENCES `users` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_verified_categories_2`
     FOREIGN KEY (`category_id`)
     REFERENCES `categories` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -99,7 +99,7 @@ CREATE TABLE `validationQuestions` (
 DROP TABLE IF EXISTS `questions`;
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `student_id` int(11) NOT NULL,
+  `student_id` int(11) NULL,
   `description` varchar(255) NOT NULL,
   `category_id` int(11) NOT NULL,
   `subcategory_id` int(11) NOT NULL,
@@ -113,9 +113,9 @@ CREATE TABLE `questions` (
   KEY `fk_questions_answers1_idx` (`status`),
   KEY `fk_questions_users1_idx` (`student_id`),
   KEY `fk_questions_1_idx` (`subcategory_id`),
-  CONSTRAINT `fk_questions_1` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_questions_subcategories` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_questions_categories` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_questions_users1` FOREIGN KEY (`student_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_questions_users` FOREIGN KEY (`student_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 
@@ -126,13 +126,14 @@ DROP TABLE IF EXISTS `answers`;
 CREATE TABLE `answers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `question_id` int(11) NOT NULL,
-  `tutor_id` int(11) NOT NULL,
+  `tutor_id` int(11) NULL,
   `text` varchar(512) NOT NULL,
   `rating` smallint(6) DEFAULT NULL,
   `status` varchar(45) NOT NULL DEFAULT 'pending',
   `date_created` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_answers_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_answers_questions` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_answers_users` FOREIGN KEY (`tutor_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 
