@@ -27,12 +27,12 @@
 		  	});
 		  	request.execute(function(resp1) {
 		  		
-		  		var firstName  = resp1.name.familyName;
-		  		var lastName = resp1.name.givenName;
+		  		var firstName  = resp1.name.givenName;
+		  		var lastName = resp1.name.familyName;
 		  		var oauthId = resp1.id;
 		  		
-		  		console.log('First Name: ' + resp1.name.familyName);
-		  		console.log('Last Name: ' + resp1.name.givenName);
+		  		console.log('First Name: ' + resp1.name.givenName);
+		  		console.log('Last Name: ' + resp1.name.familyName);
 		  		console.log('OAuth ID: ' + resp1.id);
 		  		
 			 // Load Email
