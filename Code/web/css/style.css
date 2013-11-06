@@ -261,6 +261,10 @@ div.error,label.error {
 	background-color: inherit;
 }
 
+textarea {
+    resize: none;
+}
+
 input,textarea,select {
 	display:block;
 	width:20em;
