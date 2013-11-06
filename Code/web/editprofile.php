@@ -124,8 +124,8 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 				<?php
 						// Echo the information using sprintf
 						// Escape special html characters to enhance XSS security
-				echo sprintf("<label>First Name</label><input type='text' name='first_name' value='%s' />", htmlspecialchars($responseObj['first_name']));
-				echo sprintf("<label>Last Name</label><input type='text'  name='last_name' value='%s' />", htmlspecialchars($responseObj['last_name']));
+				echo sprintf("<label>First Name</label><input type='text' name='first_name' value='%s' />", htmlentities($responseObj['first_name'],ENT_QUOTES));
+				echo sprintf("<label>Last Name</label><input type='text'  name='last_name' value='%s' />", htmlentities($responseObj['last_name'],ENT_QUOTES));
 				?>
 
 				<?php
