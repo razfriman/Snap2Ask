@@ -32,21 +32,19 @@ function submitAnswer() {
 		contentType: "application/json; charset=utf-8",
 		dataType: "json",
 		success: function (data) {
-			
-			console.log(data);
-			
-			if (data.success === true) {
-	                // Success
-	                console.log("Successfully posted answer");
-	            }
+				            
+            $('#answerQuestionMessageLabel').text('Thank you. Your answer has been submitted.');
+            
+            window.setTimeout(function() {
+			 // Redirect to the browse page after 2 seconds
+			 window.location.href = 'browse.php';
+			}, 2000);
 	            
-	            $('#submitQuestionButton').prop('disabled', false);
-	            window.location.href = 'browse.php';
-	        },
-	        failure: function(errMsg) {
-	        	console.log(errMsg);
-	        	$('#submitQuestionButton').prop('disabled', false);
-	        }
+        },
+        failure: function(errMsg) {
+        	console.log(errMsg);
+        	$('#submitQuestionButton').prop('disabled', false);
+        }
 	    });
 }
 
@@ -61,8 +59,11 @@ $(document).ready(function () {
 		},
 		submitHandler: function(form) {
 
+			$('#answerQuestionMessageLabel').text('');
+						
 			// Disable the submit button from clicking multiple times
 			$('#submitQuestionButton').prop('disabled', true);
+            
             // SUBMIT THE ANSWER TO THE REST API!!!!
             submitAnswer();
             

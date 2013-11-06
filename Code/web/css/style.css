@@ -515,6 +515,12 @@ li#categoriesTab li:hover {
 	width: 70%;
 	height: 6em;
 }
+
+#answerQuestionMessageLabel {
+	display: block;
+	margin: 1em;
+}
+
 /* END VIEW QUESTION */
 
 

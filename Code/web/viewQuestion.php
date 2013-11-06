@@ -89,6 +89,9 @@ if ($question_info['status'] != 0) {
 			<div id="submit-answer-container">
 				<form id="submit-answer-form" action="#" method="POST">
 					<label for="answer">Answer:</label>
+					
+					<label id="answerQuestionMessageLabel"></label>
+					
 					<textarea id="answer" name="answer"></textarea>
 					
 					<input type="hidden" id="user-id-hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" />
