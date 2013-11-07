@@ -6,13 +6,6 @@
 
 */
 
-
-@font-face {
-    font-family: "Bebas";
-    src: url('../res/fonts/bebas/BebasNeue.otf')
-    format("truetype");
-}
-
 @font-face{
     font-family: "Gothic";
     src: url('../res/fonts/gothic.ttf');
