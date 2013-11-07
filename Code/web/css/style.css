@@ -18,11 +18,6 @@
     src: url('../res/fonts/gothic.ttf');
 }
 
-@font-face {
-    font-family: "Lobster";
-    src: url('../res/fonts/lobster/Lobster_1.3.otf')
-    format("truetype");
-}
 
 @font-face {
   font-family: 'Amaranth';
