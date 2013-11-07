@@ -104,6 +104,7 @@ CREATE TABLE `questions` (
   `category_id` int(11) NOT NULL,
   `subcategory_id` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
+  `is_hidden` tinyint(4) NOT NULL DEFAULT '0',
   `times_answered` int(11) NOT NULL DEFAULT '0',
   `image_url` varchar(255) NOT NULL,
   `image_thumbnail_url` varchar(255) NOT NULL,

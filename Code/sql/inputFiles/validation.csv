@@ -12,3 +12,5 @@ A difference between a thread and a process is,A process can have multiple threa
 A characteristic of a thread is,threads of the same process share the same stack,threads have its own independent memory space,threads of the same process have individual stacks,C,Computer Science,
 The derivative of x^2 is,x,x/2,2*x,C,Math,
 Integral of ln(x),1/x,1/x^2,1,A,Math,
+What is the chemical formula of Water?,CO,CO2,H20,C,Science
+

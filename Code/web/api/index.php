@@ -1251,12 +1251,30 @@ $app->delete(
 		$reason = '';
 		
 		try {
-			$sth = $db->prepare('DELETE FROM questions WHERE id=:question_id');
+			$sth = $db->prepare('SELECT * FROM questions WHERE id=:question_id');
 			$sth->bindParam(':question_id', $id);
 			$sth->execute();
-
-			$success = true;
-
+			
+			if ($sth->rowCount() > 0) {
+				$questionData = $sth->fetch(PDO::FETCH_ASSOC);
+				
+				if ($questionData['times_answered'] > 0) {
+					// Hide the question from the user, do not actually remove the data from the database
+					$sth = $db->prepare('UPDATE questions SET is_hidden=1 WHERE id=:question_id');
+					$sth->bindParam(':question_id', $id);
+					$sth->execute();
+				} else {
+					// Remove the data because there is not relevant answer information
+					$sth = $db->prepare('DELETE FROM questions WHERE id=:question_id');
+					$sth->bindParam(':question_id', $id);
+					$sth->execute();	
+				}
+				
+				$success = true;
+			} else {
+				$reason = 'Question does not exist';
+			}
+			
 		} catch(PDOException $e) {
 			$success = false;
 			$reason = 'Error deleting question';

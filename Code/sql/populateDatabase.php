@@ -354,6 +354,8 @@ function insertAnswers($dbConnection, $file)
 					'{$tutor['id']}',
 					'{$name[2]}',
 					'{$date}');";
+					
+						mysql_query("UPDATE questions SET status=1, times_answered=times_answered+1 WHERE id='{$question['id']}'");
 
 			//inserting answer in the database
 			if(!mysql_query($insertAnswer))
