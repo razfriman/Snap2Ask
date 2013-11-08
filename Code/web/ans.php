@@ -5,14 +5,17 @@
         width: 500px;
         height: 206px;
     }
-
+    .stars
+    {
+        color: yellow;
+    }
     .rating
     {
         margin-left: 1em;
     }
     </style>
 <div id="mainContent">
-    		<h1>YOUR ANSWERS</h1>
+    		<h1>MY ANSWERS</h1>
             <?php 
             function select($lab)
             {
@@ -33,6 +36,20 @@
             </form>
             <table>
             <?php
+            function stars($index)
+            {
+               echo '<span class="rating">Rating: </span>
+               <span class="stars">';
+               $numStars = rand(1,5);
+               for ($count = 0; $count < $numStars; $count++)
+                    echo '&#9733';
+                echo '</span>';
+            }
+            function pay()
+            {
+               $numStars = rand(1,5);
+               return $numStars * 20;		
+            }
             if ($_POST['order'] === 'Most Recent First')
             {
                 $start1 = 80; //lower bound
@@ -40,6 +57,7 @@
                 $start2 = 100;
                 $inc2 = -1;
                 $case = 1;
+                $starIndex = 0;
             }
             else
             {
@@ -48,6 +66,7 @@
                 $start1 = 80;
                 $inc1 = 1;
                 $case = 2;
+                $starIndex = 0;
             } 
             for($a = $start1, $b = $start2; $a < $b; $a+=$inc1, $b+=$inc2)
             {
@@ -69,8 +88,8 @@
                 <div id="view-question-right">
     				
 					<label>Your Pay: 
-					<?php echo $y; ?><span class="rating">Rating: &#9733;&#9734;&#9734;&#9734;&#9734;</span></label></p>
-					
+					<?php echo $y; echo stars($starIndex); $starIndex++; ?>
+                    </label>
 					<label>Description:</label>
 					<p><?php echo $question_info['date_created']; ?></p>
 					
