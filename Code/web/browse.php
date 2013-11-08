@@ -30,8 +30,10 @@ $categories = getCategories();
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/jquery.pages.js" type="text/javascript" ></script>
 	<script src="js/browseQuestions.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/jPages.css">
 </head>
 
 <body>
@@ -67,6 +69,7 @@ $categories = getCategories();
 				<li class="selected" ><a href="browse.php" >Browse</a></li>
 				<li><a href="balance.php" >Balance</a></li>
 				<li><a href="profile.php" >Profile</a></li>
+				<li><a href="viewAnswers.php" >My Answers</a></li>
 			</ul>
 		</div>
 		
@@ -91,7 +94,11 @@ $categories = getCategories();
 		?>
 		
 		<div id="mainContent">
+			<div class="holder"></div>
+			<div id="pagedContent">
 			<!--POPULATE QUESTIONS HERE-->
+			</div>
+			<div class="holder"></div>
 		</div>
 		
 	</div>

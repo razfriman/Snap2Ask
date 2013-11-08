@@ -112,6 +112,7 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 				<li><a href="browse.php" >Browse</a></li>
 				<li><a href="balance.php" >Balance</a></li>
 				<li class="selected" ><a href="profile.php" >Profile</a></li>
+				<li><a href="viewAnswers.php" >My Answers</a></li>
 			</ul>
 		</div>
 		

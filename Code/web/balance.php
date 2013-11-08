@@ -133,6 +133,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit 50 SnapCash') {
 				<li><a href="browse.php" >Browse</a></li>
 				<li class="selected"><a href="balance.php" >Balance</a></li>
 				<li><a href="profile.php" >Profile</a></li>
+				<li><a href="viewAnswers.php" >My Answers</a></li>
 			</ul>
 		</div>
 		
