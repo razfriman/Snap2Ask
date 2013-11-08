@@ -67,6 +67,7 @@ $categories = getCategories();
 				<li class="selected" ><a href="browse.php" >Browse</a></li>
 				<li><a href="balance.php" >Balance</a></li>
 				<li><a href="profile.php" >Profile</a></li>
+				<li><a href="viewAnswers.php" >My Answers</a></li>
 			</ul>
 		</div>
 		

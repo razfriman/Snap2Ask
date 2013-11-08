@@ -70,6 +70,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 				<li><a href="browse.php" >Browse</a></li>
 				<li><a href="balance.php" >Balance</a></li>
 				<li class="selected" ><a href="profile.php" >Profile</a></li>
+				<li><a href="viewAnswers.php" >My Answers</a></li>
 			</ul>
 		</div>
 		
