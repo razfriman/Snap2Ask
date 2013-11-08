@@ -50,7 +50,7 @@ if(isset($_GET['search'])) {
 	
 	<form id="search" method="POST" action="#">
 		<input type="submit" value="Search"/>
-		<input type="text" name="searchQuery" id="searchQuery" list = "suggestionlist" value="<?php echo $searchQuery; ?>" placeholder="Search" title="Enter a search query" x-webkit-speech />
+		<input type="text" name="searchQuery" id="searchQuery" list = "suggestionlist" value="<?php echo $searchQuery; ?>" placeholder="Search" title="Enter a search query" />
 		<datalist id='suggestionlist'>
 			<?php 
 			
