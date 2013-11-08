@@ -50,7 +50,14 @@ $responseObj = getUserInfo(true);
 		
 		
 		<div id="mainContent">
-			
+			<style>
+td.questionItem {
+	margin-left: -1em;
+    margin-top: 0.55em;
+    width: 500px;
+    height: 224px;
+}
+    </style>
 			<h1>MY ANSWERS</h1>
 			<table>
             <?php
