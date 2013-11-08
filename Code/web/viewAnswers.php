@@ -45,63 +45,14 @@ $responseObj = getUserInfo(true);
 				<li><a href="profile.php" >Profile</a></li>
 				<li class="selected" ><a href="viewAnswers.php" >My Answers</a></li>
 			</ul>
-		</div>
+		</div><!--end linksNav-->
 		
+		<!--ans.php includes main content div-->
+		<!--remove style tag from ans.php-->
+		<?php include('ans.php'); ?>
 		
-		
-		<div id="mainContent">
-			<style>
-td.questionItem {
-	margin-left: -1em;
-    margin-top: 0.55em;
-    width: 500px;
-    height: 224px;
-}
-    </style>
-			<h1>MY ANSWERS</h1>
-			<table>
-            <?php
-            for($x = 0; $x < 20; $x++)
-            {
-                                $y = $x+80;
-                $b = "https://snap2ask.s3.amazonaws.com/" . $y . ".jpeg";
-            ?>
-                <tr>
-                <td>
-                <div class="questionItem" style="display: inline-block; opacity: 1;">
-                <img class="questionImage" src=<?php echo $b; ?> >
-                <label>Science</label><label> Chemistry</label>
-                <label>Date: 2013-11-07 04:07:20</label>
-                <!--Insert star images here!-->
-                <label>&#9733;&#9734;&#9734;&#9734;&#9734;</label>
-                </div>
-                </td>
-                <td class="questionItem">
-                <div id="view-question-right">
-    				
-					<label>Your Pay:</label>
-					<p><?php echo $question_info['category']; ?></p>
-					
-					<label>Description:</label>
-					<p><?php echo $question_info['date_created']; ?></p>
-					
-					<label>Answer:</label>
-					<p><?php echo $question_info['description']; ?></p>
-				</div>
-                </td>
-                </tr>
-                
-            <?php
-            }
-            ?>
-                
-                </table>
-			
-		</div>
-	</div>
+	</div> <!--end content div-->
 	
-
-
 	<?php include('footer.php') ?>
 
 </body>
