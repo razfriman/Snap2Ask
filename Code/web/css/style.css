@@ -40,8 +40,8 @@ body {
 	margin: 0;
 	padding: 0;
 	
-    background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0.31, rgb(248,249,251)), color-stop(1, rgb(233,237,241)));
-    
+    background-image: #edf0f5; /*-webkit-gradient( linear, left top, left bottom, color-stop(0.31, rgb(248,249,251)), color-stop(1, rgb(233,237,241)));
+    */
     background-attachment:fixed;
     background-repeat: no-repeat;
     height: 100%;
@@ -256,11 +256,11 @@ textarea {
 input,textarea,select {
 	display:block;
 	width:20em;
-	border-radius:5px;
+	border-radius:2px;
 	margin:1em auto;
 	height:2em;
 	font-size:12px;
-	border:2px solid rgba(63,63,63,0.80);
+	border:2px solid #bdc7d8;
 }
 
 input.button {
