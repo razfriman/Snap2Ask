@@ -11,7 +11,7 @@ src="http://p.ebaystatic.com/aw/pics/icon/iconYellowStar_25x25.gif"
 height="30" width="30"><span class="c6">Vipul</span></h1>
 <p class="c2"><img
 src="http://q.ebaystatic.com/aw/pics/icon/iconPos_16x16.gif"
-alt="Positive feedback rating" height="16" width="16"><span>&nbsp;8</span><span><a
+alt="Positive feedback rating" height="16" width="16"><span>7</span><span><a
 class="c8"
 href="https://github-camo.global.ssl.fastly.net/c0ddf66eaca22a7e74170b1cafd7f088437ebd06/687474703a2f2f712e656261797374617469632e636f6d2f61772f706963732f69636f6e2f69636f6e4e65755f31367831362e676966">&nbsp;</a></span><img
 src="http://q.ebaystatic.com/aw/pics/icon/iconNeu_16x16.gif"
@@ -98,13 +98,7 @@ alt="Positive feedback rating" height="16" width="16"><span>&nbsp;Added
 
 footer.php! -Vipul &nbsp;Good work on searchbar! Removed
 microphone -Vipul</span></p>
-<p class="c2"><img
-src="http://q.ebaystatic.com/aw/pics/icon/iconPos_16x16.gif"
-alt="Positive feedback rating" height="16" width="16"><span>&nbsp;Good
 
-
-
-work on FeatureSetPlan1 submission! -Vipul</span></p>
 <p class="c2"><img
 src="http://q.ebaystatic.com/aw/pics/icon/iconNeu_16x16.gif"
 alt="Neutral feedback rating" height="16" width="16"><span>&nbsp;Did
