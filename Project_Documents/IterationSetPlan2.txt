@@ -11,3 +11,5 @@ Web site:
 7. Allow familiar questions to appear at sidebar for tutor to answer.
 8. Add some JS and jQuery to allow features to slide and fade!
 9. Add Privacy Policy, Terms or Use, Site Index, and Contact Us
+
+
