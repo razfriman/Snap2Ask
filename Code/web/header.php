@@ -39,7 +39,7 @@ if(isset($_GET['search'])) {
 		<h2>SnapCash</h2>
 		<h3>
 			<?php echo $balance; ?>
-		</32>
+		</h3>
 	</div>
 
 	<a href="index.php"><img src="res/logo.png" alt="Snap-2-Ask Logo" id="logoShort"/></a>
