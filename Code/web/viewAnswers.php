@@ -69,7 +69,7 @@ function stars($index)
     		<h1>MY ANSWERS</h1>
             
             <?php
-            
+            include ('ans.php');
             
             for($i = 27; $i < 37; $i++)
             {
