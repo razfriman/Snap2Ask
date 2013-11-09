@@ -1,4 +1,5 @@
-    <style>
+ //answer file with sort functions by time, rating, and pay
+ <style>
     td.questionItem {
         margin-left: -1em;
         margin-top: 0.55em;
