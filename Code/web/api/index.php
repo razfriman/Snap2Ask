@@ -1638,7 +1638,46 @@ $app->post(
 		$response->write(json_encode($questionDataFiltered));
 	}
 	);
-
+//GET ANSWERS FROM A TUTOR
+$app->post(
+		'/tutorAnswers',
+		function() use ($app, $db) {
+			$myResponse = array();
+			$questions = array();
+			
+			//get tutot id
+			$request = $app->request()->getBody();
+			$tutorID = $request['tutorID'];
+			
+			//get answers
+			$sth = $db->prepare('SELECT question_id, text, rating, status FROM answers WHERE tutor_id = :tutor');
+			$sth->bindParam(':tutor', $tutorID);
+			$sth->execute();
+			
+			$answers = $sth->fetchAll();
+			$myResponse['answers'] = $answers;
+			
+			//get the questions that the answers are answering
+			for ($i = 0; $i < count($answers); $i++)
+			{
+				$answer = $answers[0];
+				$sth = $db->prepare('SELECT description, category_id, subcategory_id FROM questions WHERE id = :questionID');
+				$sth->bindParam(':questionID', $answer['question_id']);
+				$sth->execute();
+				//$row = $sth->fetch();
+				array_push($questions, $sth->fetch());
+			}
+			
+			$myResponse['questions'] = $questions;
+			
+			// Return JSON with the status of the insertion
+            $response = $app->response();
+            $response['Content-Type'] = 'application/json';
+            $response->status(200);
+            $response->write(json_encode($myResponse));
+			
+		}
+);
 //ADD VALIDATED CATEGORY
 $app->post(
         '/validateCategory',
@@ -1670,8 +1709,7 @@ $app->post(
                 catch(PDOException $e)
                 {
                         $status['success'] = 'false';
-
-			$status['error'] = 'sql error';
+						$status['error'] = 'sql error';
                         $status['sqlError'] = $sth->errorCode();
                         $status['errorDescription'] = $sth->errorInfo()[2];
                 }
