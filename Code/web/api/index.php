@@ -391,8 +391,9 @@ $app->post(
 			}
 
 		} catch(PDOException $e) {
-         // SQL ERROR
-			$reason = $e->getMessage();
+         	// SQL ERROR
+			//$reason = $e->getMessage();
+			$reason = 'Error: Could not reset password';
 		}
 
 		// Create the return data
@@ -442,8 +443,9 @@ $app->delete(
 			
 			$success = true;
 		} catch(PDOException $e) {
-         // SQL ERROR
-			$reason = $e->getMessage();
+         	// SQL ERROR
+			//$reason = $e->getMessage();
+			$reason = 'Error: Could not update password';
 		}
 
 		// Create the return data
@@ -577,7 +579,8 @@ $app->put(
 			
 		} catch(PDOException $e) {
 			$success = false;
-			$reason = $e->getMessage();
+			//$reason = $e->getMessage();
+			$reason = 'Error: Could not update account info';
 		}
 
 		// Create the response data
@@ -611,7 +614,8 @@ $app->delete(
 
 		} catch(PDOException $e) {
 			$success = false;
-			$reason = 'Error deleting user: ' . $e->getMessage();
+			//$reason = 'Error deleting user: ' . $e->getMessage();
+			$reason = 'Error: Could not delete user account';
 		}
 		
 	    // Create the response data
@@ -694,34 +698,45 @@ $app->post(
 			}
 
 			if ($need_to_register) {
-				
-				// Try to insert the user into the database
-				// This uses named parameters, which prevent any SQL Injections
-				$sth = $db->prepare('INSERT INTO users (email,oauth_id,first_name,last_name,password,salt,balance,is_tutor,is_admin,authentication_mode,date_created) 
-					VALUES (:email,:oauth_id,:first_name,:last_name,:password,:salt,:balance,:is_tutor,:is_admin,:authentication_mode,:date_created)');
+			
+				$sth = $db->prepare('SELECT * FROM users WHERE email=:email AND authentication_mode="custom"');
 				$sth->bindParam(':email', $email);
-				$sth->bindParam(':oauth_id', $oauth_id);
-				$sth->bindParam(':first_name', $first_name);
-				$sth->bindParam(':last_name', $last_name);
-				$sth->bindParam(':password', $hashed_password);
-				$sth->bindParam(':salt', $salt);
-				$sth->bindParam(':balance', $balance);
-				$sth->bindParam(':is_tutor', $is_tutor);
-				$sth->bindParam(':is_admin', $is_admin);
-				$sth->bindParam(':authentication_mode', $authentication_mode);
-				$sth->bindParam(':date_created', $date_created);
 				$sth->execute();
-
-				$success = true;
-
-				// Get the id of the user we just created
-				$user_id = $db->lastInsertId();
+				$user_data = $sth->fetch(PDO::FETCH_ASSOC);
+				
+				if($sth->rowCount() == 0) {
+				
+					// Try to insert the user into the database
+					// This uses named parameters, which prevent any SQL Injections
+					$sth = $db->prepare('INSERT INTO users (email,oauth_id,first_name,last_name,password,salt,balance,is_tutor,is_admin,authentication_mode,date_created) 
+						VALUES (:email,:oauth_id,:first_name,:last_name,:password,:salt,:balance,:is_tutor,:is_admin,:authentication_mode,:date_created)');
+					$sth->bindParam(':email', $email);
+					$sth->bindParam(':oauth_id', $oauth_id);
+					$sth->bindParam(':first_name', $first_name);
+					$sth->bindParam(':last_name', $last_name);
+					$sth->bindParam(':password', $hashed_password);
+					$sth->bindParam(':salt', $salt);
+					$sth->bindParam(':balance', $balance);
+					$sth->bindParam(':is_tutor', $is_tutor);
+					$sth->bindParam(':is_admin', $is_admin);
+					$sth->bindParam(':authentication_mode', $authentication_mode);
+					$sth->bindParam(':date_created', $date_created);
+					$sth->execute();
+	
+					$success = true;
+	
+					// Get the id of the user we just created
+					$user_id = $db->lastInsertId();
+				} else {
+					$reason = 'An account with this email already exists.';
+				}
 			}
 
 		} catch(PDOException $e) {
         	// An error occured
 			$success = false;
-			$reason = $e->getMessage();
+			//$reason = $e->getMessage();
+			$reason = 'Error: Could not create account';
 		}
 
         // Create the return data
@@ -781,6 +796,49 @@ $app->get(
 	);
 
 
+//GET ANSWERS FROM A TUTOR
+$app->get(
+		'/users/:id/answers',
+		function($id) use ($app, $db) {
+			
+			$myResponse = array();
+			$questions = array();
+			
+			
+			//get answers
+			$sth = $db->prepare('SELECT question_id, text, rating, status FROM answers WHERE tutor_id = :tutor_id ORDER BY date_created DESC');
+			$sth->bindParam(':tutor_id', $id);
+			$sth->execute();
+			
+			$answers = $sth->fetchAll(PDO::FETCH_ASSOC);
+			$myResponse['answers'] = $answers;
+			
+			//get the questions that the answers are answering
+			for ($i = 0; $i < count($answers); $i++)
+			{
+				$answer = $answers[$i];
+				$sth = $db->prepare('SELECT description, category_id, subcategory_id, image_url, date_created FROM questions WHERE id = :questionID');
+				$sth->bindParam(':questionID', $answer['question_id']);
+				$sth->execute();
+				$question_data = $sth->fetch(PDO::FETCH_ASSOC);
+				addCategories($question_data, $db);
+				
+				array_push($questions, $question_data);
+			}
+			
+			$myResponse['questions'] = $questions;
+			
+			// Return JSON with the status of the insertion
+            $response = $app->response();
+            $response['Content-Type'] = 'application/json';
+            $response->status(200);
+            $response->write(json_encode($myResponse));
+			
+		}
+);
+
+
+
 
 
 
@@ -813,7 +871,8 @@ $app->post(
 
 		} catch(PDOException $e) {
         	// SQL ERROR
-			$reason = $e->getMessage();
+			//$reason = $e->getMessage();
+			$reason = 'Error: could not add verified category';
 		}
 
 		// Create the return data
@@ -859,8 +918,9 @@ $app->put(
 			$success = true;
 
 		} catch(PDOException $e) {
-         // SQL ERROR
-			$reason = $e->getMessage();
+        	// SQL ERROR
+			//$reason = $e->getMessage();
+			$reason = 'Error: could not update verified category';
 		}
 
 		// Create the return data
@@ -1133,7 +1193,8 @@ $app->post(
         		
         	} catch(PDOException $e) {
         		$success = false;
-        		$reason = $e->getMessage();
+        		//$reason = $e->getMessage();
+				$reason = 'Error: could not add question';
         	}
         }
         
@@ -1454,7 +1515,8 @@ $app->post(
 
 		} catch(PDOException $e) {
 			$success = false;
-			$reason = $e->getMessage();
+			//$reason = $e->getMessage();
+			$reason = 'Error: could not add answer';
 		}
 
         // Create the response data
@@ -1561,7 +1623,8 @@ $app->put(
 
 			} catch(PDOException $e) {
 				$success = false;
-				$reason = $e->getMessage();
+				//$reason = $e->getMessage();
+				$reason = 'Error: could not add update answer';
 			}
 		} else {
 			$success = false;
@@ -1638,46 +1701,9 @@ $app->post(
 		$response->write(json_encode($questionDataFiltered));
 	}
 	);
-//GET ANSWERS FROM A TUTOR
-$app->post(
-		'/tutorAnswers',
-		function() use ($app, $db) {
-			$myResponse = array();
-			$questions = array();
-			
-			//get tutot id
-			$request = $app->request()->getBody();
-			$tutorID = $request['tutorID'];
-			
-			//get answers
-			$sth = $db->prepare('SELECT question_id, text, rating, status FROM answers WHERE tutor_id = :tutor');
-			$sth->bindParam(':tutor', $tutorID);
-			$sth->execute();
-			
-			$answers = $sth->fetchAll();
-			$myResponse['answers'] = $answers;
-			
-			//get the questions that the answers are answering
-			for ($i = 0; $i < count($answers); $i++)
-			{
-				$answer = $answers[0];
-				$sth = $db->prepare('SELECT description, category_id, subcategory_id FROM questions WHERE id = :questionID');
-				$sth->bindParam(':questionID', $answer['question_id']);
-				$sth->execute();
-				//$row = $sth->fetch();
-				array_push($questions, $sth->fetch());
-			}
-			
-			$myResponse['questions'] = $questions;
-			
-			// Return JSON with the status of the insertion
-            $response = $app->response();
-            $response['Content-Type'] = 'application/json';
-            $response->status(200);
-            $response->write(json_encode($myResponse));
-			
-		}
-);
+
+
+
 //ADD VALIDATED CATEGORY
 $app->post(
         '/validateCategory',
