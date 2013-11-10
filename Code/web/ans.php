@@ -5,6 +5,12 @@
         margin-top: 0.55em;
         width: 500px;
         height: 206px;
+        color:white
+    }
+    label.answer
+    {
+        position:relative;
+        color: blue;
     }
     .stars
     {
@@ -169,13 +175,13 @@
                 <div id="view-question-right">
     				
 					<label>Your Pay: 
-					<?php echo '50'; echo stars(var_dump($ansdata['rating'])); ?>
+					<?php echo '50'; stars(rand(1,5)); ?>
                     </label>
-					<label>Question:</label>
-					<p><?php echo $qdata['description'] ?></p>
+					<label class="answer">Question: </label>
+					<label class="text"><?php echo $qdata['description'] ?></label>
 					
-					<label>Answer:</label>
-					<p><?php echo $ansdata['text']; ?></p>
+					<label class="answer">Answer:</label>
+					<label class="text"><?php echo $ansdata['text']; ?></label>
 				</div>
                 </td>
                 </tr>
