@@ -1,4 +1,5 @@
-    <style>
+ <!--answer file with sort functions by time, rating, and pay-->
+ <style>
     td.questionItem {
         margin-left: -1em;
         margin-top: 0.55em;
@@ -14,16 +15,95 @@
         margin-left: 1em;
     }
     </style>
+    <?php
+     /*for ($x = 0; $x < 150; $x++){
+      $qdata = getQuestionInfo($x);
+      //var_dump($qdata);
+      for ($y = 0, $numAns = count($qdata["answers"]); $y < $numAns; $y++){
+            $ansdata = $qdata["answers"][$y];
+            if ($ansdata['tutor_id'] === $_SESSION['user_id'])
+            {*/
+                /*
+                echo '<br>' . 'hello' . $_SESSION['user_id'];
+                echo '<br>' . $qdata['id'];
+                echo '<br>' . $qdata['student_id'];
+                echo '<br>' . $qdata['description'];
+                echo '<br>' . $qdata["subcategory"];
+                echo '<br>' . $qdata["category"];
+                echo '<br>' . $qdata["image_url"];
+                echo '<br>' . $qdata["date_created"];
+                echo '<br>' . $ansdata['text'];
+                echo '<br>' . $ansdata['tutor_id'];
+                var_dump($ansdata['rating']);
+                
+            }
+        }
+     }*/
+      //echo '<br>' . $qdata["answers"][0]['tutor_id'] === $_SESSION['user_id'];
+     ?>
 <div id="mainContent">
-    		<h1>MY ANSWERS</h1>
+            <h1>MY ANSWERS</h1>
             <?php 
+            /*
+            class Answer
+            {
+                public $id;
+                public $cat;
+                public $rating;
+                public $desc;
+                public $pay;
+                public $datestr;
+                public $answer;
+                public $imgurl;
+            }
+            $answers = array();
+            for ($x = 0, $k = 0; $x < 0; $x++){
+                $qdata = getQuestionInfo($x);
+                //var_dump($qdata);
+                for ($y = 0, $numAns = count($qdata["answers"]); $y < $numAns; $y++){
+                    $ansdata = $qdata["answers"][$y];
+                    if ($ansdata['tutor_id'] === $_SESSION['user_id'])
+                    {
+                        $answers[$k] = new Answer();
+                        $answers[$k]->id = $qdata['id'];
+                        $answers[$k]->pay = 50;
+                        $answers[$k]->datestr = $qdata["date_created"];
+                        $answers[$k]->cat = $qdata["category"];
+                        $answers[$k]->rating = var_dump($ansdata['rating']);
+                        $answers[$k]->desc = $qdata['description'];
+                        $answers[$k]->answer = $ansdata['text'];
+                        $answers[$k]->imgurl = $qdata["image_url"];
+                        $k++;
+                    }
+                }
+            }
+            function recent($a, $b)
+            {
+                return $b->id - $a->id;
+            }
+            function ratinghigh($a, $b)
+            {
+                return $b->rating - $a->rating;
+            }
+            function ratinglow($a, $b)
+            {
+                return -1 * ($b->rating - $a->rating);
+            }
+            function payhigh($a, $b)
+            {
+                return $b->pay - $a->pay;
+            }
+            function paylow($b, $a)
+            {
+                return $b->pay - $a->pay;
+            }*/
             function select($lab)
             {
                 if ($_POST['order'] === $lab)
                         echo 'selected'; 
             }
             ?>
-            <form id='sort' action="<?=$PHP_SELF?>" method='post'>
+           <!-- <form id='sort' action="<?=$PHP_SELF?>" method='post'>
             <label for="order">Sort By:</label>
             <select name="order">
             <option>Most Recent First</option>
@@ -33,73 +113,76 @@
             <option <?php select('Lowest Rating First');?>>Lowest Rating First</option>
             </select>
             <input type='submit' value='submit'/>
-            </form>
+            </form>-->
             <table>
             <?php
-            function stars($index)
+            function stars($numStars)
             {
                echo '<span class="rating">Rating: </span>
                <span class="stars">';
-               $numStars = rand(1,5);
+               if (!$numStars){
+                echo '&#9733';
+                return;
+               }
                for ($count = 0; $count < $numStars; $count++)
                     echo '&#9733';
                 echo '</span>';
             }
-            function pay()
-            {
-               $numStars = rand(1,5);
-               return $numStars * 20;		
-            }
+            /*
             if ($_POST['order'] === 'Most Recent First')
             {
-                $start1 = 80; //lower bound
-                $inc1 = 0; // constant
-                $start2 = 100;
-                $inc2 = -1;
-                $case = 1;
-                $starIndex = 0;
+                //usort($answers, "recent");
             }
-            else
+            else if ($_POST['order'] === 'Highest Rating First')
             {
-                $start2 = 100; //upper bound
-                $inc2 = 0; // constant
-                $start1 = 80;
-                $inc1 = 1;
-                $case = 2;
-                $starIndex = 0;
-            } 
-            for($a = $start1, $b = $start2; $a < $b; $a+=$inc1, $b+=$inc2)
+                //usort($answers, "ratinghigh");
+            }
+            else if ($_POST['order'] === 'Lowest Rating First')
             {
-                if ($case === 1)
-                    $y = $b;
-                else
-                    $y = $a;
-                $str = "https://snap2ask.s3.amazonaws.com/" . $y . ".jpeg";
+               // usort($answers, "ratinglow");
+            }
+            else if ($_POST['order'] === 'Highest Pay First')
+            {
+               // usort($answers, "payhigh");
+            }
+            else if ($_POST['order'] === 'Lowest Pay First')
+            {
+               // usort($answers, "paylow");
+            }*/
+            for ($x = 0, $k = 0; $x < 150; $x++){
+                $qdata = getQuestionInfo($x);
+                //var_dump($qdata);
+                for ($y = 0, $numAns = count($qdata["answers"]); $y < $numAns; $y++){
+                    $ansdata = $qdata["answers"][$y];
+                    if ($ansdata['tutor_id'] === $_SESSION['user_id'])
+                    {
             ?>
                 <tr>
                 <td>
                 <div class="questionItem" style="display: inline-block; opacity: 1;">
-                <img class="questionImage" src=<?php echo $str; ?> >
-                <label>Science</label><label> Chemistry</label>
-                <label>Date: 2013-11-07 04:07:20</label>
+                <img class="questionImage" src=<?php echo $qdata["image_url"] ?> >
+                <label><?php echo $qdata["category"] ?></label><label><?php echo $qdata["subcategory"] ?></label>
+                <label><?php echo $qdata["date_created"]; ?></label>
                 </div>
                 </td>
                 <td class="questionItem">
                 <div id="view-question-right">
     				
 					<label>Your Pay: 
-					<?php echo $y; echo stars($starIndex); $starIndex++; ?>
+					<?php echo '50'; echo stars(var_dump($ansdata['rating'])); ?>
                     </label>
-					<label>Description:</label>
-					<p><?php echo $question_info['date_created']; ?></p>
+					<label>Question:</label>
+					<p><?php echo $qdata['description'] ?></p>
 					
 					<label>Answer:</label>
-					<p><?php echo $question_info['description']; ?></p>
+					<p><?php echo $ansdata['text']; ?></p>
 				</div>
                 </td>
                 </tr>
                 
             <?php
+            }
+                }
             }
             ?>
                 
