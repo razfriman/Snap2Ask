@@ -94,6 +94,8 @@ $categories = getCategories();
 		?>
 		
 		<div id="mainContent">
+			<label id="searchLabel"></label>
+			<label id="browseError" class="error"></label>
 			<div class="holder"></div>
 			<div id="pagedContent">
 			<!--POPULATE QUESTIONS HERE-->

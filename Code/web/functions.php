@@ -72,6 +72,26 @@ function getQuestionInfo($question_id) {
 	return $responseObj;
 }
 
+function getAnswerInfo($user_id) {
+
+	// a function cannot reference variables outside of the function's scope.
+	// Declare the $base_url variable global while in the scope of the function/
+	global $base_url;
+	
+	// Load the question information 
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $user_id . '/answers');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	curl_setopt($ch, CURLOPT_HEADER, FALSE);
+	$response = curl_exec($ch);
+	curl_close($ch);
+
+	//decode the response from JSON into PHP
+	$responseObj = json_decode($response,true);
+	
+	return $responseObj;
+}
+
 function getValidationQuestions($category_id) {
 	
 	global $base_url;

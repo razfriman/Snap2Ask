@@ -181,6 +181,7 @@ footer {
 
 #loginButton {
 	height: 2.5em;
+	width: 5em;
 }
 
 #signinButton {
@@ -342,6 +343,7 @@ li#categoriesTab li {
 li#categoriesTab li:hover {
 	color: #005A8C;
 }
+
 /* END BROWSE QUESTIONS NAV (ALL,CATEGORIES,FAMILIAR) */
 
 
@@ -453,6 +455,17 @@ li#categoriesTab li:hover {
 	width: 150px;
 	height: 150px;
 }
+
+label#searchLabel {
+	display: block;
+	margin-top: 1em;
+}
+
+label#browseError {
+	display: block;
+	margin-top: 1em;
+}
+
 /* END QUESTION ITEM */
 
 
@@ -646,8 +659,8 @@ input.decision_point {
 .tutorViewAnswersLeft {
 	float:left;
 	width: 150px;
-	height: 180px;
-	margin-top: 0.5em;
+	height: 150px;
+	margin-top: 1.5em;
 	margin-left: 1em;
 }
 
@@ -670,11 +683,12 @@ input.decision_point {
 
 .tutorViewAnswersRight label {
 	display: block;
+	font-weight: bold;
 	margin-top: 0.5em;
 }
 
 .tutorViewAnswersRight p {
-	font-size: 14px;
+	font-size: 13px;
 	margin-bottom: 2em;
 }
 /* END VIEW ANSWERS */

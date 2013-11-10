@@ -2,6 +2,7 @@
 //var baseUrl = "http://www.snap2ask.com/git/snap2ask/Code/web/api/index.php";
 var baseUrl = "./api/index.php";
 
+var hasPagedItems = false;
 
 
 function addQuestion(questionData) {
@@ -52,13 +53,26 @@ function loadSelectedQuestion(questionData) {
 }
 
 function paginateItems() {
+
+	if (!hasPagedItems && $('#pagedContent div').length == 0) {
+		$('#browseError').text('No unanswered questions were found');
+		return;
+	}
+	
 	$("div.holder").jPages({
         containerID : "pagedContent",
         perPage: 15,
         callback : function( pages, items ){
         	if (items.count == 0)
         	{
-	        	$("div.holder").jPages("destroy");
+        		if (hasPagedItems) {
+		        	$('#browseError').text('No unanswered questions were found');
+					$("div.holder").jPages("destroy");
+				}
+
+        	} else {
+	        	$('#browseError').text('');
+	        	hasPagedItems = true;
         	}
 		}
 		});
@@ -66,6 +80,7 @@ function paginateItems() {
 }
 
 function loadAllQuestions() {
+	$('#searchLabel').text('');
 	$('#browseNav li').removeClass('selected');
 	$('#browseNav li:nth-child(1)').addClass('selected');
 	
@@ -90,6 +105,7 @@ function loadAllQuestions() {
 }
 
 function loadCategoryQuestions(e) {
+	$('#searchLabel').text('');
 	$('#browseNav li').removeClass('selected');
 	$('#browseNav li:nth-child(3)').addClass('selected');
 
@@ -112,6 +128,7 @@ function loadCategoryQuestions(e) {
 }
 
 function loadPreferredSubjectQuestions() {
+	$('#searchLabel').text('');
 	$('#browseNav li').removeClass('selected');
 	$('#browseNav li:nth-child(3)').addClass('selected');
 
@@ -134,7 +151,9 @@ function loadPreferredSubjectQuestions() {
 			 addQuestion(data[i]); 
 			}
 			
-			paginateItems();
+			if (k == categories.length - 1) {
+				paginateItems();
+			}
 			
 		}).fail(function() {
 			console.log("error loading questions");
@@ -144,7 +163,7 @@ function loadPreferredSubjectQuestions() {
 
 function loadQuestionsFromSearch(searchQuery) {
 	$('#pagedContent').empty();
-	$('#mainContent').prepend('<p>Search Results For: ' + searchQuery + "</p>");
+	$('#searchLabel').text('Search Results For: ' + searchQuery);
 	
 	var searchData = {"search": searchQuery };
 	

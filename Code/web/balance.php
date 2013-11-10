@@ -29,6 +29,12 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 		$withdraw = 0;
 	}
 	
+	if ($current == 0) {
+		$_SESSION['msg']['balance_err'] = 'Warning: you do not have any SnapCash';
+	} else if ($withdraw > $current) {
+		$_SESSION['msg']['balance_err'] = sprintf('Warning: only %s SnapCash was withdrawn because %s is greater than the amount of SnapCash in your account',$current,$withdraw);
+	}
+	
 	if ($withdraw > $current) {
 		$withdraw = $current;
 	}
@@ -61,6 +67,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 	if($updateResponseObj['success'])
 	{
 		header('Location: balance.php');
+		exit;
 	} else {
 		die($updateResponseObj['reason']);
 	}
@@ -144,8 +151,13 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit 50 SnapCash') {
 			<h1>ACCOUNT BALANCE</h1>
 			<?php
 
-				// Echo the information using sprintf
-				// Escape special html characters to enhance XSS security
+			if (isset($_SESSION['msg']['balance_err'])) {				
+				echo sprintf('<label class="error">%s</label>', $_SESSION['msg']['balance_err']);
+				unset($_SESSION['msg']['balance_err']);
+			}
+
+			// Echo the information using sprintf
+			// Escape special html characters to enhance XSS security
 			echo sprintf("<h3>Available SnapCash: %s</h3>", htmlspecialchars($responseObj['balance']));
 
 			?>
