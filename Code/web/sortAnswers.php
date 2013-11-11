@@ -1,3 +1,5 @@
+<!--USE THIS FILE TO COMPARE SORTED RESULTS AGAINST DEFAULT RESULTS-->
+<!--viewAnswers.php returns "default" results-->
 <?php
 
 // Start the named session
@@ -8,8 +10,8 @@ session_start();
 define('inc_file', TRUE);
 
 if (!isset($_SESSION['user_id'])) {
-	// The user is not logged in
-	header('Location: index.php');
+    // The user is not logged in
+    header('Location: index.php');
 	exit;
 }
 
@@ -49,7 +51,7 @@ $responseObj = getUserInfo(true);
 		
 		<!--ans.php includes main content div-->
 		<!--remove style tag from ans.php-->
-		<?php include('ans.php'); ?>
+		<?php include('ansort.php'); ?>
 		
 	</div> <!--end content div-->
 	
