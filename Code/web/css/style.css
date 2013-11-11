@@ -689,7 +689,16 @@ input.decision_point {
 
 .tutorViewAnswersRight p {
 	font-size: 13px;
-	margin-bottom: 2em;
+	margin-top: 0.5em;
+}
+
+.ratingStars {
+	color: yellow;
+    text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px 1px  0 #000;  
 }
 /* END VIEW ANSWERS */
 

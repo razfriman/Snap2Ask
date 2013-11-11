@@ -100,6 +100,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 						if($verified_category['category_id'] == $category['id'] && $verified_category['is_preferred'])
 						{
 							echo sprintf("<p>%s</p>",$category['name']);
+							echo '<br />';
 							$count++;
 						}
 					}
@@ -114,7 +115,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 				?>
 				
 				<input type="submit" value="Edit Profile" />
-
+				
 			</form>
 			
 			<?php 
