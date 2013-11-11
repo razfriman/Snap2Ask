@@ -1,55 +1,7 @@
-<?php
+<!--Use this with sortAnswers.php-->
 
-// Start the named session
-session_name('loginSession');
-session_start();
-
-// Allow the included files to be executed
-define('inc_file', TRUE);
-
-if (!isset($_SESSION['user_id'])) {
-    // The user is not logged in
-    header('Location: index.php');
-	exit;
-}
-
-// Require the functions file
-require_once('functions.php');
-
-$responseObj = getUserInfo(true);
-
-?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-	<title>Snap-2-Ask | View Answers</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="js/validateBalance.js" type="text/javascript"></script>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-
-<body>
-
-	<?php include('header.php') ?>
-	
-	<div id="content">
-
-		<div id="linksNav">
-			<ul>
-				<li><a href="browse.php" >Browse</a></li>
-				<li><a href="balance.php" >Balance</a></li>
-				<li><a href="profile.php" >Profile</a></li>
-				<li class="selected" ><a href="viewAnswers.php" >My Answers</a></li>
-			</ul>
-		</div><!--end linksNav-->
-		
-		<!--ans.php includes main content div-->
-		<!--remove style tag from ans.php-->
-		<!--answer file with sort functions by time, rating, and pay-->
+<!--style tag contents should be moved to the style folder 
+at a later time after all experimenting is done directly with this file--> 
  <style>
     td.questionItem {
         margin-left: -1em;
@@ -76,30 +28,6 @@ $responseObj = getUserInfo(true);
     $responseObj = getUserInfo(true);
 
 $answerInfo = getAnswerInfo($responseObj['id']);
-     /*for ($x = 0; $x < 150; $x++){
-      $qdata = getQuestionInfo($x);
-      //var_dump($qdata);
-      for ($y = 0, $numAns = count($qdata["answers"]); $y < $numAns; $y++){
-            $ansdata = $qdata["answers"][$y];
-            if ($ansdata['tutor_id'] === $_SESSION['user_id'])
-            {*/
-                /*
-                echo '<br>' . 'hello' . $_SESSION['user_id'];
-                echo '<br>' . $qdata['id'];
-                echo '<br>' . $qdata['student_id'];
-                echo '<br>' . $qdata['description'];
-                echo '<br>' . $qdata["subcategory"];
-                echo '<br>' . $qdata["category"];
-                echo '<br>' . $qdata["image_url"];
-                echo '<br>' . $qdata["date_created"];
-                echo '<br>' . $ansdata['text'];
-                echo '<br>' . $ansdata['tutor_id'];
-                var_dump($ansdata['rating']);
-                
-            }
-        }
-     }*/
-      //echo '<br>' . $qdata["answers"][0]['tutor_id'] === $_SESSION['user_id'];
      ?>
 <div id="mainContent">
             <h1>MY ANSWERS</h1>
@@ -120,9 +48,16 @@ $answerInfo = getAnswerInfo($responseObj['id']);
             }
             $answers = array();
             $qdata = getAnswerInfo($_SESSION['user_id']);
-                //var_dump($qdata);
-                for ($y = 0, $numAns = count($qdata["answers"]); $y < $numAns; $y++){
+            /*start outer question method loop commenting here
+            for ($x = 0, $k = 0; $x < 150; $x++){
+                $qdata = getQuestionInfo($x);
+                /*for ($y = 0, $numAns = count($qdata["answers"]); $y < $numAns; $y++){
                     $ansdata = $qdata["answers"][$y];
+                    if ($ansdata['tutor_id'] === $_SESSION['user_id'])
+                    {
+                        end loop commenting here */
+                for ($y = 0, $numAns = count($qdata["answers"]); $y < $numAns; $y++){
+                        $ansdata = $qdata["answers"][$y];
                         $answers[$k] = new Answer();
                         $answers[$k]->id = $qdata['questions'][$y]['id'];
                         $answers[$k]->pay = rand(1,10) * 10;
@@ -134,12 +69,24 @@ $answerInfo = getAnswerInfo($responseObj['id']);
                         $answers[$k]->answer = $ansdata['text'];
                         $answers[$k]->imgurl = $qdata["image_url"];
                         $k++;
+                        /*$answers[$k] = new Answer();
+                        $answers[$k]->id = $qdata['id'];
+                        $answers[$k]->pay = rand(1,10) * 10;
+                        $answers[$k]->datestr = $qdata["date_created"];
+                        $answers[$k]->cat = $qdata["category"];
+                        $answers[$k]->cat = $qdata["subcategory"];
+                        $answers[$k]->rating = rand(1,5);
+                        $answers[$k]->desc = $qdata['description'];
+                        $answers[$k]->answer = $ansdata['text'];
+                        $answers[$k]->imgurl = $qdata["image_url"];
+                        $k++;*/
                     }
-                }
-            }
+                    //}
+               // }
+           // }    
             function recent($a, $b)
             {
-                return $b->id - $a->id;
+                return strcmp($b->datestr, $a->datestr);
             }
             function ratinghigh($a, $b)
             {
@@ -166,7 +113,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
            <form id='sort' action="<?=$PHP_SELF?>" method='post'>
             <label for="order">Sort By:</label>
             <select name="order">
-            <option>Most Recent First</option>
+            <option <?php select('Most Recent First');?>>Most Recent First</option>
             <option <?php select('Highest Pay First');?>>Highest Pay First</option>
             <option <?php select('Lowest Pay First');?>>Lowest Pay First</option>
             <option <?php select('Highest Rating First');?>>Highest Rating First</option>
@@ -189,7 +136,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
                 echo '</span>';
             }
             
-            if ($_POST['order'] === 'Most Recent First')
+            if (!$_POST['order'] || $_POST['order'] === 'Most Recent First')
             {
                 usort($answers, "recent");
             }
@@ -241,11 +188,3 @@ $answerInfo = getAnswerInfo($responseObj['id']);
                 </table>
 			
 		</div>
-
-		
-	</div> <!--end content div-->
-	
-	<?php include('footer.php') ?>
-
-</body>
-</html>
