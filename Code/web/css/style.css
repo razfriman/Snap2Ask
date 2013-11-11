@@ -557,6 +557,14 @@ label#browseError {
 	padding: 0;
 }
 
+.profileItem .ratingContainer {
+	float: right;
+	text-align: left;
+	width: 45%;
+	margin: 0;
+	padding: 0;
+}
+
 #deleteAccountButton {
 	background: #ff3019;
 	color: white;

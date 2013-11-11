@@ -198,8 +198,8 @@ function insertUsers ($dbConnection, $file)
 				date_created, 
 				authentication_mode, 
 				first_name, 
-				last_name, 
-				rating) values (
+				last_name)
+				 values (
 				'{$name[0]}', 
 				'{$hashResult[0]}', 
 				'{$hashResult[1]}', 
@@ -207,8 +207,7 @@ function insertUsers ($dbConnection, $file)
 				'{$date}',
 				'{$name[4]}',
 				'{$name[5]}', 
-				'{$name[6]}', 
-				{$name[7]});";  
+				'{$name[6]}');";  
 
 			//inserting the user in the databse
 			if (!mysql_query($insertUser))

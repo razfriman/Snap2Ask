@@ -237,6 +237,32 @@ function addVerifiedCategories(&$user, $db)
 }
 
 
+function addTotalAnswers(&$user, $db)
+{
+	try {
+		$verified_categories = array();
+		
+		// Get the user id from the user object
+		$user_id = $user['id'];
+
+		// Select all the verification data for the matching user id
+		$sth = $db->prepare("SELECT COUNT(id) FROM answers  WHERE tutor_id=:tutor_id AND rating IS NOT NULL AND rating != -1");
+		$sth->bindParam(':tutor_id',$user_id);
+		$sth->execute();
+		
+		$row = $sth->fetch();
+		
+		// Append the  data of the user of the specific answer
+		$user['total_answers'] = $row[0];
+		
+		
+	} catch(PDOException $e) {
+     // SQL ERROR
+		$user['total_answers'] = 0;
+	}
+}
+
+
 
 
 
@@ -524,6 +550,9 @@ $app->get(
 				// Add verified categories info
 				addVerifiedCategories($userData, $db);
 
+				// Add total number of answers posted
+				addTotalAnswers($userData, $db);
+				
 	            // Remove the password/salt fields
 				unset($userData['password']);
 				unset($userData['salt']);
@@ -556,7 +585,6 @@ $app->put(
 		$is_tutor = $request['is_tutor'];
 		$first_name = $request['first_name'];
 		$last_name = $request['last_name'];
-		$rating = $request['rating'];
 		
 		// Initialize the response data
 		$success = false;
@@ -564,13 +592,12 @@ $app->put(
 
 		try {
 
-			$sth = $db->prepare('UPDATE users set balance=:balance, is_tutor=:is_tutor, first_name=:first_name, last_name=:last_name, rating=:rating WHERE id=:user_id');
+			$sth = $db->prepare('UPDATE users set balance=:balance, is_tutor=:is_tutor, first_name=:first_name, last_name=:last_name WHERE id=:user_id');
 			
 			$sth->bindParam(':balance', $balance);
 			$sth->bindParam('is_tutor', $is_tutor);
 			$sth->bindParam(':first_name', $first_name);
 			$sth->bindParam(':last_name', $last_name);
-			$sth->bindParam(':rating', $rating);
 			$sth->bindParam(':user_id', $id);
 			
 			$sth->execute();
@@ -1582,61 +1609,102 @@ $app->put(
 		$request = $app->request()->getBody();
 
 		// Load the request property
-		$answer_status = $request['status'];
+		$rating = $request['rating'];
 
 		// Initialize the response data
 		$success = false;
 		$reason = '';
-		$old_status = '';
-		$new_status = '';
-
-		// Only continue if the requested status is valid
-		if ($answer_status === "pending" || $answer_status === "accepted" || $answer_status === "rejected") {
-			try {
-
-				//Select the specified answer from the database
-				$sth = $db->prepare('SELECT * FROM answers WHERE id=:answer_id');
-				$sth->bindParam(':answer_id', $id);
-				$sth->execute();
-
-				// If the answer exists, then we update its status
-				if ($sth->rowCount() > 0) {
-
-					// Load the answer data
-					$answer_data = $sth->fetch(PDO::FETCH_ASSOC);
-
-					// Get the old question status
-					$old_status = $answer_data['status'];
-
-					// Update the status of the answer
-					$sth = $db->prepare("UPDATE answers SET status=:answer_status WHERE id=:answer_id");
-					$sth->bindParam(':answer_id', $id);
-					$sth->bindParam(':answer_status',$answer_status);
-					$sth->execute();
-
-					// Save the new status
-					$new_status = $answer_status;				
-					$success = true;
-				} else {
-					$reason = "Answer does not exist";
-				}
-
-			} catch(PDOException $e) {
-				$success = false;
-				//$reason = $e->getMessage();
-				$reason = 'Error: could not add update answer';
-			}
+		
+		
+		$status = '';
+		
+		if ($rating > 5) {
+			$rating = 5;
+		}
+		
+		if ($rating > 0) {
+			$status = 'accepted';
+		} else if ($rating == 0) {
+			$status = 'rejected';
 		} else {
+			$status = 'pending';
+			$rating = null;
+		}
+
+		
+		try {
+
+			//Select the specified answer from the database
+			$sth = $db->prepare('SELECT * FROM answers WHERE id=:answer_id');
+			$sth->bindParam(':answer_id', $id);
+			$sth->execute();
+
+			// If the answer exists, then we update its status
+			if ($sth->rowCount() > 0) {
+
+				// Load the answer data
+				$answer_data = $sth->fetch(PDO::FETCH_ASSOC);
+
+				// Get the old question status
+				$old_status = $answer_data['status'];
+
+				// Update the status of the answer
+				$sth = $db->prepare("UPDATE answers SET status=:answer_status, rating=:rating WHERE id=:answer_id");
+				$sth->bindParam(':answer_id', $id);
+				$sth->bindParam(':rating', $rating);
+				$sth->bindParam(':answer_status',$status);
+				$sth->execute();
+				
+				
+				// UPDATE TUTOR RATING AVERAGE HERE
+				
+				// Get total answers
+				$sth = $db->prepare('SELECT COUNT(id) FROM answers WHERE tutor_id=:tutor_id AND rating IS NOT NULL');
+				$sth->bindParam(':tutor_id', $answer_data['tutor_id']);
+				$sth->execute();
+				$totalAnswersRow = $sth->fetch();
+				$totalAnswers = $totalAnswersRow[0];
+				
+				// Get total rating
+				$sth = $db->prepare('SELECT SUM(rating) FROM answers WHERE tutor_id=:tutor_id');
+				$sth->bindParam(':tutor_id', $answer_data['tutor_id']);
+				$sth->execute();
+				$totalRatingRow = $sth->fetch();
+				$totalRating = $totalRatingRow[0];
+				
+				$sth = $db->prepare('SELECT * FROM users WHERE id=:tutor_id');
+				$sth->bindParam(':tutor_id', $answer_data['tutor_id']);
+				$sth->execute();
+				$user_data = $sth->fetch(PDO::FETCH_ASSOC);
+				
+				// NEED TOTAL # OF TIMES ANSWERED
+				$newAverage = floor($totalRating / $totalAnswers);
+				
+				if ($newAverage == 0) {
+					// Make the minumum be 1 star
+					$newAverage = 1;
+				}
+				
+				$sth = $db->prepare('UPDATE users set average_rating=:average_rating WHERE id=:tutor_id');
+				$sth->bindParam(':tutor_id', $answer_data['tutor_id']);
+				$sth->bindParam(':average_rating', $newAverage);
+				$sth->execute();
+				
+				$success = true;
+			} else {
+				$reason = "Answer does not exist";
+			}
+
+		} catch(PDOException $e) {
 			$success = false;
-			$reason = "Invalid answer status. The valid options are: 'pending', 'accepted', and 'rejected'";
+			$reason = $e->getMessage();
+			//$reason = 'Error: could not add update answer';
 		}
 
 		// Create the response data
 		$dataArray = array(
 			'success' => $success,
-			'reason' => $reason,
-			'old_status' => $old_status,
-			'new_status' => $new_status);
+			'reason' => $reason);
 
 		// Send the JSON response
 		$response = $app->response();

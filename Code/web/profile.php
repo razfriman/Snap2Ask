@@ -90,6 +90,18 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 				echo sprintf("<div class='profileItem'><label>First Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['first_name']));
 				echo sprintf("<div class='profileItem'><label>Last Name:</label><p>%s</p></div>", htmlspecialchars($responseObj['last_name']));
 				echo sprintf("<div class='profileItem'><label>Email:</label><p>%s</p></div>", htmlspecialchars($responseObj['email']));
+				
+				
+				if (isset($responseObj['average_rating'])) {
+				
+				$stars = '';
+				
+				for ($i = 0; $i < $responseObj['average_rating']; $i++) {
+					$stars .= '&#9733; ';
+				}
+				
+					echo sprintf("<div class='profileItem'><label>Rating:</label><div class='ratingContainer'><span class='ratingStars'>%s</span> (%s)</div></div>", $stars, $responseObj['total_answers']);
+				}
 
 				echo "<div class='profileItem'><label>Preferred Categories:</label>";
 

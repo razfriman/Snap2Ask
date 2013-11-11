@@ -40,12 +40,11 @@ CREATE TABLE `users` (
   `salt` varchar(100) NOT NULL,
   `balance` int(11) NOT NULL DEFAULT '10',
   `is_tutor` tinyint(4) NOT NULL DEFAULT '0',
-  `is_admin` tinyint(4) NOT NULL DEFAULT '0',
   `date_created` datetime NOT NULL,
   `authentication_mode` enum('custom','facebook','google') NOT NULL,
   `first_name` varchar(45) NOT NULL,
   `last_name` varchar(45) NOT NULL,
-  `rating` int(11),
+  `average_rating` int(11),
   `password_reset_token` VARCHAR(50) NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`,`authentication_mode`)

@@ -84,12 +84,19 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 						<?php
 						
 						 if (isset($answer['rating'])) {
-							$stars = '';
-							for ($j = 0; $j < $answer['rating']; $j++) {
-								$stars = $stars . '&#9733; ';
+						 
+						 	if ($answer['rating'] == 0) {
+							 	
+							 	echo '<p>&lt;Rejected&gt;</p>';
+							 	
+						 	} else {
+						 
+								$stars = '';
+								for ($j = 0; $j < $answer['rating']; $j++) {
+									$stars = $stars . '&#9733; ';
+								}
+								echo sprintf('<p class="ratingStars">%s</p>', $stars);	
 							}
-							
-							echo sprintf('<p class="ratingStars">%s</p>', $stars);
 							
 						} else {
 							echo '<p>&lt;None&gt;</p>';
