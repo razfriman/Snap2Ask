@@ -155,20 +155,17 @@
             {
                // usort($answers, "paylow");
             }*/
-            for ($x = 0, $k = 0; $x < 150; $x++){
-                $qdata = getQuestionInfo($x);
+                $qdata = getAnswerInfo($_SESSION['user_id']);
                 //var_dump($qdata);
                 for ($y = 0, $numAns = count($qdata["answers"]); $y < $numAns; $y++){
                     $ansdata = $qdata["answers"][$y];
-                    if ($ansdata['tutor_id'] === $_SESSION['user_id'])
-                    {
             ?>
                 <tr>
                 <td>
                 <div class="questionItem" style="display: inline-block; opacity: 1;">
-                <img class="questionImage" src=<?php echo $qdata["image_url"] ?> >
-                <label><?php echo $qdata["category"] ?></label><label><?php echo $qdata["subcategory"] ?></label>
-                <label><?php echo $qdata["date_created"]; ?></label>
+                <img class="questionImage" src=<?php echo $qdata['questions'][$y]["image_url"] ?> >
+                <label><?php echo $qdata['questions'][$y]["category"] ?></label><label><?php echo $qdata['questions'][$y]["subcategory"] ?></label>
+                <label><?php echo $qdata['questions'][$y]["date_created"]; ?></label>
                 </div>
                 </td>
                 <td class="questionItem">
@@ -178,7 +175,7 @@
 					<?php echo '50'; stars(rand(1,5)); ?>
                     </label>
 					<label class="answer">Question: </label>
-					<label class="text"><?php echo $qdata['description'] ?></label>
+					<label class="text"><?php echo $qdata['questions'][$y]['description'] ?></label>
 					
 					<label class="answer">Answer:</label>
 					<label class="text"><?php echo $ansdata['text']; ?></label>
@@ -187,8 +184,6 @@
                 </tr>
                 
             <?php
-            }
-                }
             }
             ?>
                 
