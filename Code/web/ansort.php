@@ -1,19 +1,40 @@
-<!--Use this with sortAnswers.php-->
 
-<!--style tag contents should be moved to the style folder 
-at a later time after all experimenting is done directly with this file--> 
  <style>
     td.questionItem {
         margin-left: -1em;
         margin-top: 0.55em;
         width: 500px;
-        height: 206px;
+        height: 230px;
         color:white
     }
-    label.answer
+    label.ansinfo
     {
-        position:relative;
-        color: blue;
+       position:relative;
+       top: 5px;
+       left: 2px;
+    }
+    #question
+    {
+        top: 5px;
+        text-decoration: underline;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    #desc
+    {
+        font-size: 15px;
+    }
+    #answer
+    {
+        top: 10px;
+        text-decoration: underline;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    #response
+    {
+        top: 10px;
+        font-size: 15px;
     }
     .stars
     {
@@ -24,6 +45,16 @@ at a later time after all experimenting is done directly with this file-->
         margin-left: 1em;
     }
     </style>
+    <script>
+        window.onload = function(){
+        main = document.getElementById("mainContent");
+        buttons = document.getElementsByTagName("button");
+        imgs = document.getElementsByClassName("questionImage");
+        for(var i = 0; i < buttons.length; i++){
+            buttons[i].addEventListener("click", function(e){main.innerHTML = "<h2><a href='viewAnswers.php'>Go Back</a></h2><img alt='question image' src=\"" + this.id + "\" >";}, false);
+        }
+        };    
+    </script>
     <?php
     $responseObj = getUserInfo(true);
 
@@ -32,8 +63,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 <div id="mainContent">
             <h1>MY ANSWERS</h1>
             <?php 
-            var_dump(getAnswerInfo($_SESSION['user_id']));
-            
+            //var_dump(getAnswerInfo($_SESSION['user_id']));
             class Answer
             {
                 public $id;
@@ -48,26 +78,26 @@ $answerInfo = getAnswerInfo($responseObj['id']);
             }
             $answers = array();
             $qdata = getAnswerInfo($_SESSION['user_id']);
-            /*start outer question method loop commenting here
+            /*start outer loop commenting here
             for ($x = 0, $k = 0; $x < 150; $x++){
                 $qdata = getQuestionInfo($x);
                 /*for ($y = 0, $numAns = count($qdata["answers"]); $y < $numAns; $y++){
                     $ansdata = $qdata["answers"][$y];
                     if ($ansdata['tutor_id'] === $_SESSION['user_id'])
                     {
-                        end loop commenting here */
+                        end loop commenting here*/
                 for ($y = 0, $numAns = count($qdata["answers"]); $y < $numAns; $y++){
                         $ansdata = $qdata["answers"][$y];
                         $answers[$k] = new Answer();
                         $answers[$k]->id = $qdata['questions'][$y]['id'];
                         $answers[$k]->pay = rand(1,10) * 10;
-                        $answers[$k]->datestr = $qdata["date_created"];
+                        $answers[$k]->datestr = $qdata['questions'][$y]["date_created"];
                         $answers[$k]->cat = $qdata['questions'][$y]["category"];
                         $answers[$k]->subcat = $qdata['questions'][$y]["subcategory"];
                         $answers[$k]->rating = rand(1,5);
                         $answers[$k]->desc = $qdata['questions'][$y]['description'];
                         $answers[$k]->answer = $ansdata['text'];
-                        $answers[$k]->imgurl = $qdata["image_url"];
+                        $answers[$k]->imgurl = $qdata['questions'][$y]["image_url"];
                         $k++;
                         /*$answers[$k] = new Answer();
                         $answers[$k]->id = $qdata['id'];
@@ -162,6 +192,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
                 <td>
                 <div class="questionItem" style="display: inline-block; opacity: 1;">
                 <img class="questionImage" src=<?php echo $answers[$y]->imgurl ?> >
+                <button id=<?php echo $answers[$y]->imgurl ?> >View Full Size</button>
                 <label><?php echo $answers[$y]->cat ?></label><label><?php echo $answers[$y]->subcat ?></label>
                 <label><?php echo $answers[$y]->datestr ?></label>
                 </div>
@@ -169,14 +200,14 @@ $answerInfo = getAnswerInfo($responseObj['id']);
                 <td class="questionItem">
                 <div id="view-question-right">
         			
-					<label>Your Pay: 
+					<label id="pay">Your Pay: 
 					<?php echo $answers[$y]->pay; stars($answers[$y]->rating); ?>
                     </label>
-					<label class="answer">Question: </label>
-					<label class="text"><?php echo $answers[$y]->desc ?></label>
+					<label id="question" class="ansinfo">Question</label>
+					<label id="desc" class="ansinfo"><?php echo $answers[$y]->desc ?></label>
 					
-					<label class="answer">Answer:</label>
-					<label class="text"><?php echo $answers[$y]->answer ?></label>
+					<label id="answer" class="ansinfo">Answer</label>
+					<label id="response" class="ansinfo"><?php echo $answers[$y]->answer ?></label>
 				</div>
                 </td>
                 </tr>
