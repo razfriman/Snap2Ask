@@ -22,7 +22,7 @@ function submitAnswer() {
 	
 	var answerData = { 
 		"tutor_id": userId,
-		"answer_text": answer
+		"answer_text": $.trim(answer)
 	};
 	
 	$.ajax({
