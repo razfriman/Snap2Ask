@@ -85,8 +85,11 @@ $answerInfo = getAnswerInfo($responseObj['id']);
                     $ansdata = $qdata["answers"][$y];
                     if ($ansdata['tutor_id'] === $_SESSION['user_id'])
                     {
-                        end loop commenting here*/
-                for ($y = 0, $numAns = count($qdata["answers"]); $y < $numAns; $y++){
+                        end loop commenting here
+                    //}
+               // }
+            }    */
+           for ($y = 0, $k = 0, $numAns = count($qdata["answers"]); $y < $numAns; $y++, $k++){
                         $ansdata = $qdata["answers"][$y];
                         $answers[$k] = new Answer();
                         $answers[$k]->id = $qdata['questions'][$y]['id'];
@@ -98,22 +101,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
                         $answers[$k]->desc = $qdata['questions'][$y]['description'];
                         $answers[$k]->answer = $ansdata['text'];
                         $answers[$k]->imgurl = $qdata['questions'][$y]["image_url"];
-                        $k++;
-                        /*$answers[$k] = new Answer();
-                        $answers[$k]->id = $qdata['id'];
-                        $answers[$k]->pay = rand(1,10) * 10;
-                        $answers[$k]->datestr = $qdata["date_created"];
-                        $answers[$k]->cat = $qdata["category"];
-                        $answers[$k]->cat = $qdata["subcategory"];
-                        $answers[$k]->rating = rand(1,5);
-                        $answers[$k]->desc = $qdata['description'];
-                        $answers[$k]->answer = $ansdata['text'];
-                        $answers[$k]->imgurl = $qdata["image_url"];
-                        $k++;*/
                     }
-                    //}
-               // }
-           // }    
             function recent($a, $b)
             {
                 return strcmp($b->datestr, $a->datestr);
@@ -166,7 +154,11 @@ $answerInfo = getAnswerInfo($responseObj['id']);
                 echo '</span>';
             }
             
-            if (!$_POST['order'] || $_POST['order'] === 'Most Recent First')
+            if ($_POST['order'] === 'Most Recent First')
+            {
+                usort($answers, "recent");
+            }
+            else if (!$_POST['order'])
             {
                 usort($answers, "recent");
             }
