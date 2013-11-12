@@ -417,7 +417,7 @@ function insertValidationQuestions ($dbConnection, $file)
 
 	                if (!mysql_query($insertQuestion))
                         {
-				die ("Impossible ot insert the validation question. Error " . mysql_error()); 
+				die ("$name[0] . Impossible ot insert the validation question. Error " . mysql_error()); 
 			}
 		}
 	}
