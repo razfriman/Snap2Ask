@@ -197,6 +197,7 @@ function addUserFromAnswer(&$answer,$db) {
 		if ($sth->rowCount() > 0) {
 			
 			$userData = $sth->fetch(PDO::FETCH_ASSOC);
+			addQuestionStatistics($userData, $db);
 			
 			// Remove password/salt from the user data
 			unset($userData['password']);
@@ -237,7 +238,7 @@ function addVerifiedCategories(&$user, $db)
 }
 
 
-function addTotalAnswers(&$user, $db)
+function addQuestionStatistics(&$user, $db)
 {
 	try {
 		$verified_categories = array();
@@ -245,7 +246,6 @@ function addTotalAnswers(&$user, $db)
 		// Get the user id from the user object
 		$user_id = $user['id'];
 
-		// Select all the verification data for the matching user id
 		$sth = $db->prepare("SELECT COUNT(id) FROM answers  WHERE tutor_id=:tutor_id AND rating IS NOT NULL AND rating != -1");
 		$sth->bindParam(':tutor_id',$user_id);
 		$sth->execute();
@@ -255,10 +255,20 @@ function addTotalAnswers(&$user, $db)
 		// Append the  data of the user of the specific answer
 		$user['total_answers'] = $row[0];
 		
+		$sth = $db->prepare("SELECT COUNT(id) FROM questions WHERE student_id=:student_id");
+		$sth->bindParam(':student_id',$user_id);
+		$sth->execute();
+		
+		$row = $sth->fetch();
+		
+		// Append the  data of the user of the specific answer
+		$user['total_questions'] = $row[0];
+		
 		
 	} catch(PDOException $e) {
      // SQL ERROR
 		$user['total_answers'] = 0;
+		$user['total_questions'] = 0;
 	}
 }
 
@@ -551,7 +561,7 @@ $app->get(
 				addVerifiedCategories($userData, $db);
 
 				// Add total number of answers posted
-				addTotalAnswers($userData, $db);
+				addQuestionStatistics($userData, $db);
 				
 	            // Remove the password/salt fields
 				unset($userData['password']);
@@ -1805,7 +1815,6 @@ $app->post(
                         $status['success'] = 'false';
 						$status['error'] = 'sql error';
                         $status['sqlError'] = $sth->errorCode();
-                        $status['errorDescription'] = $sth->errorInfo()[2];
                 }
 
                 // Return JSON with the status of the insertion
