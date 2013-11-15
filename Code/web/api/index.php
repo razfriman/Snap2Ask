@@ -679,7 +679,6 @@ $app->post(
 		$salt = '';
 		$balance = 40;
 		$is_tutor = $request['is_tutor'];
-		$is_admin = 0;
 		$authentication_mode = $request['authentication_mode'];
 		$date_created = date("Y-m-d H:i:s");
 		$register_or_login = $request['register_or_login'];
@@ -738,8 +737,8 @@ $app->post(
 				
 					// Try to insert the user into the database
 					// This uses named parameters, which prevent any SQL Injections
-					$sth = $db->prepare('INSERT INTO users (email,oauth_id,first_name,last_name,password,salt,balance,is_tutor,is_admin,authentication_mode,date_created) 
-						VALUES (:email,:oauth_id,:first_name,:last_name,:password,:salt,:balance,:is_tutor,:is_admin,:authentication_mode,:date_created)');
+					$sth = $db->prepare('INSERT INTO users (email,oauth_id,first_name,last_name,password,salt,balance,is_tutor,authentication_mode,date_created) 
+						VALUES (:email,:oauth_id,:first_name,:last_name,:password,:salt,:balance,:is_tutor,:authentication_mode,:date_created)');
 					$sth->bindParam(':email', $email);
 					$sth->bindParam(':oauth_id', $oauth_id);
 					$sth->bindParam(':first_name', $first_name);
@@ -748,7 +747,6 @@ $app->post(
 					$sth->bindParam(':salt', $salt);
 					$sth->bindParam(':balance', $balance);
 					$sth->bindParam(':is_tutor', $is_tutor);
-					$sth->bindParam(':is_admin', $is_admin);
 					$sth->bindParam(':authentication_mode', $authentication_mode);
 					$sth->bindParam(':date_created', $date_created);
 					$sth->execute();
@@ -765,8 +763,8 @@ $app->post(
 		} catch(PDOException $e) {
         	// An error occured
 			$success = false;
-			//$reason = $e->getMessage();
-			$reason = 'Error: Could not create account';
+			$reason = $e->getMessage();
+			//$reason = 'Error: Could not create account';
 		}
 
         // Create the return data

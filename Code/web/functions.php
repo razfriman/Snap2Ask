@@ -72,6 +72,7 @@ function getQuestionInfo($question_id) {
 	return $responseObj;
 }
 
+
 function getAnswerInfo($user_id) {
 
 	// a function cannot reference variables outside of the function's scope.
@@ -110,6 +111,7 @@ function getValidationQuestions($category_id) {
 	return $responseObj;
 
 }
+
 
 function getCategories() {
 
