@@ -414,13 +414,6 @@ $app->post(
 				$sth->bindParam(':password_reset_token',$password_reset_token);
 				$sth->execute();
 				
-				// SEND AN EMAIL
-				$to      = $email;
-				$subject = 'Snap-2-Ask Password Reset';
-				$message = 'Click this link to reset your password: ' . $password_reset_token;
-				$headers = 'From: support@snap2ask.com' . "\r\n" . 'Reply-To: support@snap2ask.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-				mail($to, $subject, $message, $headers);
-				
 				$success = true;
 			} else {
 				$reason = 'An account with that email does not exists';
