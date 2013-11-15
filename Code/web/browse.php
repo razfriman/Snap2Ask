@@ -43,6 +43,7 @@ $categories = getCategories();
 	<div id="content">
 
 		<div id="browseNav">
+			<p> THIS QUESTIONS NEED TO BE ANSWERED </p>	
 			<ul>
 				<li class="mainLink">All</li>
 				<li id="categoriesTab" class="mainLink">Categories
