@@ -24,14 +24,29 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 	// WITHDRAW FUNDS
 	$current = $responseObj['balance'];
 	$withdraw = $_POST['withdraw_amount'];
-	
+
+    //Prevents a user from withdrawing a negative amount of SnapCash
 	if ($withdraw < 0) {
-		$withdraw = 0;
+        $withdraw = 0;
+        $err[] = 'You cannot withdraw a negative amount of SnapCash.';
 	}
-	
+
+    //Prevents a user from withdrawing more snapcash than the currently have
 	if ($withdraw > $current) {
-		$withdraw = $current;
+        $withdraw = 0;
+        $err[] = 'You cannot withdraw more SnapCash than you currently have.';
+    }
+
+	if($err)
+	{
+		// Save the error message into the session
+		$_SESSION['msg']['withdraw-err'] = implode('<br />',$err);
 	}
+
+    //reload the page to show the error
+	header("Location: balance.php");
+    //exit;
+
 	
 	// UPDATE THE USER INFO VIA REST API 
 
