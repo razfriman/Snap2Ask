@@ -535,6 +535,10 @@ label#browseError {
 	clear:both;
 	margin-top: 1em;
 }
+
+#verifiedCategories ul {
+	list-style-type:none;
+}
 .profileItem {
 	height: 2em;
 	width: 25em;
@@ -684,7 +688,7 @@ input.decision_point {
 
 .tutorViewAnswersRight {
 	float:left;	
-	width: 450px;
+	width: 350px;
 	height: 180px;
 	margin-top: 0.5em;
 }
@@ -696,7 +700,20 @@ input.decision_point {
 }
 
 .tutorViewAnswersRight p {
-	font-size: 13px;
+	font-size: 12px;
+	margin-top: 0.5em;
+}
+
+.tutorViewAnswersRating {
+	float:left;	
+	width: 120px;
+	height: 180px;
+	margin-top: 0.5em;
+}
+
+.tutorViewAnswersRating label {
+	display: block;
+	font-weight: bold;
 	margin-top: 0.5em;
 }
 

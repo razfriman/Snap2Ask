@@ -79,12 +79,15 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 						<p>
 						<?php echo $answer['text']; ?>
 						</p>
+	                </div>
+	                
+	                <div class="tutorViewAnswersRating">
 						
 						<label>Rating</label>
 						<?php
 						
 						 if (isset($answer['rating'])) {
-						 
+						 	
 						 	if ($answer['rating'] == 0) {
 							 	
 							 	echo '<p>&lt;Rejected&gt;</p>';

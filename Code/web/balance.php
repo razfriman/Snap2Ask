@@ -24,29 +24,20 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 	// WITHDRAW FUNDS
 	$current = $responseObj['balance'];
 	$withdraw = $_POST['withdraw_amount'];
-
-    //Prevents a user from withdrawing a negative amount of SnapCash
+	
 	if ($withdraw < 0) {
-        $withdraw = 0;
-        $err[] = 'You cannot withdraw a negative amount of SnapCash.';
+		$withdraw = 0;
 	}
-
-    //Prevents a user from withdrawing more snapcash than the currently have
+	
+	if ($current == 0) {
+		$_SESSION['msg']['balance_err'] = 'Warning: you do not have any SnapCash';
+	} else if ($withdraw > $current) {
+		$_SESSION['msg']['balance_err'] = sprintf('Warning: only %s SnapCash was withdrawn because %s is greater than the amount of SnapCash in your account',$current,$withdraw);
+	}
+	
 	if ($withdraw > $current) {
-        $withdraw = 0;
-        $err[] = 'You cannot withdraw more SnapCash than you currently have.';
-    }
-
-	if($err)
-	{
-		// Save the error message into the session
-		$_SESSION['msg']['withdraw-err'] = implode('<br />',$err);
+		$withdraw = $current;
 	}
-
-    //reload the page to show the error
-	header("Location: balance.php");
-    //exit;
-
 	
 	// UPDATE THE USER INFO VIA REST API 
 
@@ -58,47 +49,6 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 		'rating' => $responseObj['rating']
 		);
 
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id']);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-	curl_setopt($ch, CURLOPT_HEADER, FALSE);
-	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($request));
-	$updateResponse = curl_exec($ch);
-	curl_close($ch);
-
-	
-	//sent to the be decoded
-	$updateResponseObj = json_decode($updateResponse,true);
-
-	//depending on the response we either ask for different credentials or log the user in
-	if($updateResponseObj['success'])
-	{
-		header('Location: balance.php');
-	} else {
-		die($updateResponseObj['reason']);
-	}
-	
-}
-
-
-
-// FOR TESTING ONLY (THIS WOULD NEVER REALLY HAPPEN)
-// TUTORS ONLY WITHDRAW THEIR EARNED SNAPCASH
-if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit 50 SnapCash') {
-
-	$request = array(
-		'last_name' => $responseObj['last_name'],
-		'first_name' => $responseObj['first_name'],
-		'balance' => $responseObj['balance'] + 50,
-		'is_tutor' => $responseObj['is_tutor'],
-		'rating' => $responseObj['rating']
-		);
-	
-	
-
-	//cURL used to collect login information
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $base_url . '/api/index.php/users/' . $responseObj['id']);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -160,12 +110,16 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit 50 SnapCash') {
 			<h1>ACCOUNT BALANCE</h1>
 			<?php
 
-				// Echo the information using sprintf
-				// Escape special html characters to enhance XSS security
+			if (isset($_SESSION['msg']['balance_err'])) {				
+				echo sprintf('<label class="error">%s</label>', $_SESSION['msg']['balance_err']);
+				unset($_SESSION['msg']['balance_err']);
+			}
+
+			// Echo the information using sprintf
+			// Escape special html characters to enhance XSS security
 			echo sprintf("<h3>Available SnapCash: %s</h3>", htmlspecialchars($responseObj['balance']));
 
 			?>
-
 			
 			<form id="withdrawSnapCashForm" action="#" method="post">
 				<input type="text" name="withdraw_amount" placeholder="Withdraw Amount" autocomplete="off" title="Please enter a valid amount to withdraw">
@@ -175,9 +129,11 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Deposit 50 SnapCash') {
 			<!-- TODO:
 			REMOVE THIS IN THE FUTURE
 			THIS IS ONLY FOR TESTING PURPOSES -->
+			<!-- 
 			<form action="#" method="post">
 				<input type="submit" name="submit" value="Deposit 50 SnapCash">
 			</form>
+			-->
 			
 		</div>
 	</div>

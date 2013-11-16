@@ -136,18 +136,23 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 			
 			?>	
 			
-			<div class="verified">
+			<div class="divider"></div>
+
 			<h1>YOUR VERIFIED CATEGORIES</h1>
-			<p>You are currently certified to answer questions in the following categories:</p>
-			<ul>
-				<!--Populate list-->
-				<?php
-					foreach ($responseObj['verified_categories'] as $vc){
-						echo "<li>" . $vc['name'] . "</li>";
-					}
-				?>
-			</ul></div>
-						<div class="divider"></div>
+			<div id="verifiedCategories">
+				<p>You are currently certified in the following categories:</p>
+				<ul>
+					<!--Populate list-->
+					<?php
+						foreach ($responseObj['verified_categories'] as $vc){
+							echo "<li>" . $vc['name'] . "</li>";
+						}
+					?>
+				</ul>
+			</div>
+			
+			<div class="divider"></div>
+			
 			<h1>ADD VERIFIED CATEGORY</h1>
 			<form id="categoryTestForm" action="#" method="post">
 				<select name="category">
