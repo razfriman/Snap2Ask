@@ -196,7 +196,7 @@ if (isset($_SESSION['user_id']))
 </head>
 
 <body>
-
+	<?php include_once("ganalytics.php") ?>
 	<header class="tall">
 
 		<img id="logoTall" src="res/logo.png" alt="Snap-2-Ask Logo"/>
