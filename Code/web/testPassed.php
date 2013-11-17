@@ -32,7 +32,7 @@ $responseObj = getUserInfo(true);
 </head>
 
 <body>
-
+	<?php include_once("ganalytics.php") ?>
 	<header class="tall">
 		<a href="index.php"> <img id="logoTall" src="res/logo.png" alt="Snap-2-Ask Logo"/> </a>
 	</header>

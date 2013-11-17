@@ -28,8 +28,11 @@ if(isset($_GET['search'])) {
 	$searchQuery = $_GET['search'];
 }
 
+include_once("ganalytics.php");
 
 ?>
+
+
 
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script src="js/search.js" type="text/javascript"></script>
