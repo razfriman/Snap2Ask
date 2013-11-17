@@ -20,74 +20,7 @@ $responseObj = getUserInfo(true);
 
 $answerInfo = getAnswerInfo($responseObj['id']);
 ?>
-<script>
-        window.onload = function(){
-        main = document.getElementById("mainContent");
-        buttons = document.getElementsByTagName("button");
-        secret = document.getElementById("hiddenhtml");
-        newhtml = secret.innerHTML;
-        newhtml = newhtml.substring(newhtml.indexOf("<!--") + 4, newhtml.indexOf("-->"));
-        mainhtml = main.innerHTML;
-        $('.tutorViewAnswerImage').click(imageClick);
-        for(var i = 0; i < buttons.length; i++){
-            buttons[i].addEventListener("click", function(e){
-            $("#mainContent").hide();
-            index = this.name.substring(1);
-            insert = "#qa" + index;
-            data = $(insert).html();
-            main.innerHTML = newhtml;
-            img = document.getElementById("bigimg");
-            img.src = this.id;
-            back = document.getElementById("goback");
-            $('#details').html(data);
-            $("#mainContent").fadeIn(1000);
-            back.addEventListener("click", function(e){
-                $("#mainContent").hide();
-                main.innerHTML = mainhtml;
-                $("#mainContent").fadeIn(1000);
-                processButtons();
-            }, false);
-            }, false);
-        }
-        };
-        function imageClick(){
-                    $("#mainContent").hide();
-                    main.innerHTML = newhtml;
-                    img = document.getElementById("bigimg");
-                    img.src = this.src;
-                     $("#mainContent").fadeIn(2000);
-                    back = document.getElementById("goback");
-                    back.addEventListener("click", function(e){
-                    $("#mainContent").hide();
-                    main.innerHTML = mainhtml;
-                    $("#mainContent").fadeIn(2000);
-                    processButtons();
-            });
-        }
-        function processButtons(){
-            $('.tutorViewAnswerImage').click(imageClick);
-            for(var i = 0; i < buttons.length; i++){
-                    buttons[i].addEventListener("click", function(e){
-                    $("#mainContent").hide();
-                    index = this.name.substring(1);
-                insert = "#qa" + index;
-                data = $(insert).html();
-                main.innerHTML = newhtml;
-                img = document.getElementById("bigimg");
-                img.src = this.id;
-                back = document.getElementById("goback");
-                $('#details').html(data);
-                $("#mainContent").fadeIn(2000);
-            back.addEventListener("click", function(e){
-                $("#mainContent").hide();
-                main.innerHTML = mainhtml;
-                $("#mainContent").fadeIn(2000);
-                processButtons();
-                }, false);
-            }, false);
-        }
-        }
-    </script>
+
 <!DOCTYPE html>
 <html>
 
@@ -97,7 +30,9 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="js/validateBalance.js" type="text/javascript"></script>
-	<link rel="stylesheet" type="text/css" href="css/style.css">    
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/lightbox-2.6.min.js"></script>
+	<link href="css/lightbox.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -137,23 +72,36 @@ $answerInfo = getAnswerInfo($responseObj['id']);
             ?>
             	<div class="tutorViewAnswerContainer" id="<?php echo 'container'. $i;?>">
 	                <div class="tutorViewAnswersLeft">
-	                	<img class="tutorViewAnswerImage" alt="Question Image" title="Click to zoom in" src="<?php echo $imgurl; ?>" />
-                        <button name = "<?php echo 'a' . $i ?>" id="<?php echo $imgurl ?>" title="View all details.">View Full Size</button>
-		                <label id="<?php echo 'cat'. $i;?>" ><?php echo $question['category'] . " > " . $question['subcategory']; ?></label>
-		                <label id="<?php echo 'date'. $i;?>"><?php 
+
+	                	<?php
+	                	
+	                	// Image
+	                	echo sprintf('<a class="image-link" href="%s" title="%s" data-lightbox="example-%s">', $imgurl, $question['description'], $i);
+	                	echo sprintf('<img class="tutorViewAnswerImage" alt="Question Image" src="%s" />', $imgurl);
+	                	echo sprintf('</a>');
+	                	
+	                	// Category
+	                	echo sprintf('<label>%s - %s</label>', $question['category'], $question['subcategory']);
+	                	
+	                	// Date
                         $str = $question['date_created'];
                         $year = substr($str,5,2) . "/" . substr($str,8,2) . "/" . substr($str,2,2);
                         $hour = intval(substr($str, 11, 2));
-                        if ($hour > 12){
+
+                        if ($hour > 12) {
                             $hour = $hour - 12;
                             $suffix = "PM";
-                        }
-                        else
+                        } else {
                             $suffix = "AM";
-                        echo $year . " " . $hour . substr($str, 13, 3) . " " . $suffix; ?></label>
+                        }
+
+	                	echo '<label>';
+                        echo $year . " " . $hour . substr($str, 13, 3) . " " . $suffix; 	                	
+	                	echo '</label>';
+	                	?>
                     </div>
                     
-	                <div class="tutorViewAnswersRight" id="<?php echo "qa" . $i ?>">	
+	                <div class="tutorViewAnswersMiddle">	
 						
 						<label>Question</label>
 						<p>
@@ -166,38 +114,36 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 						</p>
 	                </div>
 	                
-	                <div class="tutorViewAnswersRating">
-						<table>
-                        <tr>
-                        <td>
-                        <a id="balance" href="balance.php" title="Click to Withdraw SnapCash Now">
-                        <h1><img src="http://monkbananas.com/cashicon.png" title="Your SnapCash" alt="SnapCash Earnings" height="60px"/>
-    					<span id="<?php echo 'pay'. $i;?>"><?php echo rand(1,10) * 10 ?></span></h1></a>
-						<?php
+	                <div class="tutorViewAnswersRight">
+	                	
+	                	<div class="tutorViewAnswersEarnings">
+	                		<a href="balance.php" title="Click to Withdraw SnapCash Now">
+									<img src="res/dollars.png" />
+									<p><?php echo rand(1,10) * 10 ?></p>
+							</a>
+	                	</div>
 						
-						 if (isset($answer['rating'])) {
+						<div class="tutorViewAnswersRating">
+						
+						<label>Rating</label>
+						<?php						
+						if (isset($answer['rating'])) {
 						 	
-						 	if ($answer['rating'] == 0) {
-							 	
-							 	echo '<p>&lt;Rejected&gt;</p>';
-							 	
-						 	} 
-                             else {
-						 
+							if ($answer['rating'] == 0) { 	
+							 	echo '<p>Rejected</p>';
+						 	} else {
 								$stars = '';
 								for ($j = 0; $j < $answer['rating']; $j++) {
 									$stars = $stars . '&#9733; ';
 								}
 								echo sprintf('<p class="ratingStars">%s</p>', $stars);	
 							}
-							
 						} else {
-							echo '<p>Awaiting student response</p>';
+							echo '<p>Pending</p>';
 						}
 						?>
-						</td>
-                        </tr>
-                        </table>
+						</div>
+						
 					</div>
 				</div>
                 
