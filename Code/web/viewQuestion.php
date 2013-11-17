@@ -44,6 +44,8 @@ if ($question_info['status'] != 0) {
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 	<script src="js/answerQuestion.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/lightbox-2.6.min.js"></script>
+	<link href="css/lightbox.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -61,14 +63,16 @@ if ($question_info['status'] != 0) {
 				<li><a href="viewAnswers.php" >My Answers</a></li>
 			</ul>
 		</div>
-		
-		
-		
+
 		<div id="mainContent">
 			
 			<div id="view-question">
 				<div id="view-question-left">
-					<img src="<?php echo $question_info['image_url']; ?>" width="400px" height="400px" />
+					<?php
+						echo sprintf('<a href="%s" title="%s" data-lightbox="example">', $question_info['image_url'], htmlentities($question_info['description'], ENT_QUOTES));
+						echo sprintf('<img id="view-question-left-image" alt="Question Image" src="%s" />', $question_info['image_url']);
+	                	echo sprintf('</a>');                						
+					?>
 				</div>
 				
 				<div id="view-question-right">
