@@ -9,7 +9,7 @@ define('inc_file', TRUE);
 
 if (!isset($_SESSION['user_id'])) {
     // The user is not logged in
-	header('Location: index.php');
+    header('Location: index.php');
 	exit;
 }
 
@@ -20,7 +20,40 @@ $responseObj = getUserInfo(true);
 
 $answerInfo = getAnswerInfo($responseObj['id']);
 ?>
+<script>
+window.onload = function(){
+    if (window.location.href.indexOf("&year=") > 0)
+    {
+        //alert("Submission succesful");
+    }
+     document.enablesort.onsubmit = function(e) {
+            e.preventDefault();
+            newhtml = $("#hiddenhtml").html();
+            newhtml = newhtml.substring(newhtml.indexOf("<!--") + 4, newhtml.indexOf("-->"));
+            document.enablesort.innerHTML = newhtml;
+            document.enablesort.startsort.onclick = sortall();
+    }; 
+    function sortall(){
+        //contid = $(".tutorViewAnswerContainer").eq(0).find(".datetime").attr("id");
+        array = $(".tutorViewAnswerContainer");
+        anscmp(array[0], array[1]);
+        function anscmp(a,b){
+            str1 = $(a).find(".datetime").attr("id");
+            str2 = $(b).find(".datetime").attr("id");
+            return str2.localeCompare(str1);
+        }//end anscmp
+        array.sort(anscmp);
+        mainhtml = $("#mainContent").html();
+        finalhtml = mainhtml.substring(0, mainhtml.indexOf("</form>"));
+        for (k = 0; k < array.length; k++){
+            finalhtml += array[k].outerHTML;
+        }
+        $("#mainContent").html(finalhtml);
+    }//end sortAll
+}
 
+
+</script>
 <!DOCTYPE html>
 <html>
 
@@ -50,17 +83,20 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 			</ul>
 		</div>
 		<div id="hiddenhtml">
-        <!--
-            <div id="zoomborder">
-                <h2><button id="goback">Go Back</button></h2>
-                <div id="details"></div>
-                <img id="bigimg" alt='question image' src=\"" + this.id + "\" >
-            </div>
-        -->
+            <!--<label for="sortopts">Sort By:</label>
+                      <select name="sortopts">
+                        <option>Most Recent First</option>
+                        <option>Highest Pay First</option>
+                        <option>Lowest Pay First</option>
+                    </select>
+                    <input type='submit' name="startsort" value='submit'/>
+            -->
         </div>
 		<div id="mainContent">
     		<h1 title="Your answer history">MY ANSWERS</h1>
-            
+                <form name="enablesort" action="profile.php" method="post">
+                    <input type="submit" value="Enable Advanced Search" name="enablebut" />
+                </form>
             <?php
             
             for($i = 0; $i < sizeof($answerInfo['questions']); $i++)
@@ -95,7 +131,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
                             $suffix = "AM";
                         }
 
-	                	echo '<label>';
+	                	echo '<label class="datetime" id="' . $str . '">';
                         echo $year . " " . $hour . substr($str, 13, 3) . " " . $suffix; 	                	
 	                	echo '</label>';
 	                	?>
