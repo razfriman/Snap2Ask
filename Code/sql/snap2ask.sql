@@ -10,7 +10,8 @@ CREATE TABLE `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY (`name`)
+  UNIQUE KEY (`name`),
+  FULLTEXT INDEX `index2` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 
@@ -23,7 +24,8 @@ CREATE TABLE `subcategories` (
   `name` varchar(45) NOT NULL,
   `category_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name_UNIQUE` (`name`, `category_id`),
+  UNIQUE KEY `name_UNIQUE` (`name`, `id`),
+    FULLTEXT INDEX `index2` (`name`),
   CONSTRAINT `fk_subcategories_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
@@ -80,7 +82,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `validationQuestions`;
 CREATE TABLE `validationQuestions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `question` varchar(200) NOT NULL,
+  `question` text NOT NULL,
   `optionA` varchar(150) NOT NULL,
   `optionB` varchar(150) NOT NULL,
   `optionC` varchar(150) NOT NULL,
@@ -99,7 +101,7 @@ DROP TABLE IF EXISTS `questions`;
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `student_id` int(11) NULL,
-  `description` varchar(255) NOT NULL,
+  `description` text NOT NULL,
   `category_id` int(11) NOT NULL,
   `subcategory_id` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
@@ -109,6 +111,7 @@ CREATE TABLE `questions` (
   `image_thumbnail_url` varchar(255) NOT NULL,
   `date_created` datetime NOT NULL,
   PRIMARY KEY (`id`),
+  FULLTEXT INDEX `index2` (`description`),
   KEY `fk_questions_categories_idx` (`category_id`),
   KEY `fk_questions_answers1_idx` (`status`),
   KEY `fk_questions_users1_idx` (`student_id`),
@@ -127,7 +130,7 @@ CREATE TABLE `answers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `question_id` int(11) NOT NULL,
   `tutor_id` int(11) NULL,
-  `text` varchar(512) NOT NULL,
+  `text` text NOT NULL,
   `rating` smallint(6) DEFAULT NULL,
   `status` varchar(45) NOT NULL DEFAULT 'pending',
   `date_created` datetime NOT NULL,
