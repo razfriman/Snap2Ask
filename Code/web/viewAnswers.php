@@ -31,10 +31,16 @@ window.onload = function(){
             newhtml = $("#hiddenhtml").html();
             newhtml = newhtml.substring(newhtml.indexOf("<!--") + 4, newhtml.indexOf("-->"));
             document.enablesort.innerHTML = newhtml;
-            document.enablesort.startsort.onclick = sortall();
+            sortall();
+            $(".oneliner").css('display', 'inline');
+            document.enablesort.startsort.onclick = function(e){
+                e.preventDefault();
+                sortall();
+            };
     }; 
     function sortall(){
         //contid = $(".tutorViewAnswerContainer").eq(0).find(".datetime").attr("id");
+        validdate = check(document.enablesort.startdate.value);
         array = $(".tutorViewAnswerContainer");
         anscmp(array[0], array[1]);
         function anscmp(a,b){
@@ -42,14 +48,38 @@ window.onload = function(){
             str2 = $(b).find(".datetime").attr("id");
             return str2.localeCompare(str1);
         }//end anscmp
-        array.sort(anscmp);
+        function paycmp(a,b){
+            str1 = $(a).find(".snappay").attr("id");
+            str2 = $(b).find(".snappay").attr("id");
+            return str2.localeCompare(str1);
+        }//end anscmp
+        function opppaycmp(a,b){
+            str1 = $(a).find(".snappay").attr("id");
+            str2 = $(b).find(".snappay").attr("id");
+            return str1.localeCompare(str2);
+        }//end anscmp
+        if(document.enablesort.sortopts.value == "Highest Pay First")
+            array.sort(paycmp);
+        else if(document.enablesort.sortopts.value == "Lowest Pay First")
+            array.sort(opppaycmp);
+        else
+            array.sort(anscmp);
         mainhtml = $("#mainContent").html();
-        finalhtml = mainhtml.substring(0, mainhtml.indexOf("</form>"));
+        finalhtml = "";
         for (k = 0; k < array.length; k++){
             finalhtml += array[k].outerHTML;
         }
-        $("#mainContent").html(finalhtml);
+        $("#results").html(finalhtml);
     }//end sortAll
+    function check(instr){
+        if(instr.length !== 10)
+            return false;
+        else
+            return true;
+    }
+    function submithandle(){
+        document.enablesort.startsort.onclick = sortall();
+    }
 }
 
 
@@ -89,14 +119,17 @@ window.onload = function(){
                         <option>Highest Pay First</option>
                         <option>Lowest Pay First</option>
                     </select>
+                    <input type="date" placeholder="Start Date" name = "startdate"/>
+                    <input type="date" placeholder="End Date" name="enddate"/>
                     <input type='submit' name="startsort" value='submit'/>
             -->
         </div>
 		<div id="mainContent">
     		<h1 title="Your answer history">MY ANSWERS</h1>
-                <form name="enablesort" action="profile.php" method="post">
+                <form name="enablesort" action="profile.php" method="post" class="oneliner" id="sortform">
                     <input type="submit" value="Enable Advanced Search" name="enablebut" />
                 </form>
+                <div id="results">
             <?php
             
             for($i = 0; $i < sizeof($answerInfo['questions']); $i++)
@@ -155,7 +188,8 @@ window.onload = function(){
 	                	<div class="tutorViewAnswersEarnings">
 	                		<a href="balance.php" title="Click to Withdraw SnapCash Now">
 									<img src="res/dollars.png" />
-									<p><?php echo rand(1,10) * 10 ?></p>
+                                    <?php $pay = rand(1,10) * 10; ?>
+									<p class="snappay" id="<?php echo $pay; ?>"><?php echo $pay ?></p>
 							</a>
 	                	</div>
 						
@@ -186,7 +220,7 @@ window.onload = function(){
             <?php
             }
             ?>
-			
+			</div>
 		</div>
 	</div>
 	
