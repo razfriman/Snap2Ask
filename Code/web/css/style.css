@@ -27,7 +27,7 @@
 }
 
 h1,h2,h3,h4,h5,h6 {
-	margin:0;
+    margin:0;
 	padding:0;
 }
 
@@ -660,20 +660,27 @@ input.decision_point {
 .tutorViewAnswerContainer {
 	clear:left;
 	float:left;
-
 	width: 90%;
 	min-width: 650px;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px blue;
 	background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0.31, rgb(248,249,251)), color-stop(1, rgb(233,237,241)));
-	border: 1px solid black;
 	margin-left: 1em;
 	margin-bottom: 0.5em;
 }
+
 .tutorViewAnswersLeft {
 	float:left;
 	width: 150px;
-	height: 150px;
-	margin-top: 1.5em;
+	height: 180px;
 	margin-left: 1em;
+    padding-top: 0.5em;
+    border-right: 1px solid black;
+}
+.tutorViewAnswersLeft img {
+    float:left;
+	margin-left: 1.5em;
 }
 
 .tutorViewAnswersLeft label {
@@ -684,11 +691,18 @@ input.decision_point {
 .tutorViewAnswerImage {
 	width: 100px;
 	height: 100px;
+    border: 1px solid black;
+}
+
+.tutorViewAnswerImage:hover {
+    border: 2px solid #c9c0c0;
+    box-shadow: 2px 2px black;
+    cursor: pointer;
 }
 
 .tutorViewAnswersRight {
 	float:left;	
-	width: 350px;
+	width: 50%;
 	height: 180px;
 	margin-top: 0.5em;
 }
@@ -701,22 +715,53 @@ input.decision_point {
 
 .tutorViewAnswersRight p {
 	font-size: 12px;
-	margin-top: 0.5em;
 }
 
 .tutorViewAnswersRating {
 	float:left;	
 	width: 120px;
 	height: 180px;
-	margin-top: 0.5em;
+    line-height: 0px;
 }
 
-.tutorViewAnswersRating label {
+.tutorViewAnswersRating h1 {
 	display: block;
 	font-weight: bold;
-	margin-top: 0.5em;
+    font-size: 60px;
+    text-decoration: none;
 }
-
+.tutorViewAnswersRating p {
+    display: block;
+    bottom: 25px;
+    margin-left: 5%;
+    position: relative;
+}
+.tutorViewAnswersRating table {
+    border-left: 1px black solid;
+    width: 205%;
+}
+#goback{
+    display: block;
+    text-align: center;
+    margin-left: 45%;
+    cursor: pointer;
+}
+#zoomborder{
+    border: 1px dashed black;
+    margin: 2%;
+    border-radius: 30px;
+}
+#balance:visited, #balance:link{
+    text-decoration: none;
+    color:green;
+}
+#balance:hover{
+    text-shadow: 2px 2px 2px red;
+    font-weight: bolder;
+}
+button:hover{
+    cursor: pointer;
+}
 .ratingStars {
 	color: yellow;
     text-shadow:
