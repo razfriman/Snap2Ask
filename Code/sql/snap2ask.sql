@@ -24,7 +24,7 @@ CREATE TABLE `subcategories` (
   `name` varchar(45) NOT NULL,
   `category_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name_UNIQUE` (`name`, `id`),
+  UNIQUE KEY `name_UNIQUE` (`name`, `category_id`),
     FULLTEXT INDEX `index2` (`name`),
   CONSTRAINT `fk_subcategories_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
