@@ -182,6 +182,14 @@ window.onload = function(){
             -->
         </div>
 		<div id="mainContent">
+        <?php
+            if(sizeof($answerInfo['questions']) < 1)
+                    echo "<h1>Click 
+                    <a href='browse.php'>here</a>
+                    to answer questions now.</h1>";
+            else{
+                
+        ?>
     		<h1 title="Your answer history">MY ANSWERS</h1>
                 <form name="enablesort" action="profile.php" method="post" class="oneliner" id="sortform">
                     <input type="submit" value="Enable Advanced Search" name="enablebut" />
@@ -197,7 +205,6 @@ window.onload = function(){
                 </form>
                 <div id="results">
             <?php
-            
             for($i = 0; $i < sizeof($answerInfo['questions']); $i++)
             {
             
@@ -284,7 +291,8 @@ window.onload = function(){
 				</div>
                 
             <?php
-            }
+            }//end for
+            }//end else
             ?>
 			</div>
 		</div>
