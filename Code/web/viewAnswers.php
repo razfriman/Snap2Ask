@@ -22,23 +22,6 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 ?>
 <script>
 window.onload = function(){
-    document.enablesort.color.onchange=setcol;
-    
-    function setcol(e){
-        choice = document.enablesort.color.value;
-        if(choice == "Blue")
-            $(".tutorViewAnswerContainer").css('box-shadow', '10px 10px 20px blue');
-        else if(choice == "Red")
-           $(".tutorViewAnswerContainer").css('box-shadow', '10px 10px 20px red');
-        else if(choice == "Green")
-            $(".tutorViewAnswerContainer").css('box-shadow', '10px 10px 20px green');
-        else if(choice == "Orange")
-            $(".tutorViewAnswerContainer").css('box-shadow', '10px 10px 20px orange');
-        else if(choice == "Gray")
-            $(".tutorViewAnswerContainer").css('box-shadow', '10px 10px 20px gray');
-        else if(choice == "Black")
-            $(".tutorViewAnswerContainer").css('box-shadow', '10px 10px 20px black');
-    }
     backup = $(".tutorViewAnswerContainer");
     oldformhtml = document.enablesort.innerHTML;
      document.enablesort.onsubmit = function(e) {
@@ -56,7 +39,6 @@ window.onload = function(){
                     finalhtml += array[k].outerHTML;
                     }
                     $("#results").html(finalhtml);
-                    document.enablesort.color.onchange = setcol;
                 };
             document.enablesort.startsort.onclick = function(e){
                 e.preventDefault();
@@ -178,7 +160,7 @@ window.onload = function(){
                     </select>
                     <input type="date" placeholder="Start Date" name = "startdate"/>
                     <input type="date" placeholder="End Date" name="enddate"/>
-                    <input type='submit' name="startsort" value='submit'/>
+                    <input type='submit' name="startsort" value='Submit'/>
             -->
         </div>
 		<div id="mainContent">
@@ -191,17 +173,8 @@ window.onload = function(){
                 
         ?>
     		<h1 title="Your answer history">MY ANSWERS</h1>
-                <form name="enablesort" action="profile.php" method="post" class="oneliner" id="sortform">
+                <form name="enablesort" action="" method="post" class="oneliner" id="sortform">
                     <input type="submit" value="Enable Advanced Search" name="enablebut" />
-                    <select id="color" name="color">
-                        <option>Customize</option>
-                        <option>Blue</option>
-                        <option>Red</option>
-                        <option>Green</option>
-                        <option>Black</option>
-                        <option>Orange</option>
-                        <option>Gray</option>
-                    </select>
                 </form>
                 <div id="results">
             <?php
