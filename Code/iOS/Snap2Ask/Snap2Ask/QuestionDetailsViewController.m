@@ -9,6 +9,7 @@
 #import "QuestionDetailsViewController.h"
 #import "QuestionDetailCell.h"
 #import "AnswerDetailCell.h"
+#import "Snap2AskClient.h"
 
 @interface QuestionDetailsViewController ()
 
@@ -31,6 +32,7 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(answerRated:) name: AnswerRatedNotification object:nil];
 
 }
 
@@ -38,6 +40,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) answerRated:(NSNotification *)notification
+{
+    [[[UIAlertView alloc] initWithTitle:@"Thank you" message:@"Your rating has been posted" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+    
+    
 }
 
 #pragma mark - Table view data source
@@ -108,19 +117,34 @@
         return cell;
     } else if (indexPath.section == 1) {
         AnswerDetailCell *cell = [self.tableView dequeueReusableCellWithIdentifier:AnswerCellIdentifier forIndexPath:indexPath];
-        
+
         AnswerModel *answer = [_question.answers objectAtIndex:indexPath.row];
+        
+        NSMutableString *stars = [[NSMutableString alloc] init];
+        
+        for (int i = 0; i < answer.tutor.averageRating; i++) {
+            [stars appendString:@"\U00002B50 "];
+        }
+        
+        if(answer.tutor.averageRating >= 0) {
+            cell.ratingLabel.text = [NSString stringWithFormat:@"Rating: %@ (%d)", stars, answer.tutor.totalAnswers];
+        } else {
+            cell.ratingLabel.text = @"";
+        }
+
         cell.tutorLabel.text = [NSString stringWithFormat:@"Tutor: %@ %@", answer.tutor.firstName, answer.tutor.lastName];
-        cell.tutorRankLabel.text = [NSString stringWithFormat:@"Rating: %d", 1];
         cell.answerLabel.text = [NSString stringWithFormat:@"%@", answer.text];
         
         if ([answer.status isEqualToString:@"pending"]) {
             [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
             [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-        } else {
+        } else if ([answer.status isEqualToString:@"rejected"]) {
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             [cell setAccessoryType:UITableViewCellAccessoryNone];
             [cell setBackgroundColor:[UIColor lightGrayColor]];
+        } else {
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
         }
 
         return cell;
@@ -146,6 +170,8 @@
                                           @"\U00002B50",
                                           @"Reject Answer", nil];
             
+            [actionSheet setTag: answer.answerId];
+            
             [actionSheet showInView:self.view];
         }
     }
@@ -159,21 +185,33 @@
         return;
     }
     
+    int rating = 0;
+    
     if (buttonIndex == 0) {
         // 5 Stars
+        rating = 5;
     } else if (buttonIndex == 1) {
         // 4 Stars
+        rating = 4;
     } else if (buttonIndex == 2) {
         // 3 Stars
+        rating = 3;
     } else if (buttonIndex == 3) {
         // 2 Stars
+        rating = 2;
     } else if (buttonIndex == 4) {
         // 1 Stars
+        rating = 1;
     } else if (buttonIndex == 5) {
         // Reject Answer
+        rating = 0;
     }
     
-    [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"This feature is not implemented yet." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
+    int answerId = [actionSheet tag];
+    
+    
+
+    [[Snap2AskClient sharedClient] rateAnswer:answerId withRating:rating];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

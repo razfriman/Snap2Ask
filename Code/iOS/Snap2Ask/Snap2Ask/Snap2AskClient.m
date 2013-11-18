@@ -21,6 +21,7 @@ NSString *const NewQuestionSubmittedNotification = @"NewQuestionSubmittedNotific
 NSString *const UserDeletedNotification = @"UserDeletedNotification";
 NSString *const BalanceUpdatedNotification = @"BalanceUpdatedNotification";
 NSString *const QuestionDeletedNotification = @"QuestionDeletedNotification";
+NSString *const AnswerRatedNotification = @"AnswerRatedNotification";
 
 @implementation Snap2AskClient
 
@@ -122,9 +123,11 @@ NSString *const QuestionDeletedNotification = @"QuestionDeletedNotification";
          {
              NSDictionary *data = (NSDictionary*) dataArray[i];
              
-             QuestionModel *question = [[QuestionModel alloc] initWithJSON:data];
-             
-             [questionArray addObject:question];
+             if (![[data objectForKey:@"is_hidden"] boolValue]) {
+                 QuestionModel *question = [[QuestionModel alloc] initWithJSON:data];
+                 
+                 [questionArray addObject:question];
+             }
          }
          
          NSMutableDictionary *returnDict = [[NSMutableDictionary alloc] init];
@@ -271,6 +274,22 @@ NSString *const QuestionDeletedNotification = @"QuestionDeletedNotification";
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error Deleting Question: %@", error);
         [[NSNotificationCenter defaultCenter] postNotificationName:QuestionDeletedNotification object:self userInfo:nil];
+    }];
+}
+
+- (void) rateAnswer:(int)answerId withRating:(int)rating
+{
+    NSDictionary *parameters =  @{@"rating": @(rating)};
+    
+    
+    [_manager PUT:[NSString stringWithFormat:@"%@/answers/%d", Snap2AskApiPath, answerId] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *returnedData = (NSDictionary *) responseObject;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:AnswerRatedNotification object:self userInfo:returnedData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Rate Answer Error: %@", error);
     }];
 }
 

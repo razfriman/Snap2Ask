@@ -17,6 +17,7 @@
         
         self.questionId = [[JsonData objectForKey:@"id"] integerValue];
         self.status = [[JsonData objectForKey:@"status"] integerValue];
+        self.isHidden = [[JsonData objectForKey:@"is_hidden"] boolValue];
         self.category = [JsonData objectForKey:@"category"];
         self.subcategory = [JsonData objectForKey:@"subcategory"];
         self.description = [JsonData objectForKey:@"description"];

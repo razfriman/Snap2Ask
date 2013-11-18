@@ -11,7 +11,7 @@
 @interface AnswerDetailCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *tutorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tutorRankLabel;
 @property (weak, nonatomic) IBOutlet UILabel *answerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 
 @end

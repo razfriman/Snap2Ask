@@ -30,6 +30,7 @@ extern NSString *const NewQuestionSubmittedNotification;
 extern NSString *const UserDeletedNotification;
 extern NSString *const BalanceUpdatedNotification;
 extern NSString *const QuestionDeletedNotification;
+extern NSString *const AnswerRatedNotification;
 
 @property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
 
@@ -46,5 +47,6 @@ extern NSString *const QuestionDeletedNotification;
 - (void) deleteQuestion:(int)questionId;
 - (void) deleteUser:(int)userId;
 - (void) updateSnapCash:(int)amountAdded forUser:(int)userId;
+- (void) rateAnswer:(int)answerId withRating:(int)rating;
 
 @end

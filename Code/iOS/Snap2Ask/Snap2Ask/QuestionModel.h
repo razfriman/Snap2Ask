@@ -17,6 +17,7 @@
 @property (nonatomic) NSInteger studentId;
 @property (nonatomic) NSInteger timesAnswered;
 @property (nonatomic) NSInteger status;
+@property (nonatomic) BOOL isHidden;
 @property (strong, nonatomic) NSString *category;
 @property (strong, nonatomic) NSString *subcategory;
 @property (strong, nonatomic) NSString *description;

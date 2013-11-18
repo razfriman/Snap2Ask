@@ -13,13 +13,15 @@
 @property (nonatomic) NSInteger userId;
 @property (nonatomic) double balance;
 @property (nonatomic) BOOL isTutor;
-@property (nonatomic) NSInteger preferredCategoryId;
+@property (nonatomic) NSInteger totalQuestions;
+@property (nonatomic) NSInteger totalAnswers;
+@property (nonatomic) NSInteger averageRating;
+
 @property (strong, nonatomic) NSString *authenticationMode;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *firstName;
 @property (strong, nonatomic) NSString *lastName;
 
-//is_admin
 //date_created
 
 -(id)initWithJSON:(NSDictionary *) JsonData;

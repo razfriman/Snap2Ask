@@ -21,6 +21,14 @@
         self.isTutor = [[JsonData objectForKey:@"is_tutor"] boolValue];
         self.authenticationMode = [JsonData objectForKey:@"authentication_mode"];
         self.balance = [[JsonData objectForKey:@"balance"] doubleValue];
+
+        self.averageRating = -1;
+        if ([[JsonData objectForKey:@"average_rating"] isKindOfClass:[NSString class]]) {
+            self.averageRating = [[JsonData objectForKey:@"average_rating"] integerValue];
+        }
+        
+        self.totalAnswers = [[JsonData objectForKey:@"total_answers"] integerValue];
+        self.totalQuestions = [[JsonData objectForKey:@"total_questions"] integerValue];
     }
     return (self);
 }

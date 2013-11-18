@@ -279,12 +279,24 @@
         
         NSDictionary *returnedData = (NSDictionary *) responseObject;
         
-        NSInteger questionId = [[returnedData objectForKey:@"insert_id"] integerValue];
+        if([[returnedData objectForKey:@"success"] boolValue]) {
         
-        // Upload the question image file
-        [self uploadQuestionImage:questionId withImage:imageData];
+            NSInteger questionId = [[returnedData objectForKey:@"insert_id"] integerValue];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:RegisterUserNotification object:self userInfo:returnedData];
+            // Upload the question image file
+            [self uploadQuestionImage:questionId withImage:imageData];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:RegisterUserNotification object:self userInfo:returnedData];
+        } else {
+            NSString *reason = (NSString *)[returnedData objectForKey:@"reason"];
+            
+            if (_hud) {
+                // Hide the progress HUD
+                [_hud hide:YES];
+            }
+            
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:reason delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+        }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
