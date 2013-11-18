@@ -40,9 +40,39 @@ window.onload = function(){
     }; 
     function sortall(){
         //contid = $(".tutorViewAnswerContainer").eq(0).find(".datetime").attr("id");
-        validdate = check(document.enablesort.startdate.value);
+        start = document.enablesort.startdate.value
+        end = document.enablesort.enddate.value
+        validdate = check(start);
+        validdate2 = check(end);
         array = $(".tutorViewAnswerContainer");
-        anscmp(array[0], array[1]);
+        array2 = [];
+        if (validdate){
+            for (ind = 0; ind < array.length; ind++){
+                ansdate = $(array[ind]).find(".datetime").attr("id");
+                if (ansdate.localeCompare(start) > 0 && ansdate.localeCompare(end) < 0){
+                    array2.push(array[ind]);
+                }
+            }
+            array = array2;
+        }
+        else if (validdate){
+            for (ind = 0; ind < array.length; ind++){
+                ansdate = $(array[ind]).find(".datetime").attr("id");
+                if (ansdate.localeCompare(start) > 0){
+                    array2.push(array[ind]);
+                }
+            }
+            array = array2;
+        }
+        else if (validdate2){
+            for (ind = 0; ind < array.length; ind++){
+                ansdate = $(array[ind]).find(".datetime").attr("id");
+                if (ansdate.localeCompare(end) < 0){
+                    array2.push(array[ind]);
+                }
+            }
+            array = array2;
+        }
         function anscmp(a,b){
             str1 = $(a).find(".datetime").attr("id");
             str2 = $(b).find(".datetime").attr("id");
