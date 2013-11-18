@@ -65,17 +65,16 @@ $answerInfo = getAnswerInfo($responseObj['id']);
             -->
         </div>
 		<div id="mainContent">
-        <?php
-            if(sizeof($answerInfo['questions']) < 1)
-                    echo "<h1>Click 
-                    <a href='browse.php'>here</a>
-                    to answer questions now.</h1>";
-            else{
-                
-        ?>
-    		<h1 title="Your answer history">MY ANSWERS</h1>
+		
+			<h1 title="Your answer history">MY ANSWERS</h1>
+
+	        <?php
+	            if(sizeof($answerInfo['questions']) < 1) {
+	                    echo "<h2>Click <a href='browse.php'>here</a> to answer questions now.</h2>";
+	            } else {
+	        ?>
                 <form name="enablesort" action="" method="post" class="oneliner" id="sortform">
-                    <input type="submit" value="Enable Advanced Search" name="enablebut" />
+                	<input type="submit" value="Enable Advanced Search" name="enablebut" />
                 </form>
                 <div id="results">
             <?php

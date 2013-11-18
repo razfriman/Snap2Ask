@@ -82,13 +82,14 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `validationQuestions`;
 CREATE TABLE `validationQuestions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `question` text NOT NULL,
+  `question` varchar(512) NOT NULL,
   `optionA` varchar(150) NOT NULL,
   `optionB` varchar(150) NOT NULL,
   `optionC` varchar(150) NOT NULL,
   `rightAnswer` varchar(2) NOT NULL,
   `category_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),	
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `index` (`question`, `optionA`, `optionB`, `optionC`, `rightAnswer`, `category_id`),
   CONSTRAINT `fk_validationQuestions_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET = latin1;
 
@@ -116,6 +117,7 @@ CREATE TABLE `questions` (
   KEY `fk_questions_answers1_idx` (`status`),
   KEY `fk_questions_users1_idx` (`student_id`),
   KEY `fk_questions_1_idx` (`subcategory_id`),
+  UNIQUE KEY `question_UNIQUE` (`description`(512),`image_url`),
   CONSTRAINT `fk_questions_subcategories` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_questions_categories` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_questions_users` FOREIGN KEY (`student_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION
