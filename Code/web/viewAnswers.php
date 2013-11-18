@@ -22,10 +22,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 ?>
 <script>
 window.onload = function(){
-    if (window.location.href.indexOf("&year=") > 0)
-    {
-        //alert("Submission succesful");
-    }
+    backup = $(".tutorViewAnswerContainer");
      document.enablesort.onsubmit = function(e) {
             e.preventDefault();
             newhtml = $("#hiddenhtml").html();
@@ -44,7 +41,7 @@ window.onload = function(){
         end = document.enablesort.enddate.value
         validdate = check(start);
         validdate2 = check(end);
-        array = $(".tutorViewAnswerContainer");
+        array = backup;
         array2 = [];
         if (validdate){
             for (ind = 0; ind < array.length; ind++){
