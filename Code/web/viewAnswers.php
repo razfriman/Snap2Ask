@@ -10,7 +10,7 @@ define('inc_file', TRUE);
 if (!isset($_SESSION['user_id'])) {
     // The user is not logged in
     header('Location: index.php');
-	exit;
+    exit;
 }
 
 // Require the functions file
@@ -22,14 +22,42 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 ?>
 <script>
 window.onload = function(){
+    document.enablesort.color.onchange=setcol;
+    
+    function setcol(e){
+        choice = document.enablesort.color.value;
+        if(choice == "Blue")
+            $(".tutorViewAnswerContainer").css('box-shadow', '10px 10px 20px blue');
+        else if(choice == "Red")
+           $(".tutorViewAnswerContainer").css('box-shadow', '10px 10px 20px red');
+        else if(choice == "Green")
+            $(".tutorViewAnswerContainer").css('box-shadow', '10px 10px 20px green');
+        else if(choice == "Orange")
+            $(".tutorViewAnswerContainer").css('box-shadow', '10px 10px 20px orange');
+        else if(choice == "Gray")
+            $(".tutorViewAnswerContainer").css('box-shadow', '10px 10px 20px gray');
+        else if(choice == "Black")
+            $(".tutorViewAnswerContainer").css('box-shadow', '10px 10px 20px black');
+    }
     backup = $(".tutorViewAnswerContainer");
+    oldformhtml = document.enablesort.innerHTML;
      document.enablesort.onsubmit = function(e) {
             e.preventDefault();
             newhtml = $("#hiddenhtml").html();
             newhtml = newhtml.substring(newhtml.indexOf("<!--") + 4, newhtml.indexOf("-->"));
             document.enablesort.innerHTML = newhtml;
             sortall();
-            $(".oneliner").css('display', 'inline');
+            document.enablesort.disable.onclick = function(e){
+                    e.preventDefault();
+                    document.enablesort.innerHTML = oldformhtml;
+                    array = backup;
+                    finalhtml = "";
+                    for (k = 0; k < array.length; k++){
+                    finalhtml += array[k].outerHTML;
+                    }
+                    $("#results").html(finalhtml);
+                    document.enablesort.color.onchange = setcol;
+                };
             document.enablesort.startsort.onclick = function(e){
                 e.preventDefault();
                 sortall();
@@ -43,7 +71,7 @@ window.onload = function(){
         validdate2 = check(end);
         array = backup;
         array2 = [];
-        if (validdate){
+        if (validdate && validdate2){
             for (ind = 0; ind < array.length; ind++){
                 ansdate = $(array[ind]).find(".datetime").attr("id");
                 if (ansdate.localeCompare(start) > 0 && ansdate.localeCompare(end) < 0){
@@ -140,7 +168,9 @@ window.onload = function(){
 			</ul>
 		</div>
 		<div id="hiddenhtml">
-            <!--<label for="sortopts">Sort By:</label>
+            <!--
+                    <input type="submit" name="disable" value="Disable Advanced Search" /><br/>
+            <label for="sortopts">Sort By:</label>
                       <select name="sortopts">
                         <option>Most Recent First</option>
                         <option>Highest Pay First</option>
@@ -155,6 +185,15 @@ window.onload = function(){
     		<h1 title="Your answer history">MY ANSWERS</h1>
                 <form name="enablesort" action="profile.php" method="post" class="oneliner" id="sortform">
                     <input type="submit" value="Enable Advanced Search" name="enablebut" />
+                    <select id="color" name="color">
+                        <option>Customize</option>
+                        <option>Blue</option>
+                        <option>Red</option>
+                        <option>Green</option>
+                        <option>Black</option>
+                        <option>Orange</option>
+                        <option>Gray</option>
+                    </select>
                 </form>
                 <div id="results">
             <?php
