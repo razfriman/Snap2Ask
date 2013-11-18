@@ -152,6 +152,11 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 				
 				?>
 
+				<div class="divider"></div>
+				<h2>Update Password</h2>
+				<label>Current Password</label><input type="text" name="currentPassword" />
+				<label>New Password</label><input type="text" name="newPassword" id="confirmPassword" />
+				<label>Confirm New Password</label><input type="text" name="confirmNewPassword" />
 				<input type="submit" id="submitButton" value="Save Changes" />
 			</form>
 		</div>

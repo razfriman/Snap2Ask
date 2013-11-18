@@ -12,7 +12,16 @@ $(document).ready(function () {
 			},
 			last_name: {
 				required: true,
-			}
+			},
+			currentPassword: {
+				required: false,
+			},
+			newPassword: {
+				minlength: 8,
+			},
+			confirmNewPassword: {
+				equalTo: "#confirmPassword",
+			}	
 		},
 		submitHandler: function(form) {
 			form.submit();
