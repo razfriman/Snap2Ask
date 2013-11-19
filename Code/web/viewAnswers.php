@@ -60,10 +60,10 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 	            if(sizeof($answerInfo['questions']) < 1) {
 	                    echo "<h2>Click <a href='browse.php'>here</a> to answer questions now.</h2>";
 	            } else {
-	        ?>
-            	
+	        ?>	
             	<div id="advancedSearchOptions" >
-
+                <form name="sortform" action="" method="post">
+            		<label for="sortSelection">Sort By:</label>
 					<select name="sortSelection" id="sortSelection">
 						<option>Most Recent First</option>
 						<option>Least Recent First</option>
@@ -72,7 +72,9 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 						<option>Highest Rating First</option>
 						<option>Lowest Rating First</option>						
 					</select>
-            		<label for="sortSelection">Sort By:</label>
+                    <input type="date" placeholder="Start Date" name = "startdate"/>
+                    <input type="date" placeholder="End Date" name="enddate"/>
+                    </form>
             	</div>
             	
                 <div id="results">
@@ -138,7 +140,8 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 	                	<div class="tutorViewAnswersEarnings">
 	                		<a href="balance.php" title="Click to Withdraw SnapCash Now">
 									<img src="res/dollars.png" />
-									<p class="snappay"><?php echo $answer['pay']; ?></p>
+                                    <?php $pay = rand(1,10) * 10; ?>
+									<p class="snappay" id="<?php echo $pay; ?>"><?php echo $pay ?></p>
 							</a>
 	                	</div>
 						
