@@ -878,7 +878,7 @@ $app->get(
 			
 			
 			//get answers
-			$sth = $db->prepare('SELECT question_id, text, rating, status FROM answers WHERE tutor_id = :tutor_id ORDER BY date_created DESC');
+			$sth = $db->prepare('SELECT question_id, text, rating, status, date_created FROM answers WHERE tutor_id = :tutor_id ORDER BY date_created DESC');
 			$sth->bindParam(':tutor_id', $id);
 			$sth->execute();
 			
