@@ -1,31 +1,31 @@
-studentEmail,description,category,subcategory,image_url,image_thumbnail_url,
-allicatrossi@smu.edu,what is 2+2,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,How do you print print "Hello World" in Java?,Computer Science,Java,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 1+2+3 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 2+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 3+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 4+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 5+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 6+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 7+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 8+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 9+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 10+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 11+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 12+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 13+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 14+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 15+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 16+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 17+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 18+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 19+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 20+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 21+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 22+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 23+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 24+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 25+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 26+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 27+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
-studentTest1@smu.edu,What is 28+2 ?,Math,Calculus,http://www.placehold.it/300x300,http://www.placehold.it/300x300,
+studentEmail,description,category,subcategory,image_url,image_thumbnail_url
+allicatrossi@smu.edu,what is 2+2,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,How do you print print "Hello World" in Java?,Computer Science,Java,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 1+2+3 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 2+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 3+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 4+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 5+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 6+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 7+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 8+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 9+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 10+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 11+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 12+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 13+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 14+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 15+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 16+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 17+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 18+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 19+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 20+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 21+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 22+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 23+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 24+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 25+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 26+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 27+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500
+studentTest1@smu.edu,What is 28+2 ?,Math,Calculus,http://www.placehold.it/500x500,http://www.placehold.it/500x500

@@ -1,9 +1,9 @@
-email,password,is_tutor,preferred_category,authentication_mode,first_name,last_name,
-mvillamilrod@smu.edu,elenavillamil,1,Computer Science,custom,maria,villamil,
-rfriman@smu.edu,razfriman,1,Computer Science,custom,raz,friman,
-raymondmartin26@gmail.com,raymondmartin,1,Computer Science,custom,raymond,martin,
-r.m.stolyarov@gmail.com,romanstolyarov,1,Computer Science,custom,roman,stolyarov,
-vkohli678@gmail.com,vipulkohli,1,Computer Science,custom,vipul,kohli,
-allicatrossi@smu.edu,alexrossi,0,,custom,alex,rossi,
-studentTest1@smu.edu,student1,0,,custom,student,test1,
-studentTest2@smu.edu,student2,0,,custom,student,test2,
+email,password,is_tutor,preferred_category,authentication_mode,first_name,last_name
+mvillamilrod@smu.edu,elenavillamil,1,Computer Science,custom,maria,villamil
+rfriman@smu.edu,razfriman,1,Computer Science,custom,raz,friman
+raymondmartin26@gmail.com,raymondmartin,1,Computer Science,custom,raymond,martin
+r.m.stolyarov@gmail.com,romanstolyarov,1,Computer Science,custom,roman,stolyarov
+vkohli678@gmail.com,vipulkohli,1,Computer Science,custom,vipul,kohli
+allicatrossi@smu.edu,alexrossi,0,,custom,alex,rossi
+studentTest1@smu.edu,student1,0,,custom,student,test1
+studentTest2@smu.edu,student2,0,,custom,student,test2

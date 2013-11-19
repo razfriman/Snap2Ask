@@ -1,40 +1,40 @@
-categoryName,subcategoryName,
-SAT,Reading,
-SAT,Writing,
-SAT,Math,
-SAT,Other,
-Math,Calculus,
-Math,Statistics,
-Math,Linear Algebra,
-Math,Geometry,
-Math,Pre-Calculus,
-Math,Other,
-Physics,Mechanics,
-Physics,Electricity/Magnetism,
-Physics,Other,
-Computer Science,Java,
-Computer Science,C++,
-Computer Science,Python,
-Computer Science,Databases,
-Computer Science,Data Strcutures,
-Computer Science,GUI,
-Computer Science,Objective-C,
-Computer Science,.NET,
-Computer Science,Algorithms,
-Computer Science,Other,
-Science,Chemistry,
-Science,Biology,
-Science,Other,
-History,Prehistory,
-History,Antiquity,
-History,Postclassical,
-History,Modern,
-History,Other,
-Geography,North America,
-Geography,South America,
-Geography,Europe,
-Geography,Africa,
-Geography,Asia,
-Geography,Antartica,
-Geography,Australia,
-Geography,Other,
+categoryName,subcategoryName
+SAT,Reading
+SAT,Writing
+SAT,Math
+SAT,Other
+Math,Calculus
+Math,Statistics
+Math,Linear Algebra
+Math,Geometry
+Math,Pre-Calculus
+Math,Other
+Physics,Mechanics
+Physics,Electricity/Magnetism
+Physics,Other
+Computer Science,Java
+Computer Science,C++
+Computer Science,Python
+Computer Science,Databases
+Computer Science,Data Strcutures
+Computer Science,GUI
+Computer Science,Objective-C
+Computer Science,.NET
+Computer Science,Algorithms
+Computer Science,Other
+Science,Chemistry
+Science,Biology
+Science,Other
+History,Prehistory
+History,Antiquity
+History,Postclassical
+History,Modern
+History,Other
+Geography,North America
+Geography,South America
+Geography,Europe
+Geography,Africa
+Geography,Asia
+Geography,Antartica
+Geography,Australia
+Geography,Other

@@ -1,67 +1,66 @@
-question,optionA,optionB,optionC,rightAnser,categoryName,
-Which type of language is C++, interpreted, high level, compiled,C,Computer Science,
-Which is the difference between and AVL tree and a binary tree, an AVL tree has to be balanced, AVL tree does not have to be balanced, Binary tree can have up to 3 children,A,Computer Science, 
-In relational algebra the projection operator selects,horizontal rows,vertical columns,both,B,Computer Science,
-What is the worst case performance of selecting an element from an array and from an a list,log n and constant time respectively,log n and log n,constant time and n respectively,C,Computer Science,
-Which type of boundary meassures Big O performance,Lower bounderay,Upper boundary,Both,B,Computer Science,
-Which of the following examples has a Big O(1),Selecting and element in an array,Selecting an element from a list,Selecting an element from an AVL tree,A,Computer Science,
-Which of the following examples has Big O(log n),Inserting in an AVL tree,Inserting in a list,Inserting in a an array,A,Computer Science,
-Searching in an unsorted array has Big O of,1,n,log n,B,Computer Science, 
-Searching in a sorted array has Big O of,1,n,log n,C,Computer Science,
-A difference between a thread and a process is,A process can have multiple threads,A thread can have multiple process,A process is not its own thread of execution,A,Computer Science,
-A characteristic of a thread is,threads of the same process share the same stack,threads have its own independent memory space,threads of the same process have individual stacks,C,Computer Science,
-The derivative of x*x is,x,x/2,2*x,C,Math,
-Integral of ln(x),1/x,1/x^2,1,A,Math,
-The mean of the following hights (172 164 183 166),171.25,172.25,171.4,A,Math,
-An equilater triangle has,the same three sides but not same three angles,the same three sides and angles, different sides and angles,B,Math,
-Pithagorean theorem says, C^2+C^2=h,C+C=h,C*C=h,A,Math,
-If you are given an integral function how do you recover the original function,you integrate again,you integrate again and then take the derivative,you take the derivate,C,Math,
-ln(x*y) is the same as,ln(x) + ln(y),ln(x) - ln(y),ln(x+y),A,Math,
-the integral of e^(-x) is,-e^(-x),e^(-x),e^(x),A,Math, 
-What is the chemical formula of Water?,CO,CO2,H20,C,Science,
-During the American Revolution George Washington —,led the Sons of Liberty,organized Committees of Correspondence,commanded the Continental army,C,History,
-Which technological advance from the nineteenth century resulted in all the effects listed above?,Cotton gin,Canals,Railroads,C,History,
-Which of the following was a cause of the Great Depression?,Consumers were buying crops grown in other countries.,The industrial sector was not producing enough goods.,The stock market was not sufficiently regulated.,C,History,
-Japanese Americans were held in internment camps during World War II because they —,disobeyed the state laws of California,disagreed with President Franklin Roosevelt’s war strategy,were labeled a threat to U.S. security,C,History,
-Which New Deal agency established a pension program that contributes to the income of retired workers?,Federal Deposit Insurance Corporation,Social Security Administration,Securities and Exchange Commission,B,History,
-The Civil Rights movement’s strategy of nonviolent resistance was most widely advocated throughout the 1960s by —,Stokely Carmichael’s Black Power movement,Malcolm X’s Organization of Afro-American Unity,Martin Luther King Jr.’s Southern Christian Leadership Conference,C,History,
-After the Civil War many states passed Jim Crow laws intended to counteract constitutional amendments that granted former slaves —,settlement rights on western lands,citizenship and voting rights,jobs in factories and mills,B,History,
-Which of the following is a primary result of twentieth-century technological innovations such as computers and robots?,Fewer assembly-line jobs for workers,More people working in agriculture,Fewer people living in suburbs,A,History,
-Which of the following was a cause of the Korean War?,South Korea would not trade with other Asian countries.,Taiwan attempted to seize control of South Korea.,North Korea wanted to unify the peninsula under a communist regime.,C,History,
-Which technological innovation most directly enabled the construction of skyscrapers throughout U.S. cities in the late nineteenth century?,Whitney’s interchangeable parts,Fulton’s steam engine,Bessemer’s steel process,C,History,
-The United States formed the National Aeronautics and Space Administration (NASA) in response to —,the Soviet Union’s launch of Sputnik 1,North Korea’s invasion of South Korea,the Soviet Union’s placement of missiles in Cuba,A,History,
-In the 1930s which countries were ruled by dictatorships that were widely regarded as threats to the safety and security of the world’s democracies?,Mexico Brazil and India,France Spain and Greece,Germany Japan and Italy,C,History,
-Which of the following countries had the lowest standard of living in 2004?,Angola,Australia,Lebanon,A,History,
-The U.S. Constitution’s establishment of the executive legislative and judicial branches of government most clearly reflects which principle?,Popular sovereignty,Individual rights,Separation of powers,C,History,
-The first 10 amendments to the U.S. Constitution were intended to protect the rights of individuals from potential abuses by —,foreign countries,the federal government,big business,B,History,
-One result of the expansion of Islam was the spread of which language?,Arabic,Farsi,Sanskrit,A,History,
-The framers of the Articles of Confederation were particularly concerned about —,protecting the rights of Native Americans,establishing trade agreements with France,limiting the power of the national government,C,History,
-Which invention contributed most to the Industrial Revolution?,Magnetic compass,Electric lightbulb,Steam engine,C,History,
-Which of these is an example of a biased statement?,Texas is the second-largest state in the United States.,Texas is the most important state in the United States.,Texas contains three of the ten largest cities in the United States.,B,History,
-Which statement best summarizes a key argument of The Federalist Papers?,The national legislature should establish an official church.,The country needs a strong central government.,The state governments should provide for national defense.,B,History,
-Which of the following has allowed soccer fans in different countries to watch the World Cup finals live?,Data storage and retrieval systems,Lightweight construction materials,Satellite communications and broadcasting networks,C,History,
-Slavery was legally abolished throughout the United States as a result of the —,ratification of the Thirteenth Amendment,surrender of Confederate forces,passage of the Civil Rights Act of 1875,A,History,
-Which of these institutions of the British colonies in North America was a model for the government established by the U.S. Constitution?,An appointed governor,A representative assembly,An independent judiciary ,B,History,
-An experiment requires the use of a lab apron goggles and insulated mitts or beaker tongs. The purpose of these safety items is primarily to protect against —,release of hazardous gases,hot materials and spills of harmful liquids,contamination of chemicals and glassware ,B,Science,
-How does using killed or weakened bacteria in an immunization help the body prevent infections?,Antibodies are formed that fight those types of bacteria.,The body develops a fever that kills beneficial bacteria.,Bacterial reproductive cycles are disrupted. ,A,Science,
-The Pioneer 10 spacecraft was launched in March 1972 to explore the solar system. Pioneer 10 has continued on its journey and is now traveling beyond the solar system. Which statement best explains why Pioneer 10 continues to travel farther out into space?,For every action force there is an equal and opposite reaction force.,Objects in space accelerate at a greater rate than objects on Earth.,Objects in motion will remain in motion unless acted on by unbalanced forces.,C,Science,
-One example of a genetic variation within a bird species is individual organisms having —,beaks of different lengths,broken wings,double-stranded DNA,A,Science,
-Some students are testing water samples from different ponds. Exactly 20 milliliters of water is needed for each test. Students should measure the samples using a —,5 mL graduated cylinder,5 mL beaker,0 mL measuring cup,A,Science,
-Liana plants are woody vines that grow on some trees in rain forests. These climbing plants are most likely adapted for —,competing with other plants for oxygen,preventing predators from eating beneficial insects,growing through layers of foliage to reach available sunlight,C,Science,
-Why will knowledge of the human genome enable scientists to better understand proteins involved in human diseases?,DNA contains the information used to make proteins.,Nucleic acid molecules have shapes similar to those of proteins.,The bases that make up DNA are also present in RNA.,A,Science,
-When copper and oxygen chemically unite they form —,an ion,a gas,a compound,C,Science,
-Which of the following would most increase the rate at which magnesium nitrate dissolves in a liquid solvent?,Increasing the pressure on the liquid,Keeping the liquid still and undisturbed,Breaking the crystals into smaller pieces ,C,Science,
-Two students added a piece of zinc to a solution of hydrochloric acid in an open beaker. The mass of the products was found to be less than the total mass of the reactants. Which of the following statements best explains the loss of mass?,Zinc metal is more dense than the acid.,The chemical activity of the acid destroyed metal atoms.,A gas was released during the reaction.,C,Science,
-Some members of the pumpkin family produce roots capable of storing large amounts of water. Some of these roots have a mass of about 30 kg. In which type of environment are these plants most likely found?,Aquatic,Dry,Cold ,B,Science,
-Botanists cross a heterozygous (Pp) plant having purple flowers with a homozygous (pp) plant having white flowers. About what percentage of the offspring will have purple flowers?,%,5%,0%,B,Science,
-A mutation in a DNA molecule is passed to offspring only when the mutation occurs in a —,neuron,cell wall,gamete,C,Science,
-Which of these systems is directly responsible for maintaining the volume and the composition of most body fluids?,Muscular system,Skeletal system,Excretory system,C,Science,
-Which of these steps in the digestive process is a physical change?,Water being absorbed in the large intestine,Enzymes breaking down proteins into amino acids,Saliva changing starches into sugars,A,Science,
-Which of these steps in the digestive process is a physical change?,Water being absorbed in the large intestine,Enzymes breaking down proteins into amino acids,Saliva changing starches into sugars ,A,Science,
-Which characteristic of water molecules makes water a good solvent?,Mass,Polarity,Potential energy,B,Science,
-When a car suddenly stops at a red light a book lying on the car seat slides forward. Why does the book continue to move forward?,The book loses its backward momentum.,The car moves in reverse more rapidly than the book.,The book’s inertia causes it to continue moving. ,C,Science,
-Fungi are different from plants in that fungi —,secrete enzymes,decompose organic waste,contain DNA ,B,Science,
-Which of the following is the proper method to dispose of a solid produced during a chemical reaction?,Wrap the solid in paper seal it in a bag and throw it in the trash,Dissolve the solid in a solvent and pour the solution down the drain,Place the solid in the designated container for solid waste,C,Science,
-When the insecticide known as DDT was first introduced it was highly effective. Which of these is the most likely reason that DDT became less effective as an insecticide?,Rain caused DDT to be washed away in water runoff.,Insects resistant to DDT survived and reproduced successfully.,Biological magnification decreased the number of insect predators.,B,Science,
-Which of the following terms best describes the eating habits of most humans?,Herbivorous,Carnivorous,Omnivorous,C,Science,
-The Bengal tiger is a species with fur that is usually orange with dark stripes. Sometimes orange Bengal tiger parents produce an offspring known as a white tiger which has white fur. The trait for white fur is most likely caused by —,parasites in the female parent,malnutrition in the embryo,recessive alleles in both parents,C,Science,
+question,optionA,optionB,optionC,rightAnswer,categoryName
+Which type of language is C++, interpreted, high level, compiled,C,Computer Science
+Which is the difference between and AVL tree and a binary tree, an AVL tree has to be balanced, AVL tree does not have to be balanced, Binary tree can have up to 3 children,A,Computer Science
+In relational algebra the projection operator selects,horizontal rows,vertical columns,both,B,Computer Science
+What is the worst case performance of selecting an element from an array and from an a list,log n and constant time respectively,log n and log n,constant time and n respectively,C,Computer Science
+Which type of boundary meassures Big O performance,Lower bounderay,Upper boundary,Both,B,Computer Science
+Which of the following examples has a Big O(1),Selecting and element in an array,Selecting an element from a list,Selecting an element from an AVL tree,A,Computer Science
+Which of the following examples has Big O(log n),Inserting in an AVL tree,Inserting in a list,Inserting in a an array,A,Computer Science
+Searching in an unsorted array has Big O of,1,n,log n,B,Computer Science
+Searching in a sorted array has Big O of,1,n,log n,C,Computer Science
+A difference between a thread and a process is,A process can have multiple threads,A thread can have multiple process,A process is not its own thread of execution,A,Computer Science
+A characteristic of a thread is,threads of the same process share the same stack,threads have its own independent memory space,threads of the same process have individual stacks,C,Computer Science
+The derivative of x*x is,x,x/2,2*x,C,Math
+Integral of ln(x),1/x,1/x^2,1,A,Math
+The mean of the following hights (172 164 183 166),171.25,172.25,171.4,A,Math
+An equilater triangle has,the same three sides but not same three angles,the same three sides and angles, different sides and angles,B,Math
+Pithagorean theorem says, C^2+C^2=h,C+C=h,C*C=h,A,Math
+If you are given an integral function how do you recover the original function,you integrate again,you integrate again and then take the derivative,you take the derivate,C,Math
+ln(x*y) is the same as,ln(x) + ln(y),ln(x) - ln(y),ln(x+y),A,Math
+the integral of e^(-x) is,-e^(-x),e^(-x),e^(x),A,Math
+What is the chemical formula of Water?,CO,CO2,H20,C,Science
+During the American Revolution George Washington —,led the Sons of Liberty,organized Committees of Correspondence,commanded the Continental army,C,History
+Which technological advance from the nineteenth century resulted in all the effects listed above?,Cotton gin,Canals,Railroads,C,History
+Which of the following was a cause of the Great Depression?,Consumers were buying crops grown in other countries.,The industrial sector was not producing enough goods.,The stock market was not sufficiently regulated.,C,History
+Japanese Americans were held in internment camps during World War II because they —,disobeyed the state laws of California,disagreed with President Franklin Roosevelt’s war strategy,were labeled a threat to U.S. security,C,History
+Which New Deal agency established a pension program that contributes to the income of retired workers?,Federal Deposit Insurance Corporation,Social Security Administration,Securities and Exchange Commission,B,History
+The Civil Rights movement’s strategy of nonviolent resistance was most widely advocated throughout the 1960s by —,Stokely Carmichael’s Black Power movement,Malcolm X’s Organization of Afro-American Unity,Martin Luther King Jr.’s Southern Christian Leadership Conference,C,History
+After the Civil War many states passed Jim Crow laws intended to counteract constitutional amendments that granted former slaves —,settlement rights on western lands,citizenship and voting rights,jobs in factories and mills,B,History
+Which of the following is a primary result of twentieth-century technological innovations such as computers and robots?,Fewer assembly-line jobs for workers,More people working in agriculture,Fewer people living in suburbs,A,History
+Which of the following was a cause of the Korean War?,South Korea would not trade with other Asian countries.,Taiwan attempted to seize control of South Korea.,North Korea wanted to unify the peninsula under a communist regime.,C,History
+Which technological innovation most directly enabled the construction of skyscrapers throughout U.S. cities in the late nineteenth century?,Whitney’s interchangeable parts,Fulton’s steam engine,Bessemer’s steel process,C,History
+The United States formed the National Aeronautics and Space Administration (NASA) in response to —,the Soviet Union’s launch of Sputnik 1,North Korea’s invasion of South Korea,the Soviet Union’s placement of missiles in Cuba,A,History
+In the 1930s which countries were ruled by dictatorships that were widely regarded as threats to the safety and security of the world’s democracies?,Mexico Brazil and India,France Spain and Greece,Germany Japan and Italy,C,History
+Which of the following countries had the lowest standard of living in 2004?,Angola,Australia,Lebanon,A,History
+The U.S. Constitution’s establishment of the executive legislative and judicial branches of government most clearly reflects which principle?,Popular sovereignty,Individual rights,Separation of powers,C,History
+The first 10 amendments to the U.S. Constitution were intended to protect the rights of individuals from potential abuses by —,foreign countries,the federal government,big business,B,History
+One result of the expansion of Islam was the spread of which language?,Arabic,Farsi,Sanskrit,A,History
+The framers of the Articles of Confederation were particularly concerned about —,protecting the rights of Native Americans,establishing trade agreements with France,limiting the power of the national government,C,History
+Which invention contributed most to the Industrial Revolution?,Magnetic compass,Electric lightbulb,Steam engine,C,History
+Which of these is an example of a biased statement?,Texas is the second-largest state in the United States.,Texas is the most important state in the United States.,Texas contains three of the ten largest cities in the United States.,B,History
+Which statement best summarizes a key argument of The Federalist Papers?,The national legislature should establish an official church.,The country needs a strong central government.,The state governments should provide for national defense.,B,History
+Which of the following has allowed soccer fans in different countries to watch the World Cup finals live?,Data storage and retrieval systems,Lightweight construction materials,Satellite communications and broadcasting networks,C,History
+Slavery was legally abolished throughout the United States as a result of the —,ratification of the Thirteenth Amendment,surrender of Confederate forces,passage of the Civil Rights Act of 1875,A,History
+Which of these institutions of the British colonies in North America was a model for the government established by the U.S. Constitution?,An appointed governor,A representative assembly,An independent judiciary ,B,History
+An experiment requires the use of a lab apron goggles and insulated mitts or beaker tongs. The purpose of these safety items is primarily to protect against —,release of hazardous gases,hot materials and spills of harmful liquids,contamination of chemicals and glassware ,B,Science
+How does using killed or weakened bacteria in an immunization help the body prevent infections?,Antibodies are formed that fight those types of bacteria.,The body develops a fever that kills beneficial bacteria.,Bacterial reproductive cycles are disrupted. ,A,Science
+The Pioneer 10 spacecraft was launched in March 1972 to explore the solar system. Pioneer 10 has continued on its journey and is now traveling beyond the solar system. Which statement best explains why Pioneer 10 continues to travel farther out into space?,For every action force there is an equal and opposite reaction force.,Objects in space accelerate at a greater rate than objects on Earth.,Objects in motion will remain in motion unless acted on by unbalanced forces.,C,Science
+One example of a genetic variation within a bird species is individual organisms having —,beaks of different lengths,broken wings,double-stranded DNA,A,Science
+Some students are testing water samples from different ponds. Exactly 20 milliliters of water is needed for each test. Students should measure the samples using a —,5 mL graduated cylinder,5 mL beaker,0 mL measuring cup,A,Science
+Liana plants are woody vines that grow on some trees in rain forests. These climbing plants are most likely adapted for —,competing with other plants for oxygen,preventing predators from eating beneficial insects,growing through layers of foliage to reach available sunlight,C,Science
+Why will knowledge of the human genome enable scientists to better understand proteins involved in human diseases?,DNA contains the information used to make proteins.,Nucleic acid molecules have shapes similar to those of proteins.,The bases that make up DNA are also present in RNA.,A,Science
+When copper and oxygen chemically unite they form —,an ion,a gas,a compound,C,Science
+Which of the following would most increase the rate at which magnesium nitrate dissolves in a liquid solvent?,Increasing the pressure on the liquid,Keeping the liquid still and undisturbed,Breaking the crystals into smaller pieces ,C,Science
+Two students added a piece of zinc to a solution of hydrochloric acid in an open beaker. The mass of the products was found to be less than the total mass of the reactants. Which of the following statements best explains the loss of mass?,Zinc metal is more dense than the acid.,The chemical activity of the acid destroyed metal atoms.,A gas was released during the reaction.,C,Science
+Some members of the pumpkin family produce roots capable of storing large amounts of water. Some of these roots have a mass of about 30 kg. In which type of environment are these plants most likely found?,Aquatic,Dry,Cold ,B,Science
+Botanists cross a heterozygous (Pp) plant having purple flowers with a homozygous (pp) plant having white flowers. About what percentage of the offspring will have purple flowers?,%,5%,0%,B,Science
+A mutation in a DNA molecule is passed to offspring only when the mutation occurs in a —,neuron,cell wall,gamete,C,Science
+Which of these systems is directly responsible for maintaining the volume and the composition of most body fluids?,Muscular system,Skeletal system,Excretory system,C,Science
+Which of these steps in the digestive process is a physical change?,Water being absorbed in the large intestine,Enzymes breaking down proteins into amino acids,Saliva changing starches into sugars,A,Science
+Which characteristic of water molecules makes water a good solvent?,Mass,Polarity,Potential energy,B,Science
+When a car suddenly stops at a red light a book lying on the car seat slides forward. Why does the book continue to move forward?,The book loses its backward momentum.,The car moves in reverse more rapidly than the book.,The book’s inertia causes it to continue moving. ,C,Science
+Fungi are different from plants in that fungi —,secrete enzymes,decompose organic waste,contain DNA ,B,Science
+Which of the following is the proper method to dispose of a solid produced during a chemical reaction?,Wrap the solid in paper seal it in a bag and throw it in the trash,Dissolve the solid in a solvent and pour the solution down the drain,Place the solid in the designated container for solid waste,C,Science
+When the insecticide known as DDT was first introduced it was highly effective. Which of these is the most likely reason that DDT became less effective as an insecticide?,Rain caused DDT to be washed away in water runoff.,Insects resistant to DDT survived and reproduced successfully.,Biological magnification decreased the number of insect predators.,B,Science
+Which of the following terms best describes the eating habits of most humans?,Herbivorous,Carnivorous,Omnivorous,C,Science
+The Bengal tiger is a species with fur that is usually orange with dark stripes. Sometimes orange Bengal tiger parents produce an offspring known as a white tiger which has white fur. The trait for white fur is most likely caused by —,parasites in the female parent,malnutrition in the embryo,recessive alleles in both parents,C,Science
