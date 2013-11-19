@@ -137,8 +137,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 	                	<div class="tutorViewAnswersEarnings">
 	                		<a href="balance.php" title="Click to Withdraw SnapCash Now">
 									<img src="res/dollars.png" />
-                                    <?php $pay = rand(1,10) * 10; ?>
-									<p class="snappay" id="<?php echo $pay; ?>"><?php echo $pay ?></p>
+									<p class="snappay"><?php echo $answer['pay']; ?></p>
 							</a>
 	                	</div>
 						
