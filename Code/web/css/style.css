@@ -773,10 +773,18 @@ vertical-align: middle;
     color: darkgreen;
 }
 
-#advancedSearchOptions input, #advancedSearchOptions select
+#advancedSearchOptions label{
+    float: right;	
+    font-size: small;
+    margin-top: .2em;
+}
+#advancedSearchOptions select
 {
-    display:inline;
-    width: 20%;
+    width: 13em;
+    float: right;
+	margin-bottom: 1em;
+    margin-top: 0;
+    margin-right: 8em;
 }
 
 .tutorViewAnswersRating {

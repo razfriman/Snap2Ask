@@ -63,7 +63,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 	        ?>
             	
             	<div id="advancedSearchOptions" >
-            		<label for="sortSelection">Sort By:</label>
+
 					<select name="sortSelection" id="sortSelection">
 						<option>Most Recent First</option>
 						<option>Least Recent First</option>
@@ -72,6 +72,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 						<option>Highest Rating First</option>
 						<option>Lowest Rating First</option>						
 					</select>
+            		<label for="sortSelection">Sort By:</label>
             	</div>
             	
                 <div id="results">
