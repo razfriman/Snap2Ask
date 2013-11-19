@@ -598,7 +598,7 @@ label#browseError {
 	background: #cc0000;
 }
 
-#editTutorProfile label.error {
+#editTutorProfile label.error, #changePassword label.error {
 	display: block;
 }
 

@@ -91,7 +91,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Submit Test') {
 <html>
 
 <head>
-	<title>Snap-2-Ask | Test</title>
+	<title>Snap-2-Ask | Subject Test</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

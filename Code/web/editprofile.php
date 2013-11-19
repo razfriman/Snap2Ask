@@ -90,7 +90,7 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 <html>
 
 <head>
-	<title>Snap-2-Ask | Profile</title>
+	<title>Snap-2-Ask | Edit Profile</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -151,12 +151,6 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
 					}
 				
 				?>
-
-				<div class="divider"></div>
-				<h2>Update Password</h2>
-				<label>Current Password</label><input type="text" name="currentPassword" />
-				<label>New Password</label><input type="text" name="newPassword" id="confirmPassword" />
-				<label>Confirm New Password</label><input type="text" name="confirmNewPassword" />
 				<input type="submit" id="submitButton" value="Save Changes" />
 			</form>
 		</div>

@@ -130,6 +130,18 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 				
 			</form>
 			
+			<?php
+			if ($responseObj['authentication_mode'] == 'custom') {
+			?>
+			<form id="changePasswordForm" action="changePassword.php" method="post">
+				<input id="changePasswordButton" type="submit" name="submit" value="Change Password" />
+			</form>
+			<?php
+			}
+			?>
+			
+			
+			
 			<?php 
 			
 			if (sizeof($responseObj['verified_categories']) < sizeof($categories)) {

@@ -784,6 +784,50 @@ $app->post(
 	}
 	);
 
+
+// CHANGE A USERS PASSWORD
+$app->post(
+	'/users/:id/changePassword',
+	function ($id) use ($app,$db) {
+
+		// Get the JSON request
+		$request = $app->request()->getBody();
+
+		
+		$current_password = $request['current_password'];
+		$new_password = $request['new_password'];
+		
+		// Initialize the response data
+		$success = false;
+		$reason = '';
+
+		try {
+
+			// TODO.
+			// Update the password here.
+			
+			
+			$success = true;
+			
+		} catch(PDOException $e) {
+			$success = false;
+			//$reason = $e->getMessage();
+			$reason = 'Error: Could not update password';
+		}
+
+		// Create the response data
+		$dataArray = array(
+			'success' => $success,
+			'reason' => $reason);
+
+		// Send the JSON response
+		$response = $app->response();
+		$response['Content-Type'] = 'application/json';
+		$response->status(200);
+		$response->write(json_encode($dataArray));
+	}
+	);
+
 // GET USER'S QUESTIONS
 $app->get(
 	'/users/:id/questions',
