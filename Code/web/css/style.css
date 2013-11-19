@@ -778,7 +778,7 @@ vertical-align: middle;
     color: darkgreen;
 }
 
-#sortform input, #sortform select
+#advancedSearchOptions input, #advancedSearchOptions select
 {
     display:inline;
     width: 20%;

@@ -34,6 +34,8 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 	<script src="js/lightbox-2.6.min.js"></script>
 	<link href="css/lightbox.css" rel="stylesheet" />
 	<script src="js/viewAnswers.js"></script>
+	<script src="js/jquery.tinysort.min.js"></script>
+
 </head>
 
 <body>
@@ -50,20 +52,6 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 				<li class="selected" ><a href="viewAnswers.php" title="View Answer History">My Answers</a></li>
 			</ul>
 		</div>
-		<div id="hiddenhtml">
-            <!--
-                    <input type="submit" name="disable" value="Disable Advanced Search" /><br/>
-            <label for="sortopts">Sort By:</label>
-                      <select name="sortopts">
-                        <option>Most Recent First</option>
-                        <option>Highest Pay First</option>
-                        <option>Lowest Pay First</option>
-                    </select>
-                    <input type="date" placeholder="Start Date" name = "startdate"/>
-                    <input type="date" placeholder="End Date" name="enddate"/>
-                    <input type='submit' name="startsort" value='Submit'/>
-            -->
-        </div>
 		<div id="mainContent">
 		
 			<h1 title="Your answer history">MY ANSWERS</h1>
@@ -73,9 +61,19 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 	                    echo "<h2>Click <a href='browse.php'>here</a> to answer questions now.</h2>";
 	            } else {
 	        ?>
-                <form name="enablesort" action="" method="post" class="oneliner" id="sortform">
-                	<input type="submit" value="Enable Advanced Search" name="enablebut" />
-                </form>
+            	
+            	<div id="advancedSearchOptions" >
+            		<label for="sortSelection">Sort By:</label>
+					<select name="sortSelection" id="sortSelection">
+						<option>Most Recent First</option>
+						<option>Least Recent First</option>
+						<option>Highest Pay First</option>
+						<option>Lowest Pay First</option>
+						<option>Highest Rating First</option>
+						<option>Lowest Rating First</option>						
+					</select>
+            	</div>
+            	
                 <div id="results">
             <?php
             for($i = 0; $i < sizeof($answerInfo['questions']); $i++)
@@ -84,8 +82,12 @@ $answerInfo = getAnswerInfo($responseObj['id']);
             $question = $answerInfo['questions'][$i];
             $answer = $answerInfo['answers'][$i];
             $imgurl = htmlentities($question['image_url'], ENT_QUOTES);
+            
+            $answer['pay'] = rand(1,10) * 10;
             ?>
-            	<div class="tutorViewAnswerContainer" id="<?php echo 'container'. $i;?>">
+            	<?php
+            	echo sprintf('<div class="tutorViewAnswerContainer" answerDate="%s" pay="%s" rating="%s">', $answer['date_created'], $answer['pay'], $answer['rating']);
+            	?>
 	                <div class="tutorViewAnswersLeft">
 
 	                	<?php
@@ -99,7 +101,8 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 	                	echo sprintf('<label>%s - %s</label>', $question['category'], $question['subcategory']);
 	                	
 	                	// Date
-                        $str = $question['date_created'];
+                        //$str = $question['date_created'];
+                        $str = $answer['date_created'];
                         $year = substr($str,5,2) . "/" . substr($str,8,2) . "/" . substr($str,2,2);
                         $hour = intval(substr($str, 11, 2));
 
