@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 $('#sortSelection').change(sortAnswers);
-
+$('#gobut').click(sortAnswers);
 });
 
 function sortAnswers() {
