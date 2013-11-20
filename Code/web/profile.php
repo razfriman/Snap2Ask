@@ -159,17 +159,17 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 						foreach ($responseObj['verified_categories'] as $vc){
 							/*echo "<li>" . $vc['name'] . "</li>";*/
 							if ($vc['name'] === "Science")
-							echo "<li> <a href='browse.php?search=science'  title ='View Science Questions'>
-                                <img src='res/science.png' alt='Verified in Science'/></a></li>";
-                            else if ($vc['name'] === "Math")
-                                echo "<li> <a href='browse.php?search=math'  title ='View Math Questions'>
-                                <img src='res/math.png' alt='Verified in Math'/></a></li>";
-                            else if ($vc['name'] === "English")
-                            echo "<li> <a href='browse.php?search=english'  title ='View Science Questions'>
-                                <img src='res/read.png' alt='Verified in Science'/></a></li>";
-                            else
-                            echo "<li> <a href='browse.php?search=technology'  title ='View Science Questions'>
-                                <img src='res/tech.png' alt='Verified in Technology'/></a></li>";
+								echo "<li> <a href='browse.php?search=science'  title ='View Science Questions'>
+                                				<img src='res/science.png' alt='Verified in Science'/></a></li>";
+                            				else if ($vc['name'] === "Math")
+                                				echo "<li> <a href='browse.php?search=math'  title ='View Math Questions'>
+                                				<img src='res/math.png' alt='Verified in Math'/></a></li>";
+                            				else if ($vc['name'] === "English")
+                            					echo "<li> <a href='browse.php?search=english'  title ='View English Questions'>
+                                				<img src='res/read.png' alt='Verified in Science'/></a></li>";
+                            				else
+                            					echo "<li> <a href='browse.php?search=technology'  title ='View Other Questions'>
+                                				<img src='res/tech.png' alt='Verified in Technology'/></a></li>";
 						}/*end foreach*/
 					?>
 				</ul>
