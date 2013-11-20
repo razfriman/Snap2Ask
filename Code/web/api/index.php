@@ -1780,7 +1780,7 @@ $app->post(
 			
 
 			$sth = $db->prepare('
-			SELECT * FROM questions
+			SELECT questions.*,categories.name,subcategories.name FROM questions
 			JOIN categories ON (questions.category_id = categories.id)
 			JOIN subcategories ON (questions.subcategory_id = subcategories.id)
 			WHERE
