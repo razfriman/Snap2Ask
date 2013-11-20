@@ -1773,18 +1773,23 @@ $app->post(
 		// Load the request properties
 		$search_query = $request['search'];
 		
-		$questionDataFiltered = array();
-		
+		$questionDataAll = array();
 		
 		try {
 			// Select all the questions from MySQL
 			
 
-			$sth = $db->prepare('SELECT * FROM questions WHERE status=0 AND
-				(description LIKE concat("%", :search_query, "%") OR
-					(select name from categories where id=questions.category_id) LIKE concat("%", :search_query, "%") OR
-					(select name from subcategories where id=questions.subcategory_id) LIKE concat("%", :search_query, "%")
-					) ORDER BY date_created DESC');
+			$sth = $db->prepare('
+			SELECT * FROM questions
+			JOIN categories ON (questions.category_id = categories.id)
+			JOIN subcategories ON (questions.subcategory_id = subcategories.id)
+			WHERE
+			(
+				MATCH questions.description AGAINST(:search_query IN BOOLEAN MODE)
+				OR MATCH categories.name AGAINST(:search_query IN BOOLEAN MODE)
+				OR MATCH subcategories.name AGAINST(:search_query IN BOOLEAN MODE)
+			)
+			ORDER BY date_created DESC');
 			
 			$sth->bindParam(':search_query', $search_query);
 			$sth->execute();
@@ -1796,22 +1801,16 @@ $app->post(
 				addAnswer($question,$db);
 			}
 			
-			foreach($questionDataAll as $question) {
-				// FILTER QUESTIONS HERE
-				
-				array_push($questionDataFiltered, $question);
-				
-			}
-
 		} catch(PDOException $e) {
          // SQL ERROR
+         $questionDataAll['error'] = $e->getMessage();
 		}
 
 		// Return the JSON data
 		$response = $app->response();
 		$response['Content-Type'] = 'application/json';
 		$response->status(200);
-		$response->write(json_encode($questionDataFiltered));
+		$response->write(json_encode($questionDataAll));
 	}
 	);
 
