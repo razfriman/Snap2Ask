@@ -31,9 +31,10 @@ $categories = getCategories();
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="js/jquery.pages.js" type="text/javascript" ></script>
-	<script src="js/browseQuestions.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/jPages.css">
+	<script src="js/browseQuestions.js" type="text/javascript" ></script>
+
 </head>
 
 <body>
@@ -44,7 +45,7 @@ $categories = getCategories();
 
 		<div id="browseNav">
 			<h1> UNANSWERED QUESTIONS</h1>	
-			<ul>
+			<ul id="browseMenu">
 				<li class="mainLink">All</li>
 				<li id="categoriesTab" class="mainLink">Categories
 					<ul id="categoriesMenu">
@@ -52,7 +53,11 @@ $categories = getCategories();
 						
 						foreach($categories as $category)
 						{
-							echo sprintf('<li class="subLink" value="%s">%s</li>', $category['id'], $category['name']);
+							
+							$icon_url = sprintf('res/icons/%s',$category['name']);
+							$img_element = sprintf('<img src="%s" />', $icon_url);
+							
+							echo sprintf('<li class="subLink" value="%s">%s %s</li>', $category['id'], $img_element, $category['name']);
 						}
 						
 						?>
