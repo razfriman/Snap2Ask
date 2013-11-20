@@ -54,7 +54,12 @@ $categories = getCategories();
 						foreach($categories as $category)
 						{
 							
-							$icon_url = sprintf('res/icons/%s',$category['name']);
+							$icon_url = sprintf('res/icons/%s.png',$category['name']);
+							
+							if (!file_exists($icon_url)) {
+								$icon_url = 'res/icons/Other.png';
+							}
+							
 							$img_element = sprintf('<img src="%s" />', $icon_url);
 							
 							echo sprintf('<li class="subLink" value="%s">%s %s</li>', $category['id'], $img_element, $category['name']);
