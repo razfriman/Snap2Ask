@@ -63,7 +63,6 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 	        ?>	
             	<div id="advancedSearchOptions" >
                 <form name="sortform" action="" method="post">
-            		<label for="sortSelection">Sort By:</label>
 					<select name="sortSelection" id="sortSelection">
 						<option>Most Recent First</option>
 						<option>Least Recent First</option>
@@ -72,8 +71,9 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 						<option>Highest Rating First</option>
 						<option>Lowest Rating First</option>						
 					</select>
-                    <input type="date" placeholder="Start Date" name = "startdate"/>
                     <input type="date" placeholder="End Date" name="enddate"/>
+                    <input type="date" placeholder="Start Date" name = "startdate"/>
+
                     </form>
             	</div>
             	
