@@ -54,6 +54,12 @@ header {
 	background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0.31, rgb(248,249,251)), color-stop(1, rgb(233,237,241)));
 	border-bottom: 1px solid #404040;
 	margin-bottom: 3em;
+	
+	position: -webkit-sticky;
+	position: -moz-sticky;
+	position: -ms-sticky;
+	position: -o-sticky;
+	top: 0px;
 }
 
 header.short {	
@@ -367,10 +373,6 @@ li#categoriesTab li.subLink img {
 	text-align:right;
 	list-style-type:none;
 	padding:0;
-	
-	
-	
-
 }
 
 /* linksNav list item */
@@ -411,7 +413,7 @@ li#categoriesTab li.subLink img {
 	margin-bottom:0;
 	border-top:3px solid #524656;
 	overflow-y: scroll;
-	height:40em;
+	height:auto;
 	width: 85%;
 }
 
