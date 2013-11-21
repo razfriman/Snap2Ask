@@ -784,8 +784,18 @@ vertical-align: middle;
     color: darkgreen;
 }
 
+#advancedSearchOptions {
+	float: right;
+}
+
+#advancedSearchOptions label {
+	float:left;
+	font-size: small;
+	line-height: 2em;
+	margin-right: 0.5em;
+}
 #advancedSearchOptions input[type="button"] {
-	float: right;	
+	float: left;	
     font-size: small;
     width: auto;
     height: 2em;
@@ -794,7 +804,7 @@ vertical-align: middle;
 }
 
 #advancedSearchOptions input[type="date"]{
-    float: right;	
+    float: left;	
     font-size: small;
     width: 12em;
     height: 1.5em;
@@ -804,7 +814,7 @@ vertical-align: middle;
 #advancedSearchOptions select
 {
     width: 13em;
-    float: right;
+    float: left;
 	margin-bottom: 1em;
     margin-top: 0;
     margin-right: 8em;
