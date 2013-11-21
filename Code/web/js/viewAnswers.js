@@ -28,24 +28,27 @@ function sortAnswers() {
 		$('.tutorViewAnswerContainer').tsort('',{order:'asc',attr:'rating'});
 		break;
 	}
-	startDate = document.sortform.startdate.value
-    	endDate = document.sortform.enddate.value
+	startDate = document.sortform.startdate.value;
+    	endDate = document.sortform.enddate.value;
     	isStart = (startDate.length === 10);
     	isEnd = (endDate.length === 10);
     	if (isEnd || isStart){
         	$('.tutorViewAnswerContainer').hide();
         	for (ind = 0; ind < $('.tutorViewAnswerContainer').length; ind++){
-            		var node = $('.tutorViewAnswerContainer')[ind];
-            		var ansdate = $(node).attr('answerDate');
+            	            var node = $('.tutorViewAnswerContainer')[ind];
+            var ansdate = $(node).attr('answerDate');
             		if (isStart && isEnd && ansdate.localeCompare(startDate) > 0 && ansdate.localeCompare(endDate) < 0){
                     		$(node).show();
+                    		continue;
             		}
-            		else if (isEnd && ansdate.localeCompare(endDate) < 0){
+            		if (isStart && ansdate.localeCompare(startDate) > 0){
                     		$(node).show();
+                    		continue;
             		}
-            		else if (isStart && ansdate.localeCompare(startDate) > 0){
+            		if (!isStart && isEnd && ansdate.localeCompare(endDate) < 0){
                     		$(node).show();
-            		} //end if-else-if
+                    		continue;
+            		}
         	}//end for loop
     	}//end outer if
 
