@@ -794,8 +794,8 @@ $app->post(
 		$request = $app->request()->getBody();
 
 		
-		$current_password = $request['current_password'];
-		$new_password = $request['new_password'];
+		$currentPassword = $request['current_password'];
+		$newPassword = $request['new_password'];
 		
 		// Initialize the response data
 		$success = false;
@@ -805,9 +805,30 @@ $app->post(
 
 			// TODO.
 			// Update the password here.
+			$sth = $db->prepare('SELECT password, salt FROM users WHERE id = :usersID');
+			$sth->bindParam(':usersID', $id);
+			$sth->execute();
 			
+			$row = $sth->fetchAll(PDO::FETCH_ASSOC);
+			$salt = $row[0]['salt'];
+			$actualPassword = $row[0]['password'];
+			$hashedPassword = hashPasswordWithSalt($currentPassword, $salt);
 			
-			$success = true;
+			if ($hashedPassword == $actualPassword)
+			{
+				$newHashedPassword = hashPasswordWithSalt($newPassword, $salt);
+				$sth = $db->prepare('UPDATE users SET password = :newHashedPass 				WHERE id = :userID');
+				$sth->bindParam(':userID',$id);
+				$sth->bindParam(':newHashedPass',$newHashedPassword);
+				$sth->execute();
+			
+				$success = true;
+			}
+			else
+			{
+				$success = false;
+				$reason = 'Error: current password does not match the password in our database';
+			}
 			
 		} catch(PDOException $e) {
 			$success = false;
@@ -818,6 +839,7 @@ $app->post(
 		// Create the response data
 		$dataArray = array(
 			'success' => $success,
+			'oldPass' => $currentPassword,
 			'reason' => $reason);
 
 		// Send the JSON response
