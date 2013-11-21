@@ -36,7 +36,8 @@ include_once("ganalytics.php");
 
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script src="js/search.js" type="text/javascript"></script>
-
+<script type="text/javascript" src="js/logoutWarning.js"></script>
+    
 <header class="short">
 	<div id="cash">
 		<h2>SnapCash</h2>

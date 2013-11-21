@@ -27,7 +27,6 @@ if(isset($_SESSION['user_id'])) {
 	<title>Snap-2-Ask</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    <script type="text/javascript" src="js/logoutWarning.js"></script>
     <script type="text/javascript"> 
 		
 		function signinCallback(authResult) {
