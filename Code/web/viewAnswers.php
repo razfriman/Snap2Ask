@@ -71,9 +71,11 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 						<option>Highest Rating First</option>
 						<option>Lowest Rating First</option>						
 					</select>                    	
-                	<input type="button" class="button" id="gobut" name="startsort" value="Go"/>		
-                	<input type="date" placeholder="End Date" name="enddate"/>
-                	<input type="date" placeholder="Start Date" name = "startdate"/>	
+                	<input type="button" class="button" id="gobut" name="startsort" value="Go"/>
+                	<label for="startdate">From </label>
+                	<input type="date" placeholder="Start Date" name = "startdate" id="startdate" />
+                	<label for="enddate"> to </label>
+                	<input type="date" placeholder="End Date" name="enddate" id="enddate" />
                     </form>
             	</div>
             	
