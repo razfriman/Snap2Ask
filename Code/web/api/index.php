@@ -281,6 +281,14 @@ function addQuestionStatistics(&$user, $db)
  * Now we provide methods for the Slim API to use to creat the REST API
  * these methods will be executed when a user visits the corresponding route
  */
+ 
+ $app->get(
+ 	'/',
+ 	function() use($app,$db) {
+	 	$response = $app->response();
+		$response->status(200);
+		$response->write('The API is working');
+ 	});
 
 // VALIDATE A LOGIN
 $app->post(
@@ -1499,6 +1507,7 @@ $app->post(
 		$success = false;
 		$reason = '';
 		$insert_id = 0;
+		$cash_earned = 0;
 
 
 		// A debug variable to send push notification to the iOS users
@@ -1546,6 +1555,32 @@ $app->post(
 				$sth->bindParam(':question_id', $id);
 				$sth->bindParam(':question_status', $question_status);
 				$sth->execute();
+				
+				// UPDATE THE TUTOR'S BALANCE
+				$sth = $db->prepare('SELECT category_id FROM questions WHERE id=:question_id');
+				$sth->bindParam(':question_id', $id);
+				$sth->execute();
+				$categoryRow = $sth->fetch();
+				$category_id = $categoryRow[0];
+				
+				$sth = $db->prepare('SELECT COUNT(*) FROM verified_categories WHERE user_id=:tutor_id AND category_id=:category_id');
+				$sth->bindParam(':tutor_id', $tutor_id);
+				$sth->bindParam(':category_id', $category_id);
+				$sth->execute();
+				$verifiedRow = $sth->fetch();
+				$is_verified = $verifiedRow[0];
+				
+				// CALCULATE THE AMOUNT OF SNAPCASH EARNED
+				$cash_earned = ANSWER_QUESTION_REWARD;
+				if ($is_verified > 0) {
+					$cash_earned = $cash_earned * ANSWER_QUESTION_VERIFIED_MULTIPLIER;
+				}
+				
+				$sth = $db->prepare('UPDATE users SET balance=balance + :cash_earned WHERE id=:tutor_id');
+				$sth->bindParam(':cash_earned', $cash_earned);
+				$sth->bindParam(':tutor_id', $tutor_id);
+				$sth->execute();
+				
 
 
 				// Send a push notification to the iOS user
@@ -1617,7 +1652,8 @@ $app->post(
 		$dataArray = array(
 			'success' => $success,
 			'reason' => $reason,
-			'insert_id' => $insert_id);
+			'insert_id' => $insert_id,
+			'cash_earned' => $cash_earned);
 		
         // Send the JSON response data
 		$response = $app->response();
@@ -1802,7 +1838,7 @@ $app->post(
 			
 
 			$sth = $db->prepare('
-			SELECT * FROM questions
+			SELECT questions.*,categories.name,subcategories.name FROM questions
 			JOIN categories ON (questions.category_id = categories.id)
 			JOIN subcategories ON (questions.subcategory_id = subcategories.id)
 			WHERE

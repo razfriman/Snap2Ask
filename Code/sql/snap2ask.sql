@@ -12,7 +12,7 @@ CREATE TABLE `categories` (
   PRIMARY KEY (`id`),
   UNIQUE KEY (`name`),
   FULLTEXT INDEX `index2` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 
 --
@@ -27,7 +27,7 @@ CREATE TABLE `subcategories` (
   UNIQUE KEY `name_UNIQUE` (`name`, `category_id`),
     FULLTEXT INDEX `index2` (`name`),
   CONSTRAINT `fk_subcategories_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 
 --
@@ -50,7 +50,7 @@ CREATE TABLE `users` (
   `password_reset_token` VARCHAR(50) NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`,`authentication_mode`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 -- 
 -- Table structure for table `verified_categories`
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `verified_categories` (
     REFERENCES `categories` (`id`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = MyISAM;
 
 --
 -- Table structure for table `validationQuestions`
@@ -91,7 +91,7 @@ CREATE TABLE `validationQuestions` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `index` (`question`, `optionA`, `optionB`, `optionC`, `rightAnswer`, `category_id`),
   CONSTRAINT `fk_validationQuestions_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET = latin1;
+) ENGINE = MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET = latin1;
 
 
 
@@ -121,7 +121,7 @@ CREATE TABLE `questions` (
   CONSTRAINT `fk_questions_subcategories` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_questions_categories` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_questions_users` FOREIGN KEY (`student_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 
 --
@@ -139,6 +139,6 @@ CREATE TABLE `answers` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_answers_questions` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_answers_users` FOREIGN KEY (`tutor_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 

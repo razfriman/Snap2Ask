@@ -54,6 +54,12 @@ header {
 	background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0.31, rgb(248,249,251)), color-stop(1, rgb(233,237,241)));
 	border-bottom: 1px solid #404040;
 	margin-bottom: 3em;
+	
+	position: -webkit-sticky;
+	position: -moz-sticky;
+	position: -ms-sticky;
+	position: -o-sticky;
+	top: 0px;
 }
 
 header.short {	
@@ -367,10 +373,6 @@ li#categoriesTab li.subLink img {
 	text-align:right;
 	list-style-type:none;
 	padding:0;
-	
-	
-	
-
 }
 
 /* linksNav list item */
@@ -411,7 +413,7 @@ li#categoriesTab li.subLink img {
 	margin-bottom:0;
 	border-top:3px solid #524656;
 	overflow-y: scroll;
-	height:40em;
+	height:auto;
 	width: 85%;
 }
 
@@ -782,8 +784,18 @@ vertical-align: middle;
     color: darkgreen;
 }
 
+#advancedSearchOptions {
+	float: right;
+}
+
+#advancedSearchOptions label {
+	float:left;
+	font-size: small;
+	line-height: 2em;
+	margin-right: 0.5em;
+}
 #advancedSearchOptions input[type="button"] {
-	float: right;	
+	float: left;	
     font-size: small;
     width: auto;
     height: 2em;
@@ -792,7 +804,7 @@ vertical-align: middle;
 }
 
 #advancedSearchOptions input[type="date"]{
-    float: right;	
+    float: left;	
     font-size: small;
     width: 12em;
     height: 1.5em;
@@ -802,7 +814,7 @@ vertical-align: middle;
 #advancedSearchOptions select
 {
     width: 13em;
-    float: right;
+    float: left;
 	margin-bottom: 1em;
     margin-top: 0;
     margin-right: 8em;
