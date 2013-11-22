@@ -49,10 +49,13 @@ if (isset($_POST['currentPassword']) && isset($_POST['newPassword'])) {
 	
 	if($updateResponseObj['success'])
 	{
-		header('Location: profile.php');
+		$_SESSION['msg']['change_password_msg'] = 'Your password was successfully updated';
 	} else {
-		die($updateResponseObj['reason']);
+		$_SESSION['msg']['change_password_msg_err'] = $updateResponseObj['reason'];
 	}
+	
+	header('Location: changePassword.php');
+	exit;
 	
 }
 ?>
@@ -91,6 +94,24 @@ if (isset($_POST['currentPassword']) && isset($_POST['newPassword'])) {
 		<div id="mainContent">
 			<h1>CHANGE PASSWORD</h1>
 			<!--POPULATE PROFILE INFORMATION HERE-->
+			
+			<?php
+
+			if(isset($_SESSION['msg']['change_password_msg']))
+			{
+				// Display the login error message
+				echo '<label class="message">'.$_SESSION['msg']['change_password_msg'].'</label>';
+				unset($_SESSION['msg']['change_password_msg']);
+			}
+			
+			if(isset($_SESSION['msg']['change_password_msg_err']))
+			{
+				// Display the login error message
+				echo '<label class="error">'.$_SESSION['msg']['change_password_msg_err'].'</label>';
+				unset($_SESSION['msg']['change_password_msg_err']);
+			}
+			?>
+			
 			<form id="changePassword" action="#" method="post">		
 				<label>Current Password</label><input type="password" name="currentPassword" />
 				<label>New Password</label><input type="password" name="newPassword" id="newPassword" />

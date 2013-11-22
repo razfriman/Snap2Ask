@@ -245,6 +245,11 @@ footer {
 
 /* GENERAL ELEMENTS */
 
+div.message, label.message {
+	background-color: inherit;
+	font-size: small;
+}
+
 div.error,label.error {
 	color: red;
 	background-color: inherit;
