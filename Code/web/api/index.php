@@ -810,14 +810,8 @@ $app->post(
 		$reason = '';
 
 		try {
-
-<<<<<<< HEAD
-			$sth = $db->prepare('SELECT password, salt FROM users WHERE id = :usersID');
-			$sth->bindParam(':usersID', $id);
-=======
 			$sth = $db->prepare('SELECT password, salt FROM users WHERE id = :user_id');
 			$sth->bindParam(':user_id', $id);
->>>>>>> aed55797aca1c28548d4ee49a78e0f629fc007f5
 			$sth->execute();
 			
 			if($sth->rowCount() > 0) {
