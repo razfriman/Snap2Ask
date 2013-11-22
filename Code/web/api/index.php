@@ -811,8 +811,6 @@ $app->post(
 
 		try {
 
-			// TODO.
-			// Update the password here.
 			$sth = $db->prepare('SELECT password, salt FROM users WHERE id = :usersID');
 			$sth->bindParam(':usersID', $id);
 			$sth->execute();
