@@ -811,31 +811,38 @@ $app->post(
 
 		try {
 
-			// TODO.
-			// Update the password here.
-			$sth = $db->prepare('SELECT password, salt FROM users WHERE id = :usersID');
-			$sth->bindParam(':usersID', $id);
+			$sth = $db->prepare('SELECT password, salt FROM users WHERE id = :user_id');
+			$sth->bindParam(':user_id', $id);
 			$sth->execute();
 			
-			$row = $sth->fetchAll(PDO::FETCH_ASSOC);
-			$salt = $row[0]['salt'];
-			$actualPassword = $row[0]['password'];
-			$hashedPassword = hashPasswordWithSalt($currentPassword, $salt);
+			if($sth->rowCount() > 0) {
 			
-			if ($hashedPassword == $actualPassword)
-			{
-				$newHashedPassword = hashPasswordWithSalt($newPassword, $salt);
-				$sth = $db->prepare('UPDATE users SET password = :newHashedPass 				WHERE id = :userID');
-				$sth->bindParam(':userID',$id);
-				$sth->bindParam(':newHashedPass',$newHashedPassword);
-				$sth->execute();
-			
-				$success = true;
-			}
-			else
-			{
-				$success = false;
-				$reason = 'Error: current password does not match the password in our database';
+				$row = $sth->fetch(PDO::FETCH_ASSOC);
+				$salt = $row['salt'];
+				$actualPassword = $row['password'];
+				$hashedPassword = hashPasswordWithSalt($currentPassword, $salt);
+				
+				if ($hashedPassword == $actualPassword)
+				{
+					$hashResult = hashPassword($newPassword);
+					$new_hashed_password = $hashResult[0];
+					$new_salt = $hashResult[1];
+					
+					$sth = $db->prepare('UPDATE users SET password=:new_password,SALT=:new_salt WHERE id=:user_id');
+					$sth->bindParam(':user_id',$id);
+					$sth->bindParam(':new_password',$new_hashed_password);
+					$sth->bindParam(':new_salt',$new_salt);
+					$sth->execute();
+				
+					$success = true;
+				}
+				else
+				{
+					$success = false;
+					$reason = 'Error: The current password is not valid';
+				}
+			} else {
+				$reason = 'User does not exists';
 			}
 			
 		} catch(PDOException $e) {
@@ -847,7 +854,6 @@ $app->post(
 		// Create the response data
 		$dataArray = array(
 			'success' => $success,
-			'oldPass' => $currentPassword,
 			'reason' => $reason);
 
 		// Send the JSON response
