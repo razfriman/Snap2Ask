@@ -10,23 +10,23 @@ function sortAnswers() {
 		
 	switch(index) {
 		case 0:
-		$('.tutorViewAnswerContainer').tsort('',{order:'desc',attr:'answerDate'});
-		break;
+			$('.tutorViewAnswerContainer').tsort('',{order:'desc',attr:'answerDate'});
+			break;
 		case 1:
-		$('.tutorViewAnswerContainer').tsort('',{order:'asc',attr:'answerDate'});
-		break;
+			$('.tutorViewAnswerContainer').tsort('',{order:'asc',attr:'answerDate'});
+			break;
 		case 2:
-		$('.tutorViewAnswerContainer').tsort('',{order:'desc',attr:'pay'});
-		break;
+			$('.tutorViewAnswerContainer').tsort('',{order:'desc',attr:'pay'});
+			break;
 		case 3:
-		$('.tutorViewAnswerContainer').tsort('',{order:'asc',attr:'pay'});
-		break;
+			$('.tutorViewAnswerContainer').tsort('',{order:'asc',attr:'pay'});
+			break;
 		case 4:
-		$('.tutorViewAnswerContainer').tsort('',{order:'desc',attr:'rating'});
-		break;
+			$('.tutorViewAnswerContainer').tsort('',{order:'desc',attr:'rating'});
+			break;
 		case 5:
-		$('.tutorViewAnswerContainer').tsort('',{order:'asc',attr:'rating'});
-		break;
+			$('.tutorViewAnswerContainer').tsort('',{order:'asc',attr:'rating'});
+			break;
 	}
 	startDate = document.sortform.startdate.value;
     	endDate = document.sortform.enddate.value;
@@ -41,7 +41,7 @@ function sortAnswers() {
                     		$(node).show();
                     		continue;
             		}
-            		if (isStart && ansdate.localeCompare(startDate) > 0){
+            		if (!isEnd && isStart && ansdate.localeCompare(startDate) > 0){
                     		$(node).show();
                     		continue;
             		}
