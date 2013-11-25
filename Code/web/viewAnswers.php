@@ -67,7 +67,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 	                <input type="date" placeholder="Start Date" name = "startdate" id="startdate" />
 	                <label>Thru </label>
                 	<input type="date" placeholder="End Date" name="enddate" id="enddate" />
-                	<input type="button" class="button" id="gobut" name="startsort" value="Go"/>
+                	<input type="button" id="gobut" name="startsort" value="Go"/>
                 	<select name="sortSelection" id="sortSelection">
 						<option>Most Recent First</option>
 						<option>Least Recent First</option>

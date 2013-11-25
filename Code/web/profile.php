@@ -106,6 +106,9 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 				echo "<div class='profileItem'><label>Preferred Categories:</label>";
 
 				
+				
+				
+				
 				$count = 0;
 				foreach ($responseObj['verified_categories'] as $verified_category) {
 					foreach ($categories as $category) {
@@ -162,11 +165,11 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 
                             if( file_exists($icon_url) ) {
 
-                                echo sprintf("<li><img src='%s'/> %s </li>",$icon_url,$vc['name']);
+                                echo sprintf("<li><div><img src='%s'/> <p>%s</p> </div></li>",$icon_url,$vc['name']);
                             
                             }else{
                                 
-                                echo sprintf("<li><img src='res/icons/Other.png'/> %s </li>",$vc['name']);
+                                echo sprintf("<li><div><img src='res/icons/Other.png'/> <p>%s</p> </div></li>",$vc['name']);
 
                             }
                         }/*end foreach*/
