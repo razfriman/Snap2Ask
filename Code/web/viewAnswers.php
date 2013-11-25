@@ -77,7 +77,24 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 						<option>Lowest Rating First</option>						
 					</select>                    	
                 	
-                	
+                    <!--added functionallity to browse by answers by category>    
+				    <select>
+                    <?php
+                    /*
+                    $categories = getCategories();
+                    
+                    echo sprintf('<option>All</option>');
+					foreach($categories as $category)
+					{
+                        $icon_url = sprintf('res/icons/%s.png',$category['name']);
+                            if (!file_exists($icon_url)) {
+                                $icon_url = 'res/icons/Other.png';
+							}
+
+                        echo sprintf('<option> %s </option>',$category['name']);
+                    }*/
+                        ?>
+					</select-->
                     </form>
             	</div>
             	
