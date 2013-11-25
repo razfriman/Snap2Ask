@@ -157,8 +157,19 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 					<!--Populate list-->
 					<?php
 						foreach ($responseObj['verified_categories'] as $vc){
-							echo "<li>" . $vc['name'] . "</li>";
-						}/*end foreach*/
+
+                            $icon_url = sprintf('res/icons/%s.png',$vc['name']); 
+
+                            if( file_exists($icon_url) ) {
+
+                                echo sprintf("<li><img src='%s'/> %s </li>",$icon_url,$vc['name']);
+                            
+                            }else{
+                                
+                                echo sprintf("<li><img src='res/icons/Other.png'/> %s </li>",$vc['name']);
+
+                            }
+                        }/*end foreach*/
 					?>
 				</ul>
 			</div>
@@ -184,7 +195,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 						
 						if (!$isVerified)
 						{
-							echo sprintf('<option value="%s">%s</option>', $category['id'],$category['name']);
+							echo sprintf('<option value="%s">%s</option> ', $category['id'],$category['name']);
 						}
 					}
 					
