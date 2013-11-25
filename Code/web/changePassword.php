@@ -119,9 +119,9 @@ if (isset($_POST['currentPassword']) && isset($_POST['newPassword'])) {
 			?>
 			
 			<form id="changePassword" action="#" method="post">		
-				<label>Current Password</label><input type="password" name="currentPassword" />
-				<label>New Password</label><input type="password" name="newPassword" id="newPassword" />
-				<label>Confirm New Password</label><input type="password" name="confirmNewPassword" />
+				<label>Current Password</label><input type="password" placeholder="Current Password" autocomplete="off" name="currentPassword" />
+				<label>New Password</label><input type="password" name="newPassword" id="newPassword" placeholder="New Password" title="Password must be at least 8 characters" />
+				<label>Confirm New Password</label><input type="password" placeholder="Confirm New Password" name="confirmNewPassword" />
 				<input type="submit" id="submitButton" value="Change Password" />
 			</form>
 		</div>

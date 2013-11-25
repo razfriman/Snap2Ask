@@ -103,8 +103,8 @@ if (isset($_POST['submit']))
 			?>
 			<!-- Login Form in html that sends email and pass to corresponding php script -->
 			<form id="updatePasswordForm" method="POST" action="#">
-				<input type="password" id="password" name="password" placeholder="Password" title="Please enter a valid password" required autocomplete="on" />
-				<input type="password" id="confirmPassword" name="confirmPassword" placeholder="Password" title="The two passwords must match" required autocomplete="on" />
+				<input type="password" id="password" name="password" placeholder="Password" title="Password must be at least 8 characters" required autocomplete="on" />
+				<input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" title="The two passwords must match" required autocomplete="on" />
 				<input type="submit" name="submit" value="Update Password" />
 			</form>
 			
