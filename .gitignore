@@ -18,7 +18,8 @@ DerivedData
 *.xccheckout
 
 # Composer Files
-vendor/*
+composer.lock
+vendor
 
 # environment sensitive files
 .htaccess
