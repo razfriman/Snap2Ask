@@ -12,6 +12,18 @@ if (!isset($_SESSION['user_id'])) {
 	exit;
 }
 
+// Require the functions file
+require_once('functions.php');
+
+$responseObj = getUserInfo(true);
+
+if (isset($responseObj['error'])) {
+	// Invalid user
+	header('Location: logout.php');
+	exit;
+}
+$categories = getCategories();
+
 if (isset($_POST['submit'])) {
 
 	if ($_POST['submit'] == 'Take Now' && isset($_POST['category'])) {
@@ -23,12 +35,6 @@ if (isset($_POST['submit'])) {
 		header('Location: index.php');
 	}
 }
-
-// Require the functions file
-require_once('functions.php');
-
-$responseObj = getUserInfo(true);
-$categories = getCategories();
 
 ?>
 

@@ -23,6 +23,13 @@ require_once('functions.php');
 require_once('api/config.php');
 
 $responseObj = getUserInfo(true);
+
+if (isset($responseObj['error'])) {
+	// Invalid user
+	header('Location: logout.php');
+	exit;
+}
+
 $categories = getCategories();
 $questions = getValidationQuestions($_GET['category_id']);
 

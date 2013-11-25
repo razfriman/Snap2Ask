@@ -19,6 +19,12 @@ require_once('functions.php');
 
 $responseObj = getUserInfo(true);
 
+if (isset($responseObj['error'])) {
+	// Invalid user
+	header('Location: logout.php');
+	exit;
+}
+
 $categories = getCategories();
 
 if (isset($_POST['first_name']) && isset($_POST['last_name'])) {

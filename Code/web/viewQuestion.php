@@ -24,6 +24,14 @@ if (!isset($_GET['id'])) {
 // Require the functions file
 require_once('functions.php');
 
+$responseObj = getUserInfo(true);
+
+if (isset($responseObj['error'])) {
+	// Invalid user
+	header('Location: logout.php');
+	exit;
+}
+
 $question_info = getQuestionInfo($_GET['id']);
 
 if ($question_info['status'] != 0) {

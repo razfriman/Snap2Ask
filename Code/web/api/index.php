@@ -290,6 +290,9 @@ function addQuestionStatistics(&$user, $db)
 		$response->write('The API is working');
  	});
 
+
+
+
 // VALIDATE A LOGIN
 $app->post(
 	'/login',
@@ -810,7 +813,7 @@ $app->post(
 		$reason = '';
 
 		try {
-			$sth = $db->prepare('SELECT password, salt FROM users WHERE id = :user_id');
+			$sth = $db->prepare('SELECT password, salt FROM users WHERE id=:user_id AND authentication_mode="custom"');
 			$sth->bindParam(':user_id', $id);
 			$sth->execute();
 			
@@ -1669,46 +1672,9 @@ $app->post(
 	}
 	);
 
-//RATE answer	
-$app->put(
-	'/rateAnswers/:id',
-	function ($id) use ($app, $db) {
-
-		$rateAnswer = array();
-
-                //Get the JSON request with the data
-		$request = $app->request()->getBody();
-
-                //get data
-		$rate = $request['rate'];
-
-		$rateAnswer['sucess'] = true;
-		$rateAnswer['reason'] = "Question sucesfully rated";
-		try
-		{
-                        //prepare the query
-			$sth = $db->prepare('UPDATE answers set rating = :rate WHERE id = :answer_id');
-			$sth->bindParam(':rate', $rate);
-			$sth->bindParam(':answer_id', $id);
-			$sth->execute();
-		} catch(PDOException $e) {
-			$rateAnswer['sucess'] = false;
-			$rateAnswer['reason'] = 'Error rating the answer';
-		}
-
-                // Return the JSON data
-		$response = $app->response();
-		$response['Content-Type'] = 'application/json';
-		$response->status(200);
-		$response->write(json_encode($rateAnswer));
-	}
-
-	);	
-
-
 
 // UPDATE AN ANSWER
-// OCCURS WHEN A USER REJECTS/ACCEPTS A QUESTION'S ANSWER
+// OCCURS WHEN A USER REJECTS/RATES A QUESTION'S ANSWER
 $app->put(
 	'/answers/:id',
 	function ($id) use ($app,$db) {
@@ -1876,52 +1842,6 @@ $app->post(
 		$response->write(json_encode($questionDataAll));
 	}
 	);
-
-
-
-//ADD VALIDATED CATEGORY
-$app->post(
-        '/validateCategory',
-        function () use ($app, $db) {
-
-                $status = array();
-                $status['success'] = 'true';
-
-                //get the request informaiton
-                $request = $app->request()->getBody();
-                $userID = $request['userID'];
-                $category = $request['categoryName'];
-
-                //get category id
-                $sth = $db->prepare('SELECT id FROM categories WHERE name = :categoryName');
-                $sth->bindParam(':categoryName', $category);
-                $sth->execute();
-                $row = $sth->fetch();
-                $categoryID = $row[0];
-                try {
-
-                        //insert an user prefered category
-                        $sth = $db->prepare('INSERT into verified_categories(user_id, category_id) VALUES (:user, :category)');
-                        $sth->bindParam(':category', $categoryID);
-                        $sth->bindParam(':user', $userID);
-                        $sth->execute();
-
-                }
-                catch(PDOException $e)
-                {
-                        $status['success'] = 'false';
-						$status['error'] = 'sql error';
-                        $status['sqlError'] = $sth->errorCode();
-                }
-
-                // Return JSON with the status of the insertion
-                $response = $app->response();
-                $response['Content-Type'] = 'application/json';
-                $response->status(200);
-                $response->write(json_encode($status));
-
-        }
-);
 
 
 // Run the Slim app as specified by the Slim Framework documentation
