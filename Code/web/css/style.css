@@ -215,7 +215,15 @@ footer {
 
 #infoContainer h2 {
 	margin-bottom: 2em;
-	text-align: justify;
+
+}
+
+#infoContainer img {
+	width: 40px;
+	height: 100%;
+	float: left;
+	margin-bottom: 1em;
+	margin-right: 1em;
 }
 
 /* REGISTER CONTAINER */

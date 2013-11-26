@@ -249,10 +249,15 @@ if (isset($_SESSION['user_id']))
 <div id="content">
 	
 	<div id="infoContainer">
+
+		<img src="res/icons/SAT.png" />		
+		<h2>Snap-2-Ask helps answer your academic questions</h2>
 		
-		<h2>Snap-2-Ask helps you get your academic questions answered and make money answering questions</h2>
-		
+		<img src="res/icons/Academic.png" />
 		<h2>All Questions on Snap-2-Ask are picture based and answered by certified tutors.</h2>
+		
+		<img src="res/dollars.png" />
+		<h2> Tutors get rewarded with SnapCash for answering questions.</h2>
 	</div>
 
 	<div id="registerContainer">
