@@ -4,11 +4,18 @@
   	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
   
-  
+  var retryCount = 0;
      // LOGOUT
      //gapi.auth.signOut();
      
      function signinCallback(authResult) {
+     	
+     	if (retryCount > 5) {
+     	     	console.log("Too many retries. Aborting google login");
+	     	return;
+     	}
+     	
+     	retryCount++;
      	
      	if (authResult['access_token']) {
      		
