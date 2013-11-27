@@ -9,7 +9,7 @@ define('inc_file', TRUE);
 
 if (!isset($_SESSION['user_id'])) {
     // The user is not logged in
-	header('Location: index.php');
+    header('Location: index.php');
 	exit;
 }
 
@@ -120,8 +120,10 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 					foreach ($categories as $category) {
 						if($verified_category['category_id'] == $category['id'] && $verified_category['is_preferred'])
 						{
+							$catname = $category['name'];
+                            echo "<a href='http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=" . $catname . "'>";
 							echo sprintf("<p>%s</p>",$category['name']);
-							echo '<br />';
+							echo '</a><br />';
 							$count++;
 						}
 					}
@@ -149,8 +151,6 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 			}
 			?>
 			
-			
-			
 			<?php 
 			
 			if (sizeof($responseObj['verified_categories']) < sizeof($categories)) {
@@ -168,15 +168,15 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 						foreach ($responseObj['verified_categories'] as $vc){
 
                             $icon_url = sprintf('res/icons/%s.png',$vc['name']); 
-
-                            if( file_exists($icon_url) ) {
-
-                                echo sprintf("<li><div><img src='%s'/> <p>%s</p> </div></li>",$icon_url,$vc['name']);
-                            
+                            $vcatname = $vc['name'];
+                            if(file_exists($icon_url) ) {
+                                echo "<a href='http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=" . $vcatname . "'>";
+                                echo sprintf("<li><div><img src='%s'/> <p>%s</p> </div></li>",$icon_url,$vcatname);
+                                echo "</a>";
                             }else{
-                                
+                                echo "<a title='Browse " . $vcatname . " questions' href='http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=" . $vcatname . "'>";
                                 echo sprintf("<li><div><img src='res/icons/Other.png'/> <p>%s</p> </div></li>",$vc['name']);
-
+                                echo '</a>';
                             }
                         }/*end foreach*/
 					?>
