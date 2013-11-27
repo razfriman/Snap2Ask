@@ -708,6 +708,7 @@ $app->post(
 		$success = false;
 		$reason = '';
 		$user_id = 0;
+		$new_user = false;
 		
 		$need_to_register = true;
 
@@ -763,6 +764,8 @@ $app->post(
 					$sth->execute();
 	
 					$success = true;
+					
+					$new_user = true;
 	
 					// Get the id of the user we just created
 					$user_id = $db->lastInsertId();
@@ -784,7 +787,8 @@ $app->post(
 			'reason' => $reason,
 			'user_id' => $user_id,
 			'register_or_login' => $register_or_login,
-			'authentication_mode' => $authentication_mode
+			'authentication_mode' => $authentication_mode,
+			'new_user' => $new_user
 			);
 		
         // Return the JSON data

@@ -169,15 +169,16 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 
                             $icon_url = sprintf('res/icons/%s.png',$vc['name']); 
                             $vcatname = $vc['name'];
-                            if(file_exists($icon_url) ) {
-                                echo sprintf("<a href='browse.php?search=%s'>",$vcatname);
-                                echo sprintf("<li><div><img src='%s'/> <p>%s</p> </div></li>",$icon_url,$vcatname);
-                                echo "</a>";
-                            } else {
-                                echo sprintf("<a title='Browse %s questions' href='http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=%s>", $vcatname, $vcatname);
-                                echo sprintf("<li><div><img src='res/icons/Other.png'/> <p>%s</p> </div></li>",$vc['name']);
-                                echo '</a>';
+                            if(!file_exists($icon_url) ) {
+                            	$icon_url = 'res/icons/Other.png';
                             }
+                            
+                            echo '<li>';
+                            echo sprintf("<a href='browse.php?search=%s'>",$vcatname);
+                            echo sprintf("<div><img alt='%s' src='%s'/> <p>%s</p> </div>", $vcatname, $icon_url,$vcatname);
+                            echo "</a>";
+                            echo '</li>';
+
                         }/*end foreach*/
 					?>
 				</ul>
@@ -188,7 +189,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 			<h1>ADD VERIFIED CATEGORY</h1>
 			<form id="categoryTestForm" action="#" method="post">
 				<select name="category">
-					<option value="Select Category" selected="true" disabled="disabled">Select Category</option>
+					<option value="Select Category" selected disabled >Select Category</option>
 					<!-- Populate menu -->
 					<?php
 					

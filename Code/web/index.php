@@ -54,6 +54,13 @@ if (isset($_POST['authentication_mode']))
 
 			// Stay logged in
 		setcookie('rememberCookie',true);
+		
+		if ($responseObj['new_user'] == true) {
+			
+			//Redirect new users to the test page
+			header('Location: testChoice.php');
+			exit;
+		}
 	}
 }
 
