@@ -19,7 +19,7 @@ require_once('functions.php');
 $responseObj = getUserInfo(true);
 
 if (isset($responseObj['error'])) {
-	// Invalid user
+    // Invalid user
 	header('Location: logout.php');
 	exit;
 }
@@ -106,52 +106,68 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 					$stars .= '&#9733; ';
 				}
 				
-					echo sprintf("<div class='profileItem'><label>SnapTutor Rating:</label><div class='ratingContainer'><span class='ratingStars'>%s</span> (%s total ratings)</div></div>", $stars, $responseObj['total_answers']);
+					echo sprintf("<div class='profileItem'><label>Snap2tor Rating:</label><div class='ratingContainer'><span class='ratingStars'>%s</span> (%s total ratings)</div></div>", $stars, $responseObj['total_answers']);
 				}
+                ?>
+                <table class='profileItem'>
+                    <tr>
+                        <td>
+    			            <div class="catlist">Preferred Categories:</div>
+                        </td>
+                        <td>
+                            <?php
+				            $count = 0;
+				            foreach ($responseObj['verified_categories'] as $verified_category) {
+					            foreach ($categories as $category) {
+						            if($verified_category['category_id'] == $category['id'] && $verified_category['is_preferred'])
+						            {
+							            $catname = $category['name'];
+                                        $icon_url = sprintf('res/icons/%s.png',$catname); 
+                                        echo sprintf("<a href='browse.php?search=%s'>",$catname);
+                                        echo sprintf('<span class="certified"><img src="%s" alt="%s" />%s</span></a>',$icon_url,$catname,$catname);
+							            $count++;
+                                        if ($count % 2 == 0)
+                                            echo "<br />";
+						            }
+					            }
+				            }
+				            if ($count == 0)
+				            {
+					            echo '<p>Add preferred categories <a href="editprofile.php">here</a></p>';
+				            }
+				            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="catlist">Certified Categories:</div>
+                        </td>
+                        <td>
+					           <!--Populate list-->
+                                <?php
+						            foreach ($responseObj['verified_categories'] as $vc){
 
-				echo "<div class='profileItem'><label>Preferred Categories:</label>";
-
-				$count = 0;
-				foreach ($responseObj['verified_categories'] as $verified_category) {
-					foreach ($categories as $category) {
-						if($verified_category['category_id'] == $category['id'] && $verified_category['is_preferred'])
-						{
-							$catname = $category['name'];
-                            $icon_url = sprintf('res/icons/%s.png',$catname); 
-                            echo sprintf("<a href='browse.php?search=%s'>",$catname);
-                            echo sprintf('<span class="certified"><img src="%s" alt="%s" />%s</span>',$icon_url,$catname,$catname);
-                            echo '</a><br />';
-							$count++;
-						}
-					}
-				}
-					
-				if ($count == 0)
-				{
-					echo '<p>Add preferred categories <a href="editprofile.php">here</a></p>';
-				}
-
-				echo "</div>";
-				?>
-                <div class='profileItem'><label>Certified Categories:</label>
-					<!--Populate list-->
-                    <?php
-						foreach ($responseObj['verified_categories'] as $vc){
-
-                            $icon_url = sprintf('res/icons/%s.png',$vc['name']); 
-                            $vcatname = $vc['name'];
-                            if(file_exists($icon_url) ) {
-                                echo sprintf("<a title='Browse %s questions' href='browse.php?search=%s'>",$vcatname,$vcatname);
-                                echo sprintf("<span><img src='%s' alt='%s'/>%s</span>",$icon_url,$vcatname,$vcatname);
-                                echo "</a>";
-                            } else {
-                                echo sprintf("<a title='Browse %s questions' href='http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=%s'>", $vcatname, $vcatname);
-                                echo sprintf("<span><img src='res/icons/Other.png' alt='other' /> %s </span>", $vc['name']);
-                                echo '</a>';
-                            }
-                        }/*end foreach*/
-					?>
-			</div>					
+                                    $icon_url = sprintf('res/icons/%s.png',$vc['name']); 
+                                    $vcatname = $vc['name'];
+                                    if(file_exists($icon_url) ) {
+                                        echo sprintf("<a title='Browse %s questions' href='browse.php?search=%s'>",$vcatname,$vcatname);
+                                        echo sprintf("<span  class='certified'><img src='%s' alt='%s'/>%s</span>",$icon_url,$vcatname,$vcatname);
+                                        echo "</a>";
+                                    } 
+                                    else {
+                                        echo sprintf("<a title='Browse %s questions' href='http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=%s'>", $vcatname, $vcatname);
+                                        echo sprintf("<span class='certified'><img src='res/icons/Other.png' alt='other' /> %s </span>", $vc['name']);
+                                        echo '</a>';
+                                    }
+                                    $count++;
+                                    if ($count % 2 == 0)
+                                            echo "<br />";
+                                }/*end foreach*/
+					           ?>
+                        </td>
+                    </tr>
+                </table>
+				
 			</form>
 			
 			<?php 
@@ -160,47 +176,53 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 			
 			?>	
 			
-			<div class="divider"></div>
-
-			<h1>GET CERTIFIED</h1>
-            <h3>When you pass our the subject test, you will be paid more for that subject.</h3>
-
-            <form id="categoryTestForm" action="#" method="post">
-    			<select name="category">
-					<option value="Select Category" selected disabled>Select Category</option>
-					<!-- Populate menu -->
-					<?php
-					
-					foreach($categories as $category)
-					{
-						$isVerified = false;
-						foreach ($responseObj['verified_categories'] as $verified_category)
-						{
-							if ($category['id'] == $verified_category['category_id']) {
-								$isVerified = true;
-							}
-						}
+			    <div class="divider"></div>
+			    <h1>GET CERTIFIED</h1>
+                <h3>When you pass our the subject test, you will be paid more for that subject.</h3>
+                <form id="categoryTestForm" action="#" method="post">
+    			    <select name="category">
+					    <option value="Select Category" selected disabled>Select Category</option>
+					    <!-- Populate menu -->
+					    <?php
+					    foreach($categories as $category)
+					    {
+						    $isVerified = false;
+						    foreach ($responseObj['verified_categories'] as $verified_category)
+						    {
+							    if ($category['id'] == $verified_category['category_id']) {
+								    $isVerified = true;
+							    }
+						    }
 						
-						if (!$isVerified)
-						{
-							echo sprintf('<option value="%s">%s</option> ', $category['id'],$category['name']);
-						}
-					}
+						    if (!$isVerified)
+						    {
+							    echo sprintf('<option value="%s">%s</option> ', $category['id'],$category['name']);
+						    }
+					    }/* end outer foreach */
 					
-					?>
+				?>
 				</select>
 				<input id="tutortestbutton" type="submit" name="submit" value="Take Test"/>
 			</form>			
-			<div class="divider"></div>
 			
 			<?php
 			
 			}
-			
+			else
+            {
+            ?>
+                <h1>YOU ARE NOW A SUPER SNAP2TOR</h1>
+                <h3>Congrats! You passed all our subject tests, so you are earning more for every question.</h3>
+            <?php    
+            }
 			?>
+            <div class="divider"></div>
 			<h1>MANAGE SNAPACCOUNT</h1>
             <form id="manageprofile" action="editprofile.php" method="get">
-                <input type="submit" value="Edit Profile" title="Edit your name and e-mail address"/>
+                <input type="submit" value="Withdraw SnapCash" title="Click here to view your balance and withdraw SnapCash"/>
+    		</form>
+            <form id="manageprofile" action="editprofile.php" method="get">
+                <input type="submit" value="Edit Personal Info" title="Edit your name and e-mail address"/>
                 <input type="submit" value="Add Preferred Categories" title="These categories will appear in the 'Familiar' search"/>
 			</form>
             <?php
