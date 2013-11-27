@@ -121,7 +121,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 						if($verified_category['category_id'] == $category['id'] && $verified_category['is_preferred'])
 						{
 							$catname = $category['name'];
-                            echo "<a href='http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=" . $catname . "'>";
+                            echo sprintf("<a href='browse.php?search=%s'>", $catname);
 							echo sprintf("<p>%s</p>",$category['name']);
 							echo '</a><br />';
 							$count++;
@@ -170,11 +170,11 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
                             $icon_url = sprintf('res/icons/%s.png',$vc['name']); 
                             $vcatname = $vc['name'];
                             if(file_exists($icon_url) ) {
-                                echo "<a href='http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=" . $vcatname . "'>";
+                                echo sprintf("<a href='browse.php?search=%s'>",$vcatname);
                                 echo sprintf("<li><div><img src='%s'/> <p>%s</p> </div></li>",$icon_url,$vcatname);
                                 echo "</a>";
-                            }else{
-                                echo "<a title='Browse " . $vcatname . " questions' href='http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=" . $vcatname . "'>";
+                            } else {
+                                echo sprintf("<a title='Browse %s questions' href='http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=%s>", $vcatname, $vcatname);
                                 echo sprintf("<li><div><img src='res/icons/Other.png'/> <p>%s</p> </div></li>",$vc['name']);
                                 echo '</a>';
                             }
