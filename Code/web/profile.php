@@ -10,7 +10,7 @@ define('inc_file', TRUE);
 if (!isset($_SESSION['user_id'])) {
     // The user is not logged in
     header('Location: index.php');
-	exit;
+    exit;
 }
 
 // Require the functions file
@@ -106,24 +106,21 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 					$stars .= '&#9733; ';
 				}
 				
-					echo sprintf("<div class='profileItem'><label>Rating:</label><div class='ratingContainer'><span class='ratingStars'>%s</span> (%s)</div></div>", $stars, $responseObj['total_answers']);
+					echo sprintf("<div class='profileItem'><label>SnapTutor Rating:</label><div class='ratingContainer'><span class='ratingStars'>%s</span> (%s total ratings)</div></div>", $stars, $responseObj['total_answers']);
 				}
 
 				echo "<div class='profileItem'><label>Preferred Categories:</label>";
 
-				
-				
-				
-				
 				$count = 0;
 				foreach ($responseObj['verified_categories'] as $verified_category) {
 					foreach ($categories as $category) {
 						if($verified_category['category_id'] == $category['id'] && $verified_category['is_preferred'])
 						{
 							$catname = $category['name'];
-                            echo sprintf("<a href='browse.php?search=%s'>", $catname);
-							echo sprintf("<p>%s</p>",$category['name']);
-							echo '</a><br />';
+                            $icon_url = sprintf('res/icons/%s.png',$catname); 
+                            echo sprintf("<a href='browse.php?search=%s'>",$catname);
+                            echo sprintf('<span class="certified"><img src="%s" alt="%s" />%s</span>',$icon_url,$catname,$catname);
+                            echo '</a><br />';
 							$count++;
 						}
 					}
@@ -131,25 +128,31 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 					
 				if ($count == 0)
 				{
-					echo '<p>&lt;None&gt;</p>';
+					echo '<p>Add preferred categories <a href="editprofile.php">here</a></p>';
 				}
 
 				echo "</div>";
 				?>
-				
-				<input type="submit" value="Edit Profile" />
-				
+                <div class='profileItem'><label>Certified Categories:</label>
+					<!--Populate list-->
+                    <?php
+						foreach ($responseObj['verified_categories'] as $vc){
+
+                            $icon_url = sprintf('res/icons/%s.png',$vc['name']); 
+                            $vcatname = $vc['name'];
+                            if(file_exists($icon_url) ) {
+                                echo sprintf("<a title='Browse %s questions' href='browse.php?search=%s'>",$vcatname,$vcatname);
+                                echo sprintf("<span><img src='%s' alt='%s'/>%s</span>",$icon_url,$vcatname,$vcatname);
+                                echo "</a>";
+                            } else {
+                                echo sprintf("<a title='Browse %s questions' href='http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=%s'>", $vcatname, $vcatname);
+                                echo sprintf("<span><img src='res/icons/Other.png' alt='other' /> %s </span>", $vc['name']);
+                                echo '</a>';
+                            }
+                        }/*end foreach*/
+					?>
+			</div>					
 			</form>
-			
-			<?php
-			if ($responseObj['authentication_mode'] == 'custom') {
-			?>
-			<form id="changePasswordForm" action="changePassword.php" method="post">
-				<input id="changePasswordButton" type="submit" name="submit" value="Change Password" />
-			</form>
-			<?php
-			}
-			?>
 			
 			<?php 
 			
@@ -159,36 +162,12 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 			
 			<div class="divider"></div>
 
-			<h1>YOUR VERIFIED CATEGORIES</h1>
-			<div id="verifiedCategories">
-				<p>You are currently certified in the following categories:</p>
-				<ul>
-					<!--Populate list-->
-					<?php
-						foreach ($responseObj['verified_categories'] as $vc){
+			<h1>GET CERTIFIED</h1>
+            <h3>When you pass our the subject test, you will be paid more for that subject.</h3>
 
-                            $icon_url = sprintf('res/icons/%s.png',$vc['name']); 
-                            $vcatname = $vc['name'];
-                            if(file_exists($icon_url) ) {
-                                echo sprintf("<a href='browse.php?search=%s'>",$vcatname);
-                                echo sprintf("<li><div><img src='%s'/> <p>%s</p> </div></li>",$icon_url,$vcatname);
-                                echo "</a>";
-                            } else {
-                                echo sprintf("<a title='Browse %s questions' href='http://snap2ask.com/git/snap2ask/Code/web/browse.php?search=%s>", $vcatname, $vcatname);
-                                echo sprintf("<li><div><img src='res/icons/Other.png'/> <p>%s</p> </div></li>",$vc['name']);
-                                echo '</a>';
-                            }
-                        }/*end foreach*/
-					?>
-				</ul>
-			</div>
-			
-			<div class="divider"></div>
-			
-			<h1>ADD VERIFIED CATEGORY</h1>
-			<form id="categoryTestForm" action="#" method="post">
-				<select name="category">
-					<option value="Select Category" selected="true" disabled="disabled">Select Category</option>
+            <form id="categoryTestForm" action="#" method="post">
+    			<select name="category">
+					<option value="Select Category" selected disabled>Select Category</option>
 					<!-- Populate menu -->
 					<?php
 					
@@ -211,16 +190,28 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 					?>
 				</select>
 				<input id="tutortestbutton" type="submit" name="submit" value="Take Test"/>
-			</form>
+			</form>			
+			<div class="divider"></div>
 			
 			<?php
 			
 			}
 			
 			?>
-			
-			<div class="divider"></div>
-			<h1>ACCOUNT ACTIONS</h1>
+			<h1>MANAGE SNAPACCOUNT</h1>
+            <form id="manageprofile" action="editprofile.php" method="get">
+                <input type="submit" value="Edit Profile" title="Edit your name and e-mail address"/>
+                <input type="submit" value="Add Preferred Categories" title="These categories will appear in the 'Familiar' search"/>
+			</form>
+            <?php
+    		if ($responseObj['authentication_mode'] == 'custom') {
+			?>
+			<form id="changePasswordForm" action="changePassword.php" method="post">
+				<input id="changePasswordButton" type="submit" name="submit" value="Change Password" />
+			</form>
+			<?php
+			}
+			?>
 			<form id="deleteAccountForm" action="profile.php" method="post">
 				<input id="deleteAccountButton" type="submit" name="submit" value="Delete Account" />
 			</form>
