@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('inc_file')) {
-	die('Direct access is forbidden');
+    die('Direct access is forbidden');
 }
 
 // Require the functions file
@@ -48,7 +48,7 @@ include_once("ganalytics.php");
 
 	<a href="index.php"><img src="res/logo.png" alt="Snap-2-Ask Logo" id="logoShort"/></a>
 	
-	<?php echo sprintf('<p id="welcomeNotice">Welcome, %s</p>',htmlspecialchars($responseObj['first_name'])); ?>
+	<?php echo sprintf('<p id="welcomeNotice">Welcome, <a href="profile.php" title="View your profile">%s</a></p>',htmlspecialchars($responseObj['first_name'])); ?>
 	
 	<a id="logoutLink" href="logout.php">Log-out</a>
 	
