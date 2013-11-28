@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('#sortSelection, #catlist').change(sortAnswers);
-    $('#gobut, #withrat').click(sortAnswers);
+    $('#gobut').click(sortAnswers);
 });
 
 function sortAnswers() {
@@ -32,7 +32,6 @@ function sortAnswers() {
     cat = document.sortform.catlist.value;
     isStart = (startDate.length === 10);
     isEnd = (endDate.length === 10);
-    rated = document.sortform.withrat.checked;
     $('.tutorViewAnswerContainer').hide();
     if (isEnd || isStart){
         for (ind = 0; ind < $('.tutorViewAnswerContainer').length; ind++){
@@ -41,8 +40,6 @@ function sortAnswers() {
             anscat = $(node).attr('cat');
             rating = $(node).attr('rating');
             if (cat !== "All" && cat !== anscat)
-                continue;
-            if (rated == true && rating < 1)
                 continue;
             if (isStart && isEnd && ansdate.localeCompare(startDate) > 0 && ansdate.localeCompare(endDate) < 0){
                 $(node).show();
@@ -65,8 +62,6 @@ function sortAnswers() {
             rating = $(node).attr('rating');
             if (cat !== "All" && cat !== anscat)
                 continue;
-            if (rated == true && rating < 1)
-                continue;
             if (cat === anscat)
                 $(node).show();
         }//end for loop
@@ -75,8 +70,7 @@ function sortAnswers() {
         for (ind = 0; ind < $('.tutorViewAnswerContainer').length; ind++){
             node = $('.tutorViewAnswerContainer')[ind];
             rating = $(node).attr('rating');
-            if (!rated || rating > 0)
-                $(node).show();
+            $(node).show();
         }//end for loop
     }
 }//end sortAnswers function
