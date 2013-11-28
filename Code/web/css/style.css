@@ -607,6 +607,7 @@ label#browseError {
 	text-align: right;
 	margin: 0;
 	padding: 0;
+	font-size: small;
 }
 
 .profileItem p {
@@ -615,6 +616,22 @@ label#browseError {
 	width: 45%;
 	margin: 0;
 	padding: 0;
+}
+
+.profileItem .categoryRows {
+	float: right;
+	width: 45%;
+	margin: 0;
+	padding: 0;
+}
+
+.profileItem .categoryRow {
+	text-align: left;
+}
+
+.profileDivider {
+	clear: right;
+	margin-top: 3em;
 }
 
 .profileItem .ratingContainer {

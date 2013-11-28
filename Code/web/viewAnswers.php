@@ -25,27 +25,6 @@ if (isset($responseObj['error'])) {
 }
 
 $answerInfo = getAnswerInfo($responseObj['id']);
-function isGibberish($s)
-{
-    $vow = 1;
-    $cons = 1;
-    for ($ind = 0; $ind < strlen($s); $ind++){
-        $let = $s[$ind];
-        if ($let === "a" OR $let === "e" OR $let === "i" OR $let === "o" OR $let === "u")
-            $vow++;
-        else
-            $cons++;
-        if ($let === "+" OR $let === "-" OR $let === "=")
-            $vow++;
-    }
-    $ratio = $vow/$cons;
-    if ($ratio < 0.2 OR $ratio > 0.6)
-        return 1;
-    else
-        return 0;
-}
-
-isGibberish("happy");
 ?>
 
 <!DOCTYPE html>
@@ -111,15 +90,10 @@ isGibberish("happy");
                             echo sprintf('<option>All</option>');
 					        foreach($categories as $category)
 					        {
-                                $icon_url = sprintf('res/icons/%s.png',$category['name']);
-                                if (!file_exists($icon_url)) {
-                                $icon_url = 'res/icons/Other.png';
-							}
-                            echo sprintf('<option> %s </option>',$category['name']);
-                        }
+	                            echo sprintf('<option>%s</option>',$category['name']);
+	                        }
                         ?>
 					</select>
-                    <input type="checkbox" id="withrat" name="withrat" checked="true"/><label for="withrat">Rated</a>
                     </form>
             	</div>
             	
@@ -132,16 +106,10 @@ isGibberish("happy");
             $answer = $answerInfo['answers'][$i];
             $imgurl = htmlentities($question['image_url'], ENT_QUOTES);
             $anstext = $answer['text'];
-            $discarded = isGibberish($anstext);
-            if($discarded){
-                $answer['pay'] = 0;
-                $answer['rating'] = 0;
-            }
-            else
-                $answer['pay'] = rand(1,10) * 10;
+            $answer['pay'] = rand(1,10) * 10;
             ?>
             	<?php
-            	echo sprintf('<div class="tutorViewAnswerContainer" answerDate="%s" pay="%s" rating="%s" discarded="%s" cat="%s">', $answer['date_created'], $answer['pay'], $answer['rating'], $discarded, $question['category']);
+            	echo sprintf('<div class="tutorViewAnswerContainer" answerDate="%s" pay="%s" rating="%s" cat="%s">', $answer['date_created'], $answer['pay'], $answer['rating'], $question['category']);
             	?>
 	                <div class="tutorViewAnswersLeft">
 
@@ -200,7 +168,7 @@ isGibberish("happy");
 						
 						<label>Rating</label>
 						<?php			
-						if (!$discarded && isset($answer['rating'])) {
+						if (isset($answer['rating'])) {
 							if ($answer['rating'] == 0) { 	
 							 	echo '<p>Rejected</p>';
 						 	} else {
@@ -212,10 +180,7 @@ isGibberish("happy");
 							}
 						} 
                         else {
-                            if($discarded)
-                                echo '<p>Discarded</p><p>Answers without explanations are not allowed.</p>';
-							else
-                                echo '<p>Pending</p>';
+                            echo '<p>Pending</p>';
 						}
 						?>
 						</div>
