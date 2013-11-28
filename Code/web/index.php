@@ -47,9 +47,7 @@ if (isset($_POST['authentication_mode']))
 		//sent to the be decoded
 	$responseObj = json_decode($response,true);
 
-	echo var_dump($responseObj);
-	
-		//depending on the response we either ask for different credentials or log the user in
+	//depending on the response we either ask for different credentials or log the user in
 	if($responseObj['success'])
 	{
 		$_SESSION['user_id'] = $responseObj['user_id'];
