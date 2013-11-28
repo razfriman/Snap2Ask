@@ -45,7 +45,6 @@ if(isset($_POST['submit'])) {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="js/testQuestions.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 

@@ -740,8 +740,9 @@ $app->post(
 
 			if ($need_to_register) {
 			
-				$sth = $db->prepare('SELECT * FROM users WHERE email=:email AND authentication_mode="custom"');
+				$sth = $db->prepare('SELECT * FROM users WHERE email=:email AND authentication_mode=:authentication_mode');
 				$sth->bindParam(':email', $email);
+				$sth->bindParam(':authentication_mode', $authentication_mode);
 				$sth->execute();
 				$user_data = $sth->fetch(PDO::FETCH_ASSOC);
 				
