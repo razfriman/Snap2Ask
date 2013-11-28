@@ -19,12 +19,33 @@ require_once('functions.php');
 $responseObj = getUserInfo(true);
 
 if (isset($responseObj['error'])) {
-	// Invalid user
+    // Invalid user
 	header('Location: logout.php');
 	exit;
 }
 
 $answerInfo = getAnswerInfo($responseObj['id']);
+function isGibberish($s)
+{
+    $vow = 1;
+    $cons = 1;
+    for ($ind = 0; $ind < strlen($s); $ind++){
+        $let = $s[$ind];
+        if ($let === "a" OR $let === "e" OR $let === "i" OR $let === "o" OR $let === "u")
+            $vow++;
+        else
+            $cons++;
+        if ($let === "+" OR $let === "-" OR $let === "=")
+            $vow++;
+    }
+    $ratio = $vow/$cons;
+    if ($ratio < 0.2 OR $ratio > 0.6)
+        return 1;
+    else
+        return 0;
+}
+
+isGibberish("happy");
 ?>
 
 <!DOCTYPE html>
@@ -83,24 +104,22 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 						<option>Lowest Rating First</option>						
 					</select>                    	
                 	
-                    <!--added functionallity to browse by answers by category>    
-				    <select>
-                    <?php
-                    /*
-                    $categories = getCategories();
-                    
-                    echo sprintf('<option>All</option>');
-					foreach($categories as $category)
-					{
-                        $icon_url = sprintf('res/icons/%s.png',$category['name']);
-                            if (!file_exists($icon_url)) {
+                    <!--added functionallity to browse by answers by category-->    
+                    <select name="catlist" id="catlist"> 
+                        <?php
+                            $categories = getCategories();
+                            echo sprintf('<option>All</option>');
+					        foreach($categories as $category)
+					        {
+                                $icon_url = sprintf('res/icons/%s.png',$category['name']);
+                                if (!file_exists($icon_url)) {
                                 $icon_url = 'res/icons/Other.png';
 							}
-
-                        echo sprintf('<option> %s </option>',$category['name']);
-                    }*/
+                            echo sprintf('<option> %s </option>',$category['name']);
+                        }
                         ?>
-					</select-->
+					</select>
+                    <input type="checkbox" id="withrat" name="withrat" checked="true"/><label for="withrat">Rated</a>
                     </form>
             	</div>
             	
@@ -112,11 +131,17 @@ $answerInfo = getAnswerInfo($responseObj['id']);
             $question = $answerInfo['questions'][$i];
             $answer = $answerInfo['answers'][$i];
             $imgurl = htmlentities($question['image_url'], ENT_QUOTES);
-            
-            $answer['pay'] = rand(1,10) * 10;
+            $anstext = $answer['text'];
+            $discarded = isGibberish($anstext);
+            if($discarded){
+                $answer['pay'] = 0;
+                $answer['rating'] = 0;
+            }
+            else
+                $answer['pay'] = rand(1,10) * 10;
             ?>
             	<?php
-            	echo sprintf('<div class="tutorViewAnswerContainer" answerDate="%s" pay="%s" rating="%s">', $answer['date_created'], $answer['pay'], $answer['rating']);
+            	echo sprintf('<div class="tutorViewAnswerContainer" answerDate="%s" pay="%s" rating="%s" discarded="%s" cat="%s">', $answer['date_created'], $answer['pay'], $answer['rating'], $discarded, $question['category']);
             	?>
 	                <div class="tutorViewAnswersLeft">
 
@@ -143,7 +168,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
                             $suffix = "AM";
                         }
 
-	                	echo '<label class="datetime" id="' . $str . '">';
+	                	echo '<label class="datetime">';
                         echo $year . " " . $hour . substr($str, 13, 3) . " " . $suffix; 	                	
 	                	echo '</label>';
 	                	?>
@@ -158,7 +183,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 						
 						<label>Answer</label>
 						<p>
-						<?php echo $answer['text']; ?>
+						<?php echo  $anstext; ?>
 						</p>
 	                </div>
 	                
@@ -166,7 +191,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 	                	
 	                	<div class="tutorViewAnswersEarnings">
 	                		<a href="balance.php" title="Click to Withdraw SnapCash Now">
-									<img src="res/dollars.png" />
+									<img src="res/dollars.png" alt="SnapPay" />
 									<p class="snappay" ><?php echo $answer['pay']; ?></p>
 							</a>
 	                	</div>
@@ -174,9 +199,8 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 						<div class="tutorViewAnswersRating">
 						
 						<label>Rating</label>
-						<?php						
-						if (isset($answer['rating'])) {
-						 	
+						<?php			
+						if (!$discarded && isset($answer['rating'])) {
 							if ($answer['rating'] == 0) { 	
 							 	echo '<p>Rejected</p>';
 						 	} else {
@@ -186,8 +210,12 @@ $answerInfo = getAnswerInfo($responseObj['id']);
 								}
 								echo sprintf('<p class="ratingStars">%s</p>', $stars);	
 							}
-						} else {
-							echo '<p>Pending</p>';
+						} 
+                        else {
+                            if($discarded)
+                                echo '<p>Discarded</p><p>Answers without explanations are not allowed.</p>';
+							else
+                                echo '<p>Pending</p>';
 						}
 						?>
 						</div>
