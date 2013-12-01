@@ -860,9 +860,16 @@ vertical-align: middle;
     margin-top: .2em;
     margin-right: .5em;
 }
-#advancedSearchOptions select
-{
+#advancedSearchOptions #sortSelection {
     width: 13em;
+    float: left;
+	margin-bottom: 1em;
+    margin-top: 0;
+    margin-right: 0.5em;
+}
+
+#advancedSearchOptions #catlist {
+	width: auto;
     float: left;
 	margin-bottom: 1em;
     margin-top: 0;

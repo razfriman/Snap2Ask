@@ -106,7 +106,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 					$stars .= '&#9733; ';
 				}
 				
-					echo sprintf("<div class='profileItem'><label>Rating:</label><div class='ratingContainer'><span class='ratingStars'>%s</span> (%s total ratings)</div></div>", $stars, $responseObj['total_answers']);
+					echo sprintf("<div class='profileItem'><label>Rating:</label><div class='ratingContainer'><span class='ratingStars'>%s</span> (%s)</div></div>", $stars, $responseObj['total_answers']);
 				}
                 ?>
                 <div class='profileItem'>
@@ -199,6 +199,11 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 			
 			}
 			?>
+			
+			
+			
+			
+			
             <div class="divider profileDivider"></div>
 			<h1>MANAGE ACCOUNT</h1>
             <form id="manageprofile" action="editprofile.php" method="get">
