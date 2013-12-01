@@ -1,6 +1,3 @@
-// This is the js file to accept/decline answers
-// from our tutors and write them to our database
-
 $( document ).ajaxError(function(event, jqxhr, settings, exception ) {
     console.log('Global Ajax Error Handler');
     console.log(event);
@@ -17,60 +14,38 @@ function submitAnswer() {
 	var answer = $('#answer')[0].value;
 	
 	console.log(answer);
-	
-    //if(isGibberish(answer) > 0)
-    //    $('#answerQuestionMessageLabel').css('color', 'red').text('Please try again. Your answer needs an explanation.');
-    //else{
-	    var questionId = $('#question-id-hidden')[0].value;
-	    var userId = $('#user-id-hidden')[0].value;
-	
-	    var answerData = { 
-		    "tutor_id": userId,
-		    "answer_text": $.trim(answer)
-	    };
-	
-	    $.ajax({
-            type: 'POST',
-            url: baseUrl + "/questions/" + questionId + "/answers",
-            data: JSON.stringify(answerData),
-		    contentType: "application/json; charset=utf-8",
-		    dataType: "json",
-		    success: function (data) {
-				            
-            $('#answerQuestionMessageLabel').text('Thank you. Your answer has been submitted.');
+
+    var questionId = $('#question-id-hidden')[0].value;
+    var userId = $('#user-id-hidden')[0].value;
+
+    var answerData = { 
+	    "tutor_id": userId,
+	    "answer_text": $.trim(answer)
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: baseUrl + "/questions/" + questionId + "/answers",
+        data: JSON.stringify(answerData),
+	    contentType: "application/json; charset=utf-8",
+	    dataType: "json",
+	    success: function (data) {
+			            
+        $('#answerQuestionMessageLabel').text('Thank you. Your answer has been submitted.');
+        
+        // Redirect to the browse page after 2 seconds
+        window.setTimeout(function() {		 
+		 window.location.href = 'browse.php';
+		}, 2000);
             
-            window.setTimeout(function() {
-			 // Redirect to the browse page after 2 seconds
-			 window.location.href = 'browse.php';
-			}, 2000);
-	            
-            },
-            failure: function(errMsg) {
-        	    console.log(errMsg);
-        	    $('#submitQuestionButton').prop('disabled', false);
-            }
-	    });// end ajax
-    //}//end else 
-}//end function
-function isGibberish(s)
-{
-     vow = 1;
-     cons = 1;
-    for (ind = 0; ind < s.length; ind++){
-    chr =  s[ind];
-        if (chr === "a" ||chr === "e" ||chr === "i" ||chr === "o" ||chr === "u")
-             vow++;
-        else
-             cons++;
-        if (chr === "+" ||chr === "-" ||chr === "=")
-             vow++;
-    }
-    ratio =  vow/ cons;
-    if (ratio < 0.2 ||ratio > 0.6)
-        return 1;
-    else
-        return 0;
+        },
+        failure: function(errMsg) {
+    	    console.log(errMsg);
+    	    $('#submitQuestionButton').prop('disabled', false);
+        }
+    });
 }
+
 // we wait for the DOM to load
 $(document).ready(function () {
 	
@@ -87,7 +62,7 @@ $(document).ready(function () {
 			// Disable the submit button from clicking multiple times
 			$('#submitQuestionButton').prop('disabled', true);
             
-            // SUBMIT THE ANSWER TO THE REST API!!!!
+            // SUBMIT THE ANSWER TO THE REST API!
             submitAnswer();
             
         },
