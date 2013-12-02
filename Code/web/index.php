@@ -201,6 +201,8 @@ if (isset($_SESSION['user_id']))
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta name="apple-itunes-app" content="app-id=757257906">
+
 </head>
 
 <body>
