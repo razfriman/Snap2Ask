@@ -921,7 +921,7 @@ $app->get(
 			
 			
 			//get answers
-			$sth = $db->prepare('SELECT question_id, text, rating, status, date_created FROM answers WHERE tutor_id = :tutor_id ORDER BY date_created DESC');
+			$sth = $db->prepare('SELECT * FROM answers WHERE tutor_id = :tutor_id ORDER BY date_created DESC');
 			$sth->bindParam(':tutor_id', $id);
 			$sth->execute();
 			
@@ -1538,37 +1538,6 @@ $app->post(
 			// If the question is still open, then we can post a new answer to it
 			if ($times_answered < 3) {
 
-                // INSERT THE ANSWER
-				$sth = $db->prepare('INSERT INTO answers (question_id,tutor_id,`text`,date_created) 
-					VALUES (:question_id,:tutor_id,:answer_text,:date_created)');
-
-				$sth->bindParam(':question_id', $id);
-				$sth->bindParam(':tutor_id', $tutor_id);
-				$sth->bindParam(':answer_text', $answer_text);
-				$sth->bindParam(':date_created', $date_created);
-				$sth->execute();
-				// Get the new answer's id
-				$insert_id = $db->lastInsertId();
-
-                // INCREASE THE TIMES ANSWERED
-				$times_answered++;
-
-				// Set the question status as 'answered'
-				$question_status = 1;
-
-				// If the question has been answered 3 times now, then we need to close it
-				if ($times_answered == 3) {
-					// Set the question status as 'closed'
-					$question_status = 2;
-				}
-
-                // MARK THE QUESTION AS ANSWERED
-				$sth = $db->prepare("UPDATE questions SET status=:question_status,times_answered=:times_answered WHERE id=:question_id");
-				$sth->bindParam(':times_answered', $times_answered);
-				$sth->bindParam(':question_id', $id);
-				$sth->bindParam(':question_status', $question_status);
-				$sth->execute();
-				
 				// UPDATE THE TUTOR'S BALANCE
 				$sth = $db->prepare('SELECT category_id FROM questions WHERE id=:question_id');
 				$sth->bindParam(':question_id', $id);
@@ -1593,7 +1562,39 @@ $app->post(
 				$sth->bindParam(':cash_earned', $cash_earned);
 				$sth->bindParam(':tutor_id', $tutor_id);
 				$sth->execute();
-				
+
+
+                // INSERT THE ANSWER
+				$sth = $db->prepare('INSERT INTO answers (question_id,tutor_id,`text`,pay,date_created) 
+					VALUES (:question_id,:tutor_id,:answer_text,:pay,:date_created)');
+
+				$sth->bindParam(':question_id', $id);
+				$sth->bindParam(':tutor_id', $tutor_id);
+				$sth->bindParam(':answer_text', $answer_text);
+				$sth->bindParam(':pay', $cash_earned);
+				$sth->bindParam(':date_created', $date_created);
+				$sth->execute();
+				// Get the new answer's id
+				$insert_id = $db->lastInsertId();
+
+                // INCREASE THE TIMES ANSWERED
+				$times_answered++;
+
+				// Set the question status as 'answered'
+				$question_status = 1;
+
+				// If the question has been answered 3 times now, then we need to close it
+				if ($times_answered == 3) {
+					// Set the question status as 'closed'
+					$question_status = 2;
+				}
+
+                // MARK THE QUESTION AS ANSWERED
+				$sth = $db->prepare("UPDATE questions SET status=:question_status,times_answered=:times_answered WHERE id=:question_id");
+				$sth->bindParam(':times_answered', $times_answered);
+				$sth->bindParam(':question_id', $id);
+				$sth->bindParam(':question_status', $question_status);
+				$sth->execute();				
 
 
 				// Send a push notification to the iOS user

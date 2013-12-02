@@ -135,6 +135,7 @@ CREATE TABLE `answers` (
   `text` text NOT NULL,
   `rating` smallint(6) DEFAULT NULL,
   `status` varchar(45) NOT NULL DEFAULT 'pending',
+  `pay` int(11) NOT NULL DEFAULT '0',
   `date_created` datetime NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_answers_questions` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,

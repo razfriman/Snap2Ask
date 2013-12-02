@@ -105,8 +105,7 @@ $answerInfo = getAnswerInfo($responseObj['id']);
             $question = $answerInfo['questions'][$i];
             $answer = $answerInfo['answers'][$i];
             $imgurl = htmlentities($question['image_url'], ENT_QUOTES);
-            $anstext = $answer['text'];
-            $answer['pay'] = rand(1,10) * 10;
+            $anstext = $answer['text']; 
             ?>
             	<?php
             	echo sprintf('<div class="tutorViewAnswerContainer" answerDate="%s" pay="%s" rating="%s" cat="%s">', $answer['date_created'], $answer['pay'], $answer['rating'], $question['category']);
