@@ -145,7 +145,14 @@ function loadPreferredSubjectQuestions() {
 		
 		var jqxhr = $.get( baseUrl + "/categories/" + categoryId + "/questions", function(data) {
 			
+			if (data.length > 0) {
+				var divider = document.createElement('div');
+				$(divider).addClass('divider'); 
+				$('#pagedContent')[0].appendChild(divider);	
+			}
+			
 			for (var i = 0; i < data.length; i++) {
+				
 				
 			 // Add the question to the UI
 			 addQuestion(data[i]); 
