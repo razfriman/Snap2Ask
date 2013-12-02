@@ -127,18 +127,9 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Withdraw SnapCash') {
 			?>
 			
 			<form id="withdrawSnapCashForm" action="#" method="post">
-				<input type="text" name="withdraw_amount" placeholder="Withdraw Amount" autocomplete="off" title="Please enter a valid amount to withdraw">
-				<input type="submit" name="submit" value="Withdraw SnapCash">
+				<input type="text" name="withdraw_amount" placeholder="Withdraw Amount" autocomplete="off" title="Please enter a valid amount to withdraw" />
+				<input type="submit" name="submit" value="Withdraw SnapCash" />
 			</form>
-			
-			<!-- TODO:
-			REMOVE THIS IN THE FUTURE
-			THIS IS ONLY FOR TESTING PURPOSES -->
-			<!-- 
-			<form action="#" method="post">
-				<input type="submit" name="submit" value="Deposit 50 SnapCash">
-			</form>
-			-->
 			
 		</div>
 	</div>
