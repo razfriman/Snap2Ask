@@ -1,18 +1,16 @@
 //input validation for out account creation and login form
-
 // we wait for the DOM to load
-$(document).ready(function () {
-	
+$(document).ready(function() {
 	//login form
 	//must be an email and password that is 8 characters in length
-	$('#updatePasswordForm').validate({ 
+	$('#updatePasswordForm').validate({
 		rules: {
 			password: {
 				required: true,
 				minlength: 8,
 			},
 			confirmPassword: {
-				equalTo : "#password"
+				equalTo: "#password"
 			}
 		},
 		submitHandler: function(form) {

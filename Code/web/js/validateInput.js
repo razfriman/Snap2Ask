@@ -1,11 +1,9 @@
 //input validation for out account creation and login form
-
 // we wait for the DOM to load
-$(document).ready(function () {
-	
+$(document).ready(function() {
 	//login form
 	//must be an email and password that is 8 characters in length
-	$('#loginForm').validate({ 
+	$('#loginForm').validate({
 		rules: {
 			email: {
 				required: true,
@@ -20,18 +18,17 @@ $(document).ready(function () {
 		},
 		errorPlacement: function(error, element) {
 			$('#loginError').html(error[0].innerHTML);
-		}, success: function()
-		{
-			$('#loginError').html('');  
+		},
+		success: function() {
+			$('#loginError').html('');
 		}
 	});
-
 	//Account creation form where all elements are required
 	//password is set to 8 characters
 	//ZIP set to 5 digits
 	//email must be an email
 	//Telephone must be a legal US phone #
-	$('#registerForm').validate({ 
+	$('#registerForm').validate({
 		rules: {
 			first_name: {
 				required: true
@@ -48,16 +45,15 @@ $(document).ready(function () {
 				minlength: 8,
 			},
 			confirm_password: {
-				equalTo : "#password"
+				equalTo: "#password"
 			}
-			
 		},
 		submitHandler: function(form) {
 			form.submit();
 		},
-			// the output errors are inserted before the feild, notifying the user
-			errorPlacement: function(error, element) {
-				error.insertBefore(element);
-			}
-		});
+		// the output errors are inserted before the feild, notifying the user
+		errorPlacement: function(error, element) {
+			error.insertBefore(element);
+		}
+	});
 });
