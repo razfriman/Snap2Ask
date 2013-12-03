@@ -34,7 +34,7 @@ define('inc_file', TRUE);
 			<div class="aboutUsBio">
 				<h3>Raz Friman</h3>
 				<p>
-				Raz is a 2nd year student at SMU.
+				Raz is a 2nd year student at SMU. He currently works at In-Com Data Systems as a senior programmer.
 				</p>
 			</div>
 			
