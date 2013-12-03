@@ -6,5 +6,5 @@ if (!defined('inc_file')) {
 ?>
 
 <footer>
-		Snap-2-Ask 2013
+		Snap-2-Ask 2013 | <a href="aboutUs.php">About Us</a>
 </footer>

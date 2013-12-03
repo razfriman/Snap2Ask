@@ -73,6 +73,7 @@ header.tall {
 
 footer {
 	clear:both;
+	font-size: x-small;
 	width:100%;
 	min-width:960px;
 	height:5em;
@@ -82,6 +83,14 @@ footer {
 	border-top:1px solid #404040;
 }
 
+footer a {
+	text-decoration: none;
+	color: black;
+}
+
+footer a:hover {
+	color: gray;
+}
 
 
 /* MAIN WEBSITE HEADER */
