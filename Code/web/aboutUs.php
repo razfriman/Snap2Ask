@@ -31,15 +31,40 @@ define('inc_file', TRUE);
 
 			<h1>About Us</h1>
 			
-			<h3>Raz Friman</h3>
+			<div class="aboutUsBio">
+				<h3>Raz Friman</h3>
+				<p>
+				Raz is a 2nd year student at SMU.
+				</p>
+			</div>
 			
-			<h3>Raymond Martin</h3>
+			<div class="aboutUsBio">
+				<h3>Raymond Martin</h3>
+				<p>
+				Raymond is...
+				</p>
+			</div>
 			
-			<h3>Roman Stolyarov</h3>
+			<div class="aboutUsBio">
+				<h3>Roman Stolyarov</h3>
+				<p>
+				Roman is...
+				</p>
+			</div>
 			
-			<h3>Elena Villamil</h3>
+			<div class="aboutUsBio">
+				<h3>Elena Villamil</h3>
+				<p>
+				Elena is...
+				</p>
+			</div>
 			
-			<h3>Vipul Kohli</h3>
+			<div class="aboutUsBio">
+				<h3>Vipul Kohli</h3>
+				<p>
+				Vipul is...
+				</p>
+			</div>	
 
 		</div>
 	</div>

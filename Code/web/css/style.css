@@ -864,3 +864,19 @@ input.decision_point {
 }
 
 /* END VIEW ANSWERS */
+
+/* ABOUT US */
+
+.aboutUsBio {
+	border: 3px solid gray;
+	border-radius: 5px;
+	background: lightgray;
+	margin: 1em auto;
+	width: 50%;
+}
+
+.aboutUsBio p {
+	font-size: small;
+}
+
+/* END ABOUT US */
