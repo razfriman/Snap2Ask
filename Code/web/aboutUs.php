@@ -62,7 +62,7 @@ define('inc_file', TRUE);
 			<div class="aboutUsBio">
 				<h3>Vipul Kohli</h3>
 				<p>
-				Vipul is...
+				Vipul is also a second year programmer at SMU. He is a pro at JavaScript. He implemented the sorting routines used on the tutor's My Answers.
 				</p>
 			</div>	
 
