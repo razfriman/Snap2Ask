@@ -219,11 +219,21 @@ footer a:hover {
 }
 
 
+#moreInfoContainer {
+	float:right;
+	width:50%;
+}
+
+#moreInfoContainer img {
+	width: 200px;
+	display: block;
+	margin: 1em auto;
+}
 
 /* REGISTER CONTAINER */
 #registerContainer {
 	float:right;
-	width:50%;
+	width:40%;
 }
 
 
