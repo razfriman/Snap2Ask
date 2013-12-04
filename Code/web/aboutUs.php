@@ -34,35 +34,35 @@ define('inc_file', TRUE);
 			<div class="aboutUsBio">
 				<h3>Raz Friman</h3>
 				<p>
-				Raz is a 2nd year student at SMU. He currently works at In-Com Data Systems as a senior programmer.
+				Raz is a 2nd year student at SMU. He currently works at In-Com Data Systems as a senior programmer. "Super Raz" made Snap2Ask mobile by designing and publishing the app to the Apple App Store.
 				</p>
 			</div>
 			
 			<div class="aboutUsBio">
 				<h3>Raymond Martin</h3>
 				<p>
-				Raymond is...
+				Raymond is the expert web site desginer. He is responsible for the beautiful gradients and logo you see on every Snap2Ask web page.
 				</p>
 			</div>
 			
 			<div class="aboutUsBio">
 				<h3>Roman Stolyarov</h3>
 				<p>
-				Roman is...
+				Roman made Snap2Ask more reliable by introducing the tutor validation tests. Tutors who pass these tests are paid more per question.
 				</p>
 			</div>
 			
 			<div class="aboutUsBio">
 				<h3>Elena Villamil</h3>
 				<p>
-				Elena is...
+				Elena is the expert database manager for the web site. With her work, tutors can change their passwords as well as view the questions they have ansered.
 				</p>
 			</div>
 			
 			<div class="aboutUsBio">
 				<h3>Vipul Kohli</h3>
 				<p>
-				Vipul is also a second year programmer at SMU. He is a pro at JavaScript. He implemented the sorting routines used on the tutor's My Answers.
+				Vipul is also a second year programmer at SMU. He is a pro at JavaScript. He implemented the sorting routines used on the tutor's My Answers. Vipul is also the Customer Care agent for the site. Every week he performs a usability test with a future Snap2Ask user.
 				</p>
 			</div>	
 
