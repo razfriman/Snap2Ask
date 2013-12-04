@@ -32,20 +32,23 @@ define('inc_file', TRUE);
 			<h1>About Us</h1>
 			
 			<div class="aboutUsBio">
+				<img src="res/raz-bw.png" />
 				<h3>Raz Friman</h3>
 				<p>
-				Raz is a 2nd year student at SMU. He currently works at In-Com Data Systems as a senior programmer. "Super Raz" made Snap2Ask mobile by designing and publishing the app to the Apple App Store.
+				Raz is a 2nd year student at SMU. He currently works at In-Com Data Systems as a senior programmer. Raz designed and published the iOS application to the Apple App Store.
 				</p>
 			</div>
 			
 			<div class="aboutUsBio">
+				<img src="res/raymond.jpg" />
 				<h3>Raymond Martin</h3>
 				<p>
-				Raymond is the expert web site desginer. He is responsible for the beautiful gradients and logo you see on every Snap2Ask web page.
+				Raymond is the expert web site designer. He is responsible for the beautiful style and logo you see on every Snap2Ask web page.
 				</p>
 			</div>
 			
 			<div class="aboutUsBio">
+				<img src="http://placehold.it/200x200" />
 				<h3>Roman Stolyarov</h3>
 				<p>
 				Roman made Snap2Ask more reliable by introducing the tutor validation tests. Tutors who pass these tests are paid more per question.
@@ -53,16 +56,18 @@ define('inc_file', TRUE);
 			</div>
 			
 			<div class="aboutUsBio">
+				<img src="http://placehold.it/200x200" />
 				<h3>Elena Villamil</h3>
 				<p>
-				Elena is the expert database manager for the web site. With her work, tutors can change their passwords as well as view the questions they have ansered.
+				Elena is the expert database manager for the web site. With her work, tutors can change their passwords as well as view the questions they have answered.
 				</p>
 			</div>
 			
 			<div class="aboutUsBio">
+				<img src="http://placehold.it/200x200" />
 				<h3>Vipul Kohli</h3>
 				<p>
-				Vipul is also a second year programmer at SMU. He is a pro at JavaScript. He implemented the sorting routines used on the tutor's My Answers. Vipul is also the Customer Care agent for the site. Every week he performs a usability test with a future Snap2Ask user.
+				Vipul is also a second year programmer at SMU. He is a programmer specialized in JavaScript. He implemented the sorting algorithms used on the tutor's My Answers. Vipul is also the Customer Care agent for the site. Every week he performs a usability test with a future Snap2Ask user to ensure users are happy with our website.
 				</p>
 			</div>	
 

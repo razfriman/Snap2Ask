@@ -878,15 +878,29 @@ input.decision_point {
 /* ABOUT US */
 
 .aboutUsBio {
-	border: 3px solid gray;
-	border-radius: 5px;
-	background: lightgray;
-	margin: 1em auto;
-	width: 50%;
+
+	border-radius:5px;
+	padding:.5em;
+	background:rgba(212,212,212,0.28);
+	margin:1em auto;
+	width: 500px;
+	height: 170px;
+}
+
+.aboutUsBio img {
+	width:150px;
+	height: auto;
+	float:left;
+	margin-right: 0.5em;
+}
+
+.aboutUsBio h3 {
+	text-align: left;
 }
 
 .aboutUsBio p {
 	font-size: small;
+	text-align: left;
 }
 
 /* END ABOUT US */
