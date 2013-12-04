@@ -99,25 +99,41 @@ function loadPreferredSubjectQuestions() {
 	$('#browseNav li:nth-child(3)').addClass('selected');
 	$('#pagedContent').empty();
 	var validatedCategoryIds = $('#verified-categories-hidden')[0].value;
+	var validatedCategoryNames = $('#verified-categories-names-hidden')[0].value;
+	
 	var categories = validatedCategoryIds.split(" ");
+	var categoryNames = validatedCategoryNames.split(",");
+	
 	for (var k = 0; k < categories.length - 1; k++) {
+	
 		var categoryId = categories[k];
+		
+	    // set async to false
+	    $.ajaxSetup({async:false});
+
 		var jqxhr = $.get(baseUrl + "/categories/" + categoryId + "/questions", function(data) {
+			
 			if (data.length > 0) {
 				var divider = document.createElement('div');
-				$(divider).addClass('divider');
+				$(divider).addClass('divider');				
+				$(divider).text(categoryNames[k]);
 				$('#pagedContent')[0].appendChild(divider);
 			}
+			
 			for (var i = 0; i < data.length; i++) {
 				// Add the question to the UI
 				addQuestion(data[i]);
 			}
+			
 			if (k == categories.length - 1) {
 				paginateItems();
+				
+				// Set async back to true
+				$.ajaxSetup({async:true});
 			}
 		}).fail(function() {
 			console.log("error loading questions");
-		});
+		}); 		
 	}
 }
 

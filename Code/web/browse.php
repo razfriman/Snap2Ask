@@ -93,15 +93,18 @@ $categories = getCategories();
 		<?php 
 		
 		$concatenatedCategories = '';
+		$concatenatedCategoriesNames = '';
 		
 		foreach($responseObj['verified_categories'] as $category)
 		{
 			if ($category['is_preferred']) {
 				$concatenatedCategories = $concatenatedCategories . $category['category_id'] . ' ';
+				$concatenatedCategoriesNames = $concatenatedCategoriesNames . $category['name'] . ',';
 			}
 		}
 		
 		echo ('<input type="hidden" id="verified-categories-hidden" value="' . $concatenatedCategories . '" />');
+		echo ('<input type="hidden" id="verified-categories-names-hidden" value="' . $concatenatedCategoriesNames . '" />');
 		
 		if(isset($_GET['search']))
 		{

@@ -61,7 +61,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 	<script src="js/validateSelectTest.js" type="text/javascript"></script>
-    <script src="js/popups.js" type="text/javascript"></script>
+    <script src="js/deleteWarning.js" type="text/javascript"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
