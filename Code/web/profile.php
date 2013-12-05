@@ -168,7 +168,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 			
 			    <div class="divider profileDivider"></div>
 			    <h1>GET CERTIFIED</h1>
-                <h2>When you pass our the subject tests, you will be paid more for answering questions in that category.</h2>
+                <h2>When you pass the subject tests, you will be paid more for answering questions in that category.</h2>
                 <form id="categoryTestForm" action="#" method="post">
     			    <select name="category">
 					    <option value="Select Category" selected disabled>Select Category</option>
