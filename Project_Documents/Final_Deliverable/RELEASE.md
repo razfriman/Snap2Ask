@@ -1,8 +1,7 @@
+## Production Website
+### http://www.snap2ask.com
 
-# Production Website
-http://www.snap2ask.com
-
-# Professor Test Accounts: (for both Mobile and Web)
+## Professor Test Accounts: (for both Mobile and Web)
 Professor Fontenot:
 ```
 mfonten@lyle.smu.edu
