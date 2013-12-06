@@ -32,7 +32,7 @@ define('inc_file', TRUE);
 			<h1>About Us</h1>
 			
 			<div class="aboutUsBio">
-				<img src="res/raz-bw.png" />
+				<img src="res/raz-bw.png" alt="Raz Friman CSE3330/3345" title="Raz Friman CSE3330/3345" />
 				<h3>Raz Friman</h3>
 				<p>
 				Raz is a 2nd year student at SMU. He currently works at In-Com Data Systems as a senior programmer. Raz designed and published the iOS application to the Apple App Store.
@@ -40,7 +40,7 @@ define('inc_file', TRUE);
 			</div>
 			
 			<div class="aboutUsBio">
-				<img src="res/raymond.jpg" />
+				<img src="res/raymond.jpg" alt="Raymond Martin CSE3330/3345" title="Vipul Kohli CSE 3330/3345"/>
 				<h3>Raymond Martin</h3>
 				<p>
 				Raymond is the expert web site designer. He is responsible for the beautiful style and logo you see on every Snap2Ask web page.
@@ -64,7 +64,7 @@ define('inc_file', TRUE);
 			</div>
 			
 			<div class="aboutUsBio">
-				<img src="http://placehold.it/200x200" />
+				<img src="http://monkbananas.com/apps4u/snap2askvipul.png" alt="Vipul Kohli CSE3345" title="Vipul Kohli CSE 3345"/>
 				<h3>Vipul Kohli</h3>
 				<p>
 				Vipul is also a second year programmer at SMU. He is a programmer specialized in JavaScript. He implemented the sorting algorithms used on the tutor's My Answers. Vipul is also the Customer Care agent for the site. Every week he performs a usability test with a future Snap2Ask user to ensure users are happy with our website.
