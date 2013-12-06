@@ -1,8 +1,8 @@
 //
-//  RegisterViewController.m
+//  Register2ViewController.m
 //  Snap2Ask
 //
-//  Created by Raz Friman on 9/18/13.
+//  Created by Raz Friman on 12/5/13.
 //  Copyright (c) 2013 Raz Friman. All rights reserved.
 //
 
@@ -20,9 +20,9 @@
 
 @implementation RegisterViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
     }
@@ -32,11 +32,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
     // Register for notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerUserResponse:) name:RegisterUserNotification object:nil];
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,37 +44,89 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return 7;
+}
+
 - (void) registerUserResponse:(NSNotification *)notification
 {
     BOOL registerSuccess = NO;
     
     NSDictionary *response = notification.userInfo;
     
+    if (response == nil) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not register account." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+        return;
+    }
+    
     registerSuccess = [[response objectForKey:@"success"] boolValue];
     
     if (!registerSuccess) {
         
         NSString *reason = [response objectForKey:@"reason"];
-        NSLog(@"Register error reason: %@",reason);
         
-       [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not register account." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+        if ([reason isEqualToString:@""]) {
+            reason = @"Could not register account";
+        }
+        
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Error: %@", reason] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+        
+        NSLog(@"Register error reason: %@",reason);
         return;
     }
     
     if (registerSuccess) {
         
         int userId = [[response objectForKey:@"user_id"] integerValue];
+        NSString *authenticationMode = [response objectForKey:@"authentication_mode"];
         
         // Save login information to keychain
         KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Snap2Ask" accessGroup:nil];
         [keychainItem setObject:_emailTextField.text forKey:(__bridge NSString*)kSecAttrAccount];
         [keychainItem setObject:_passwordTextField.text forKey:(__bridge NSString*)kSecValueData];
         
+        // Subscribe to the user channel for push notifications
         NSString * userChannel = [NSString stringWithFormat:@"user_%d", userId];
         PFInstallation *currentInstallation = [PFInstallation currentInstallation];
         [currentInstallation addUniqueObject:userChannel forKey:@"channels"];
         [currentInstallation saveInBackground];
         
+        // Save authentication mode to keychain
+        KeychainItemWrapper *keychainAuthenticationMode = [[KeychainItemWrapper alloc] initWithIdentifier:@"Snap2Ask_AuthenticationMode" accessGroup:nil];
+        [keychainAuthenticationMode setObject:authenticationMode forKey:(__bridge NSString*)kSecAttrAccount];
+        
+        if ([authenticationMode isEqualToString:@"custom"]) {
+            // Save login information to keychain
+            KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Snap2Ask" accessGroup:nil];
+            [keychainItem setObject:_emailTextField.text forKey:(__bridge NSString*)kSecAttrAccount];
+            [keychainItem setObject:_passwordTextField.text forKey:(__bridge NSString*)kSecValueData];
+        }
+        
+        // Init the UserInfo shared class and assign the user's id
+        [UserInfo sharedClient].userModel = [[UserModel alloc] init];
+        [UserInfo sharedClient].userModel.userId = userId;
+        
+        // Load the user information
+        [[Snap2AskClient sharedClient] loadUserInfo:userId];
+        
+        // Reset registration fields
+        _passwordTextField.text = @"";
+        _confirmPasswordTextField.text = @"";
+        _emailTextField.text = @"";
+        _firstNameTextField.text = @"";
+        _lastNameTextField.text = @"";
+        
+        // Continue past the register screen
         [self performSegueWithIdentifier:@"registerSuccessSegue" sender:self];
     }
 }
@@ -98,16 +149,16 @@
     return YES;
 }
 
- - (IBAction)tapOnView:(id)sender {
-     [_firstNameTextField resignFirstResponder];
-     [_lastNameTextField resignFirstResponder];
-     [_emailTextField resignFirstResponder];
-     [_passwordTextField resignFirstResponder];
-     [_confirmPasswordTextField resignFirstResponder];
+- (IBAction)tapOnView:(id)sender {
+    [_firstNameTextField resignFirstResponder];
+    [_lastNameTextField resignFirstResponder];
+    [_emailTextField resignFirstResponder];
+    [_passwordTextField resignFirstResponder];
+    [_confirmPasswordTextField resignFirstResponder];
 }
 
 - (IBAction)registerAccount:(id)sender {
-
+    
     if ([_firstNameTextField.text isEqualToString:@""]) {
         [[[UIAlertView alloc] initWithTitle:@"Error"
                                     message:@"Please enter a first name"
@@ -156,7 +207,7 @@
         [[Snap2AskClient sharedClient] registerUser:[_emailTextField.text lowercaseString] withFirstName:_firstNameTextField.text withLastName:_lastNameTextField.text withPassword:_passwordTextField.text withAuthenticationMode:@"custom"];
     }
 }
-               
+
 - (BOOL) emailValidation: (NSString *) emailToValidate {
     NSString *regexForEmailAddress = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailValidation = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regexForEmailAddress];

@@ -108,6 +108,16 @@ static NSString * const kGoogleClientId = @"324181753300-ffefeh38gmnb5hisj8ubjnm
     [self hideLoginIndicator];
     
     NSDictionary *response = notification.userInfo;
+    
+    if (response == nil) {
+        
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Cannot login"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+        return;
+    }
 
     BOOL success = [[response objectForKey:@"success"] boolValue];
     

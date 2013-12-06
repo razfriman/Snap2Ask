@@ -53,6 +53,11 @@
     
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    int userId = [UserInfo sharedClient].userModel.userId;
+    [[Snap2AskClient sharedClient] loadUserInfo:userId];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

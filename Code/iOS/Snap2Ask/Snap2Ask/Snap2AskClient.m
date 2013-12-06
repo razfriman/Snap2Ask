@@ -158,7 +158,8 @@ NSString *const AnswerRatedNotification = @"AnswerRatedNotification";
          [[NSNotificationCenter defaultCenter] postNotificationName:LoginUserNotification object:self userInfo:returnedData];
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         NSLog(@"Error: %@", error);
+         NSLog(@"Login Error: %@", error);
+         [[NSNotificationCenter defaultCenter] postNotificationName:LoginUserNotification object:self userInfo:nil];
      }];
  }
 
@@ -183,7 +184,8 @@ NSString *const AnswerRatedNotification = @"AnswerRatedNotification";
          [[NSNotificationCenter defaultCenter] postNotificationName:RegisterUserNotification object:self userInfo:returnedData];
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         NSLog(@"Error: %@", error);
+         NSLog(@"Register Error: %@", error);
+         [[NSNotificationCenter defaultCenter] postNotificationName:RegisterUserNotification object:self userInfo:nil];
      }];
  }
 
@@ -208,7 +210,7 @@ NSString *const AnswerRatedNotification = @"AnswerRatedNotification";
         [[NSNotificationCenter defaultCenter] postNotificationName:LoginUserNotification object:self userInfo:returnedData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+        NSLog(@"Login Error: %@", error);
     }];
 }
 

@@ -44,6 +44,11 @@
 
 - (void) answerRated:(NSNotification *)notification
 {
+    
+    
+    // TODO: Do not allow to rate anymore
+    //[cell setAccessoryType:UITableViewCellAccessoryNone];
+    
     [[[UIAlertView alloc] initWithTitle:@"Thank you" message:@"Your rating has been posted" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
     
     
