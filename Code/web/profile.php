@@ -120,6 +120,11 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Take Test') {
 						            {
 							            $catname = $category['name'];
                                         $icon_url = sprintf('res/icons/%s.png',$catname); 
+                                        
+										if(!file_exists($icon_url) ) {
+											$icon_url = 'res/icons/Other.png';
+										}
+										
                                         echo sprintf("<div class='categoryRow'><a href='browse.php?search=%s'>",$catname);
                                         echo sprintf('<span class="certified"><img src="%s" alt="%s" />%s</span></a></div>',$icon_url,$catname,$catname);
 							            $count++;
