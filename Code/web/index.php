@@ -250,7 +250,7 @@ if (isset($_SESSION['user_id']))
 		
 		<div id="fb-root"></div>
 		<script src="js/facebookLogin.js" type="text/javascript"></script>
-		<fb:login-button perms="email" id="facebookLoginButton" size="large"></fb:login-button>
+		<fb:login-button perms="email" id="facebookLoginButton" size="large" ></fb:login-button>
 		
 	</div>
 
