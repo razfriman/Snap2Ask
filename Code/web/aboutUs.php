@@ -23,7 +23,7 @@ define('inc_file', TRUE);
     <div id="content">
       <div id="aboutUsContainer">
         <h1>About Us</h1>
-        <div class="aboutUsBio"> <img src="res/raz-bw.png" alt="Raz
+        <div class="aboutUsBio"> <img src="res/raz.jpg" alt="Raz
             Friman CSE3330/3345" title="Raz Friman CSE3330/3345">
           <h3>Raz Friman</h3>
           <p> Raz is a 2nd year student at SMU. He currently works at
@@ -31,26 +31,27 @@ define('inc_file', TRUE);
             published the iOS application to the Apple App Store. </p>
         </div>
         <div class="aboutUsBio"> <img src="res/raymond.jpg"
-            alt="Raymond Martin CSE3330/3345" title="Vipul Kohli CSE
-            3330/3345">
+            alt="Raymond Martin"> 
           <h3>Raymond Martin</h3>
           <p> Raymond is the expert web site designer. He is responsible
             for the beautiful style and logo you see on every Snap2Ask
             web page. </p>
         </div>
-        <div class="aboutUsBio"> <img src="http://placehold.it/200x200">
+        <div class="aboutUsBio"> <img src="res/roman.jpg"
+            alt="Roman Stolyarov">
           <h3>Roman Stolyarov</h3>
           <p> Roman made Snap2Ask more reliable by introducing the tutor
             validation tests. Tutors who pass these tests are paid more
             per question. </p>
         </div>
-        <div class="aboutUsBio"> <img src="http://placehold.it/200x200">
+        <div class="aboutUsBio"> <img src="res/elena.jpg"
+            alt="Elena Villamil">
           <h3>Elena Villamil</h3>
           <p> Elena is the expert database manager for the web site.
             With her work, tutors can change their passwords as well as
             view the questions they have answered. </p>
         </div>
-        <div class="aboutUsBio"> <img src="res/vipul.png" alt="Vipul
+        <div class="aboutUsBio"> <img src="res/vipul.jpg" alt="Vipul
             Kohli CSE3345" title="Vipul Kohli CSE 3345">
           <h3>Vipul Kohli</h3>
           <p> Vipul is also a second year programmer at SMU. He is a
