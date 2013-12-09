@@ -26,3 +26,4 @@ vendor
 
 # Remote files
 *.swp
+.sass-cache
