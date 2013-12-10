@@ -7,6 +7,7 @@
 
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
+$gradient: -webkit-gradient(linear,left top,left bottom,color-stop(0.31,#f8f9fb),color-stop(1,#e9edf1));
 
 body {
 	font-family:'Lucida Grande','Gisha','Lucida Sans Unicode','Lucida Sans',Lucida,Arial,Verdana,sans-serif;
@@ -22,7 +23,7 @@ header {
 	background: red;
 	width:100%;
 	min-width:960px;
-	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0.31,#f8f9fb),color-stop(1,#e9edf1));
+	background-image:$gradient;
 	border-bottom:1px solid #404040;
 	margin-bottom:3em;
 	position:-webkit-sticky;
@@ -55,7 +56,7 @@ footer {
 	height:5em;
 	line-height:5em;
 	text-align:center;
-	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0.31,#f8f9fb),color-stop(1,#e9edf1));
+	background-image:$gradient;
 	border-top:1px solid #404040;
 	
 	a {
@@ -845,5 +846,26 @@ input.decision_point {
 	p {
 		font-size: small;
 		text-align: left;
+	}
+}
+
+#adminContainer {
+	table {
+		border: 1px solid blue;
+		
+		thead td {
+			font-weight: bold;
+		}
+		
+		tr {
+			&:nth-child(2n-1) {
+				background: $gradient;
+			}
+		}
+		
+		td {
+			padding: .5em;
+			border: 1px solid black;
+		}
 	}
 }
