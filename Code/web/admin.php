@@ -23,27 +23,27 @@ define('inc_file', TRUE);
 		<a href="index.php"> <img id="logoTall" src="res/logo.png" alt="Snap-2-Ask Logo"/> </a>
 	</header>
 
-	<div id="content">
-		<div id="adminContainer">
-			<table>
-				<thead>
-					<tr>
-						<td>Email</td>
-						<td>First Name</td>
-						<td>Last Name</td>
-						<td>Authentication Mode</td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="user in users">
-						<td>{{user.email}}</td>
-						<td>{{user.first_name}}</td>
-						<td>{{user.last_name}}</td>
-						<td>{{user.authentication_mode}}</td> 
-					</tr>
-				</tbody>
-			</table>
-		</div>	
+	<div id="adminContainer">
+	
+		<h1>Users</h1>
+		<table>
+			<thead>
+				<tr>
+					<td>Email</td>
+					<td>First Name</td>
+					<td>Last Name</td>
+					<td>Authentication Mode</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in users">
+					<td>{{user.email}}</td>
+					<td>{{user.first_name}}</td>
+					<td>{{user.last_name}}</td>
+					<td>{{user.authentication_mode}}</td> 
+				</tr>
+			</tbody>
+		</table>
 	</div>
 	
 	<?php include('footer.php') ?>

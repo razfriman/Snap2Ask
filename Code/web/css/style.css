@@ -957,19 +957,28 @@ input.decision_point {
   text-align: left;
 }
 
-/* line 853, ../sass/style.scss */
+/* line 854, ../sass/style.scss */
+#adminContainer h1 {
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+  margin: 1em;
+}
+/* line 861, ../sass/style.scss */
 #adminContainer table {
   border: 1px solid blue;
+  margin: 0 auto;
+  width: 90%;
 }
-/* line 856, ../sass/style.scss */
+/* line 866, ../sass/style.scss */
 #adminContainer table thead td {
   font-weight: bold;
 }
-/* line 861, ../sass/style.scss */
+/* line 871, ../sass/style.scss */
 #adminContainer table tr:nth-child(2n-1) {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.31, #f8f9fb), color-stop(1, #e9edf1));
 }
-/* line 866, ../sass/style.scss */
+/* line 876, ../sass/style.scss */
 #adminContainer table td {
   padding: .5em;
   border: 1px solid black;
