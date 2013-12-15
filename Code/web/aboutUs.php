@@ -1,4 +1,4 @@
-<!--?php
+<?php
 
 // Start the named session
 session_name('loginSession');
@@ -7,7 +7,7 @@ session_start();
 // Allow the included files to be executed
 define('inc_file', TRUE);
 
-?-->
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -17,7 +17,7 @@ define('inc_file', TRUE);
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <!--?php include_once("ganalytics.php") ?-->
+    <?php include_once("ganalytics.php") ?>
     <header class="tall"> <a href="index.php"> <img id="logoTall"
           src="res/logo.png" alt="Snap-2-Ask Logo"> </a> </header>
     <div id="content">
@@ -63,6 +63,6 @@ define('inc_file', TRUE);
         </div>
       </div>
     </div>
-    <!--?php include('footer.php') ?-->
+    <?php include('footer.php') ?>
   </body>
 </html>
