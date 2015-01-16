@@ -3,10 +3,6 @@ Team 2 CSE 3330/3345 FALL 2013
 
 
 
-View the live website:
-### http://www.snap2ask.com
-
-
 ## Our Team
 
 Raz Friman  
